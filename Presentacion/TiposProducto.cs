@@ -36,7 +36,7 @@ namespace Presentacion
             try
             {
                 dgvTiposProducto.DataSource = neg.listar();
-                dgvTiposProducto.Columns["idTipo"].HeaderText = "Tipo de producto";
+                dgvTiposProducto.Columns["idTipo"].HeaderText = "ID";
                 dgvTiposProducto.Columns["descripcion"].HeaderText = "Descripcion";
             }
             catch (Exception ex)
@@ -58,8 +58,9 @@ namespace Presentacion
                 }
                 try
                 {
-                    ModTipoProducto wndAgregarTipoProducto = new ModTipoProducto();
-                    wndAgregarTipoProducto.Show();
+                    ModTipoProducto wndAgregarTipoProducto = new ModTipoProducto("Agregar");
+                    wndAgregarTipoProducto.ShowDialog();
+                    llenarTabla();
                 }
                 catch (Exception ex)
                 {

@@ -17,7 +17,7 @@ namespace Negocio
 
             try
             {
-                accesoDB.setearConsulta("SELECT P.IDPRODUCTO, M.DESCRIPCION, TP.DESCRIPCION, P.DESCRIPCION, P.PRECIO, P.STOCKMIN, P.PORCENTAJEGANANCIA FROM PRODUCTOS AS P " +
+                accesoDB.setearConsulta("SELECT P.IDPRODUCTO, P.DESCRIPCION, M.DESCRIPCION, TP.DESCRIPCION, P.PRECIO, P.STOCKMIN, P.GANANCIA FROM PRODUCTOS AS P " +
                                         "INNER JOIN MARCAS AS M ON P.IDMARCA = M.IDMARCA " +
                                         "INNER JOIN TIPOSPRODUCTO AS TP ON P.IDTIPO = TP.IDTIPO");
                 accesoDB.abrirConexion();
@@ -27,12 +27,14 @@ namespace Negocio
                 {
                     aux = new Producto();
                     aux.idProducto = (int)accesoDB.Lector["P.IDPRODUCTO"];
+                    aux.marca.idMarca = (int)accesoDB.Lector["P.IDMARCA"];
                     aux.marca.descripcion = (string)accesoDB.Lector["M.DESCRIPCION"];
+                    aux.tipoProducto.idTipo = (int)accesoDB.Lector["P.IDTIPOPRODUCTO"];
                     aux.tipoProducto.descripcion = (string)accesoDB.Lector["TP.DESCRIPCION"];
                     aux.descripcion = (string)accesoDB.Lector["P.DESCRIPCION"];
                     aux.precio = (float)accesoDB.Lector["P.PRECIO"];
                     aux.stockMin = (int)accesoDB.Lector["P.STOCKMIN"];
-                    aux.porcentajeGanancia = (float)accesoDB.Lector["P.PORCENTAJEGANANCIA"];
+                    aux.ganancia = (float)accesoDB.Lector["P.GANANCIA"];
 
                     lstProductos.Add(aux);
                 }
@@ -56,12 +58,17 @@ namespace Negocio
         public void agregar(Producto nuevo)
         {
             AccesoDB conexion = null;
-            string consulta = "";
             try
             {
                 conexion = new AccesoDB();
-                consulta = "INSERT INTO PRODUCTOS (DESCRIPCION) VALUES (" + nuevo.descripcion + ")";
-                conexion.setearConsulta(consulta);
+                conexion.setearConsulta("INSERT INTO PRODUCTOS(IDMARCA, IDTIPO, DESCRIPCION, PRECIO, STOCKMIN, GANANCIA) VALUES (@IDMARCA, @IDTIPO, @DESCRIPCION, @PRECIO, @STOCKMIN, @GANANCIA)");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@IDMARCA", nuevo.marca.idMarca);
+                conexion.Comando.Parameters.AddWithValue("@IDTIPO", nuevo.tipoProducto.idTipo);
+                conexion.Comando.Parameters.AddWithValue("@DESCRIPCION", nuevo.descripcion);
+                conexion.Comando.Parameters.AddWithValue("@PRECIO", nuevo.precio);
+                conexion.Comando.Parameters.AddWithValue("@STOCKMIN", nuevo.stockMin);
+                conexion.Comando.Parameters.AddWithValue("@GANANCIA", nuevo.ganancia);
 
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();

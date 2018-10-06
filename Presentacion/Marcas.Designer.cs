@@ -40,7 +40,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnEliminar.Location = new System.Drawing.Point(232, 524);
+            this.btnEliminar.Location = new System.Drawing.Point(253, 566);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 3;
@@ -51,13 +51,14 @@
             // btnAgregar
             // 
             this.btnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnAgregar.Location = new System.Drawing.Point(102, 524);
+            this.btnAgregar.Location = new System.Drawing.Point(123, 566);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 4;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.btnAgregar.UseSelectable = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // dgvMarcas
             // 
@@ -92,7 +93,7 @@
             this.dgvMarcas.EnableHeadersVisualStyles = false;
             this.dgvMarcas.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvMarcas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.dgvMarcas.Location = new System.Drawing.Point(20, 57);
+            this.dgvMarcas.Location = new System.Drawing.Point(23, 63);
             this.dgvMarcas.MultiSelect = false;
             this.dgvMarcas.Name = "dgvMarcas";
             this.dgvMarcas.ReadOnly = true;
@@ -107,7 +108,7 @@
             this.dgvMarcas.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvMarcas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvMarcas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMarcas.Size = new System.Drawing.Size(369, 444);
+            this.dgvMarcas.Size = new System.Drawing.Size(404, 486);
             this.dgvMarcas.TabIndex = 9;
             this.dgvMarcas.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
@@ -115,11 +116,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 558);
+            this.ClientSize = new System.Drawing.Size(450, 600);
             this.Controls.Add(this.dgvMarcas);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnEliminar);
-            this.MinimumSize = new System.Drawing.Size(409, 558);
+            this.MinimumSize = new System.Drawing.Size(450, 600);
             this.Name = "Marcas";
             this.ShowInTaskbar = false;
             this.Text = "Marcas";

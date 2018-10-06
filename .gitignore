@@ -3,3 +3,5 @@
 ################################################################################
 
 /Presentacion/obj/Release
+/Dominio/obj/Release/Dominio.csproj.CoreCompileInputs.cache
+/Negocio/obj/Release/Negocio.csproj.CoreCompileInputs.cache

@@ -16,5 +16,9 @@ namespace Presentacion
             InitializeComponent();
         }
 
+        private void btnDetalles_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

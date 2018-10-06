@@ -30,12 +30,12 @@
         {
             this.SuspendLayout();
             // 
-            // AgregarContacto
+            // ModContacto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "AgregarContacto";
-            this.Text = "Agregar Contacto";
+            this.Name = "ModContacto";
+            this.Text = "Contacto";
             this.ResumeLayout(false);
 
         }

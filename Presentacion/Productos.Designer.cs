@@ -33,14 +33,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnRefrescar = new MetroFramework.Controls.MetroButton();
             this.dgvProductos = new MetroFramework.Controls.MetroGrid();
-            this.btnAgregar = new MetroFramework.Controls.MetroButton();
             this.btnEliminar = new MetroFramework.Controls.MetroButton();
+            this.btnAgregar = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnRefrescar
             // 
-            this.btnRefrescar.Location = new System.Drawing.Point(361, 32);
+            this.btnRefrescar.Location = new System.Drawing.Point(736, 32);
             this.btnRefrescar.Name = "btnRefrescar";
             this.btnRefrescar.Size = new System.Drawing.Size(25, 25);
             this.btnRefrescar.TabIndex = 13;
@@ -80,7 +80,7 @@
             this.dgvProductos.EnableHeadersVisualStyles = false;
             this.dgvProductos.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.dgvProductos.Location = new System.Drawing.Point(17, 63);
+            this.dgvProductos.Location = new System.Drawing.Point(23, 63);
             this.dgvProductos.MultiSelect = false;
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
@@ -95,25 +95,14 @@
             this.dgvProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvProductos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProductos.Size = new System.Drawing.Size(369, 444);
+            this.dgvProductos.Size = new System.Drawing.Size(978, 476);
             this.dgvProductos.TabIndex = 12;
             this.dgvProductos.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnAgregar.Location = new System.Drawing.Point(103, 524);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 11;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.btnAgregar.UseSelectable = true;
             // 
             // btnEliminar
             // 
             this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnEliminar.Location = new System.Drawing.Point(233, 524);
+            this.btnEliminar.Location = new System.Drawing.Point(541, 566);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 10;
@@ -121,15 +110,27 @@
             this.btnEliminar.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.btnEliminar.UseSelectable = true;
             // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnAgregar.Location = new System.Drawing.Point(424, 566);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 11;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnAgregar.UseSelectable = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click_1);
+            // 
             // Productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(409, 558);
+            this.ClientSize = new System.Drawing.Size(1024, 600);
             this.Controls.Add(this.btnRefrescar);
             this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnEliminar);
-            this.MinimumSize = new System.Drawing.Size(409, 558);
+            this.MinimumSize = new System.Drawing.Size(1024, 600);
             this.Name = "Productos";
             this.Text = "Productos";
             this.Load += new System.EventHandler(this.Productos_Load);
@@ -142,7 +143,7 @@
 
         private MetroFramework.Controls.MetroButton btnRefrescar;
         private MetroFramework.Controls.MetroGrid dgvProductos;
-        private MetroFramework.Controls.MetroButton btnAgregar;
         private MetroFramework.Controls.MetroButton btnEliminar;
+        private MetroFramework.Controls.MetroButton btnAgregar;
     }
 }

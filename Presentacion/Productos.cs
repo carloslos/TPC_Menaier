@@ -34,8 +34,13 @@ namespace Presentacion
             try
             {
                 dgvProductos.DataSource = neg.listar();
-                dgvProductos.Columns["idTipo"].HeaderText = "Tipo de producto";
-                dgvProductos.Columns["descripcion"].HeaderText = "Descripcion";
+                dgvProductos.Columns["idProducto"].HeaderText = "ID";
+                dgvProductos.Columns["descripcion"].HeaderText = "Descripción";
+                dgvProductos.Columns["marca.descripcion"].HeaderText = "Marca";
+                dgvProductos.Columns["tipoProducto.descripcion"].HeaderText = "Tipo";
+                dgvProductos.Columns["precio"].HeaderText = "Precio";
+                dgvProductos.Columns["stockMin"].HeaderText = "Stock Minimo";
+                dgvProductos.Columns["gananacia"].HeaderText = "Ganancia";
             }
             catch (Exception ex)
             {
@@ -56,7 +61,7 @@ namespace Presentacion
                 }
                 try
                 {
-                    ModTipoProducto wndAgregarTipoProducto = new ModTipoProducto();
+                    ModTipoProducto wndAgregarTipoProducto = new ModTipoProducto("Agregar");
                     wndAgregarTipoProducto.Show();
                 }
                 catch (Exception ex)
@@ -76,6 +81,11 @@ namespace Presentacion
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void btnAgregar_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

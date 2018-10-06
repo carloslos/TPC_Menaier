@@ -56,13 +56,19 @@ namespace Negocio
         public void agregar(Empleado nuevo)
         {
             AccesoDB conexion = null;
-            string consulta = "";
             try
             {
                 conexion = new AccesoDB();
-                consulta = "INSERT INTO EMPLEADOS (NOMBRE, APELLIDO, DNI, FECHANAC, USUARIO, CONTRASENIA, TIPOPERFIL, EMAIL) " +
-                           "VALUES (" + nuevo.nombre + "," + nuevo.apellido + "," + nuevo.dni + "," + nuevo.fechaNac + "," + nuevo.usuario + "," + nuevo.contrasenia + "," + nuevo.tipoPerfil + "," + nuevo.email + ")";
-                conexion.setearConsulta(consulta);
+                conexion.setearConsulta("INSERT INTO EMPLEADOS(NOMBRE, APELLIDO, DNI, FECHANAC, USUARIO, CONTRASENIA, TIPOPERFIL, EMAIL) VALUES (@NOMBRE, @APELLIDO, @DNI, @FECHANAC, @USUARIO, @CONTRASENIA, @TIPOPERFIL, @EMAIL)");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@NOMBRE", nuevo.nombre);
+                conexion.Comando.Parameters.AddWithValue("@APELLIDO", nuevo.apellido);
+                conexion.Comando.Parameters.AddWithValue("@DNI", nuevo.dni);
+                conexion.Comando.Parameters.AddWithValue("@FECHANAC", nuevo.fechaNac);
+                conexion.Comando.Parameters.AddWithValue("@USUARIO", nuevo.usuario);
+                conexion.Comando.Parameters.AddWithValue("@CONTRASENIA", nuevo.contrasenia);
+                conexion.Comando.Parameters.AddWithValue("@TIPOPERFIL", nuevo.tipoPerfil);
+                conexion.Comando.Parameters.AddWithValue("@EMAIL", nuevo.email);
 
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();

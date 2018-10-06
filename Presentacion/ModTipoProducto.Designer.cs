@@ -110,7 +110,7 @@
             this.btnAgregar.UseSelectable = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // AgregarTipoProducto
+            // ModTipoProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(385, 376);
@@ -118,8 +118,8 @@
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.tileDescripcion);
             this.Controls.Add(this.txtDescripcion);
-            this.Name = "AgregarTipoProducto";
-            this.Text = "Agregar Tipo de Producto";
+            this.Name = "ModTipoProducto";
+            this.Text = "Tipo de Producto";
             this.tileDescripcion.ResumeLayout(false);
             this.tileDescripcion.PerformLayout();
             this.ResumeLayout(false);

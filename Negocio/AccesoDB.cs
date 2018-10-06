@@ -19,6 +19,11 @@ namespace Negocio
             get { return lector; }
         }
 
+        public SqlCommand Comando
+        {
+            get { return comando; }
+        }
+
         public AccesoDB ()
         {
             conexion = new SqlConnection();

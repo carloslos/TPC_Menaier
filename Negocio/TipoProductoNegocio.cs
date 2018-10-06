@@ -47,15 +47,15 @@ namespace Negocio
             }
         }
 
-        public void agregar(TipoProducto tp)
+        public void agregar(TipoProducto nuevo)
         {
             AccesoDB conexion = null;
-            string consulta = "";
             try
             {
                 conexion = new AccesoDB();
-                consulta = "INSERT INTO TIPOSPRODUCTO ([DESCRIPCION]) VALUES ('" + tp.descripcion + "')";
-                conexion.setearConsulta(consulta);
+                conexion.setearConsulta("INSERT INTO TIPOSPRODUCTO(DESCRIPCION) VALUES (@DESCRIPCION)");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@DESCRIPCION", nuevo.descripcion);
 
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();

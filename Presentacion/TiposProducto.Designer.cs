@@ -41,7 +41,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnAgregar.Location = new System.Drawing.Point(103, 524);
+            this.btnAgregar.Location = new System.Drawing.Point(124, 566);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 7;
@@ -53,7 +53,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnEliminar.Location = new System.Drawing.Point(233, 524);
+            this.btnEliminar.Location = new System.Drawing.Point(254, 566);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 6;
@@ -94,7 +94,7 @@
             this.dgvTiposProducto.EnableHeadersVisualStyles = false;
             this.dgvTiposProducto.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvTiposProducto.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.dgvTiposProducto.Location = new System.Drawing.Point(17, 63);
+            this.dgvTiposProducto.Location = new System.Drawing.Point(23, 63);
             this.dgvTiposProducto.MultiSelect = false;
             this.dgvTiposProducto.Name = "dgvTiposProducto";
             this.dgvTiposProducto.ReadOnly = true;
@@ -109,7 +109,7 @@
             this.dgvTiposProducto.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTiposProducto.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvTiposProducto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTiposProducto.Size = new System.Drawing.Size(369, 444);
+            this.dgvTiposProducto.Size = new System.Drawing.Size(404, 486);
             this.dgvTiposProducto.TabIndex = 8;
             this.dgvTiposProducto.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
@@ -127,12 +127,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 558);
+            this.ClientSize = new System.Drawing.Size(450, 600);
             this.Controls.Add(this.btnRefrescar);
             this.Controls.Add(this.dgvTiposProducto);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnEliminar);
-            this.MinimumSize = new System.Drawing.Size(409, 558);
+            this.MinimumSize = new System.Drawing.Size(450, 600);
             this.Name = "TiposProducto";
             this.ShowInTaskbar = false;
             this.Text = "Tipos de Producto";

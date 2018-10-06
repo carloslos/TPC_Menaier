@@ -30,12 +30,12 @@
         {
             this.SuspendLayout();
             // 
-            // AgregarMarca
+            // ModMarca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "AgregarMarca";
-            this.Text = "Agregar Marca";
+            this.Name = "ModMarca";
+            this.Text = "Marca";
             this.ResumeLayout(false);
 
         }

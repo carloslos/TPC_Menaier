@@ -12,8 +12,9 @@ namespace Presentacion
 {
     public partial class ModTipoProducto : Presentacion.Metro_Template
     {
-        public ModTipoProducto()
-        { 
+        public ModTipoProducto(string title)
+        {
+            this.Text = title + this.Text;
             InitializeComponent();
         }
 
@@ -31,7 +32,6 @@ namespace Presentacion
             {
                 neg.agregar(tp);
                 txtDescripcion.Text = "";
-
             }
             catch (Exception ex)
             {

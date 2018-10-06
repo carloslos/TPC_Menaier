@@ -107,7 +107,23 @@ namespace Presentacion
 
         }
 
-        private void VentanaPrincipal_FormClosed(object sender, FormClosedEventArgs e)
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            {
+                foreach (Form item in Application.OpenForms)
+                {
+                    if (item.GetType() == typeof(Productos))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                Productos wndProductos = new Productos();
+                wndProductos.Show();
+            }
+        }
+
+        private void MenuPrincipal_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }

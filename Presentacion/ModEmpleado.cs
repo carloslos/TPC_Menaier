@@ -10,8 +10,9 @@ namespace Presentacion
 {
     public partial class ModEmpleado : Presentacion.Metro_Template
     {
-        public ModEmpleado()
+        public ModEmpleado(string title)
         {
+            this.Text = title;
             InitializeComponent();
         }
     }

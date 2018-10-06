@@ -30,12 +30,12 @@
         {
             this.SuspendLayout();
             // 
-            // AgregarEmpleado
+            // ModEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(635, 463);
-            this.Name = "AgregarEmpleado";
-            this.Text = "Agregar Empleado";
+            this.Name = "ModEmpleado";
+            this.Text = "Empleado";
             this.ResumeLayout(false);
 
         }

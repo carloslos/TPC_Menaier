@@ -35,12 +35,13 @@
             this.btnTiposProducto = new MetroFramework.Controls.MetroButton();
             this.btnProveedores = new MetroFramework.Controls.MetroButton();
             this.btnClientes = new MetroFramework.Controls.MetroButton();
+            this.btnProductos = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // btnVentas
             // 
             this.btnVentas.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnVentas.Location = new System.Drawing.Point(129, 96);
+            this.btnVentas.Location = new System.Drawing.Point(129, 90);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Size = new System.Drawing.Size(118, 23);
             this.btnVentas.TabIndex = 10;
@@ -52,7 +53,7 @@
             // btnCompras
             // 
             this.btnCompras.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnCompras.Location = new System.Drawing.Point(129, 146);
+            this.btnCompras.Location = new System.Drawing.Point(129, 140);
             this.btnCompras.Name = "btnCompras";
             this.btnCompras.Size = new System.Drawing.Size(118, 23);
             this.btnCompras.TabIndex = 11;
@@ -64,7 +65,7 @@
             // btnEmpleados
             // 
             this.btnEmpleados.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnEmpleados.Location = new System.Drawing.Point(129, 196);
+            this.btnEmpleados.Location = new System.Drawing.Point(129, 190);
             this.btnEmpleados.Name = "btnEmpleados";
             this.btnEmpleados.Size = new System.Drawing.Size(118, 23);
             this.btnEmpleados.TabIndex = 12;
@@ -76,7 +77,7 @@
             // btnMarcas
             // 
             this.btnMarcas.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnMarcas.Location = new System.Drawing.Point(129, 246);
+            this.btnMarcas.Location = new System.Drawing.Point(129, 240);
             this.btnMarcas.Name = "btnMarcas";
             this.btnMarcas.Size = new System.Drawing.Size(118, 23);
             this.btnMarcas.TabIndex = 13;
@@ -88,7 +89,7 @@
             // btnTiposProducto
             // 
             this.btnTiposProducto.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnTiposProducto.Location = new System.Drawing.Point(129, 296);
+            this.btnTiposProducto.Location = new System.Drawing.Point(129, 290);
             this.btnTiposProducto.Name = "btnTiposProducto";
             this.btnTiposProducto.Size = new System.Drawing.Size(118, 23);
             this.btnTiposProducto.TabIndex = 14;
@@ -100,7 +101,7 @@
             // btnProveedores
             // 
             this.btnProveedores.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnProveedores.Location = new System.Drawing.Point(129, 396);
+            this.btnProveedores.Location = new System.Drawing.Point(129, 390);
             this.btnProveedores.Name = "btnProveedores";
             this.btnProveedores.Size = new System.Drawing.Size(118, 23);
             this.btnProveedores.TabIndex = 16;
@@ -112,7 +113,7 @@
             // btnClientes
             // 
             this.btnClientes.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnClientes.Location = new System.Drawing.Point(129, 346);
+            this.btnClientes.Location = new System.Drawing.Point(129, 340);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(118, 23);
             this.btnClientes.TabIndex = 15;
@@ -121,11 +122,24 @@
             this.btnClientes.UseSelectable = true;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
+            // btnProductos
+            // 
+            this.btnProductos.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnProductos.Location = new System.Drawing.Point(129, 440);
+            this.btnProductos.Name = "btnProductos";
+            this.btnProductos.Size = new System.Drawing.Size(118, 23);
+            this.btnProductos.TabIndex = 17;
+            this.btnProductos.Text = "Productos";
+            this.btnProductos.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnProductos.UseSelectable = true;
+            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(374, 464);
+            this.ClientSize = new System.Drawing.Size(374, 500);
+            this.Controls.Add(this.btnProductos);
             this.Controls.Add(this.btnProveedores);
             this.Controls.Add(this.btnClientes);
             this.Controls.Add(this.btnTiposProducto);
@@ -133,12 +147,12 @@
             this.Controls.Add(this.btnEmpleados);
             this.Controls.Add(this.btnCompras);
             this.Controls.Add(this.btnVentas);
-            this.MaximumSize = new System.Drawing.Size(374, 464);
-            this.MinimumSize = new System.Drawing.Size(374, 464);
+            this.MaximumSize = new System.Drawing.Size(374, 500);
+            this.MinimumSize = new System.Drawing.Size(374, 500);
             this.Name = "MenuPrincipal";
             this.Text = "Menu Principal";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.VentanaPrincipal_FormClosed);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MenuPrincipal_FormClosed);
             this.ResumeLayout(false);
 
         }
@@ -151,5 +165,6 @@
         private MetroFramework.Controls.MetroButton btnTiposProducto;
         private MetroFramework.Controls.MetroButton btnProveedores;
         private MetroFramework.Controls.MetroButton btnClientes;
+        private MetroFramework.Controls.MetroButton btnProductos;
     }
 }

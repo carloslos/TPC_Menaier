@@ -30,12 +30,12 @@
         {
             this.SuspendLayout();
             // 
-            // AgregarCliente
+            // ModCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "AgregarCliente";
-            this.Text = "Agregar Cliente";
+            this.Name = "ModCliente";
+            this.Text = "Cliente";
             this.ResumeLayout(false);
 
         }
