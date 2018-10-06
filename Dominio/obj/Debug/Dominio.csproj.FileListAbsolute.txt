@@ -1,0 +1,6 @@
+C:\Users\Azhar\Source\Repos\Azhar1921\TPC_Menaier\TPC_Menaier\Dominio\bin\Debug\Dominio.dll
+C:\Users\Azhar\Source\Repos\Azhar1921\TPC_Menaier\TPC_Menaier\Dominio\bin\Debug\Dominio.pdb
+C:\Users\Azhar\Source\Repos\Azhar1921\TPC_Menaier\TPC_Menaier\Dominio\obj\Debug\Dominio.csprojAssemblyReference.cache
+C:\Users\Azhar\Source\Repos\Azhar1921\TPC_Menaier\TPC_Menaier\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\Azhar\Source\Repos\Azhar1921\TPC_Menaier\TPC_Menaier\Dominio\obj\Debug\Dominio.dll
+C:\Users\Azhar\Source\Repos\Azhar1921\TPC_Menaier\TPC_Menaier\Dominio\obj\Debug\Dominio.pdb
