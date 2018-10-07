@@ -8,11 +8,13 @@ namespace Dominio
 {
     public class Contacto
     {
-        public string nombre { get; set; }
-        public string apellido { get; set; }
-        public List<Telefono> telefonos { get; set; }
-        public List<Domicilio> domicilios  { get; set; }
-        public int dni { get; set; }
-        public string email { get; set; }
+        public int IdContacto { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public int Dni { get; set; }
+        public string Email { get; set; }
+        public List<Telefono> Telefonos { get; set; }
+        public List<Domicilio> Domicilios  { get; set; }
+        public bool Activo { get; set; }
     }
 }

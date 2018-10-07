@@ -8,9 +8,11 @@ namespace Dominio
 {
     public class Proveedor
     {
-        public int idProveedor { get; set; }
-        public List<Contacto> contactos { get; set; }
-        public List<Producto> productos { get; set; }
-        public string empresa { get; set; }
+        public int IdProveedor { get; set; }
+        public List<Contacto> Contactos { get; set; }
+        public List<Producto> Productos { get; set; }
+        public long Cuit { get; set; }
+        public string Empresa { get; set; }
+        public bool Activo { get; set; }
     }
 }

@@ -7,39 +7,43 @@ using Dominio;
 
 namespace Negocio
 {
-    public class EmpleadosNegocio
+    public class ContactoNegocio
     {
 
-        public List<Empleado> Listar()
+        public List<Contacto> Listar(int id)
         {
-            Empleado aux;
-            List<Empleado> lstEmpleados = new List<Empleado>();
+            Contacto aux;
+            List<Contacto> lstContactos = new List<Contacto>();
             AccesoDB accesoDB = new AccesoDB();
 
             try
             {
-                accesoDB.setearConsulta("SELECT NOMBRE, APELLIDO, IDEMPLEADO, DNI, FECHANAC, TIPOPERFIL, EMAIL FROM EMPLEADOS");
+                accesoDB.setearConsulta("SELECT E.IDEMPLEADO, E.NOMBRE, E.APELLIDO, E.DNI, E.EMAIL, TE.IDTELEFONO, TE.NUMERO, TE.DESCRIPCION, DE.IDDOMICILIO, DE.CALLE, DE.ALTURA, DE.PISO, DE.BARRIO, DE.CIUDAD, DE.PAIS FROM EMPLEADOS AS E " +
+                                        "INNER JOIN TELEFONOS_X_EMPLEADO AS TE ON E.IDEMPLEADO = TE.IDEMPLEADO " +
+                                        "INNER JOIN DOMICILIOS_X_EMPLEADO AS DE ON E.IDEMPLEADO = DE.IDEMPLEADO " +
+                                        "WHERE ACTIVO IS 1");
                 accesoDB.abrirConexion();
                 accesoDB.ejecutarConsulta();
 
                 while (accesoDB.Lector.Read())
                 {
-                    string str = (string)accesoDB.Lector["TIPOPERFIL"];
-                    aux = new Empleado
+                    aux = new Contacto
                     {
+                        IdContacto = (int)accesoDB.Lector["IDCONTACTO"],
                         Nombre = (string)accesoDB.Lector["NOMBRE"],
                         Apellido = (string)accesoDB.Lector["APELLIDO"],
-                        IdEmpleado = (int)accesoDB.Lector["IDEMPLEADO"],
                         Dni = (int)accesoDB.Lector["DNI"],
-                        FechaNac = (DateTime)accesoDB.Lector["FECHANAC"],
-                        TipoPerfil = str[0],
-                        Email = (string)accesoDB.Lector["EMAIL"]
+                        Email = (string)accesoDB.Lector["EMAIL"],
+                        Telefonos = new List<Telefono>(), // COMO LLENO ESTAS LISTAS???!!!
+                        Domicilios = new List<Domicilio>()
                     };
 
-                    lstEmpleados.Add(aux);
+                    //TE.IDTELEFONO, TE.NUMERO, TE.DESCRIPCION, DE.IDDOMICILIO, DE.CALLE, DE.ALTURA, DE.PISO, DE.BARRIO, DE.CIUDAD, DE.PAIS
+
+                    lstContactos.Add(aux);
                 }
 
-                return lstEmpleados;
+                return lstContactos;
 
             }
             catch (Exception ex)
@@ -55,7 +59,7 @@ namespace Negocio
             }
         }
 
-        public void Agregar(Empleado nuevo)
+        public void Agregar(Contacto nuevo)
         {
             AccesoDB conexion = null;
             try
@@ -66,10 +70,6 @@ namespace Negocio
                 conexion.Comando.Parameters.AddWithValue("@NOMBRE", nuevo.Nombre);
                 conexion.Comando.Parameters.AddWithValue("@APELLIDO", nuevo.Apellido);
                 conexion.Comando.Parameters.AddWithValue("@DNI", nuevo.Dni);
-                conexion.Comando.Parameters.AddWithValue("@FECHANAC", nuevo.FechaNac);
-                conexion.Comando.Parameters.AddWithValue("@USUARIO", nuevo.Usuario);
-                conexion.Comando.Parameters.AddWithValue("@CONTRASENIA", nuevo.Contrasenia);
-                conexion.Comando.Parameters.AddWithValue("@TIPOPERFIL", nuevo.TipoPerfil);
                 conexion.Comando.Parameters.AddWithValue("@EMAIL", nuevo.Email);
 
                 conexion.abrirConexion();
@@ -89,16 +89,12 @@ namespace Negocio
 }
 
 /*
-CREATE TABLE EMPLEADOS
+CREATE TABLE CONTACTOS
 (
-    NOMBRE VARCHAR(60) NOT NULL,
-    APELLIDO VARCHAR(60) NOT NULL,
-    DNI INT NOT NULL,
-	IDEMPLEADO INT NOT NULL PRIMARY KEY,
-    FECHANAC DATE,
-	USUARIO VARCHAR(60) NOT NULL,
-    CONTRASENIA VARCHAR(60) NOT NULL,
-    TIPOPERFIL CHAR NOT NULL,
+	IDCONTACTO INT NOT NULL PRIMARY KEY,
+	NOMBRE VARCHAR(60) NOT NULL,
+	APELLIDO VARCHAR(60) NOT NULL,
+	DNI INT,
 	EMAIL VARCHAR(60) NOT NULL
 )
 */

@@ -14,23 +14,25 @@ namespace Presentacion
     {
         public ModTipoProducto(string title)
         {
-            this.Text = title + this.Text;
             InitializeComponent();
+            this.Text = title + " " + this.Text;
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void BtnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void BtnAgregar_Click(object sender, EventArgs e)
         {
-            TipoProductoNegocio neg = new TipoProductoNegocio();
-            TipoProducto tp = new TipoProducto();
-            tp.descripcion = txtDescripcion.Text.Trim(); // VALIDAR
+            TiposProductoNegocio neg = new TiposProductoNegocio();
+            TipoProducto tp = new TipoProducto
+            {
+                Descripcion = txtDescripcion.Text.Trim() // VALIDAR
+            };
             try
             {
-                neg.agregar(tp);
+                neg.Agregar(tp);
                 txtDescripcion.Text = "";
             }
             catch (Exception ex)

@@ -8,10 +8,11 @@ namespace Dominio
 {
     public class Venta
     {
-        public Venta idVenta { get; set; }
-        public DateTime fecha { get; set; }
-        public Empleado empleado { get; set; }
-        public Cliente cliente { get; set; }
-        public List<Producto> productos { get; set; }
+        public Venta IdVenta { get; set; }
+        public DateTime Fecha { get; set; }
+        public Empleado Empleado { get; set; }
+        public Cliente Cliente { get; set; }
+        public List<Producto> LstProductos { get; set; }
+        public bool Activo { get; set; }
     }
 }

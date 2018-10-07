@@ -8,11 +8,12 @@ namespace Dominio
 {
     public class Lote
     {
-        public Lote lote { get; set; }
-        public Producto producto { get; set; }
-        public int cantidad { get; set; }
-        public float costoUnitario { get; set; }
-        public DateTime fechaCompra { get; set; }
-        public DateTime fechaVencimiento { get; set; }
+        public long IdLote { get; set; }
+        public Producto Producto { get; set; }
+        public int Cantidad { get; set; }
+        public float CostoUnitario { get; set; }
+        public DateTime FechaCompra { get; set; }
+        public DateTime FechaVencimiento { get; set; }
+        public bool Activo { get; set; }
     }
 }

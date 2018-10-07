@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace Presentacion
 {
-    public partial class ModContacto : Presentacion.Metro_Template
+    public partial class ModProveedor : Presentacion.Metro_Template
     {
-        public ModContacto(string title)
+        public ModProveedor(string title)
         {
             InitializeComponent();
             this.Text = title + " " + this.Text;

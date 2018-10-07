@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Negocio;
+using Dominio;
 
 namespace Presentacion
 {
@@ -19,22 +21,101 @@ namespace Presentacion
 
         private void Proveedores_Load(object sender, EventArgs e)
         {
-
+            try
+            {
+                LlenarTabla();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void LlenarTabla()
         {
-
+            ProveedorNegocio neg = new ProveedorNegocio();
+            try
+            {
+                dgvProveedores.DataSource = neg.Listar();
+                dgvProveedores.Columns["IdTipoProducto"].HeaderText = "ID";
+                dgvProveedores.Columns["Cuit"].HeaderText = "CUIT";
+                dgvProveedores.Columns["Descripcion"].HeaderText = "Descripción";
+                dgvProveedores.Columns["Activo"].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
-        private void btnContactos_Click(object sender, EventArgs e)
+        private void BtnAgregar_Click(object sender, EventArgs e)
         {
-
+            {
+                foreach (Form item in Application.OpenForms)
+                {
+                    if (item.GetType() == typeof(Proveedores))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    ModProveedor modProveedor = new ModProveedor("Agregar");
+                    modProveedor.ShowDialog();
+                    LlenarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void BtnRefrescar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                LlenarTabla();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
 
+        private void BtnEditar_Click(object sender, EventArgs e)
+        {
+            {
+                foreach (Form item in Application.OpenForms)
+                {
+                    if (item.GetType() == typeof(Proveedores))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    ModProveedor modProveedor = new ModProveedor("Editar");
+                    modProveedor.ShowDialog();
+                    LlenarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
         }
     }
 }
+
+/*
+CREATE TABLE PROVEEDORES
+(
+	IDPROVEEDOR INT NOT NULL IDENTITY(20000000,1) PRIMARY KEY,
+	EMPRESA VARCHAR(60) NOT NULL,
+	CUIT BIGINT NOT NULL,
+	ACTIVO BIT NOT NULL
+)
+*/

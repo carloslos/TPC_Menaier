@@ -18,14 +18,15 @@ namespace Presentacion
             InitializeComponent();
         }
 
-        private void Marcas_Load(object sender, EventArgs e)
+        private void LlenarTabla()
         {
-            MarcaNegocio neg = new MarcaNegocio();
+            MarcasNegocio neg = new MarcasNegocio();
             try
             {
-                dgvMarcas.DataSource = neg.listar();
-                dgvMarcas.Columns["idMarca"].HeaderText = "ID";
-                dgvMarcas.Columns["descripcion"].HeaderText = "Descripcion";
+                dgvMarcas.DataSource = neg.Listar();
+                dgvMarcas.Columns["IDMARCA"].HeaderText = "ID";
+                dgvMarcas.Columns["DESCRIPCION"].HeaderText = "Descripción";
+                dgvMarcas.Columns["Activo"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -33,9 +34,41 @@ namespace Presentacion
             }
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void Marcas_Load(object sender, EventArgs e)
         {
+            MarcasNegocio neg = new MarcasNegocio();
+            try
+            {
+                LlenarTabla();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
 
+        private void BtnAgregar_Click(object sender, EventArgs e)
+        {
+            {
+                foreach (Form item in Application.OpenForms)
+                {
+                    if (item.GetType() == typeof(ModMarca))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    ModMarca wndAgregarTipoProducto = new ModMarca("Agregar");
+                    wndAgregarTipoProducto.ShowDialog();
+                    LlenarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
         }
     }
 }

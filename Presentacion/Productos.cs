@@ -20,7 +20,7 @@ namespace Presentacion
         {
             try
             {
-                llenarTabla();
+                LlenarTabla();
             }
             catch (Exception ex)
             {
@@ -28,19 +28,18 @@ namespace Presentacion
             }
         }
 
-        private void llenarTabla()
+        private void LlenarTabla()
         {
             ProductosNegocio neg = new ProductosNegocio();
             try
             {
-                dgvProductos.DataSource = neg.listar();
-                dgvProductos.Columns["idProducto"].HeaderText = "ID";
-                dgvProductos.Columns["descripcion"].HeaderText = "Descripción";
-                dgvProductos.Columns["marca.descripcion"].HeaderText = "Marca";
-                dgvProductos.Columns["tipoProducto.descripcion"].HeaderText = "Tipo";
-                dgvProductos.Columns["precio"].HeaderText = "Precio";
-                dgvProductos.Columns["stockMin"].HeaderText = "Stock Minimo";
-                dgvProductos.Columns["gananacia"].HeaderText = "Ganancia";
+                dgvProductos.DataSource = neg.Listar();
+                dgvProductos.Columns["IdProducto"].HeaderText = "ID";
+                dgvProductos.Columns["Descripcion"].HeaderText = "Descripción";
+                dgvProductos.Columns["TipoProducto"].HeaderText = "Tipo de producto";
+                dgvProductos.Columns["Stockmin"].HeaderText = "Stock Minimo";
+                dgvProductos.Columns["Cantidad"].Visible = false;
+                dgvProductos.Columns["Activo"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -48,44 +47,21 @@ namespace Presentacion
             }
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void BtnAgregar_Click(object sender, EventArgs e)
         {
-            {
-                foreach (Form item in Application.OpenForms)
-                {
-                    if (item.GetType() == typeof(ModTipoProducto))
-                    {
-                        item.Focus();
-                        return;
-                    }
-                }
-                try
-                {
-                    ModTipoProducto wndAgregarTipoProducto = new ModTipoProducto("Agregar");
-                    wndAgregarTipoProducto.Show();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-            }
+
         }
 
-        private void btnRefrescar_Click(object sender, EventArgs e)
+        private void BtnRefrescar_Click(object sender, EventArgs e)
         {
             try
             {
-                llenarTabla();
+                LlenarTabla();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-        }
-
-        private void btnAgregar_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

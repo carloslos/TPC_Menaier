@@ -22,7 +22,7 @@ namespace Presentacion
         {
             try
             {
-                llenarTabla();
+                LlenarTabla();
             }
             catch (Exception ex)
             {
@@ -30,14 +30,15 @@ namespace Presentacion
             }
         }
 
-        private void llenarTabla()
+        private void LlenarTabla()
         {
-            TipoProductoNegocio neg = new TipoProductoNegocio();
+            TiposProductoNegocio neg = new TiposProductoNegocio();
             try
             {
-                dgvTiposProducto.DataSource = neg.listar();
-                dgvTiposProducto.Columns["idTipo"].HeaderText = "ID";
-                dgvTiposProducto.Columns["descripcion"].HeaderText = "Descripcion";
+                dgvTiposProducto.DataSource = neg.Listar();
+                dgvTiposProducto.Columns["IdTipoProducto"].HeaderText = "ID";
+                dgvTiposProducto.Columns["Descripcion"].HeaderText = "Descripción";
+                dgvTiposProducto.Columns["Activo"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -45,7 +46,7 @@ namespace Presentacion
             }
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void BtnAgregar_Click(object sender, EventArgs e)
         {
             {
                 foreach (Form item in Application.OpenForms)
@@ -58,9 +59,9 @@ namespace Presentacion
                 }
                 try
                 {
-                    ModTipoProducto wndAgregarTipoProducto = new ModTipoProducto("Agregar");
-                    wndAgregarTipoProducto.ShowDialog();
-                    llenarTabla();
+                    ModTipoProducto modTipoProducto = new ModTipoProducto("Agregar");
+                    modTipoProducto.ShowDialog();
+                    LlenarTabla();
                 }
                 catch (Exception ex)
                 {
@@ -69,15 +70,39 @@ namespace Presentacion
             }
         }
 
-        private void btnRefrescar_Click(object sender, EventArgs e)
+        private void BtnRefrescar_Click(object sender, EventArgs e)
         {
             try
             {
-                llenarTabla();
+                LlenarTabla();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void BtnEditar_Click(object sender, EventArgs e)
+        {
+            {
+                foreach (Form item in Application.OpenForms)
+                {
+                    if (item.GetType() == typeof(ModTipoProducto))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    ModTipoProducto modTipoProducto = new ModTipoProducto("Editar");
+                    modTipoProducto.ShowDialog();
+                    LlenarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
         }
     }

@@ -12,8 +12,8 @@ namespace Presentacion
     {
         public ModProducto(string title)
         {
-            this.Text = title;
             InitializeComponent();
+            this.Text = title + " " + this.Text;
         }
     }
 }

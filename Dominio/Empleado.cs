@@ -8,10 +8,10 @@ namespace Dominio
 {
     public class Empleado : Contacto
     {
-        public int idEmpleado { get; set; }
-        public char tipoPerfil { get; set; } // A - Administrador // S - Supervisor // V - Vendedor
-        public string usuario { get; set; }
-        public string contrasenia { get; set; }
-        public DateTime fechaNac { get; set; }
+        public int IdEmpleado { get; set; }
+        public DateTime FechaNac { get; set; }
+        public char TipoPerfil { get; set; } // A - Administrador // S - Supervisor // V - Vendedor
+        public string Usuario { get; set; }
+        public string Contrasenia { get; set; }
     }
 }

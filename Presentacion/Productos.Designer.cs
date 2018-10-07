@@ -33,14 +33,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnRefrescar = new MetroFramework.Controls.MetroButton();
             this.dgvProductos = new MetroFramework.Controls.MetroGrid();
-            this.btnEliminar = new MetroFramework.Controls.MetroButton();
-            this.btnAgregar = new MetroFramework.Controls.MetroButton();
+            this.BtnEditar = new MetroFramework.Controls.MetroButton();
+            this.BtnEliminar = new MetroFramework.Controls.MetroButton();
+            this.BtnAgregar = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnRefrescar
             // 
-            this.btnRefrescar.Location = new System.Drawing.Point(736, 32);
+            this.btnRefrescar.Location = new System.Drawing.Point(976, 32);
             this.btnRefrescar.Name = "btnRefrescar";
             this.btnRefrescar.Size = new System.Drawing.Size(25, 25);
             this.btnRefrescar.TabIndex = 13;
@@ -99,37 +100,48 @@
             this.dgvProductos.TabIndex = 12;
             this.dgvProductos.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // btnEliminar
+            // BtnEditar
             // 
-            this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnEliminar.Location = new System.Drawing.Point(541, 566);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminar.TabIndex = 10;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.btnEliminar.UseSelectable = true;
+            this.BtnEditar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnEditar.Location = new System.Drawing.Point(453, 558);
+            this.BtnEditar.Name = "BtnEditar";
+            this.BtnEditar.Size = new System.Drawing.Size(118, 23);
+            this.BtnEditar.TabIndex = 27;
+            this.BtnEditar.Text = "Editar";
+            this.BtnEditar.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BtnEditar.UseSelectable = true;
             // 
-            // btnAgregar
+            // BtnEliminar
             // 
-            this.btnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnAgregar.Location = new System.Drawing.Point(424, 566);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 11;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.btnAgregar.UseSelectable = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click_1);
+            this.BtnEliminar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnEliminar.Location = new System.Drawing.Point(600, 558);
+            this.BtnEliminar.Name = "BtnEliminar";
+            this.BtnEliminar.Size = new System.Drawing.Size(118, 23);
+            this.BtnEliminar.TabIndex = 26;
+            this.BtnEliminar.Text = "Eliminar";
+            this.BtnEliminar.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BtnEliminar.UseSelectable = true;
+            // 
+            // BtnAgregar
+            // 
+            this.BtnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnAgregar.Location = new System.Drawing.Point(306, 558);
+            this.BtnAgregar.Name = "BtnAgregar";
+            this.BtnAgregar.Size = new System.Drawing.Size(118, 23);
+            this.BtnAgregar.TabIndex = 24;
+            this.BtnAgregar.Text = "Agregar";
+            this.BtnAgregar.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BtnAgregar.UseSelectable = true;
             // 
             // Productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(1024, 600);
+            this.Controls.Add(this.BtnEditar);
+            this.Controls.Add(this.BtnEliminar);
+            this.Controls.Add(this.BtnAgregar);
             this.Controls.Add(this.btnRefrescar);
             this.Controls.Add(this.dgvProductos);
-            this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.btnEliminar);
             this.MinimumSize = new System.Drawing.Size(1024, 600);
             this.Name = "Productos";
             this.Text = "Productos";
@@ -143,7 +155,8 @@
 
         private MetroFramework.Controls.MetroButton btnRefrescar;
         private MetroFramework.Controls.MetroGrid dgvProductos;
-        private MetroFramework.Controls.MetroButton btnEliminar;
-        private MetroFramework.Controls.MetroButton btnAgregar;
+        private MetroFramework.Controls.MetroButton BtnEditar;
+        private MetroFramework.Controls.MetroButton BtnEliminar;
+        private MetroFramework.Controls.MetroButton BtnAgregar;
     }
 }

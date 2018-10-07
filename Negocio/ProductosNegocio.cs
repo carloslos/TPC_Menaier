@@ -9,7 +9,7 @@ namespace Negocio
 {
     public class ProductosNegocio
     {
-        public List<Producto> listar()
+        public List<Producto> Listar()
         {
             Producto aux;
             List<Producto> lstProductos = new List<Producto>();
@@ -17,24 +17,28 @@ namespace Negocio
 
             try
             {
-                accesoDB.setearConsulta("SELECT P.IDPRODUCTO, P.DESCRIPCION, M.DESCRIPCION, TP.DESCRIPCION, P.PRECIO, P.STOCKMIN, P.GANANCIA FROM PRODUCTOS AS P " +
+                accesoDB.setearConsulta("SELECT P.IDPRODUCTO, P.DESCRIPCION, M.DESCRIPCION, TP.DESCRIPCION, P.PRECIO, P.STOCKMIN, P.GANANCIA, P.IDMARCA, P.IDTIPOPRODUCTO FROM PRODUCTOS AS P " +
                                         "INNER JOIN MARCAS AS M ON P.IDMARCA = M.IDMARCA " +
-                                        "INNER JOIN TIPOSPRODUCTO AS TP ON P.IDTIPO = TP.IDTIPO");
+                                        "INNER JOIN TIPOSPRODUCTO AS TP ON P.IDTIPOPRODUCTO = TP.IDTIPOPRODUCTO");
                 accesoDB.abrirConexion();
                 accesoDB.ejecutarConsulta();
 
                 while (accesoDB.Lector.Read())
                 {
-                    aux = new Producto();
-                    aux.idProducto = (int)accesoDB.Lector["P.IDPRODUCTO"];
-                    aux.marca.idMarca = (int)accesoDB.Lector["P.IDMARCA"];
-                    aux.marca.descripcion = (string)accesoDB.Lector["M.DESCRIPCION"];
-                    aux.tipoProducto.idTipo = (int)accesoDB.Lector["P.IDTIPOPRODUCTO"];
-                    aux.tipoProducto.descripcion = (string)accesoDB.Lector["TP.DESCRIPCION"];
-                    aux.descripcion = (string)accesoDB.Lector["P.DESCRIPCION"];
-                    aux.precio = (float)accesoDB.Lector["P.PRECIO"];
-                    aux.stockMin = (int)accesoDB.Lector["P.STOCKMIN"];
-                    aux.ganancia = (float)accesoDB.Lector["P.GANANCIA"];
+                    aux = new Producto
+                    {
+                        IdProducto = (int)accesoDB.Lector["P.IDPRODUCTO"],
+                        Marca = new Marca(),
+                        TipoProducto = new TipoProducto(),
+                        Descripcion = (string)accesoDB.Lector["P.DESCRIPCION"],
+                        Precio = (float)accesoDB.Lector["P.PRECIO"],
+                        StockMin = (int)accesoDB.Lector["P.STOCKMIN"],
+                        Ganancia = (float)accesoDB.Lector["P.GANANCIA"]
+                    };
+                    aux.Marca.IdMarca = (int)accesoDB.Lector["P.IDMARCA"];
+                    aux.Marca.Descripcion = (string)accesoDB.Lector["M.DESCRIPCION"];
+                    aux.TipoProducto.IdTipoProducto = (int)accesoDB.Lector["P.IDTIPOPRODUCTO"];
+                    aux.TipoProducto.Descripcion = (string)accesoDB.Lector["TP.DESCRIPCION"];
 
                     lstProductos.Add(aux);
                 }
@@ -55,20 +59,20 @@ namespace Negocio
             }
         }
 
-        public void agregar(Producto nuevo)
+        public void Agregar(Producto nuevo)
         {
             AccesoDB conexion = null;
             try
             {
                 conexion = new AccesoDB();
-                conexion.setearConsulta("INSERT INTO PRODUCTOS(IDMARCA, IDTIPO, DESCRIPCION, PRECIO, STOCKMIN, GANANCIA) VALUES (@IDMARCA, @IDTIPO, @DESCRIPCION, @PRECIO, @STOCKMIN, @GANANCIA)");
+                conexion.setearConsulta("INSERT INTO PRODUCTOS(IDMARCA, IDTIPOPRODUCTO, DESCRIPCION, PRECIO, STOCKMIN, GANANCIA) VALUES (@IDMARCA, @IDTIPOPRODUCTO, @DESCRIPCION, @PRECIO, @STOCKMIN, @GANANCIA)");
                 conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@IDMARCA", nuevo.marca.idMarca);
-                conexion.Comando.Parameters.AddWithValue("@IDTIPO", nuevo.tipoProducto.idTipo);
-                conexion.Comando.Parameters.AddWithValue("@DESCRIPCION", nuevo.descripcion);
-                conexion.Comando.Parameters.AddWithValue("@PRECIO", nuevo.precio);
-                conexion.Comando.Parameters.AddWithValue("@STOCKMIN", nuevo.stockMin);
-                conexion.Comando.Parameters.AddWithValue("@GANANCIA", nuevo.ganancia);
+                conexion.Comando.Parameters.AddWithValue("@IDMARCA", nuevo.Marca.IdMarca);
+                conexion.Comando.Parameters.AddWithValue("@IDTIPOPRODUCTO", nuevo.TipoProducto.IdTipoProducto);
+                conexion.Comando.Parameters.AddWithValue("@DESCRIPCION", nuevo.Descripcion);
+                conexion.Comando.Parameters.AddWithValue("@PRECIO", nuevo.Precio);
+                conexion.Comando.Parameters.AddWithValue("@STOCKMIN", nuevo.StockMin);
+                conexion.Comando.Parameters.AddWithValue("@GANANCIA", nuevo.Ganancia);
 
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();
@@ -91,7 +95,7 @@ CREATE TABLE PRODUCTOS
 (
 	IDPRODUCTO INT NOT NULL PRIMARY KEY,
 	IDMARCA INT NOT NULL FOREIGN KEY REFERENCES MARCAS(IDMARCA),
-	IDTIPO INT NOT NULL FOREIGN KEY REFERENCES TIPOSPRODUCTO(IDTIPO),
+	IDTIPOPRODUCTO INT NOT NULL FOREIGN KEY REFERENCES TIPOSPRODUCTO(IDTIPOPRODUCTO),
 	DESCRIPCION VARCHAR(60) NOT NULL,
 	PRECIO MONEY NOT NULL,
 	STOCKMIN INT NOT NULL,

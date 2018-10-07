@@ -20,17 +20,25 @@ namespace Presentacion
 
         private void Empleados_Load(object sender, EventArgs e)
         {
+            LlenarTabla();
+        }
+        
+        private void LlenarTabla()
+        {
             EmpleadosNegocio neg = new EmpleadosNegocio();
             try
             {
-                dgvEmpleados.DataSource = neg.listar();
-                dgvEmpleados.Columns["nombre"].DisplayIndex = 0; dgvEmpleados.Columns["Nombre"].HeaderText = "Nombre";
-                dgvEmpleados.Columns["apellido"].DisplayIndex = 1; dgvEmpleados.Columns["Apellido"].HeaderText = "Apellido";
-                dgvEmpleados.Columns["dni"].DisplayIndex = 2; dgvEmpleados.Columns["dni"].HeaderText = "DNI";
-                dgvEmpleados.Columns["email"].DisplayIndex = 3; dgvEmpleados.Columns["email"].HeaderText = "Email";
-                dgvEmpleados.Columns["idEmpleado"].DisplayIndex = 4; dgvEmpleados.Columns["idEmpleado"].HeaderText = "ID";
-                dgvEmpleados.Columns["fechaNac"].DisplayIndex = 5; dgvEmpleados.Columns["fechaNac"].HeaderText = "Fecha de nacimiento";
-                dgvEmpleados.Columns["tipoPerfil"].DisplayIndex = 6; dgvEmpleados.Columns["tipoPerfil"].HeaderText = "Tipo de perfil";
+                dgvEmpleados.DataSource = neg.Listar();
+                dgvEmpleados.Columns["Nombre"].DisplayIndex = 0; dgvEmpleados.Columns["NOMBRE"].HeaderText = "Nombre";
+                dgvEmpleados.Columns["Apellido"].DisplayIndex = 1; dgvEmpleados.Columns["Apellido"].HeaderText = "Apellido";
+                dgvEmpleados.Columns["Dni"].DisplayIndex = 2; dgvEmpleados.Columns["DNI"].HeaderText = "DNI";
+                dgvEmpleados.Columns["Email"].DisplayIndex = 3; dgvEmpleados.Columns["EMAIL"].HeaderText = "Email";
+                dgvEmpleados.Columns["IdEmpleado"].DisplayIndex = 4; dgvEmpleados.Columns["IDEMPLEADO"].HeaderText = "ID";
+                dgvEmpleados.Columns["FechaNac"].DisplayIndex = 5; dgvEmpleados.Columns["FECHANAC"].HeaderText = "Fecha de nacimiento";
+                dgvEmpleados.Columns["TipoPerfil"].DisplayIndex = 6; dgvEmpleados.Columns["TIPOPERFIL"].HeaderText = "Tipo de perfil";
+                dgvEmpleados.Columns["Usuario"].Visible = false;
+                dgvEmpleados.Columns["Contrasenia"].Visible = false;
+                dgvEmpleados.Columns["Activo"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -38,9 +46,52 @@ namespace Presentacion
             }
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void BtnAgregar_Click(object sender, EventArgs e)
         {
+            {
+                foreach (Form item in Application.OpenForms)
+                {
+                    if (item.GetType() == typeof(ModEmpleado))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    ModEmpleado modEmpleado = new ModEmpleado("Agregar");
+                    modEmpleado.ShowDialog();
+                    LlenarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+        }
 
+        private void BtnEditar_Click(object sender, EventArgs e)
+        {
+            {
+                foreach (Form item in Application.OpenForms)
+                {
+                    if (item.GetType() == typeof(ModEmpleado))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    ModEmpleado modEmpleado = new ModEmpleado("Editar");
+                    modEmpleado.ShowDialog();
+                    LlenarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
         }
     }
 }

@@ -8,10 +8,11 @@ namespace Dominio
 {
     public class Cliente
     {
-        public int idCliente { get; set; }
-        public string empresa { get; set; }
-        public int cuit { get; set; }
-        public char tipoCliente { get; set; } // E - Empresa // P - Particular
-        public List<Contacto> contactos { get; set; }
+        public int IdCliente { get; set; }
+        public string Empresa { get; set; }
+        public long DniCuit { get; set; }
+        public char TipoCliente { get; set; } // E - Empresa // P - Particular
+        public List<Contacto> Contactos { get; set; }
+        public bool Activo { get; set; }
     }
 }

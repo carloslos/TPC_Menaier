@@ -17,7 +17,7 @@ namespace Presentacion
             InitializeComponent();
         }
 
-        private void btnEmpleados_Click(object sender, EventArgs e)
+        private void BtnEmpleados_Click(object sender, EventArgs e)
         {
             {
                 foreach (Form item in Application.OpenForms)
@@ -33,7 +33,7 @@ namespace Presentacion
             }
         }
 
-        private void btnMarcas_Click(object sender, EventArgs e)
+        private void BtnMarcas_Click(object sender, EventArgs e)
         {
             {
                 foreach (Form item in Application.OpenForms)
@@ -49,7 +49,7 @@ namespace Presentacion
             }
         }
 
-        private void btnTiposProducto_Click(object sender, EventArgs e)
+        private void BtnTiposProducto_Click(object sender, EventArgs e)
         {
             {
                 foreach (Form item in Application.OpenForms)
@@ -65,7 +65,7 @@ namespace Presentacion
             }
         }
 
-        private void btnClientes_Click(object sender, EventArgs e)
+        private void BtnClientes_Click(object sender, EventArgs e)
         {
             {
                 foreach (Form item in Application.OpenForms)
@@ -81,7 +81,7 @@ namespace Presentacion
             }
         }
 
-        private void btnProveedores_Click(object sender, EventArgs e)
+        private void BtnProveedores_Click(object sender, EventArgs e)
         {
             {
                 foreach (Form item in Application.OpenForms)
@@ -97,17 +97,17 @@ namespace Presentacion
             }
         }
 
-        private void btnVentas_Click(object sender, EventArgs e)
+        private void BtnVentas_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnCompras_Click(object sender, EventArgs e)
+        private void BtnCompras_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnProductos_Click(object sender, EventArgs e)
+        private void BtnProductos_Click(object sender, EventArgs e)
         {
             {
                 foreach (Form item in Application.OpenForms)

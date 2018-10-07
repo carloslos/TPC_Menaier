@@ -8,7 +8,8 @@ namespace Dominio
 {
     public class Telefono
     {
-        public int numero { get; set; }
-        public string nescripcion { get; set; }
+        public int Numero { get; set; }
+        public string Descripcion { get; set; }
+        public bool Activo { get; set; }
     }
 }

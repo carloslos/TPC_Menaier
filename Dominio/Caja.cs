@@ -8,6 +8,6 @@ namespace Dominio
 {
     public class Caja
     {
-        public double monto { get; set; } // Probablemente saque esta clase
+        public double Monto { get; set; } // Probablemente saque esta clase
     }
 }

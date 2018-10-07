@@ -8,12 +8,13 @@ namespace Dominio
 {
     public class Domicilio
     {
-        public string calle { get; set; }
-        public int altura { get; set; }
-        public string departamento { get; set; }
-        public string barrio { get; set; }
-        public string ciudad { get; set; }
-        public string pais { get; set; }
-        public int cp { get; set; }
+        public string Calle { get; set; }
+        public int Altura { get; set; }
+        public string Departamento { get; set; }
+        public string Barrio { get; set; }
+        public string Ciudad { get; set; }
+        public string Pais { get; set; }
+        public int Cp { get; set; }
+        public bool Activo { get; set; }
     }
 }

@@ -7,31 +7,33 @@ using Dominio;
 
 namespace Negocio
 {
-    public class MarcaNegocio
+    public class ProveedorNegocio
     {
-
-        public List<Marca> listar()
+        public List<Proveedor> Listar()
         {
-            Marca aux;
-            List<Marca> lstMarcas = new List<Marca>();
+            Proveedor aux;
+            List<Proveedor> lstProveedores = new List<Proveedor>();
             AccesoDB accesoDB = new AccesoDB();
 
             try
             {
-                accesoDB.setearConsulta("SELECT IDMARCA, DESCRIPCION FROM MARCAS");
+                accesoDB.setearConsulta("SELECT IDPROVEEDOR, EMPRESA, CUIT FROM PROVEEDORES WHERE ACTIVO = 1");
                 accesoDB.abrirConexion();
                 accesoDB.ejecutarConsulta();
 
                 while (accesoDB.Lector.Read())
                 {
-                    aux = new Marca();
-                    aux.idMarca = (int)accesoDB.Lector["IDMARCA"];
-                    aux.descripcion = (string)accesoDB.Lector["DESCRIPCION"];
+                    aux = new Proveedor
+                    {
+                        IdProveedor = (int)accesoDB.Lector["IDPROVEEDOR"],
+                        Empresa = (string)accesoDB.Lector["EMPRESA"],
+                        Cuit = (long)accesoDB.Lector["CUIT"]
+                    };
 
-                    lstMarcas.Add(aux);
+                    lstProveedores.Add(aux);
                 }
 
-                return lstMarcas;
+                return lstProveedores;
 
             }
             catch (Exception ex)
@@ -47,15 +49,16 @@ namespace Negocio
             }
         }
 
-        public void agregar(Marca nuevo)
+        public void Agregar(Proveedor nuevo)
         {
             AccesoDB conexion = null;
             try
             {
                 conexion = new AccesoDB();
-                conexion.setearConsulta("INSERT INTO MARCAS(DESCRIPCION) VALUES (@DESCRIPCION)");
+                conexion.setearConsulta("INSERT INTO PROVEEDORES(EMPRESA,CUIT,ACTIVO) VALUES (@EMPRESA,@CUIT,1)");
                 conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@DESCRIPCION", nuevo.descripcion);
+                conexion.Comando.Parameters.AddWithValue("@EMPRESA", nuevo.Empresa);
+                conexion.Comando.Parameters.AddWithValue("@CUIT", nuevo.Cuit);
 
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();
@@ -73,11 +76,12 @@ namespace Negocio
     }
 }
 
-
 /*
-CREATE TABLE MARCAS
+CREATE TABLE PROVEEDORES
 (
-	IDMARCA INT NOT NULL PRIMARY KEY,
-	DESCRIPCION VARCHAR(60) NOT NULL
+	IDPROVEEDOR INT NOT NULL PRIMARY KEY,
+	EMPRESA VARCHAR(60) NOT NULL,
+	CUIT BIGINT NOT NULL,
+	ACTIVO BIT NOT NULL
 )
 */

@@ -43,11 +43,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccesoDB.cs" />
+    <Compile Include="ContactoNegocio.cs" />
     <Compile Include="EmpleadosNegocio.cs" />
-    <Compile Include="MarcaNegocio.cs" />
+    <Compile Include="MarcasNegocio.cs" />
     <Compile Include="ProductosNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TipoProductoNegocio.cs" />
+    <Compile Include="ProveedorNegocio.cs" />
+    <Compile Include="TiposProductoNegocio.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Script_DB\TPC_Menaier.sql" />

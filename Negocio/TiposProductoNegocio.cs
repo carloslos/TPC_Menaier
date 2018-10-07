@@ -8,9 +8,9 @@ using System.Data.SqlClient;
 
 namespace Negocio
 {
-    public class TipoProductoNegocio
+    public class TiposProductoNegocio
     {
-        public List<TipoProducto> listar()
+        public List<TipoProducto> Listar()
         {
             TipoProducto aux;
             List<TipoProducto> lstTiposProducto = new List<TipoProducto>();
@@ -18,15 +18,17 @@ namespace Negocio
 
             try
             {
-                accesoDB.setearConsulta("SELECT IDTIPO, DESCRIPCION FROM TIPOSPRODUCTO");
+                accesoDB.setearConsulta("SELECT IDTIPOPRODUCTO, DESCRIPCION FROM TIPOSPRODUCTO");
                 accesoDB.abrirConexion();
                 accesoDB.ejecutarConsulta();
 
                 while (accesoDB.Lector.Read())
                 {
-                    aux = new TipoProducto();
-                    aux.idTipo = (int)accesoDB.Lector["IDTIPO"];
-                    aux.descripcion = (string)accesoDB.Lector["DESCRIPCION"];
+                    aux = new TipoProducto
+                    {
+                        IdTipoProducto = (int)accesoDB.Lector["IDTIPOPRODUCTO"],
+                        Descripcion = (string)accesoDB.Lector["DESCRIPCION"]
+                    };
 
                     lstTiposProducto.Add(aux);
                 }
@@ -47,7 +49,7 @@ namespace Negocio
             }
         }
 
-        public void agregar(TipoProducto nuevo)
+        public void Agregar(TipoProducto nuevo)
         {
             AccesoDB conexion = null;
             try
@@ -55,7 +57,7 @@ namespace Negocio
                 conexion = new AccesoDB();
                 conexion.setearConsulta("INSERT INTO TIPOSPRODUCTO(DESCRIPCION) VALUES (@DESCRIPCION)");
                 conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@DESCRIPCION", nuevo.descripcion);
+                conexion.Comando.Parameters.AddWithValue("@DESCRIPCION", nuevo.Descripcion);
 
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();
@@ -76,7 +78,7 @@ namespace Negocio
 /*
 CREATE TABLE TIPOSPRODUCTO
 (
-    IDTIPO INT NOT NULL PRIMARY KEY,
+    IDTIPOPRODUCTO INT NOT NULL PRIMARY KEY,
     DESCRIPCION VARCHAR(60) NOT NULL
 )
 */

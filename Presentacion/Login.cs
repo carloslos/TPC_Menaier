@@ -17,7 +17,7 @@ namespace Presentacion
             InitializeComponent();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void BtnLogin_Click(object sender, EventArgs e)
         {
             MenuPrincipal wndVentanaPrincipal = new MenuPrincipal(); // VALIDAR
             wndVentanaPrincipal.Show(); // HACER LOG OUT
