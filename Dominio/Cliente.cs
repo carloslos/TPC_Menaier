@@ -12,7 +12,7 @@ namespace Dominio
         public string Empresa { get; set; }
         public long DniCuit { get; set; }
         public char TipoCliente { get; set; } // E - Empresa // P - Particular
-        public List<Contacto> Contactos { get; set; }
+        public List<Contacto> LstContactos { get; set; }
         public bool Activo { get; set; }
     }
 }

@@ -37,9 +37,8 @@ namespace Presentacion
             try
             {
                 dgvProveedores.DataSource = neg.Listar();
-                dgvProveedores.Columns["IdTipoProducto"].HeaderText = "ID";
+                dgvProveedores.Columns["IdProveedor"].HeaderText = "ID";
                 dgvProveedores.Columns["Cuit"].HeaderText = "CUIT";
-                dgvProveedores.Columns["Descripcion"].HeaderText = "Descripción";
                 dgvProveedores.Columns["Activo"].Visible = false;
             }
             catch (Exception ex)

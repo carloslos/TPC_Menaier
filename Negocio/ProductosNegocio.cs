@@ -19,7 +19,8 @@ namespace Negocio
             {
                 accesoDB.setearConsulta("SELECT P.IDPRODUCTO, P.DESCRIPCION, M.DESCRIPCION, TP.DESCRIPCION, P.PRECIO, P.STOCKMIN, P.GANANCIA, P.IDMARCA, P.IDTIPOPRODUCTO FROM PRODUCTOS AS P " +
                                         "INNER JOIN MARCAS AS M ON P.IDMARCA = M.IDMARCA " +
-                                        "INNER JOIN TIPOSPRODUCTO AS TP ON P.IDTIPOPRODUCTO = TP.IDTIPOPRODUCTO");
+                                        "INNER JOIN TIPOSPRODUCTO AS TP ON P.IDTIPOPRODUCTO = TP.IDTIPOPRODUCTO " +
+                                        "WHERE P.ACTIVO = 1");
                 accesoDB.abrirConexion();
                 accesoDB.ejecutarConsulta();
 

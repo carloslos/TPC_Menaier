@@ -11,7 +11,7 @@ namespace Dominio
         public int IdCompra { get; set; }
         public DateTime Fecha { get; set; }
         public Proveedor Proveedor { get; set; }
-        public List<Lote> Lotes { get; set; }
+        public List<Lote> LstLotes { get; set; }
         public bool Activo { get; set; }
     }
 }

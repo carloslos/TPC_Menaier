@@ -13,8 +13,8 @@ namespace Dominio
         public string Apellido { get; set; }
         public int Dni { get; set; }
         public string Email { get; set; }
-        public List<Telefono> Telefonos { get; set; }
-        public List<Domicilio> Domicilios  { get; set; }
+        public List<Telefono> LstTelefonos { get; set; }
+        public List<Domicilio> LstDomicilios  { get; set; }
         public bool Activo { get; set; }
     }
 }

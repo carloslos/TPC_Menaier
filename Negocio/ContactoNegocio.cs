@@ -34,8 +34,8 @@ namespace Negocio
                         Apellido = (string)accesoDB.Lector["APELLIDO"],
                         Dni = (int)accesoDB.Lector["DNI"],
                         Email = (string)accesoDB.Lector["EMAIL"],
-                        Telefonos = new List<Telefono>(), // COMO LLENO ESTAS LISTAS???!!!
-                        Domicilios = new List<Domicilio>()
+                        LstTelefonos = new List<Telefono>(), // COMO LLENO ESTAS LISTAS???!!!
+                        LstDomicilios = new List<Domicilio>()
                     };
 
                     //TE.IDTELEFONO, TE.NUMERO, TE.DESCRIPCION, DE.IDDOMICILIO, DE.CALLE, DE.ALTURA, DE.PISO, DE.BARRIO, DE.CIUDAD, DE.PAIS
