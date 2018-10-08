@@ -153,6 +153,7 @@
             this.Text = "Menu Principal";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MenuPrincipal_FormClosed);
+            this.MouseEnter += new System.EventHandler(this.MenuPrincipal_MouseEnter);
             this.ResumeLayout(false);
 
         }

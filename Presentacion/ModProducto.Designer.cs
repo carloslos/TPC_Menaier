@@ -36,6 +36,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "ModProducto";
             this.Text = "Producto";
+            this.Load += new System.EventHandler(this.ModProducto_Load);
             this.ResumeLayout(false);
 
         }

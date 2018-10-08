@@ -15,5 +15,15 @@ namespace Presentacion
             InitializeComponent();
             this.Text = title + " " + this.Text;
         }
+
+        private void ModProducto_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ModProducto_MouseEnter(object sender, EventArgs e)
+        {
+            this.Activate();
+        }
     }
 }

@@ -10,3 +10,9 @@ C:\Users\Carlos\Source\Repos\Azhar1921\TPC_Menaier\Dominio\obj\Debug\Dominio.csp
 C:\Users\Carlos\Source\Repos\Azhar1921\TPC_Menaier\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
 C:\Users\Carlos\Source\Repos\Azhar1921\TPC_Menaier\Dominio\obj\Debug\Dominio.dll
 C:\Users\Carlos\Source\Repos\Azhar1921\TPC_Menaier\Dominio\obj\Debug\Dominio.pdb
+C:\Users\tisoporte\Source\Repos\Azhar1921\TPC_Menaier\Dominio\bin\Debug\Dominio.dll
+C:\Users\tisoporte\Source\Repos\Azhar1921\TPC_Menaier\Dominio\bin\Debug\Dominio.pdb
+C:\Users\tisoporte\Source\Repos\Azhar1921\TPC_Menaier\Dominio\obj\Debug\Dominio.csprojAssemblyReference.cache
+C:\Users\tisoporte\Source\Repos\Azhar1921\TPC_Menaier\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\tisoporte\Source\Repos\Azhar1921\TPC_Menaier\Dominio\obj\Debug\Dominio.dll
+C:\Users\tisoporte\Source\Repos\Azhar1921\TPC_Menaier\Dominio\obj\Debug\Dominio.pdb

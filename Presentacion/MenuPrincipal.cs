@@ -127,5 +127,10 @@ namespace Presentacion
         {
             Application.Exit();
         }
+
+        private void MenuPrincipal_MouseEnter(object sender, EventArgs e)
+        {
+            this.Activate();
+        }
     }
 }
