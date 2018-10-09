@@ -63,5 +63,10 @@ namespace Presentacion
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void Productos_MouseEnter(object sender, EventArgs e)
+        {
+            this.Activate();
+        }
     }
 }

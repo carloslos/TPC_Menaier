@@ -18,12 +18,12 @@ namespace Negocio
 
             try
             {
-                accesoDB.setearConsulta("SELECT E.IDEMPLEADO, E.NOMBRE, E.APELLIDO, E.DNI, E.EMAIL, TE.IDTELEFONO, TE.NUMERO, TE.DESCRIPCION, DE.IDDOMICILIO, DE.CALLE, DE.ALTURA, DE.PISO, DE.BARRIO, DE.CIUDAD, DE.PAIS FROM EMPLEADOS AS E " +
+                accesoDB.SetearConsulta("SELECT E.IDEMPLEADO, E.NOMBRE, E.APELLIDO, E.DNI, E.EMAIL, TE.IDTELEFONO, TE.NUMERO, TE.DESCRIPCION, DE.IDDOMICILIO, DE.CALLE, DE.ALTURA, DE.PISO, DE.BARRIO, DE.CIUDAD, DE.PAIS FROM EMPLEADOS AS E " +
                                         "INNER JOIN TELEFONOS_X_EMPLEADO AS TE ON E.IDEMPLEADO = TE.IDEMPLEADO " +
                                         "INNER JOIN DOMICILIOS_X_EMPLEADO AS DE ON E.IDEMPLEADO = DE.IDEMPLEADO " +
                                         "WHERE ACTIVO IS 1");
-                accesoDB.abrirConexion();
-                accesoDB.ejecutarConsulta();
+                accesoDB.AbrirConexion();
+                accesoDB.EjecutarConsulta();
 
                 while (accesoDB.Lector.Read())
                 {
@@ -52,9 +52,9 @@ namespace Negocio
             }
             finally
             {
-                if (accesoDB.checkearConexion() == true)
+                if (accesoDB.CheckearConexion() == true)
                 {
-                    accesoDB.cerrarConexion();
+                    accesoDB.CerrarConexion();
                 }
             }
         }
@@ -65,15 +65,15 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.setearConsulta("INSERT INTO EMPLEADOS(NOMBRE, APELLIDO, DNI, FECHANAC, USUARIO, CONTRASENIA, TIPOPERFIL, EMAIL) VALUES (@NOMBRE, @APELLIDO, @DNI, @FECHANAC, @USUARIO, @CONTRASENIA, @TIPOPERFIL, @EMAIL)");
+                conexion.SetearConsulta("INSERT INTO EMPLEADOS(NOMBRE, APELLIDO, DNI, FECHANAC, USUARIO, CONTRASENIA, TIPOPERFIL, EMAIL) VALUES (@nombre, @apellido, @dni, @fechanac, @usuario, @contrasenia, @tipoperfil, @email)");
                 conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@NOMBRE", nuevo.Nombre);
-                conexion.Comando.Parameters.AddWithValue("@APELLIDO", nuevo.Apellido);
-                conexion.Comando.Parameters.AddWithValue("@DNI", nuevo.Dni);
-                conexion.Comando.Parameters.AddWithValue("@EMAIL", nuevo.Email);
+                conexion.Comando.Parameters.AddWithValue("@nombre", nuevo.Nombre);
+                conexion.Comando.Parameters.AddWithValue("@apellido", nuevo.Apellido);
+                conexion.Comando.Parameters.AddWithValue("@dni", nuevo.Dni);
+                conexion.Comando.Parameters.AddWithValue("@email", nuevo.Email);
 
-                conexion.abrirConexion();
-                conexion.ejecutarAccion();
+                conexion.AbrirConexion();
+                conexion.EjecutarAccion();
             }
             catch (Exception ex)
             {
@@ -82,7 +82,7 @@ namespace Negocio
             finally
             {
                 if (conexion != null)
-                    conexion.cerrarConexion();
+                    conexion.CerrarConexion();
             }
         }
     }

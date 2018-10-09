@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BtnCancelar = new MetroFramework.Controls.MetroButton();
+            this.BtnVolver = new MetroFramework.Controls.MetroButton();
             this.BtnAgregar = new MetroFramework.Controls.MetroButton();
             this.tileNombre = new MetroFramework.Controls.MetroTile();
             this.lblNombre = new MetroFramework.Controls.MetroLabel();
@@ -56,17 +56,17 @@
             this.tileTipoPerfil.SuspendLayout();
             this.SuspendLayout();
             // 
-            // BtnCancelar
+            // BtnVolver
             // 
-            this.BtnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnCancelar.Location = new System.Drawing.Point(237, 554);
-            this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Size = new System.Drawing.Size(99, 23);
-            this.BtnCancelar.TabIndex = 7;
-            this.BtnCancelar.Text = "Cancelar";
-            this.BtnCancelar.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.BtnCancelar.UseSelectable = true;
-            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
+            this.BtnVolver.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnVolver.Location = new System.Drawing.Point(237, 554);
+            this.BtnVolver.Name = "BtnVolver";
+            this.BtnVolver.Size = new System.Drawing.Size(99, 23);
+            this.BtnVolver.TabIndex = 7;
+            this.BtnVolver.Text = "Volver";
+            this.BtnVolver.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BtnVolver.UseSelectable = true;
+            this.BtnVolver.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // BtnAgregar
             // 
@@ -338,7 +338,7 @@
             this.lblTipoPerfil.Enabled = false;
             this.lblTipoPerfil.Location = new System.Drawing.Point(3, 6);
             this.lblTipoPerfil.Name = "lblTipoPerfil";
-            this.lblTipoPerfil.Size = new System.Drawing.Size(87, 19);
+            this.lblTipoPerfil.Size = new System.Drawing.Size(88, 19);
             this.lblTipoPerfil.TabIndex = 5;
             this.lblTipoPerfil.Text = "Tipo de Perfil";
             // 
@@ -370,7 +370,7 @@
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.tileApellido);
             this.Controls.Add(this.tileNombre);
-            this.Controls.Add(this.BtnCancelar);
+            this.Controls.Add(this.BtnVolver);
             this.Controls.Add(this.BtnAgregar);
             this.MinimumSize = new System.Drawing.Size(450, 600);
             this.Name = "ModEmpleado";
@@ -393,7 +393,7 @@
 
         #endregion
 
-        private MetroFramework.Controls.MetroButton BtnCancelar;
+        private MetroFramework.Controls.MetroButton BtnVolver;
         private MetroFramework.Controls.MetroButton BtnAgregar;
         private MetroFramework.Controls.MetroTile tileNombre;
         private MetroFramework.Controls.MetroLabel lblNombre;

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BtnCancelar = new MetroFramework.Controls.MetroButton();
+            this.BtnVolver = new MetroFramework.Controls.MetroButton();
             this.BtnAgregar = new MetroFramework.Controls.MetroButton();
             this.tileDescripcion = new MetroFramework.Controls.MetroTile();
             this.lblDescripcion = new MetroFramework.Controls.MetroLabel();
@@ -36,17 +36,17 @@
             this.tileDescripcion.SuspendLayout();
             this.SuspendLayout();
             // 
-            // BtnCancelar
+            // BtnVolver
             // 
-            this.BtnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnCancelar.Location = new System.Drawing.Point(204, 267);
-            this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Size = new System.Drawing.Size(99, 23);
-            this.BtnCancelar.TabIndex = 2;
-            this.BtnCancelar.Text = "Cancelar";
-            this.BtnCancelar.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.BtnCancelar.UseSelectable = true;
-            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
+            this.BtnVolver.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnVolver.Location = new System.Drawing.Point(204, 267);
+            this.BtnVolver.Name = "BtnVolver";
+            this.BtnVolver.Size = new System.Drawing.Size(99, 23);
+            this.BtnVolver.TabIndex = 2;
+            this.BtnVolver.Text = "Volver";
+            this.BtnVolver.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BtnVolver.UseSelectable = true;
+            this.BtnVolver.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // BtnAgregar
             // 
@@ -116,7 +116,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(385, 376);
-            this.Controls.Add(this.BtnCancelar);
+            this.Controls.Add(this.BtnVolver);
             this.Controls.Add(this.BtnAgregar);
             this.Controls.Add(this.tileDescripcion);
             this.Controls.Add(this.txtDescripcion);
@@ -130,7 +130,7 @@
 
         #endregion
 
-        private MetroFramework.Controls.MetroButton BtnCancelar;
+        private MetroFramework.Controls.MetroButton BtnVolver;
         private MetroFramework.Controls.MetroButton BtnAgregar;
         private MetroFramework.Controls.MetroTile tileDescripcion;
         private MetroFramework.Controls.MetroLabel lblDescripcion;

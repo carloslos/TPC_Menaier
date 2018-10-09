@@ -106,6 +106,16 @@ namespace Presentacion
                 }
             }
         }
+
+        private void dgvProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Proveedores_MouseEnter(object sender, EventArgs e)
+        {
+            this.Activate();
+        }
     }
 }
 

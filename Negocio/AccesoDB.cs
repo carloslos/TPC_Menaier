@@ -24,13 +24,12 @@ namespace Negocio
             get { return comando; }
         }
 
-        public AccesoDB ()
-        {
-            conexion = new SqlConnection();
-            conexion.ConnectionString = @"data source=.\SQLEXPRESS; initial catalog= MENAIER_DB;  integrated security=sspi";
+        public AccesoDB()
+        { 
+            conexion = new SqlConnection (@"data source=.\SQLEXPRESS; initial catalog= MENAIER_DB;  integrated security=sspi");
         }
 
-        public void setearConsulta(string consulta)
+        public void SetearConsulta(string consulta)
         {
             comando = new SqlCommand
             {
@@ -40,7 +39,7 @@ namespace Negocio
         }
 
         //esto para luego...
-        public void setearSP(string sp)
+        public void SetearSP(string sp)
         {
             comando = new SqlCommand
             {
@@ -49,7 +48,7 @@ namespace Negocio
             };
         }
 
-        public void abrirConexion()
+        public void AbrirConexion()
         {
             try
             {
@@ -61,7 +60,7 @@ namespace Negocio
             }
         }
 
-        public bool checkearConexion()
+        public bool CheckearConexion()
         {
             try
             {
@@ -74,7 +73,7 @@ namespace Negocio
             }
         }
 
-        public void cerrarConexion()
+        public void CerrarConexion()
         {
             try
             {
@@ -86,7 +85,7 @@ namespace Negocio
             }
         }
 
-        public void ejecutarAccion()
+        public void EjecutarAccion()
         {
             try
             {
@@ -99,7 +98,7 @@ namespace Negocio
             }
         }
 
-        public void ejecutarConsulta()
+        public void EjecutarConsulta()
         {
             try
             {

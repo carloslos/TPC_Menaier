@@ -18,9 +18,9 @@ namespace Negocio
 
             try
             {
-                accesoDB.setearConsulta("SELECT IDMARCA, DESCRIPCION FROM MARCAS");
-                accesoDB.abrirConexion();
-                accesoDB.ejecutarConsulta();
+                accesoDB.SetearConsulta("SELECT IDMARCA, DESCRIPCION FROM MARCAS WHERE ACTIVO = 1");
+                accesoDB.AbrirConexion();
+                accesoDB.EjecutarConsulta();
 
                 while (accesoDB.Lector.Read())
                 {
@@ -42,9 +42,9 @@ namespace Negocio
             }
             finally
             {
-                if (accesoDB.checkearConexion() == true)
+                if (accesoDB.CheckearConexion() == true)
                 {
-                    accesoDB.cerrarConexion();
+                    accesoDB.CerrarConexion();
                 }
             }
         }
@@ -55,12 +55,12 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.setearConsulta("INSERT INTO MARCAS(DESCRIPCION) VALUES (@DESCRIPCION)");
+                conexion.SetearConsulta("INSERT INTO MARCAS(DESCRIPCION) VALUES (@descripcion)");
                 conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@DESCRIPCION", nuevo.Descripcion);
+                conexion.Comando.Parameters.AddWithValue("@descripcion", nuevo.Descripcion);
 
-                conexion.abrirConexion();
-                conexion.ejecutarAccion();
+                conexion.AbrirConexion();
+                conexion.EjecutarAccion();
             }
             catch (Exception ex)
             {
@@ -69,7 +69,64 @@ namespace Negocio
             finally
             {
                 if (conexion != null)
-                    conexion.cerrarConexion();
+                    conexion.CerrarConexion();
+            }
+        }
+
+        public void Modificar(Marca m)
+        {
+            AccesoDB conexion;
+            try
+            {
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("UPDATE MARCAS SET DESCRIPCION = @descripcion WHERE IDMARCA = @id");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@id", m.IdMarca);
+                conexion.Comando.Parameters.AddWithValue("@descripcion", m.Descripcion);
+
+                conexion.AbrirConexion();
+                conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void EliminarFisico(int id)
+        {
+            AccesoDB conexion;
+            try
+            {
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("DELETE FROM MARCAS WHERE IDMARCA = @id");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@id", id);
+                conexion.AbrirConexion();
+                conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void EliminarLogico(int id)
+        {
+            AccesoDB conexion;
+            try
+            {
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("UPDATE MARCAS SET ACTIVO = 0 WHERE IDMARCA = @id");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@id", id);
+                conexion.AbrirConexion();
+                conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
         }
     }

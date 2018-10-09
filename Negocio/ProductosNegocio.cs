@@ -17,12 +17,12 @@ namespace Negocio
 
             try
             {
-                accesoDB.setearConsulta("SELECT P.IDPRODUCTO, P.DESCRIPCION, M.DESCRIPCION, TP.DESCRIPCION, P.PRECIO, P.STOCKMIN, P.GANANCIA, P.IDMARCA, P.IDTIPOPRODUCTO FROM PRODUCTOS AS P " +
+                accesoDB.SetearConsulta("SELECT P.IDPRODUCTO, P.DESCRIPCION, M.DESCRIPCION, TP.DESCRIPCION, P.PRECIO, P.STOCKMIN, P.GANANCIA, P.IDMARCA, P.IDTIPOPRODUCTO FROM PRODUCTOS AS P " +
                                         "INNER JOIN MARCAS AS M ON P.IDMARCA = M.IDMARCA " +
                                         "INNER JOIN TIPOSPRODUCTO AS TP ON P.IDTIPOPRODUCTO = TP.IDTIPOPRODUCTO " +
                                         "WHERE P.ACTIVO = 1");
-                accesoDB.abrirConexion();
-                accesoDB.ejecutarConsulta();
+                accesoDB.AbrirConexion();
+                accesoDB.EjecutarConsulta();
 
                 while (accesoDB.Lector.Read())
                 {
@@ -53,9 +53,9 @@ namespace Negocio
             }
             finally
             {
-                if (accesoDB.checkearConexion() == true)
+                if (accesoDB.CheckearConexion() == true)
                 {
-                    accesoDB.cerrarConexion();
+                    accesoDB.CerrarConexion();
                 }
             }
         }
@@ -66,17 +66,17 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.setearConsulta("INSERT INTO PRODUCTOS(IDMARCA, IDTIPOPRODUCTO, DESCRIPCION, PRECIO, STOCKMIN, GANANCIA) VALUES (@IDMARCA, @IDTIPOPRODUCTO, @DESCRIPCION, @PRECIO, @STOCKMIN, @GANANCIA)");
+                conexion.SetearConsulta("INSERT INTO PRODUCTOS(IDMARCA, IDTIPOPRODUCTO, DESCRIPCION, PRECIO, STOCKMIN, GANANCIA) VALUES (@idmarca, @idtipoproducto, @descripcion, @precio, @stockmin, @ganancia)");
                 conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@IDMARCA", nuevo.Marca.IdMarca);
-                conexion.Comando.Parameters.AddWithValue("@IDTIPOPRODUCTO", nuevo.TipoProducto.IdTipoProducto);
-                conexion.Comando.Parameters.AddWithValue("@DESCRIPCION", nuevo.Descripcion);
-                conexion.Comando.Parameters.AddWithValue("@PRECIO", nuevo.Precio);
-                conexion.Comando.Parameters.AddWithValue("@STOCKMIN", nuevo.StockMin);
-                conexion.Comando.Parameters.AddWithValue("@GANANCIA", nuevo.Ganancia);
+                conexion.Comando.Parameters.AddWithValue("@idmarca", nuevo.Marca.IdMarca);
+                conexion.Comando.Parameters.AddWithValue("@idtipoproducto", nuevo.TipoProducto.IdTipoProducto);
+                conexion.Comando.Parameters.AddWithValue("@descripcion", nuevo.Descripcion);
+                conexion.Comando.Parameters.AddWithValue("@precio", nuevo.Precio);
+                conexion.Comando.Parameters.AddWithValue("@stockmin", nuevo.StockMin);
+                conexion.Comando.Parameters.AddWithValue("@ganancia", nuevo.Ganancia);
 
-                conexion.abrirConexion();
-                conexion.ejecutarAccion();
+                conexion.AbrirConexion();
+                conexion.EjecutarAccion();
             }
             catch (Exception ex)
             {
@@ -85,7 +85,7 @@ namespace Negocio
             finally
             {
                 if (conexion != null)
-                    conexion.cerrarConexion();
+                    conexion.CerrarConexion();
             }
         }
     }

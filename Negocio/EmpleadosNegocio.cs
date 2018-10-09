@@ -18,9 +18,9 @@ namespace Negocio
 
             try
             {
-                accesoDB.setearConsulta("SELECT NOMBRE, APELLIDO, IDEMPLEADO, DNI, FECHANAC, TIPOPERFIL, EMAIL FROM EMPLEADOS");
-                accesoDB.abrirConexion();
-                accesoDB.ejecutarConsulta();
+                accesoDB.SetearConsulta("SELECT NOMBRE, APELLIDO, IDEMPLEADO, DNI, FECHANAC, TIPOPERFIL, EMAIL FROM EMPLEADOS WHERE ACTIVO = 1");
+                accesoDB.AbrirConexion();
+                accesoDB.EjecutarConsulta();
 
                 while (accesoDB.Lector.Read())
                 {
@@ -48,9 +48,9 @@ namespace Negocio
             }
             finally
             {
-                if (accesoDB.checkearConexion() == true)
+                if (accesoDB.CheckearConexion() == true)
                 {
-                    accesoDB.cerrarConexion();
+                    accesoDB.CerrarConexion();
                 }
             }
         }
@@ -61,19 +61,19 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.setearConsulta("INSERT INTO EMPLEADOS(NOMBRE, APELLIDO, DNI, FECHANAC, USUARIO, CONTRASENIA, TIPOPERFIL, EMAIL) VALUES (@NOMBRE, @APELLIDO, @DNI, @FECHANAC, @USUARIO, @CONTRASENIA, @TIPOPERFIL, @EMAIL)");
+                conexion.SetearConsulta("INSERT INTO EMPLEADOS(NOMBRE, APELLIDO, DNI, FECHANAC, USUARIO, CONTRASENIA, TIPOPERFIL, EMAIL) VALUES (@nombre, @apellido, @dni, @fechanac, @usuario, @contrasenia, @tipoperfil, @email)");
                 conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@NOMBRE", nuevo.Nombre);
-                conexion.Comando.Parameters.AddWithValue("@APELLIDO", nuevo.Apellido);
-                conexion.Comando.Parameters.AddWithValue("@DNI", nuevo.Dni);
-                conexion.Comando.Parameters.AddWithValue("@FECHANAC", nuevo.FechaNac);
-                conexion.Comando.Parameters.AddWithValue("@USUARIO", nuevo.Usuario);
-                conexion.Comando.Parameters.AddWithValue("@CONTRASENIA", nuevo.Contrasenia);
-                conexion.Comando.Parameters.AddWithValue("@TIPOPERFIL", nuevo.TipoPerfil);
-                conexion.Comando.Parameters.AddWithValue("@EMAIL", nuevo.Email);
+                conexion.Comando.Parameters.AddWithValue("@nombre", nuevo.Nombre);
+                conexion.Comando.Parameters.AddWithValue("@apellido", nuevo.Apellido);
+                conexion.Comando.Parameters.AddWithValue("@dni", nuevo.Dni);
+                conexion.Comando.Parameters.AddWithValue("@fechanac", nuevo.FechaNac);
+                conexion.Comando.Parameters.AddWithValue("@usuario", nuevo.Usuario);
+                conexion.Comando.Parameters.AddWithValue("@contrasenia", nuevo.Contrasenia);
+                conexion.Comando.Parameters.AddWithValue("@tipoperfil", nuevo.TipoPerfil);
+                conexion.Comando.Parameters.AddWithValue("@email", nuevo.Email);
 
-                conexion.abrirConexion();
-                conexion.ejecutarAccion();
+                conexion.AbrirConexion();
+                conexion.EjecutarAccion();
             }
             catch (Exception ex)
             {
@@ -82,7 +82,70 @@ namespace Negocio
             finally
             {
                 if (conexion != null)
-                    conexion.cerrarConexion();
+                    conexion.CerrarConexion();
+            }
+        }
+
+        public void Modificar(Empleado e)
+        {
+            AccesoDB conexion;
+            try
+            {
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("UPDATE EMPLEADOS SET NOMBRE = @nombre, APELLIDO = @apellido WHERE IDEMPLEADO = @id");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@id", e.IdEmpleado);
+                conexion.Comando.Parameters.AddWithValue("@nombre", e.Nombre);
+                conexion.Comando.Parameters.AddWithValue("@apellido", e.Apellido);
+                conexion.Comando.Parameters.AddWithValue("@DNI", e.Dni);
+                conexion.Comando.Parameters.AddWithValue("@FECHANAC", e.FechaNac);
+                conexion.Comando.Parameters.AddWithValue("@USUARIO", e.Usuario);
+                conexion.Comando.Parameters.AddWithValue("@CONTRASENIA", e.Contrasenia);
+                conexion.Comando.Parameters.AddWithValue("@TIPOPERFIL", e.TipoPerfil);
+                conexion.Comando.Parameters.AddWithValue("@EMAIL", e.Email);
+                conexion.AbrirConexion();
+                conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void EliminarFisico(int id)
+        {
+            AccesoDB conexion;
+            try
+            {
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("DELETE FROM EMPLEADOS WHERE IDEMPLEADO = @id");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@id", id);
+                conexion.AbrirConexion();
+                conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void EliminarLogico(int id)
+        {
+            AccesoDB conexion;
+            try
+            {
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("UPDATE EMPLEADOS SET ACTIVO = 0 WHERE IDEMPLEADO = @id");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@id", id);
+                conexion.AbrirConexion();
+                conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
         }
     }
