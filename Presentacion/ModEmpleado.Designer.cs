@@ -45,7 +45,7 @@
             this.dateFechaNac = new MetroFramework.Controls.MetroDateTime();
             this.lblFechaNac = new MetroFramework.Controls.MetroLabel();
             this.tileFechaNac = new MetroFramework.Controls.MetroTile();
-            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
+            this.boxTipoPerfil = new MetroFramework.Controls.MetroComboBox();
             this.lblTipoPerfil = new MetroFramework.Controls.MetroLabel();
             this.tileTipoPerfil = new MetroFramework.Controls.MetroTile();
             this.tileNombre.SuspendLayout();
@@ -175,6 +175,7 @@
             this.txtEmail.UseSelectable = true;
             this.txtEmail.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtEmail.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // tileEmail
             // 
@@ -318,19 +319,19 @@
             this.tileFechaNac.TabIndex = 42;
             this.tileFechaNac.UseSelectable = true;
             // 
-            // metroComboBox1
+            // boxTipoPerfil
             // 
-            this.metroComboBox1.FormattingEnabled = true;
-            this.metroComboBox1.ItemHeight = 23;
-            this.metroComboBox1.Items.AddRange(new object[] {
+            this.boxTipoPerfil.FormattingEnabled = true;
+            this.boxTipoPerfil.ItemHeight = 23;
+            this.boxTipoPerfil.Items.AddRange(new object[] {
             "Administrador",
             "Supervisor",
             "Vendedor"});
-            this.metroComboBox1.Location = new System.Drawing.Point(173, 350);
-            this.metroComboBox1.Name = "metroComboBox1";
-            this.metroComboBox1.Size = new System.Drawing.Size(177, 29);
-            this.metroComboBox1.TabIndex = 4;
-            this.metroComboBox1.UseSelectable = true;
+            this.boxTipoPerfil.Location = new System.Drawing.Point(173, 350);
+            this.boxTipoPerfil.Name = "boxTipoPerfil";
+            this.boxTipoPerfil.Size = new System.Drawing.Size(177, 29);
+            this.boxTipoPerfil.TabIndex = 4;
+            this.boxTipoPerfil.UseSelectable = true;
             // 
             // lblTipoPerfil
             // 
@@ -359,7 +360,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(450, 600);
             this.Controls.Add(this.tileTipoPerfil);
-            this.Controls.Add(this.metroComboBox1);
+            this.Controls.Add(this.boxTipoPerfil);
             this.Controls.Add(this.tileFechaNac);
             this.Controls.Add(this.dateFechaNac);
             this.Controls.Add(this.txtNombre);
@@ -375,6 +376,7 @@
             this.MinimumSize = new System.Drawing.Size(450, 600);
             this.Name = "ModEmpleado";
             this.Text = "Empleado";
+            this.Load += new System.EventHandler(this.ModEmpleado_Load);
             this.tileNombre.ResumeLayout(false);
             this.tileNombre.PerformLayout();
             this.tileApellido.ResumeLayout(false);
@@ -410,7 +412,7 @@
         private MetroFramework.Controls.MetroDateTime dateFechaNac;
         private MetroFramework.Controls.MetroLabel lblFechaNac;
         private MetroFramework.Controls.MetroTile tileFechaNac;
-        private MetroFramework.Controls.MetroComboBox metroComboBox1;
+        private MetroFramework.Controls.MetroComboBox boxTipoPerfil;
         private MetroFramework.Controls.MetroLabel lblTipoPerfil;
         private MetroFramework.Controls.MetroTile tileTipoPerfil;
     }
