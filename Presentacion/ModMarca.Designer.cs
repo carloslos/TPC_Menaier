@@ -32,7 +32,7 @@
             this.BtnAgregar = new MetroFramework.Controls.MetroButton();
             this.tileDescripcion = new MetroFramework.Controls.MetroTile();
             this.lblDescripcion = new MetroFramework.Controls.MetroLabel();
-            this.txtDescripcion = new MetroFramework.Controls.MetroTextBox();
+            this.TxtDescripcion = new MetroFramework.Controls.MetroTextBox();
             this.tileDescripcion.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,35 +82,35 @@
             this.lblDescripcion.TabIndex = 5;
             this.lblDescripcion.Text = "Descripción";
             // 
-            // txtDescripcion
+            // TxtDescripcion
             // 
             // 
             // 
             // 
-            this.txtDescripcion.CustomButton.Image = null;
-            this.txtDescripcion.CustomButton.Location = new System.Drawing.Point(159, 2);
-            this.txtDescripcion.CustomButton.Name = "";
-            this.txtDescripcion.CustomButton.Size = new System.Drawing.Size(15, 15);
-            this.txtDescripcion.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtDescripcion.CustomButton.TabIndex = 1;
-            this.txtDescripcion.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtDescripcion.CustomButton.UseSelectable = true;
-            this.txtDescripcion.CustomButton.Visible = false;
-            this.txtDescripcion.Lines = new string[0];
-            this.txtDescripcion.Location = new System.Drawing.Point(150, 175);
-            this.txtDescripcion.MaxLength = 32767;
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.PasswordChar = '\0';
-            this.txtDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtDescripcion.SelectedText = "";
-            this.txtDescripcion.SelectionLength = 0;
-            this.txtDescripcion.SelectionStart = 0;
-            this.txtDescripcion.ShortcutsEnabled = true;
-            this.txtDescripcion.Size = new System.Drawing.Size(177, 20);
-            this.txtDescripcion.TabIndex = 0;
-            this.txtDescripcion.UseSelectable = true;
-            this.txtDescripcion.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtDescripcion.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtDescripcion.CustomButton.Image = null;
+            this.TxtDescripcion.CustomButton.Location = new System.Drawing.Point(159, 2);
+            this.TxtDescripcion.CustomButton.Name = "";
+            this.TxtDescripcion.CustomButton.Size = new System.Drawing.Size(15, 15);
+            this.TxtDescripcion.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.TxtDescripcion.CustomButton.TabIndex = 1;
+            this.TxtDescripcion.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.TxtDescripcion.CustomButton.UseSelectable = true;
+            this.TxtDescripcion.CustomButton.Visible = false;
+            this.TxtDescripcion.Lines = new string[0];
+            this.TxtDescripcion.Location = new System.Drawing.Point(150, 175);
+            this.TxtDescripcion.MaxLength = 32767;
+            this.TxtDescripcion.Name = "TxtDescripcion";
+            this.TxtDescripcion.PasswordChar = '\0';
+            this.TxtDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.TxtDescripcion.SelectedText = "";
+            this.TxtDescripcion.SelectionLength = 0;
+            this.TxtDescripcion.SelectionStart = 0;
+            this.TxtDescripcion.ShortcutsEnabled = true;
+            this.TxtDescripcion.Size = new System.Drawing.Size(177, 20);
+            this.TxtDescripcion.TabIndex = 0;
+            this.TxtDescripcion.UseSelectable = true;
+            this.TxtDescripcion.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.TxtDescripcion.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // ModMarca
             // 
@@ -119,7 +119,7 @@
             this.Controls.Add(this.BtnVolver);
             this.Controls.Add(this.BtnAgregar);
             this.Controls.Add(this.tileDescripcion);
-            this.Controls.Add(this.txtDescripcion);
+            this.Controls.Add(this.TxtDescripcion);
             this.Name = "ModMarca";
             this.Text = "Marca";
             this.tileDescripcion.ResumeLayout(false);
@@ -134,6 +134,6 @@
         private MetroFramework.Controls.MetroButton BtnAgregar;
         private MetroFramework.Controls.MetroTile tileDescripcion;
         private MetroFramework.Controls.MetroLabel lblDescripcion;
-        private MetroFramework.Controls.MetroTextBox txtDescripcion;
+        private MetroFramework.Controls.MetroTextBox TxtDescripcion;
     }
 }

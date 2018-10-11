@@ -59,8 +59,8 @@ namespace Presentacion
                 }
                 try
                 {
-                    ModEmpleado modEmpleado = new ModEmpleado("Agregar");
-                    modEmpleado.ShowDialog();
+                    ModEmpleado mod = new ModEmpleado("Agregar");
+                    mod.Show();
                     LlenarTabla();
                 }
                 catch (Exception ex)
@@ -83,8 +83,8 @@ namespace Presentacion
                 }
                 try
                 {
-                    ModEmpleado modEmpleado = new ModEmpleado("Editar");
-                    modEmpleado.ShowDialog();
+                    ModEmpleado mod = new ModEmpleado("Editar");
+                    mod.Show();
                     LlenarTabla();
                 }
                 catch (Exception ex)

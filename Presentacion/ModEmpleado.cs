@@ -53,7 +53,7 @@ namespace Presentacion
             this.Close();
         }
 
-        private void txtEmail_TextChanged(object sender, EventArgs e)
+        private void TxtEmail_TextChanged(object sender, EventArgs e)
         {
             bool isEmail;
             try

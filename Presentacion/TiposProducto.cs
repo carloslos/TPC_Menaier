@@ -59,8 +59,8 @@ namespace Presentacion
                 }
                 try
                 {
-                    ModTipoProducto modTipoProducto = new ModTipoProducto("Agregar");
-                    modTipoProducto.ShowDialog();
+                    ModTipoProducto mod = new ModTipoProducto("Agregar");
+                    mod.Show();
                     LlenarTabla();
                 }
                 catch (Exception ex)
@@ -95,8 +95,8 @@ namespace Presentacion
                 }
                 try
                 {
-                    ModTipoProducto modTipoProducto = new ModTipoProducto("Editar");
-                    modTipoProducto.ShowDialog();
+                    ModTipoProducto mod = new ModTipoProducto("Editar");
+                    mod.Show();
                     LlenarTabla();
                 }
                 catch (Exception ex)

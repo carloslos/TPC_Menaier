@@ -90,7 +90,6 @@
             this.dgvProveedores.Size = new System.Drawing.Size(978, 476);
             this.dgvProveedores.TabIndex = 23;
             this.dgvProveedores.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.dgvProveedores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProveedores_CellContentClick);
             // 
             // BtnEditar
             // 
@@ -142,11 +141,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 600);
+            this.Controls.Add(this.dgvProveedores);
             this.Controls.Add(this.BtnEditar);
             this.Controls.Add(this.BtnEliminar);
             this.Controls.Add(this.BtnContactos);
             this.Controls.Add(this.BtnAgregar);
-            this.Controls.Add(this.dgvProveedores);
             this.MinimumSize = new System.Drawing.Size(1024, 600);
             this.Name = "Proveedores";
             this.ShowInTaskbar = false;

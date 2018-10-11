@@ -60,8 +60,8 @@ namespace Presentacion
                 }
                 try
                 {
-                    ModProveedor modProveedor = new ModProveedor("Agregar");
-                    modProveedor.ShowDialog();
+                    ModProveedor mod = new ModProveedor("Agregar");
+                    mod.Show();
                     LlenarTabla();
                 }
                 catch (Exception ex)
@@ -96,8 +96,8 @@ namespace Presentacion
                 }
                 try
                 {
-                    ModProveedor modProveedor = new ModProveedor("Editar");
-                    modProveedor.ShowDialog();
+                    ModProveedor mod = new ModProveedor("Editar");
+                    mod.Show();
                     LlenarTabla();
                 }
                 catch (Exception ex)
@@ -105,11 +105,6 @@ namespace Presentacion
                     MessageBox.Show(ex.ToString());
                 }
             }
-        }
-
-        private void dgvProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void Proveedores_MouseEnter(object sender, EventArgs e)

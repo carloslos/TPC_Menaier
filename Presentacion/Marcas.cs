@@ -60,8 +60,8 @@ namespace Presentacion
                 }
                 try
                 {
-                    ModMarca wndAgregarTipoProducto = new ModMarca("Agregar");
-                    wndAgregarTipoProducto.ShowDialog();
+                    ModMarca mod = new ModMarca("Agregar");
+                    mod.Show();
                     LlenarTabla();
                 }
                 catch (Exception ex)
