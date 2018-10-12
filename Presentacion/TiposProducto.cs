@@ -105,10 +105,5 @@ namespace Presentacion
                 }
             }
         }
-
-        private void TiposProducto_MouseEnter(object sender, EventArgs e)
-        {
-            this.Activate();
-        }
     }
 }

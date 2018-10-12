@@ -39,7 +39,6 @@
             this.ShowInTaskbar = false;
             this.Text = "Metro Template";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.MouseEnter += new System.EventHandler(this.Metro_Template_MouseEnter);
             this.ResumeLayout(false);
 
         }

@@ -52,7 +52,7 @@ namespace Presentacion
             {
                 foreach (Form item in Application.OpenForms)
                 {
-                    if (item.GetType() == typeof(Proveedores))
+                    if (item.GetType() == typeof(ModProveedor))
                     {
                         item.Focus();
                         return;
@@ -88,7 +88,7 @@ namespace Presentacion
             {
                 foreach (Form item in Application.OpenForms)
                 {
-                    if (item.GetType() == typeof(Proveedores))
+                    if (item.GetType() == typeof(ModProveedor))
                     {
                         item.Focus();
                         return;
@@ -105,11 +105,6 @@ namespace Presentacion
                     MessageBox.Show(ex.ToString());
                 }
             }
-        }
-
-        private void Proveedores_MouseEnter(object sender, EventArgs e)
-        {
-            this.Activate();
         }
     }
 }

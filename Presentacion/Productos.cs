@@ -38,18 +38,12 @@ namespace Presentacion
                 dgvProductos.Columns["Descripcion"].HeaderText = "Descripción";
                 dgvProductos.Columns["TipoProducto"].HeaderText = "Tipo de producto";
                 dgvProductos.Columns["Stockmin"].HeaderText = "Stock Minimo";
-                dgvProductos.Columns["Cantidad"].Visible = false;
                 dgvProductos.Columns["Activo"].Visible = false;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-        }
-
-        private void BtnAgregar_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void BtnRefrescar_Click(object sender, EventArgs e)
@@ -64,9 +58,26 @@ namespace Presentacion
             }
         }
 
-        private void Productos_MouseEnter(object sender, EventArgs e)
+        private void BtnAgregar_Click(object sender, EventArgs e)
         {
-            this.Activate();
+            foreach (Form item in Application.OpenForms)
+            {
+                if (item.GetType() == typeof(ModProducto))
+                {
+                    item.Focus();
+                    return;
+                }
+            }
+            try
+            {
+                ModProducto mod = new ModProducto("Agregar");
+                mod.Show();
+                LlenarTabla();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

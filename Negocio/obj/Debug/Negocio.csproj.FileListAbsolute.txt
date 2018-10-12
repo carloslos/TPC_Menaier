@@ -34,3 +34,4 @@ C:\Users\tisoporte\Source\Repos\Azhar1921\TPC_Menaier\Negocio\obj\Debug\Negocio.
 C:\Users\tisoporte\Source\Repos\Azhar1921\TPC_Menaier\Negocio\obj\Debug\Negocio.csproj.CopyComplete
 C:\Users\tisoporte\Source\Repos\Azhar1921\TPC_Menaier\Negocio\obj\Debug\Negocio.dll
 C:\Users\tisoporte\Source\Repos\Azhar1921\TPC_Menaier\Negocio\obj\Debug\Negocio.pdb
+C:\Users\tisoporte\Source\Repos\Azhar1921\TPC_Menaier\Negocio\bin\Debug\MetroFramework.dll

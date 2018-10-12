@@ -16,10 +16,5 @@ namespace Presentacion
         {
             InitializeComponent();
         }
-
-        private void Metro_Template_MouseEnter(object sender, EventArgs e)
-        {
-            this.Activate();
-        }
     }
 }

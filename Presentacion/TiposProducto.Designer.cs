@@ -152,7 +152,6 @@
             this.Text = "Tipos de Producto";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.TiposProducto_Load);
-            this.MouseEnter += new System.EventHandler(this.TiposProducto_MouseEnter);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTiposProducto)).EndInit();
             this.ResumeLayout(false);
 

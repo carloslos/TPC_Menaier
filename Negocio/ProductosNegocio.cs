@@ -32,9 +32,9 @@ namespace Negocio
                         Marca = new Marca(),
                         TipoProducto = new TipoProducto(),
                         Descripcion = (string)accesoDB.Lector["P.DESCRIPCION"],
-                        Precio = (float)accesoDB.Lector["P.PRECIO"],
+                        Precio = (double)accesoDB.Lector["P.PRECIO"],
                         StockMin = (int)accesoDB.Lector["P.STOCKMIN"],
-                        Ganancia = (float)accesoDB.Lector["P.GANANCIA"]
+                        Ganancia = (double)accesoDB.Lector["P.GANANCIA"]
                     };
                     aux.Marca.IdMarca = (int)accesoDB.Lector["P.IDMARCA"];
                     aux.Marca.Descripcion = (string)accesoDB.Lector["M.DESCRIPCION"];

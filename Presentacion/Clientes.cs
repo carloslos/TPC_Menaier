@@ -103,10 +103,5 @@ namespace Presentacion
                 }
             }
         }
-
-        private void Clientes_MouseEnter(object sender, EventArgs e)
-        {
-            this.Activate();
-        }
     }
 }

@@ -33,14 +33,14 @@ namespace Presentacion
             EmpleadosNegocio neg = new EmpleadosNegocio();
             Empleado empleado = new Empleado
             {
-                Nombre = txtNombre.Text.Trim(), // VALIDAR
-                Apellido = txtApellido.Text.Trim()
+                Nombre = TxtNombre.Text.Trim(), // VALIDAR
+                Apellido = TxtApellido.Text.Trim()
             };
             try
             {
                 neg.Agregar(empleado);
-                txtNombre.Text = "";
-                txtApellido.Text = "";
+                TxtNombre.Text = "";
+                TxtApellido.Text = "";
             }
             catch (Exception ex)
             {
@@ -58,7 +58,7 @@ namespace Presentacion
             bool isEmail;
             try
             {
-                MailAddress addr = new MailAddress(txtEmail.Text);
+                MailAddress addr = new MailAddress(TxtEmail.Text);
                 isEmail = true;
             }
             catch
@@ -81,21 +81,21 @@ namespace Presentacion
             {
                 if (empleado != null)
                 {
-                    txtNombre.Text = empleado.Nombre;
-                    txtApellido.Text = empleado.Apellido;
-                    txtDNI.Text = empleado.Dni.ToString();
-                    txtEmail.Text = empleado.Email;
-                    dateFechaNac.Value = empleado.FechaNac;
+                    TxtNombre.Text = empleado.Nombre;
+                    TxtApellido.Text = empleado.Apellido;
+                    TxtDNI.Text = empleado.Dni.ToString();
+                    TxtEmail.Text = empleado.Email;
+                    DateFechaNac.Value = empleado.FechaNac;
                     switch(empleado.TipoPerfil)
                     {
                         case 'A':
-                            boxTipoPerfil.Text = "Administrador";
+                            BoxTipoPerfil.Text = "Administrador";
                             break;
                         case 'S':
-                            boxTipoPerfil.Text = "Supervisor";
+                            BoxTipoPerfil.Text = "Supervisor";
                             break;
                         case 'V':
-                            boxTipoPerfil.Text = "Vendedor";
+                            BoxTipoPerfil.Text = "Vendedor";
                             break;
                         default:
                             break;

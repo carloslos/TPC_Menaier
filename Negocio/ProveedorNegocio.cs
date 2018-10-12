@@ -75,6 +75,63 @@ namespace Negocio
                     conexion.CerrarConexion();
             }
         }
+
+        public void Modificar(Proveedor p)
+        {
+            AccesoDB conexion;
+            try
+            {
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("UPDATE PROVEEDORES SET EMPRESA = @empresa, CUI = @cuit WHERE IDPROVEEDOR = @id");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@empresa", p.Empresa);
+                conexion.Comando.Parameters.AddWithValue("@cuit", p.Cuit);
+
+                conexion.AbrirConexion();
+                conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void EliminarFisico(int id)
+        {
+            AccesoDB conexion;
+            try
+            {
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("DELETE FROM PROVEEDORES WHERE IDPROVEEDOR = @id");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@id", id);
+                conexion.AbrirConexion();
+                conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void EliminarLogico(int id)
+        {
+            AccesoDB conexion;
+            try
+            {
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("UPDATE PROVEEDORES SET ACTIVO = 0 WHERE IDPROVEEDOR = @id");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@id", id);
+                conexion.AbrirConexion();
+                conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
 

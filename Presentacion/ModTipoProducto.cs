@@ -12,7 +12,8 @@ namespace Presentacion
 {
     public partial class ModTipoProducto : Presentacion.Metro_Template
     {
-        private bool val = false; 
+        private bool EntradasVal = false;
+        Validaciones val = new Validaciones();
 
         public ModTipoProducto(string title)
         {
@@ -28,56 +29,60 @@ namespace Presentacion
 
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
-            ValidarEntradas();
-            if(val == true)
+            TiposProductoNegocio neg = new TiposProductoNegocio();
+            TipoProducto tp = new TipoProducto
             {
-                TiposProductoNegocio neg = new TiposProductoNegocio();
-                TipoProducto tp = new TipoProducto
-                {
-                    Descripcion = TxtDescripcion.Text.Trim()
-                };
-                try
-                {
-                    neg.Agregar(tp);
-                    TxtDescripcion.Text = "";
-                    tileDescripcion.Style = MetroFramework.MetroColorStyle.Blue;
-                    lblDescripcion.Style = MetroFramework.MetroColorStyle.Blue;
-                    tileDescripcion.Refresh();
-                    lblDescripcion.Refresh();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
+                Descripcion = TxtDescripcion.Text.Trim()
+            };
+            try
+            {
+                neg.Agregar(tp);
+                TxtDescripcion.Text = "";
+                LimpiarEntradas();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 
         private void TxtDescripcion_TextChanged(object sender, EventArgs e)
         {
-            if (TxtDescripcion.Text.Trim() != "") { val = true; }
-            else { val = false; }
-            tileDescripcion.Style = MetroFramework.MetroColorStyle.Blue;
-            lblDescripcion.Style = MetroFramework.MetroColorStyle.Blue;
-            tileDescripcion.Refresh();
-            lblDescripcion.Refresh();
+            TxtDescripcion.Text = TxtDescripcion.Text.TrimStart();
+            ValidarEntrada(val.EsAlfanumerico,TxtDescripcion, tileDescripcion, lblDescripcion);
+        }
+
+        private void ValidarEntrada(Func<string, bool> metodo,MetroFramework.Controls.MetroTextBox txt, MetroFramework.Controls.MetroTile t, MetroFramework.Controls.MetroLabel l)
+        {
+            if (metodo(txt.Text))
+            {
+                EntradasVal = true;
+                val.CambiarColor(t, l, 'g');
+            }
+            else
+            {
+                EntradasVal = false;
+                if (txt.Text == "")
+                {
+                    val.CambiarColor(t, l, 'b');
+                }
+                else
+                {
+                    val.CambiarColor(t, l, 'r');
+                }
+            }
+            ValidarEntradas();
         }
 
         private void ValidarEntradas()
         {
-            if (val == true)
-            {
-                tileDescripcion.Style = MetroFramework.MetroColorStyle.Green;
-                lblDescripcion.Style = MetroFramework.MetroColorStyle.Green;
-                tileDescripcion.Refresh();
-                lblDescripcion.Refresh();
-            }
-            else
-            {
-                tileDescripcion.Style = MetroFramework.MetroColorStyle.Red;
-                lblDescripcion.Style = MetroFramework.MetroColorStyle.Red;
-                tileDescripcion.Refresh();
-                lblDescripcion.Refresh();
-            }
+            if (EntradasVal == true) { BtnAgregar.Enabled = true; }
+            else { BtnAgregar.Enabled = false; }
+        }
+
+        private void LimpiarEntradas()
+        {
+            val.CambiarColor(tileDescripcion, lblDescripcion, 'b');
         }
     }
 }

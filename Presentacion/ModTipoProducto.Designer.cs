@@ -60,6 +60,9 @@
             // 
             // TxtDescripcion
             // 
+            // 
+            // 
+            // 
             this.TxtDescripcion.CustomButton.Image = null;
             this.TxtDescripcion.CustomButton.Location = new System.Drawing.Point(159, 2);
             this.TxtDescripcion.CustomButton.Name = "";
@@ -84,6 +87,7 @@
             this.TxtDescripcion.UseSelectable = true;
             this.TxtDescripcion.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtDescripcion.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtDescripcion.TextChanged += new System.EventHandler(this.TxtDescripcion_TextChanged);
             // 
             // BtnVolver
             // 

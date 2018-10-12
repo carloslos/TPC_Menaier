@@ -12,10 +12,9 @@ namespace Dominio
         public string Descripcion { get; set; }
         public Marca Marca { get; set; }
         public TipoProducto TipoProducto { get; set; }
-        public float Precio { get; set; }
-        public float Ganancia { get; set; }
+        public double Precio { get; set; }
+        public double Ganancia { get; set; }
         public int StockMin { get; set; }
-        public int Cantidad { get; set; } // Para registrar ventas
         public bool Activo { get; set; }
     }
 }
