@@ -140,3 +140,4 @@ C:\Users\tisoporte\Source\Repos\Azhar1921\TPC_Menaier\Presentacion\obj\Debug\Pre
 C:\Users\tisoporte\Source\Repos\Azhar1921\TPC_Menaier\Presentacion\obj\Debug\Presentacion.exe
 C:\Users\tisoporte\Source\Repos\Azhar1921\TPC_Menaier\Presentacion\obj\Debug\Presentacion.pdb
 C:\Users\tisoporte\Source\Repos\Azhar1921\TPC_Menaier\Presentacion\obj\Debug\Presentacion.MenuPrincipal.resources
+C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ModProveedor.resources

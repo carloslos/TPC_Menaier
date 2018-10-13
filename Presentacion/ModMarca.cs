@@ -15,11 +15,21 @@ namespace Presentacion
         private bool EntradasVal = false;
         Validaciones val = new Validaciones();
 
-        public ModMarca(string title)
+        public ModMarca()
         {
             InitializeComponent();
-            this.Text = title + " " + this.Text;
-            BtnAgregar.Enabled = false;
+            this.Text = "Agregar " + this.Text;
+            BtnMod.Text = "Agregar";
+            BtnMod.Enabled = false;
+        }
+
+        public ModMarca(Marca m)
+        {
+            InitializeComponent();
+            this.Text = "Editar " + this.Text;
+            BtnMod.Text = "Editar";
+            BtnMod.Enabled = false;
+            TxtDescripcion.Text = m.Descripcion;
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
@@ -76,8 +86,8 @@ namespace Presentacion
 
         private void ValidarEntradas()
         {
-            if (EntradasVal == true) { BtnAgregar.Enabled = true; }
-            else { BtnAgregar.Enabled = false; }
+            if (EntradasVal == true) { BtnMod.Enabled = true; }
+            else { BtnMod.Enabled = false; }
         }
 
         private void LimpiarEntradas()

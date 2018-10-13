@@ -13,19 +13,37 @@ namespace Presentacion
 {
     public partial class ModEmpleado : Presentacion.Metro_Template
     {
-        private Empleado empleado = null;
-
-        public ModEmpleado(string title)
+        public ModEmpleado()
         {
             InitializeComponent();
-            this.Text = title + " " + this.Text;
+            this.Text = "Agregar " + this.Text;
+            BtnMod.Text = "Agregar";
         }
 
-        public ModEmpleado(string title, Empleado e)
+        public ModEmpleado(Empleado e)
         {
             InitializeComponent();
-            this.Text = title + " " + this.Text;
-            empleado = e;
+            this.Text = "Editar " + this.Text;
+            BtnMod.Text = "Editar";
+            TxtNombre.Text = e.Nombre;
+            TxtApellido.Text = e.Apellido;
+            TxtDNI.Text = e.Dni.ToString();
+            TxtEmail.Text = e.Email;
+            DateFechaNac.Value = e.FechaNac;
+            switch (e.TipoPerfil)
+            {
+                case 'A':
+                    BoxTipoPerfil.Text = "Administrador";
+                    break;
+                case 'S':
+                    BoxTipoPerfil.Text = "Supervisor";
+                    break;
+                case 'V':
+                    BoxTipoPerfil.Text = "Vendedor";
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void BtnAgregar_Click(object sender, EventArgs e)
@@ -55,61 +73,12 @@ namespace Presentacion
 
         private void TxtEmail_TextChanged(object sender, EventArgs e)
         {
-            bool isEmail;
-            try
-            {
-                MailAddress addr = new MailAddress(TxtEmail.Text);
-                isEmail = true;
-            }
-            catch
-            {
-                isEmail = false;
-            }
-            if(isEmail)
-            {
-                // EMAIL OK
-            }
-            else
-            {
-                // EMAIL NOT OK
-            }
+
         }
 
         private void ModEmpleado_Load(object sender, EventArgs e)
         {
-            try
-            {
-                if (empleado != null)
-                {
-                    TxtNombre.Text = empleado.Nombre;
-                    TxtApellido.Text = empleado.Apellido;
-                    TxtDNI.Text = empleado.Dni.ToString();
-                    TxtEmail.Text = empleado.Email;
-                    DateFechaNac.Value = empleado.FechaNac;
-                    switch(empleado.TipoPerfil)
-                    {
-                        case 'A':
-                            BoxTipoPerfil.Text = "Administrador";
-                            break;
-                        case 'S':
-                            BoxTipoPerfil.Text = "Supervisor";
-                            break;
-                        case 'V':
-                            BoxTipoPerfil.Text = "Vendedor";
-                            break;
-                        default:
-                            break;
-                    }
-                }
-                else
-                {
-                    empleado = new Empleado();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+
         }
     }
 }

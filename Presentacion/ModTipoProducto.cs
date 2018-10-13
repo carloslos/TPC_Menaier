@@ -13,13 +13,25 @@ namespace Presentacion
     public partial class ModTipoProducto : Presentacion.Metro_Template
     {
         private bool EntradasVal = false;
+        TipoProducto tp = null;
         Validaciones val = new Validaciones();
 
-        public ModTipoProducto(string title)
+        public ModTipoProducto()
         {
             InitializeComponent();
-            this.Text = title + " " + this.Text;
-            BtnAgregar.Enabled = false;
+            this.Text = "Agregar " + this.Text;
+            BtnMod.Text = "Agregar";
+            BtnMod.Enabled = false;
+        }
+
+        public ModTipoProducto(TipoProducto Tp)
+        {
+            InitializeComponent();
+            this.Text = "Editar " + this.Text;
+            BtnMod.Text = "Editar";
+            BtnMod.Enabled = false;
+            TxtDescripcion.Text = Tp.Descripcion;
+            tp = Tp;
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
@@ -27,18 +39,25 @@ namespace Presentacion
             this.Close();
         }
 
-        private void BtnAgregar_Click(object sender, EventArgs e)
+        private void BtnMod_Click(object sender, EventArgs e)
         {
             TiposProductoNegocio neg = new TiposProductoNegocio();
-            TipoProducto tp = new TipoProducto
-            {
-                Descripcion = TxtDescripcion.Text.Trim()
-            };
             try
             {
-                neg.Agregar(tp);
-                TxtDescripcion.Text = "";
-                LimpiarEntradas();
+                if (tp != null)
+                {
+                    tp.Descripcion = TxtDescripcion.Text.Trim();
+                    neg.Modificar(tp);
+                    this.Close();
+                }
+                else
+                {
+                    tp = new TipoProducto();
+                    tp.Descripcion = TxtDescripcion.Text.Trim();
+                    neg.Agregar(tp);
+                    TxtDescripcion.Text = "";
+                    LimpiarEntradas();
+                }
             }
             catch (Exception ex)
             {
@@ -76,8 +95,8 @@ namespace Presentacion
 
         private void ValidarEntradas()
         {
-            if (EntradasVal == true) { BtnAgregar.Enabled = true; }
-            else { BtnAgregar.Enabled = false; }
+            if (EntradasVal == true) { BtnMod.Enabled = true; }
+            else { BtnMod.Enabled = false; }
         }
 
         private void LimpiarEntradas()

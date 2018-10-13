@@ -32,26 +32,22 @@
             this.lblTipoProducto = new MetroFramework.Controls.MetroLabel();
             this.BoxTipoProducto = new MetroFramework.Controls.MetroComboBox();
             this.TxtDescripcion = new MetroFramework.Controls.MetroTextBox();
-            this.TxtPrecio = new MetroFramework.Controls.MetroTextBox();
             this.tileStockMin = new MetroFramework.Controls.MetroTile();
             this.lblStockMin = new MetroFramework.Controls.MetroLabel();
             this.TxtGanancia = new MetroFramework.Controls.MetroTextBox();
             this.tileGanancia = new MetroFramework.Controls.MetroTile();
             this.lblGanancia = new MetroFramework.Controls.MetroLabel();
             this.TxtStockMin = new MetroFramework.Controls.MetroTextBox();
-            this.tilePrecio = new MetroFramework.Controls.MetroTile();
-            this.lblPrecio = new MetroFramework.Controls.MetroLabel();
             this.tileDescripcion = new MetroFramework.Controls.MetroTile();
             this.lblDescripcion = new MetroFramework.Controls.MetroLabel();
             this.BtnVolver = new MetroFramework.Controls.MetroButton();
-            this.BtnAgregar = new MetroFramework.Controls.MetroButton();
+            this.BtnMod = new MetroFramework.Controls.MetroButton();
             this.tileMarca = new MetroFramework.Controls.MetroTile();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.BoxMarca = new MetroFramework.Controls.MetroComboBox();
             this.tileTipoProducto.SuspendLayout();
             this.tileStockMin.SuspendLayout();
             this.tileGanancia.SuspendLayout();
-            this.tilePrecio.SuspendLayout();
             this.tileDescripcion.SuspendLayout();
             this.tileMarca.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +58,7 @@
             this.tileTipoProducto.Controls.Add(this.lblTipoProducto);
             this.tileTipoProducto.Enabled = false;
             this.tileTipoProducto.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tileTipoProducto.Location = new System.Drawing.Point(89, 345);
+            this.tileTipoProducto.Location = new System.Drawing.Point(89, 324);
             this.tileTipoProducto.Name = "tileTipoProducto";
             this.tileTipoProducto.Size = new System.Drawing.Size(100, 29);
             this.tileTipoProducto.TabIndex = 54;
@@ -86,7 +82,7 @@
             "Administrador",
             "Supervisor",
             "Vendedor"});
-            this.BoxTipoProducto.Location = new System.Drawing.Point(185, 345);
+            this.BoxTipoProducto.Location = new System.Drawing.Point(185, 324);
             this.BoxTipoProducto.Name = "BoxTipoProducto";
             this.BoxTipoProducto.Size = new System.Drawing.Size(177, 29);
             this.BoxTipoProducto.TabIndex = 49;
@@ -123,44 +119,13 @@
             this.TxtDescripcion.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.TxtDescripcion.TextChanged += new System.EventHandler(this.TxtDescripcion_TextChanged);
             // 
-            // TxtPrecio
-            // 
-            // 
-            // 
-            // 
-            this.TxtPrecio.CustomButton.Image = null;
-            this.TxtPrecio.CustomButton.Location = new System.Drawing.Point(159, 2);
-            this.TxtPrecio.CustomButton.Name = "";
-            this.TxtPrecio.CustomButton.Size = new System.Drawing.Size(15, 15);
-            this.TxtPrecio.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.TxtPrecio.CustomButton.TabIndex = 1;
-            this.TxtPrecio.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.TxtPrecio.CustomButton.UseSelectable = true;
-            this.TxtPrecio.CustomButton.Visible = false;
-            this.TxtPrecio.Lines = new string[0];
-            this.TxtPrecio.Location = new System.Drawing.Point(185, 175);
-            this.TxtPrecio.MaxLength = 32767;
-            this.TxtPrecio.Name = "TxtPrecio";
-            this.TxtPrecio.PasswordChar = '\0';
-            this.TxtPrecio.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.TxtPrecio.SelectedText = "";
-            this.TxtPrecio.SelectionLength = 0;
-            this.TxtPrecio.SelectionStart = 0;
-            this.TxtPrecio.ShortcutsEnabled = true;
-            this.TxtPrecio.Size = new System.Drawing.Size(177, 20);
-            this.TxtPrecio.TabIndex = 46;
-            this.TxtPrecio.UseSelectable = true;
-            this.TxtPrecio.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.TxtPrecio.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.TxtPrecio.TextChanged += new System.EventHandler(this.TxtPrecio_TextChanged);
-            // 
             // tileStockMin
             // 
             this.tileStockMin.ActiveControl = null;
             this.tileStockMin.Controls.Add(this.lblStockMin);
             this.tileStockMin.Enabled = false;
             this.tileStockMin.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tileStockMin.Location = new System.Drawing.Point(89, 289);
+            this.tileStockMin.Location = new System.Drawing.Point(89, 255);
             this.tileStockMin.Name = "tileStockMin";
             this.tileStockMin.Size = new System.Drawing.Size(100, 20);
             this.tileStockMin.TabIndex = 53;
@@ -191,7 +156,7 @@
             this.TxtGanancia.CustomButton.UseSelectable = true;
             this.TxtGanancia.CustomButton.Visible = false;
             this.TxtGanancia.Lines = new string[0];
-            this.TxtGanancia.Location = new System.Drawing.Point(185, 233);
+            this.TxtGanancia.Location = new System.Drawing.Point(185, 190);
             this.TxtGanancia.MaxLength = 32767;
             this.TxtGanancia.Name = "TxtGanancia";
             this.TxtGanancia.PasswordChar = '\0';
@@ -212,7 +177,7 @@
             this.tileGanancia.Controls.Add(this.lblGanancia);
             this.tileGanancia.Enabled = false;
             this.tileGanancia.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tileGanancia.Location = new System.Drawing.Point(89, 233);
+            this.tileGanancia.Location = new System.Drawing.Point(89, 190);
             this.tileGanancia.Name = "tileGanancia";
             this.tileGanancia.Size = new System.Drawing.Size(100, 20);
             this.tileGanancia.TabIndex = 52;
@@ -243,7 +208,7 @@
             this.TxtStockMin.CustomButton.UseSelectable = true;
             this.TxtStockMin.CustomButton.Visible = false;
             this.TxtStockMin.Lines = new string[0];
-            this.TxtStockMin.Location = new System.Drawing.Point(185, 289);
+            this.TxtStockMin.Location = new System.Drawing.Point(185, 255);
             this.TxtStockMin.MaxLength = 32767;
             this.TxtStockMin.Name = "TxtStockMin";
             this.TxtStockMin.PasswordChar = '\0';
@@ -257,28 +222,6 @@
             this.TxtStockMin.UseSelectable = true;
             this.TxtStockMin.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtStockMin.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // tilePrecio
-            // 
-            this.tilePrecio.ActiveControl = null;
-            this.tilePrecio.Controls.Add(this.lblPrecio);
-            this.tilePrecio.Enabled = false;
-            this.tilePrecio.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tilePrecio.Location = new System.Drawing.Point(89, 175);
-            this.tilePrecio.Name = "tilePrecio";
-            this.tilePrecio.Size = new System.Drawing.Size(100, 20);
-            this.tilePrecio.TabIndex = 51;
-            this.tilePrecio.UseSelectable = true;
-            // 
-            // lblPrecio
-            // 
-            this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Enabled = false;
-            this.lblPrecio.Location = new System.Drawing.Point(43, 1);
-            this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(46, 19);
-            this.lblPrecio.TabIndex = 5;
-            this.lblPrecio.Text = "Precio";
             // 
             // tileDescripcion
             // 
@@ -313,16 +256,16 @@
             this.BtnVolver.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnVolver.UseSelectable = true;
             // 
-            // BtnAgregar
+            // BtnMod
             // 
-            this.BtnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnAgregar.Location = new System.Drawing.Point(112, 529);
-            this.BtnAgregar.Name = "BtnAgregar";
-            this.BtnAgregar.Size = new System.Drawing.Size(100, 23);
-            this.BtnAgregar.TabIndex = 55;
-            this.BtnAgregar.Text = "Agregar";
-            this.BtnAgregar.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.BtnAgregar.UseSelectable = true;
+            this.BtnMod.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnMod.Location = new System.Drawing.Point(112, 529);
+            this.BtnMod.Name = "BtnMod";
+            this.BtnMod.Size = new System.Drawing.Size(100, 23);
+            this.BtnMod.TabIndex = 55;
+            this.BtnMod.Text = "Mod";
+            this.BtnMod.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BtnMod.UseSelectable = true;
             // 
             // tileMarca
             // 
@@ -369,14 +312,12 @@
             this.Controls.Add(this.TxtStockMin);
             this.Controls.Add(this.tileMarca);
             this.Controls.Add(this.BtnVolver);
-            this.Controls.Add(this.BtnAgregar);
+            this.Controls.Add(this.BtnMod);
             this.Controls.Add(this.tileTipoProducto);
             this.Controls.Add(this.TxtDescripcion);
-            this.Controls.Add(this.TxtPrecio);
             this.Controls.Add(this.tileStockMin);
             this.Controls.Add(this.TxtGanancia);
             this.Controls.Add(this.tileGanancia);
-            this.Controls.Add(this.tilePrecio);
             this.Controls.Add(this.tileDescripcion);
             this.MinimumSize = new System.Drawing.Size(450, 600);
             this.Name = "ModProducto";
@@ -388,8 +329,6 @@
             this.tileStockMin.PerformLayout();
             this.tileGanancia.ResumeLayout(false);
             this.tileGanancia.PerformLayout();
-            this.tilePrecio.ResumeLayout(false);
-            this.tilePrecio.PerformLayout();
             this.tileDescripcion.ResumeLayout(false);
             this.tileDescripcion.PerformLayout();
             this.tileMarca.ResumeLayout(false);
@@ -404,19 +343,16 @@
         private MetroFramework.Controls.MetroLabel lblTipoProducto;
         private MetroFramework.Controls.MetroComboBox BoxTipoProducto;
         private MetroFramework.Controls.MetroTextBox TxtDescripcion;
-        private MetroFramework.Controls.MetroTextBox TxtPrecio;
         private MetroFramework.Controls.MetroTile tileStockMin;
         private MetroFramework.Controls.MetroLabel lblStockMin;
         private MetroFramework.Controls.MetroTextBox TxtGanancia;
         private MetroFramework.Controls.MetroTile tileGanancia;
         private MetroFramework.Controls.MetroLabel lblGanancia;
         private MetroFramework.Controls.MetroTextBox TxtStockMin;
-        private MetroFramework.Controls.MetroTile tilePrecio;
-        private MetroFramework.Controls.MetroLabel lblPrecio;
         private MetroFramework.Controls.MetroTile tileDescripcion;
         private MetroFramework.Controls.MetroLabel lblDescripcion;
         private MetroFramework.Controls.MetroButton BtnVolver;
-        private MetroFramework.Controls.MetroButton BtnAgregar;
+        private MetroFramework.Controls.MetroButton BtnMod;
         private MetroFramework.Controls.MetroTile tileMarca;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroComboBox BoxMarca;

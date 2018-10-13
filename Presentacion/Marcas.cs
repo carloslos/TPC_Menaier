@@ -60,7 +60,7 @@ namespace Presentacion
                 }
                 try
                 {
-                    ModMarca mod = new ModMarca("Agregar");
+                    ModMarca mod = new ModMarca();
                     mod.Show();
                     LlenarTabla();
                 }

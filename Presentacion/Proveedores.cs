@@ -60,7 +60,7 @@ namespace Presentacion
                 }
                 try
                 {
-                    ModProveedor mod = new ModProveedor("Agregar");
+                    ModProveedor mod = new ModProveedor();
                     mod.Show();
                     LlenarTabla();
                 }
@@ -96,7 +96,8 @@ namespace Presentacion
                 }
                 try
                 {
-                    ModProveedor mod = new ModProveedor("Editar");
+                    Proveedor obj = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
+                    ModProveedor mod = new ModProveedor(obj);
                     mod.Show();
                     LlenarTabla();
                 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Negocio;
+using Dominio;
 
 namespace Presentacion
 {
@@ -59,7 +60,7 @@ namespace Presentacion
                 }
                 try
                 {
-                    ModTipoProducto mod = new ModTipoProducto("Agregar");
+                    ModTipoProducto mod = new ModTipoProducto();
                     mod.Show();
                     LlenarTabla();
                 }
@@ -95,7 +96,8 @@ namespace Presentacion
                 }
                 try
                 {
-                    ModTipoProducto mod = new ModTipoProducto("Editar");
+                    TipoProducto obj = (TipoProducto)dgvTiposProducto.CurrentRow.DataBoundItem;
+                    ModTipoProducto mod = new ModTipoProducto(obj);
                     mod.Show();
                     LlenarTabla();
                 }

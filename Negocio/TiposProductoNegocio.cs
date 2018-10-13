@@ -55,7 +55,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("INSERT INTO TIPOSPRODUCTO(DESCRIPCION) VALUES (@descripcion)");
+                conexion.SetearConsulta("INSERT INTO TIPOSPRODUCTO(DESCRIPCION, ACTIVO) VALUES (@descripcion, 1)");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@descripcion", nuevo.Descripcion);
 
@@ -75,13 +75,14 @@ namespace Negocio
 
         public void Modificar(TipoProducto tp)
         {
-            AccesoDB conexion;
+            AccesoDB conexion = null;
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("UPDATE TIPOSPRODUCTOS SET DESCRIPCION = @descripcion WHERE IDTIPOPRODUCTO = @id");
+                conexion.SetearConsulta("UPDATE TIPOSPRODUCTO SET DESCRIPCION = @descripcion WHERE IDTIPOPRODUCTO = @id");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@descripcion", tp.Descripcion);
+                conexion.Comando.Parameters.AddWithValue("@id", tp.IdTipoProducto);
 
                 conexion.AbrirConexion();
                 conexion.EjecutarAccion();
@@ -89,6 +90,11 @@ namespace Negocio
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.CerrarConexion();
             }
         }
 

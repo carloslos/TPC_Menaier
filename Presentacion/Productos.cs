@@ -70,7 +70,7 @@ namespace Presentacion
             }
             try
             {
-                ModProducto mod = new ModProducto("Agregar");
+                ModProducto mod = new ModProducto();
                 mod.Show();
                 LlenarTabla();
             }

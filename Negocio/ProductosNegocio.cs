@@ -17,7 +17,7 @@ namespace Negocio
 
             try
             {
-                accesoDB.SetearConsulta("SELECT P.IDPRODUCTO, P.DESCRIPCION, M.DESCRIPCION, TP.DESCRIPCION, P.PRECIO, P.STOCKMIN, P.GANANCIA, P.IDMARCA, P.IDTIPOPRODUCTO FROM PRODUCTOS AS P " +
+                accesoDB.SetearConsulta("SELECT P.IDPRODUCTO, P.DESCRIPCION, M.DESCRIPCION, TP.DESCRIPCION, P.STOCKMIN, P.GANANCIA, P.IDMARCA, P.IDTIPOPRODUCTO FROM PRODUCTOS AS P " +
                                         "INNER JOIN MARCAS AS M ON P.IDMARCA = M.IDMARCA " +
                                         "INNER JOIN TIPOSPRODUCTO AS TP ON P.IDTIPOPRODUCTO = TP.IDTIPOPRODUCTO " +
                                         "WHERE P.ACTIVO = 1");
@@ -32,7 +32,7 @@ namespace Negocio
                         Marca = new Marca(),
                         TipoProducto = new TipoProducto(),
                         Descripcion = (string)accesoDB.Lector["P.DESCRIPCION"],
-                        Precio = (double)accesoDB.Lector["P.PRECIO"],
+                        //Precio = (double)accesoDB.Lector["P.PRECIO"],
                         StockMin = (int)accesoDB.Lector["P.STOCKMIN"],
                         Ganancia = (double)accesoDB.Lector["P.GANANCIA"]
                     };
@@ -66,12 +66,12 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("INSERT INTO PRODUCTOS(IDMARCA, IDTIPOPRODUCTO, DESCRIPCION, PRECIO, STOCKMIN, GANANCIA) VALUES (@idmarca, @idtipoproducto, @descripcion, @precio, @stockmin, @ganancia)");
+                conexion.SetearConsulta("INSERT INTO PRODUCTOS(IDMARCA, IDTIPOPRODUCTO, DESCRIPCION, STOCKMIN, GANANCIA) VALUES (@idmarca, @idtipoproducto, @descripcion, @stockmin, @ganancia)");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@idmarca", nuevo.Marca.IdMarca);
                 conexion.Comando.Parameters.AddWithValue("@idtipoproducto", nuevo.TipoProducto.IdTipoProducto);
                 conexion.Comando.Parameters.AddWithValue("@descripcion", nuevo.Descripcion);
-                conexion.Comando.Parameters.AddWithValue("@precio", nuevo.Precio);
+                //conexion.Comando.Parameters.AddWithValue("@precio", nuevo.Precio);
                 conexion.Comando.Parameters.AddWithValue("@stockmin", nuevo.StockMin);
                 conexion.Comando.Parameters.AddWithValue("@ganancia", nuevo.Ganancia);
 
@@ -86,6 +86,67 @@ namespace Negocio
             {
                 if (conexion != null)
                     conexion.CerrarConexion();
+            }
+        }
+
+        public void Modificar(Producto p)
+        {
+            AccesoDB conexion;
+            try
+            {
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("UPDATE PRODUCTOS SET IDMARCA = @idmarca, IDTIPOPRODUCTO = @idtipoproducto, DESCRIPCION = @descripcion, PRECIO = @precio, STOCKMIN = @stockmin, GANANCIA = @ganancia WHERE IDPROVEEDOR = @id");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@idmarca", p.Marca.IdMarca);
+                conexion.Comando.Parameters.AddWithValue("@idtipoproducto", p.TipoProducto.IdTipoProducto);
+                conexion.Comando.Parameters.AddWithValue("@descripcion", p.Descripcion);
+                //conexion.Comando.Parameters.AddWithValue("@precio", p.Precio);
+                conexion.Comando.Parameters.AddWithValue("@stockmin", p.StockMin);
+                conexion.Comando.Parameters.AddWithValue("@ganancia", p.Ganancia);
+
+                conexion.AbrirConexion();
+                conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void EliminarFisico(int id)
+        {
+            AccesoDB conexion;
+            try
+            {
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("DELETE FROM PRODUCTOS WHERE IDPRODUCTO = @id");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@id", id);
+                conexion.AbrirConexion();
+                conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void EliminarLogico(int id)
+        {
+            AccesoDB conexion;
+            try
+            {
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("UPDATE PRODUCTOS SET ACTIVO = 0 WHERE IDPRODUCTO = @id");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@id", id);
+                conexion.AbrirConexion();
+                conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
         }
     }

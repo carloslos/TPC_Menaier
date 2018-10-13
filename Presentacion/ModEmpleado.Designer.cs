@@ -47,7 +47,7 @@
             this.tileNombre = new MetroFramework.Controls.MetroTile();
             this.lblNombre = new MetroFramework.Controls.MetroLabel();
             this.BtnVolver = new MetroFramework.Controls.MetroButton();
-            this.BtnAgregar = new MetroFramework.Controls.MetroButton();
+            this.BtnMod = new MetroFramework.Controls.MetroButton();
             this.tileTipoPerfil.SuspendLayout();
             this.tileFechaNac.SuspendLayout();
             this.tileEmail.SuspendLayout();
@@ -74,7 +74,7 @@
             this.lblTipoPerfil.Enabled = false;
             this.lblTipoPerfil.Location = new System.Drawing.Point(3, 6);
             this.lblTipoPerfil.Name = "lblTipoPerfil";
-            this.lblTipoPerfil.Size = new System.Drawing.Size(88, 19);
+            this.lblTipoPerfil.Size = new System.Drawing.Size(87, 19);
             this.lblTipoPerfil.TabIndex = 5;
             this.lblTipoPerfil.Text = "Tipo de Perfil";
             // 
@@ -343,17 +343,17 @@
             this.BtnVolver.UseSelectable = true;
             this.BtnVolver.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
-            // BtnAgregar
+            // BtnMod
             // 
-            this.BtnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnAgregar.Location = new System.Drawing.Point(109, 554);
-            this.BtnAgregar.Name = "BtnAgregar";
-            this.BtnAgregar.Size = new System.Drawing.Size(100, 23);
-            this.BtnAgregar.TabIndex = 6;
-            this.BtnAgregar.Text = "Agregar";
-            this.BtnAgregar.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.BtnAgregar.UseSelectable = true;
-            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
+            this.BtnMod.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnMod.Location = new System.Drawing.Point(109, 554);
+            this.BtnMod.Name = "BtnMod";
+            this.BtnMod.Size = new System.Drawing.Size(100, 23);
+            this.BtnMod.TabIndex = 6;
+            this.BtnMod.Text = "Mod";
+            this.BtnMod.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BtnMod.UseSelectable = true;
+            this.BtnMod.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // ModEmpleado
             // 
@@ -372,7 +372,7 @@
             this.Controls.Add(this.tileApellido);
             this.Controls.Add(this.tileNombre);
             this.Controls.Add(this.BtnVolver);
-            this.Controls.Add(this.BtnAgregar);
+            this.Controls.Add(this.BtnMod);
             this.MinimumSize = new System.Drawing.Size(450, 600);
             this.Name = "ModEmpleado";
             this.Text = "Empleado";
@@ -396,7 +396,7 @@
         #endregion
 
         private MetroFramework.Controls.MetroButton BtnVolver;
-        private MetroFramework.Controls.MetroButton BtnAgregar;
+        private MetroFramework.Controls.MetroButton BtnMod;
         private MetroFramework.Controls.MetroTile tileNombre;
         private MetroFramework.Controls.MetroLabel lblNombre;
         private MetroFramework.Controls.MetroTile tileApellido;

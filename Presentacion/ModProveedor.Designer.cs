@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.BtnVolver = new MetroFramework.Controls.MetroButton();
-            this.BtnAgregar = new MetroFramework.Controls.MetroButton();
+            this.BtnMod = new MetroFramework.Controls.MetroButton();
             this.tileEmpresa = new MetroFramework.Controls.MetroTile();
             this.lblEmpresa = new MetroFramework.Controls.MetroLabel();
             this.TxtEmpresa = new MetroFramework.Controls.MetroTextBox();
@@ -51,16 +51,16 @@
             this.BtnVolver.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnVolver.UseSelectable = true;
             // 
-            // BtnAgregar
+            // BtnMod
             // 
-            this.BtnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnAgregar.Location = new System.Drawing.Point(79, 277);
-            this.BtnAgregar.Name = "BtnAgregar";
-            this.BtnAgregar.Size = new System.Drawing.Size(100, 23);
-            this.BtnAgregar.TabIndex = 8;
-            this.BtnAgregar.Text = "Agregar";
-            this.BtnAgregar.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.BtnAgregar.UseSelectable = true;
+            this.BtnMod.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnMod.Location = new System.Drawing.Point(79, 277);
+            this.BtnMod.Name = "BtnMod";
+            this.BtnMod.Size = new System.Drawing.Size(100, 23);
+            this.BtnMod.TabIndex = 8;
+            this.BtnMod.Text = "Mod";
+            this.BtnMod.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BtnMod.UseSelectable = true;
             // 
             // tileEmpresa
             // 
@@ -175,7 +175,7 @@
             this.Controls.Add(this.tileCuit);
             this.Controls.Add(this.TxtCuit);
             this.Controls.Add(this.BtnVolver);
-            this.Controls.Add(this.BtnAgregar);
+            this.Controls.Add(this.BtnMod);
             this.Controls.Add(this.tileEmpresa);
             this.Controls.Add(this.TxtEmpresa);
             this.MinimumSize = new System.Drawing.Size(385, 376);
@@ -193,7 +193,7 @@
         #endregion
 
         private MetroFramework.Controls.MetroButton BtnVolver;
-        private MetroFramework.Controls.MetroButton BtnAgregar;
+        private MetroFramework.Controls.MetroButton BtnMod;
         private MetroFramework.Controls.MetroTile tileEmpresa;
         private MetroFramework.Controls.MetroLabel lblEmpresa;
         private MetroFramework.Controls.MetroTextBox TxtEmpresa;

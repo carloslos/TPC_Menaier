@@ -15,10 +15,23 @@ namespace Presentacion
         private bool[] EntradasVal = new bool[6];
         Validaciones val = new Validaciones();
 
-        public ModProducto(string title)
+        public ModProducto()
         {
             InitializeComponent();
-            this.Text = title + " " + this.Text;
+            this.Text = "Agregar " + this.Text;
+            BtnMod.Text = "Agregar";
+            BtnMod.Enabled = false;
+        }
+
+        public ModProducto(Producto p)
+        {
+            InitializeComponent();
+            this.Text = "Editar " + this.Text;
+            BtnMod.Text = "Editar";
+            BtnMod.Enabled = false;
+            TxtDescripcion.Text = p.Descripcion;
+            TxtGanancia.Text = p.Ganancia.ToString();
+            TxtStockMin.Text = p.StockMin.ToString();
         }
 
         private void ModProducto_Load(object sender, EventArgs e)
@@ -40,13 +53,13 @@ namespace Presentacion
             Producto p = new Producto
             {
                 Descripcion = TxtDescripcion.Text.Trim(),
-                Precio = Convert.ToDouble(TxtPrecio.Text.Trim())
+                Ganancia = Convert.ToDouble(TxtGanancia.Text.Trim())
             };
             try
             {
                 neg.Agregar(p);
                 TxtDescripcion.Text = "";
-                TxtPrecio.Text = "";
+                TxtGanancia.Text = "";
                 LimpiarEntradas();
             }
             catch (Exception ex)
@@ -63,8 +76,8 @@ namespace Presentacion
 
         private void TxtPrecio_TextChanged(object sender, EventArgs e)
         {
-            TxtPrecio.Text = TxtPrecio.Text.TrimStart();
-            ValidarEntrada(1, val.EsNumero, TxtPrecio, tilePrecio, lblPrecio);
+            TxtGanancia.Text = TxtGanancia.Text.TrimStart();
+            ValidarEntrada(1, val.EsNumero, TxtGanancia, tileGanancia, lblGanancia);
         }
 
         private void ValidarEntrada(int c, Func<string, bool> metodo, MetroFramework.Controls.MetroTextBox txt, MetroFramework.Controls.MetroTile t, MetroFramework.Controls.MetroLabel l)
@@ -92,13 +105,13 @@ namespace Presentacion
         private void LimpiarEntradas()
         {
             val.CambiarColor(tileDescripcion, lblDescripcion, 'b');
-            val.CambiarColor(tilePrecio, lblPrecio, 'b');
+            val.CambiarColor(tileGanancia, lblGanancia, 'b');
         }
 
         private void ValidarEntradas()
         {
-            if (EntradasVal[0] == true && EntradasVal[1] == true) { BtnAgregar.Enabled = true; }
-            else { BtnAgregar.Enabled = false; }
+            if (EntradasVal[0] == true && EntradasVal[1] == true) { BtnMod.Enabled = true; }
+            else { BtnMod.Enabled = false; }
         }
     }
 }

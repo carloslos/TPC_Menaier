@@ -15,10 +15,22 @@ namespace Presentacion
         private bool[] EntradasVal = new bool[2];
         Validaciones val = new Validaciones();
 
-        public ModProveedor(string title)
+        public ModProveedor()
         {
             InitializeComponent();
-            this.Text = title + " " + this.Text;
+            this.Text = "Agregar " + this.Text;
+            BtnMod.Text = "Agregar";
+            BtnMod.Enabled = false;
+        }
+
+        public ModProveedor(Proveedor p)
+        {
+            InitializeComponent();
+            this.Text = "Editar " + this.Text;
+            BtnMod.Text = "Editar";
+            BtnMod.Enabled = false;
+            TxtEmpresa.Text = p.Empresa;
+            TxtCuit.Text = p.Cuit.ToString();
         }
 
         private void ModProveedor_Load(object sender, EventArgs e)
@@ -97,8 +109,8 @@ namespace Presentacion
 
         private void ValidarEntradas()
         {
-            if (EntradasVal[0] == true && EntradasVal[1] == true) { BtnAgregar.Enabled = true; }
-            else { BtnAgregar.Enabled = false; }
+            if (EntradasVal[0] == true && EntradasVal[1] == true) { BtnMod.Enabled = true; }
+            else { BtnMod.Enabled = false; }
         }
     }
 }

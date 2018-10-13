@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.BtnVolver = new MetroFramework.Controls.MetroButton();
-            this.BtnAgregar = new MetroFramework.Controls.MetroButton();
+            this.BtnMod = new MetroFramework.Controls.MetroButton();
             this.tileDescripcion = new MetroFramework.Controls.MetroTile();
             this.lblDescripcion = new MetroFramework.Controls.MetroLabel();
             this.TxtDescripcion = new MetroFramework.Controls.MetroTextBox();
@@ -48,17 +48,17 @@
             this.BtnVolver.UseSelectable = true;
             this.BtnVolver.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
-            // BtnAgregar
+            // BtnMod
             // 
-            this.BtnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnAgregar.Location = new System.Drawing.Point(76, 267);
-            this.BtnAgregar.Name = "BtnAgregar";
-            this.BtnAgregar.Size = new System.Drawing.Size(100, 23);
-            this.BtnAgregar.TabIndex = 1;
-            this.BtnAgregar.Text = "Agregar";
-            this.BtnAgregar.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.BtnAgregar.UseSelectable = true;
-            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
+            this.BtnMod.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnMod.Location = new System.Drawing.Point(76, 267);
+            this.BtnMod.Name = "BtnMod";
+            this.BtnMod.Size = new System.Drawing.Size(100, 23);
+            this.BtnMod.TabIndex = 1;
+            this.BtnMod.Text = "Mod";
+            this.BtnMod.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BtnMod.UseSelectable = true;
+            this.BtnMod.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // tileDescripcion
             // 
@@ -118,7 +118,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(385, 376);
             this.Controls.Add(this.BtnVolver);
-            this.Controls.Add(this.BtnAgregar);
+            this.Controls.Add(this.BtnMod);
             this.Controls.Add(this.tileDescripcion);
             this.Controls.Add(this.TxtDescripcion);
             this.Name = "ModMarca";
@@ -132,7 +132,7 @@
         #endregion
 
         private MetroFramework.Controls.MetroButton BtnVolver;
-        private MetroFramework.Controls.MetroButton BtnAgregar;
+        private MetroFramework.Controls.MetroButton BtnMod;
         private MetroFramework.Controls.MetroTile tileDescripcion;
         private MetroFramework.Controls.MetroLabel lblDescripcion;
         private MetroFramework.Controls.MetroTextBox TxtDescripcion;

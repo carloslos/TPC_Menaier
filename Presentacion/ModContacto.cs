@@ -14,6 +14,7 @@ namespace Presentacion
         {
             InitializeComponent();
             this.Text = title + " " + this.Text;
+            BtnMod.Text = title;
         }
     }
 }
