@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Negocio
 {
-    public class ClienteNegocio
+    class CompraNegocio
     {
-
     }
 }

@@ -78,14 +78,15 @@ namespace Negocio
 
         public void Modificar(Proveedor p)
         {
-            AccesoDB conexion;
+            AccesoDB conexion = null;
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("UPDATE PROVEEDORES SET EMPRESA = @empresa, CUI = @cuit WHERE IDPROVEEDOR = @id");
+                conexion.SetearConsulta("UPDATE PROVEEDORES SET EMPRESA = @empresa, CUIT = @cuit WHERE IDPROVEEDOR = @id");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@empresa", p.Empresa);
                 conexion.Comando.Parameters.AddWithValue("@cuit", p.Cuit);
+                conexion.Comando.Parameters.AddWithValue("@id", p.IdProveedor);
 
                 conexion.AbrirConexion();
                 conexion.EjecutarAccion();
@@ -93,6 +94,11 @@ namespace Negocio
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.CerrarConexion();
             }
         }
 

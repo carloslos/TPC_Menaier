@@ -16,5 +16,10 @@ namespace Dominio
         public List<Telefono> LstTelefonos { get; set; }
         public List<Domicilio> LstDomicilios  { get; set; }
         public bool Activo { get; set; }
+
+        public override string ToString()
+        {
+            return Nombre + " " + Apellido;
+        }
     }
 }

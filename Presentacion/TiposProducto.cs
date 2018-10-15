@@ -33,13 +33,15 @@ namespace Presentacion
 
         private void LlenarTabla()
         {
-            TiposProductoNegocio neg = new TiposProductoNegocio();
+            TipoProductoNegocio neg = new TipoProductoNegocio();
             try
             {
                 dgvTiposProducto.DataSource = neg.Listar();
                 dgvTiposProducto.Columns["IdTipoProducto"].HeaderText = "ID";
                 dgvTiposProducto.Columns["Descripcion"].HeaderText = "Descripción";
                 dgvTiposProducto.Columns["Activo"].Visible = false;
+                dgvTiposProducto.Update();
+                dgvTiposProducto.Refresh();
             }
             catch (Exception ex)
             {
@@ -61,25 +63,13 @@ namespace Presentacion
                 try
                 {
                     ModTipoProducto mod = new ModTipoProducto();
-                    mod.Show();
+                    mod.ShowDialog();
                     LlenarTabla();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
                 }
-            }
-        }
-
-        private void BtnRefrescar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                LlenarTabla();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -98,8 +88,36 @@ namespace Presentacion
                 {
                     TipoProducto obj = (TipoProducto)dgvTiposProducto.CurrentRow.DataBoundItem;
                     ModTipoProducto mod = new ModTipoProducto(obj);
-                    mod.Show();
+                    mod.ShowDialog();
                     LlenarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            {
+                TipoProductoNegocio neg = new TipoProductoNegocio();
+                TipoProducto tp = (TipoProducto)dgvTiposProducto.CurrentRow.DataBoundItem;
+                try
+                {
+                    using (var popup = new Confirmacion(@"eliminar """ + tp.ToString() + @""""))
+                    {
+                        var R = popup.ShowDialog();
+                        if (R == DialogResult.OK)
+                        {
+                            bool conf = popup.R;
+                            if (tp != null && conf == true)
+                            {
+                                neg.EliminarLogico(tp.IdTipoProducto);
+                                LlenarTabla();
+                            }
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {

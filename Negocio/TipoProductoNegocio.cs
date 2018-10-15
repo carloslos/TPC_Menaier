@@ -4,36 +4,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dominio;
+using System.Data.SqlClient;
 
 namespace Negocio
 {
-    public class MarcasNegocio
+    public class TipoProductoNegocio
     {
-
-        public List<Marca> Listar()
+        public List<TipoProducto> Listar()
         {
-            Marca aux;
-            List<Marca> lstMarcas = new List<Marca>();
+            TipoProducto aux;
+            List<TipoProducto> lstTiposProducto = new List<TipoProducto>();
             AccesoDB accesoDB = new AccesoDB();
 
             try
             {
-                accesoDB.SetearConsulta("SELECT IDMARCA, DESCRIPCION FROM MARCAS WHERE ACTIVO = 1");
+                accesoDB.SetearConsulta("SELECT IDTIPOPRODUCTO, DESCRIPCION FROM TIPOSPRODUCTO WHERE ACTIVO = 1");
                 accesoDB.AbrirConexion();
                 accesoDB.EjecutarConsulta();
 
                 while (accesoDB.Lector.Read())
                 {
-                    aux = new Marca
+                    aux = new TipoProducto
                     {
-                        IdMarca = (int)accesoDB.Lector["IDMARCA"],
+                        IdTipoProducto = (int)accesoDB.Lector["IDTIPOPRODUCTO"],
                         Descripcion = (string)accesoDB.Lector["DESCRIPCION"]
                     };
 
-                    lstMarcas.Add(aux);
+                    lstTiposProducto.Add(aux);
                 }
 
-                return lstMarcas;
+                return lstTiposProducto;
 
             }
             catch (Exception ex)
@@ -49,13 +49,13 @@ namespace Negocio
             }
         }
 
-        public void Agregar(Marca nuevo)
+        public void Agregar(TipoProducto nuevo)
         {
             AccesoDB conexion = null;
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("INSERT INTO MARCAS(DESCRIPCION) VALUES (@descripcion)");
+                conexion.SetearConsulta("INSERT INTO TIPOSPRODUCTO(DESCRIPCION, ACTIVO) VALUES (@descripcion, 1)");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@descripcion", nuevo.Descripcion);
 
@@ -73,16 +73,16 @@ namespace Negocio
             }
         }
 
-        public void Modificar(Marca m)
+        public void Modificar(TipoProducto tp)
         {
-            AccesoDB conexion;
+            AccesoDB conexion = null;
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("UPDATE MARCAS SET DESCRIPCION = @descripcion WHERE IDMARCA = @id");
+                conexion.SetearConsulta("UPDATE TIPOSPRODUCTO SET DESCRIPCION = @descripcion WHERE IDTIPOPRODUCTO = @id");
                 conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@id", m.IdMarca);
-                conexion.Comando.Parameters.AddWithValue("@descripcion", m.Descripcion);
+                conexion.Comando.Parameters.AddWithValue("@descripcion", tp.Descripcion);
+                conexion.Comando.Parameters.AddWithValue("@id", tp.IdTipoProducto);
 
                 conexion.AbrirConexion();
                 conexion.EjecutarAccion();
@@ -90,6 +90,11 @@ namespace Negocio
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.CerrarConexion();
             }
         }
 
@@ -99,7 +104,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("DELETE FROM MARCAS WHERE IDMARCA = @id");
+                conexion.SetearConsulta("DELETE FROM TIPOSPRODUCTO WHERE IDTIPOPRODUCTO = @id");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@id", id);
                 conexion.AbrirConexion();
@@ -117,7 +122,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("UPDATE MARCAS SET ACTIVO = 0 WHERE IDMARCA = @id");
+                conexion.SetearConsulta("UPDATE TIPOSPRODUCTO SET ACTIVO = 0 WHERE IDTIPOPRODUCTO = @id");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@id", id);
                 conexion.AbrirConexion();
@@ -132,11 +137,10 @@ namespace Negocio
     }
 }
 
-
 /*
-CREATE TABLE MARCAS
+CREATE TABLE TIPOSPRODUCTO
 (
-	IDMARCA INT NOT NULL PRIMARY KEY,
-	DESCRIPCION VARCHAR(60) NOT NULL
+    IDTIPOPRODUCTO INT NOT NULL PRIMARY KEY,
+    DESCRIPCION VARCHAR(60) NOT NULL
 )
 */

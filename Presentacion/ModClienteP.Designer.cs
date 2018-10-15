@@ -1,6 +1,6 @@
 ﻿namespace Presentacion
 {
-    partial class ModCliente
+    partial class ModClienteP
     {
         /// <summary>
         /// Required designer variable.

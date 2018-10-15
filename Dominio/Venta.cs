@@ -11,7 +11,7 @@ namespace Dominio
         public Venta IdVenta { get; set; }
         public DateTime Fecha { get; set; }
         public Empleado Empleado { get; set; }
-        public Cliente Cliente { get; set; }
+        public ClienteP Cliente { get; set; }
         public List<Producto> LstProductos { get; set; }
         public bool Activo { get; set; }
     }

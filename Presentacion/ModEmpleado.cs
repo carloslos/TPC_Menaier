@@ -48,7 +48,7 @@ namespace Presentacion
 
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
-            EmpleadosNegocio neg = new EmpleadosNegocio();
+            EmpleadoNegocio neg = new EmpleadoNegocio();
             Empleado empleado = new Empleado
             {
                 Nombre = TxtNombre.Text.Trim(), // VALIDAR

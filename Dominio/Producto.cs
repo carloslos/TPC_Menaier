@@ -12,9 +12,13 @@ namespace Dominio
         public string Descripcion { get; set; }
         public Marca Marca { get; set; }
         public TipoProducto TipoProducto { get; set; }
-        //public double Precio { get; set; }
         public double Ganancia { get; set; }
         public int StockMin { get; set; }
         public bool Activo { get; set; }
+
+        public override string ToString()
+        {
+            return Descripcion + " (" + Marca.Descripcion + ")";
+        }
     }
 }

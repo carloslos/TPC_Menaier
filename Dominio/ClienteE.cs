@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class Cliente
+    public class ClienteE
     {
         public int IdCliente { get; set; }
         public string Empresa { get; set; }
-        public long DniCuit { get; set; }
-        public char TipoCliente { get; set; } // E - Empresa // P - Particular
+        public long Cuit { get; set; }
         public List<Contacto> LstContactos { get; set; }
         public bool Activo { get; set; }
+
+        public override string ToString()
+        {
+            return Empresa;
+        }
     }
 }

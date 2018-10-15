@@ -7,7 +7,7 @@ using Dominio;
 
 namespace Negocio
 {
-    public class ProductosNegocio
+    public class ProductoNegocio
     {
         public List<Producto> Listar()
         {
@@ -32,7 +32,6 @@ namespace Negocio
                         Marca = new Marca(),
                         TipoProducto = new TipoProducto(),
                         Descripcion = (string)accesoDB.Lector["P.DESCRIPCION"],
-                        //Precio = (double)accesoDB.Lector["P.PRECIO"],
                         StockMin = (int)accesoDB.Lector["P.STOCKMIN"],
                         Ganancia = (double)accesoDB.Lector["P.GANANCIA"]
                     };
@@ -71,7 +70,6 @@ namespace Negocio
                 conexion.Comando.Parameters.AddWithValue("@idmarca", nuevo.Marca.IdMarca);
                 conexion.Comando.Parameters.AddWithValue("@idtipoproducto", nuevo.TipoProducto.IdTipoProducto);
                 conexion.Comando.Parameters.AddWithValue("@descripcion", nuevo.Descripcion);
-                //conexion.Comando.Parameters.AddWithValue("@precio", nuevo.Precio);
                 conexion.Comando.Parameters.AddWithValue("@stockmin", nuevo.StockMin);
                 conexion.Comando.Parameters.AddWithValue("@ganancia", nuevo.Ganancia);
 
@@ -100,9 +98,9 @@ namespace Negocio
                 conexion.Comando.Parameters.AddWithValue("@idmarca", p.Marca.IdMarca);
                 conexion.Comando.Parameters.AddWithValue("@idtipoproducto", p.TipoProducto.IdTipoProducto);
                 conexion.Comando.Parameters.AddWithValue("@descripcion", p.Descripcion);
-                //conexion.Comando.Parameters.AddWithValue("@precio", p.Precio);
                 conexion.Comando.Parameters.AddWithValue("@stockmin", p.StockMin);
                 conexion.Comando.Parameters.AddWithValue("@ganancia", p.Ganancia);
+                conexion.Comando.Parameters.AddWithValue("@id", p.IdProducto);
 
                 conexion.AbrirConexion();
                 conexion.EjecutarAccion();

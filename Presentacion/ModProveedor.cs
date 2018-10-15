@@ -14,6 +14,7 @@ namespace Presentacion
     {
         private bool[] EntradasVal = new bool[2];
         Validaciones val = new Validaciones();
+        Proveedor p = null;
 
         public ModProveedor()
         {
@@ -21,16 +22,18 @@ namespace Presentacion
             this.Text = "Agregar " + this.Text;
             BtnMod.Text = "Agregar";
             BtnMod.Enabled = false;
+            p = new Proveedor();
         }
 
-        public ModProveedor(Proveedor p)
+        public ModProveedor(Proveedor P)
         {
             InitializeComponent();
             this.Text = "Editar " + this.Text;
             BtnMod.Text = "Editar";
             BtnMod.Enabled = false;
-            TxtEmpresa.Text = p.Empresa;
-            TxtCuit.Text = p.Cuit.ToString();
+            TxtEmpresa.Text = P.Empresa;
+            TxtCuit.Text = P.Cuit.ToString();
+            p = P;
         }
 
         private void ModProveedor_Load(object sender, EventArgs e)
@@ -39,27 +42,31 @@ namespace Presentacion
             {
                 EntradasVal[i] = false;
             }
+            ValidarEntradas();
         }
-
-        private void BtnCancelar_Click(object sender, EventArgs e)
+    
+        private void BtnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void BtnAgregar_Click(object sender, EventArgs e)
+        private void BtnMod_Click(object sender, EventArgs e)
         {
             ProveedorNegocio neg = new ProveedorNegocio();
-            Proveedor p = new Proveedor
-            {
-                Empresa = TxtEmpresa.Text.Trim(),
-                Cuit = Convert.ToInt64(TxtCuit.Text.Trim())
-            };
             try
             {
-                neg.Agregar(p);
-                TxtEmpresa.Text = "";
-                TxtCuit.Text = "";
-                LimpiarEntradas();
+                p.Empresa = TxtEmpresa.Text.Trim();
+                p.Cuit = Convert.ToInt64(TxtCuit.Text.Trim());
+                if (p.IdProveedor != 0)
+                {
+                    neg.Modificar(p);
+                    this.Close();
+                }
+                else
+                {
+                    neg.Agregar(p);
+                    LimpiarEntradas();
+                }
             }
             catch (Exception ex)
             {
@@ -105,6 +112,8 @@ namespace Presentacion
         {
             val.CambiarColor(tileEmpresa, lblEmpresa, 'b');
             val.CambiarColor(tileCuit, lblCuit, 'b');
+            TxtEmpresa.Text = "";
+            TxtCuit.Text = "";
         }
 
         private void ValidarEntradas()

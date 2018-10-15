@@ -99,7 +99,7 @@
             this.BtnVolver.Text = "Volver";
             this.BtnVolver.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnVolver.UseSelectable = true;
-            this.BtnVolver.Click += new System.EventHandler(this.BtnCancelar_Click);
+            this.BtnVolver.Click += new System.EventHandler(this.BtnVolver_Click);
             // 
             // BtnMod
             // 

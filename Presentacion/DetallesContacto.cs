@@ -16,5 +16,14 @@ namespace Presentacion
             InitializeComponent();
         }
 
+        private void DgvDirecciones_Click(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void DgvTelefonos_Click(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

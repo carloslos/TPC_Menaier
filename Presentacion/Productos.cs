@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Negocio;
+using Dominio;
 
 namespace Presentacion
 {
@@ -30,7 +31,7 @@ namespace Presentacion
 
         private void LlenarTabla()
         {
-            ProductosNegocio neg = new ProductosNegocio();
+            ProductoNegocio neg = new ProductoNegocio();
             try
             {
                 dgvProductos.DataSource = neg.Listar();
@@ -39,18 +40,8 @@ namespace Presentacion
                 dgvProductos.Columns["TipoProducto"].HeaderText = "Tipo de producto";
                 dgvProductos.Columns["Stockmin"].HeaderText = "Stock Minimo";
                 dgvProductos.Columns["Activo"].Visible = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-        }
-
-        private void BtnRefrescar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                LlenarTabla();
+                dgvProductos.Update();
+                dgvProductos.Refresh();
             }
             catch (Exception ex)
             {
@@ -71,12 +62,65 @@ namespace Presentacion
             try
             {
                 ModProducto mod = new ModProducto();
-                mod.Show();
+                mod.ShowDialog();
                 LlenarTabla();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void BtnEditar_Click(object sender, EventArgs e)
+        {
+            {
+                foreach (Form item in Application.OpenForms)
+                {
+                    if (item.GetType() == typeof(ModProducto))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    Producto obj = (Producto)dgvProductos.CurrentRow.DataBoundItem;
+                    ModProducto mod = new ModProducto(obj);
+                    mod.ShowDialog();
+                    LlenarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            {
+                ProveedorNegocio neg = new ProveedorNegocio();
+                Producto p = (Producto)dgvProductos.CurrentRow.DataBoundItem;
+                try
+                {
+                    using (var popup = new Confirmacion(@"eliminar """ + p.ToString() + @""""))
+                    {
+                        var R = popup.ShowDialog();
+                        if (R == DialogResult.OK)
+                        {
+                            bool conf = popup.R;
+                            if (p != null && conf == true)
+                            {
+                                neg.EliminarLogico(p.IdProducto);
+                                LlenarTabla();
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
         }
     }

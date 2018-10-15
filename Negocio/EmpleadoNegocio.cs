@@ -7,7 +7,7 @@ using Dominio;
 
 namespace Negocio
 {
-    public class EmpleadosNegocio
+    public class EmpleadoNegocio
     {
 
         public List<Empleado> Listar()
@@ -61,14 +61,12 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("INSERT INTO EMPLEADOS(NOMBRE, APELLIDO, DNI, FECHANAC, USUARIO, CONTRASENIA, TIPOPERFIL, EMAIL) VALUES (@nombre, @apellido, @dni, @fechanac, @usuario, @contrasenia, @tipoperfil, @email)");
+                conexion.SetearConsulta("INSERT INTO EMPLEADOS(NOMBRE, APELLIDO, DNI, FECHANAC, TIPOPERFIL, EMAIL) VALUES (@nombre, @apellido, @dni, @fechanac, @usuario, @contrasenia, @tipoperfil, @email)");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@nombre", nuevo.Nombre);
                 conexion.Comando.Parameters.AddWithValue("@apellido", nuevo.Apellido);
                 conexion.Comando.Parameters.AddWithValue("@dni", nuevo.Dni);
                 conexion.Comando.Parameters.AddWithValue("@fechanac", nuevo.FechaNac);
-                conexion.Comando.Parameters.AddWithValue("@usuario", nuevo.Usuario);
-                conexion.Comando.Parameters.AddWithValue("@contrasenia", nuevo.Contrasenia);
                 conexion.Comando.Parameters.AddWithValue("@tipoperfil", nuevo.TipoPerfil);
                 conexion.Comando.Parameters.AddWithValue("@email", nuevo.Email);
 
@@ -92,17 +90,16 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("UPDATE EMPLEADOS SET NOMBRE = @nombre, APELLIDO = @apellido WHERE IDEMPLEADO = @id");
+                conexion.SetearConsulta("UPDATE EMPLEADOS SET NOMBRE = @nombre, APELLIDO = @apellido, DNI = @dni, FECHANAC = @fechanac, TIPOPERFIL = @tipoperfil, EMAIL = @email WHERE IDEMPLEADO = @id");
                 conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@id", e.IdEmpleado);
                 conexion.Comando.Parameters.AddWithValue("@nombre", e.Nombre);
                 conexion.Comando.Parameters.AddWithValue("@apellido", e.Apellido);
-                conexion.Comando.Parameters.AddWithValue("@DNI", e.Dni);
-                conexion.Comando.Parameters.AddWithValue("@FECHANAC", e.FechaNac);
-                conexion.Comando.Parameters.AddWithValue("@USUARIO", e.Usuario);
-                conexion.Comando.Parameters.AddWithValue("@CONTRASENIA", e.Contrasenia);
-                conexion.Comando.Parameters.AddWithValue("@TIPOPERFIL", e.TipoPerfil);
-                conexion.Comando.Parameters.AddWithValue("@EMAIL", e.Email);
+                conexion.Comando.Parameters.AddWithValue("@dni", e.Dni);
+                conexion.Comando.Parameters.AddWithValue("@fechanac", e.FechaNac);
+                conexion.Comando.Parameters.AddWithValue("@tipoperfil", e.TipoPerfil);
+                conexion.Comando.Parameters.AddWithValue("@email", e.Email);
+                conexion.Comando.Parameters.AddWithValue("@id", e.IdEmpleado);
+
                 conexion.AbrirConexion();
                 conexion.EjecutarAccion();
             }

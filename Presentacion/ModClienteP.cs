@@ -10,12 +10,12 @@ using Negocio;
 
 namespace Presentacion
 {
-    public partial class ModCliente : Presentacion.Metro_Template
+    public partial class ModClienteP : Presentacion.Metro_Template
     {
         private bool[] EntradasVal = new bool[2];
         Validaciones val = new Validaciones();
 
-        public ModCliente()
+        public ModClienteP()
         {
             InitializeComponent();
             this.Text = "Agregar " + this.Text;
@@ -23,7 +23,7 @@ namespace Presentacion
             BtnMod.Enabled = false;
         }
 
-        public ModCliente(Cliente c)
+        public ModClienteP(ClienteP c)
         {
             InitializeComponent();
             this.Text = "Editar " + this.Text;

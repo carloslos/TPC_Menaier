@@ -13,5 +13,10 @@ namespace Dominio
         public Proveedor Proveedor { get; set; }
         public List<Lote> LstLotes { get; set; }
         public bool Activo { get; set; }
+
+        public override string ToString()
+        {
+            return IdCompra.ToString() + " (" + Proveedor.Empresa + ")";
+        }
     }
 }

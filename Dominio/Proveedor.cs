@@ -14,5 +14,10 @@ namespace Dominio
         public long Cuit { get; set; }
         public string Empresa { get; set; }
         public bool Activo { get; set; }
+
+        public override string ToString()
+        {
+            return Empresa;
+        }
     }
 }

@@ -11,5 +11,10 @@ namespace Dominio
         public int IdTipoProducto { get; set; }
         public string Descripcion { get; set; }
         public bool Activo { get; set; }
+
+        public override string ToString()
+        {
+            return Descripcion;
+        }
     }
 }

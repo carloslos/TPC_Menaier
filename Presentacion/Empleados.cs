@@ -26,7 +26,7 @@ namespace Presentacion
         
         private void LlenarTabla()
         {
-            EmpleadosNegocio neg = new EmpleadosNegocio();
+            EmpleadoNegocio neg = new EmpleadoNegocio();
             try
             {
                 dgvEmpleados.DataSource = neg.Listar();
@@ -40,6 +40,8 @@ namespace Presentacion
                 dgvEmpleados.Columns["Usuario"].Visible = false;
                 dgvEmpleados.Columns["Contrasenia"].Visible = false;
                 dgvEmpleados.Columns["Activo"].Visible = false;
+                dgvEmpleados.Update();
+                dgvEmpleados.Refresh();
             }
             catch (Exception ex)
             {
@@ -88,6 +90,34 @@ namespace Presentacion
                     ModEmpleado mod = new ModEmpleado(obj);
                     mod.Show();
                     LlenarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            {
+                EmpleadoNegocio neg = new EmpleadoNegocio();
+                Empleado em = (Empleado)dgvEmpleados.CurrentRow.DataBoundItem;
+                try
+                {
+                    using (var popup = new Confirmacion(@"eliminar """ + em.ToString() + @""""))
+                    {
+                        var R = popup.ShowDialog();
+                        if (R == DialogResult.OK)
+                        {
+                            bool conf = popup.R;
+                            if (em != null && conf == true)
+                            {
+                                neg.EliminarLogico(em.IdEmpleado);
+                                LlenarTabla();
+                            }
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {

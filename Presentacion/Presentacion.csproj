@@ -77,11 +77,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModCliente.cs">
+    <Compile Include="Confirmacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModCliente.Designer.cs">
-      <DependentUpon>ModCliente.cs</DependentUpon>
+    <Compile Include="Confirmacion.Designer.cs">
+      <DependentUpon>Confirmacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModClienteE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModClienteE.Designer.cs">
+      <DependentUpon>ModClienteE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModClienteP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModClienteP.Designer.cs">
+      <DependentUpon>ModClienteP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModCompra.Designer.cs">
+      <DependentUpon>ModCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="ModContacto.cs">
       <SubType>Form</SubType>
@@ -161,6 +179,12 @@
     <Compile Include="MetroTemplate.Designer.cs">
       <DependentUpon>MetroTemplate.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModVenta.Designer.cs">
+      <DependentUpon>ModVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Productos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,8 +211,11 @@
     <Compile Include="MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ModCliente.resx">
-      <DependentUpon>ModCliente.cs</DependentUpon>
+    <EmbeddedResource Include="Confirmacion.resx">
+      <DependentUpon>Confirmacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModClienteP.resx">
+      <DependentUpon>ModClienteP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModContacto.resx">
       <DependentUpon>ModContacto.cs</DependentUpon>

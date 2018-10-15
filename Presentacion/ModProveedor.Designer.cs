@@ -50,6 +50,7 @@
             this.BtnVolver.Text = "Volver";
             this.BtnVolver.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnVolver.UseSelectable = true;
+            this.BtnVolver.Click += new System.EventHandler(this.BtnVolver_Click);
             // 
             // BtnMod
             // 
@@ -61,6 +62,7 @@
             this.BtnMod.Text = "Mod";
             this.BtnMod.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnMod.UseSelectable = true;
+            this.BtnMod.Click += new System.EventHandler(this.BtnMod_Click);
             // 
             // tileEmpresa
             // 

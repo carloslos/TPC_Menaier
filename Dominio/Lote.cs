@@ -15,5 +15,10 @@ namespace Dominio
         public DateTime FechaCompra { get; set; }
         public DateTime FechaVencimiento { get; set; }
         public bool Activo { get; set; }
+
+        public override string ToString()
+        {
+            return IdLote.ToString() + " (" + Producto.Descripcion + ")";
+        }
     }
 }

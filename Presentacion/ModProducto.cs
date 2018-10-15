@@ -49,7 +49,7 @@ namespace Presentacion
 
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
-            ProductosNegocio neg = new ProductosNegocio();
+            ProductoNegocio neg = new ProductoNegocio();
             Producto p = new Producto
             {
                 Descripcion = TxtDescripcion.Text.Trim(),

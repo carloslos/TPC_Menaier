@@ -22,6 +22,7 @@ namespace Presentacion
             this.Text = "Agregar " + this.Text;
             BtnMod.Text = "Agregar";
             BtnMod.Enabled = false;
+            tp = new TipoProducto();
         }
 
         public ModTipoProducto(TipoProducto Tp)
@@ -34,28 +35,25 @@ namespace Presentacion
             tp = Tp;
         }
 
-        private void BtnCancelar_Click(object sender, EventArgs e)
+        private void BtnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
         private void BtnMod_Click(object sender, EventArgs e)
         {
-            TiposProductoNegocio neg = new TiposProductoNegocio();
+            TipoProductoNegocio neg = new TipoProductoNegocio();
             try
             {
-                if (tp != null)
+                tp.Descripcion = TxtDescripcion.Text.Trim();
+                if (tp.IdTipoProducto != 0)
                 {
-                    tp.Descripcion = TxtDescripcion.Text.Trim();
                     neg.Modificar(tp);
                     this.Close();
                 }
                 else
                 {
-                    tp = new TipoProducto();
-                    tp.Descripcion = TxtDescripcion.Text.Trim();
                     neg.Agregar(tp);
-                    TxtDescripcion.Text = "";
                     LimpiarEntradas();
                 }
             }
@@ -102,6 +100,7 @@ namespace Presentacion
         private void LimpiarEntradas()
         {
             val.CambiarColor(tileDescripcion, lblDescripcion, 'b');
+            TxtDescripcion.Text = "";
         }
     }
 }

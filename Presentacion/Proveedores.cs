@@ -40,6 +40,8 @@ namespace Presentacion
                 dgvProveedores.Columns["IdProveedor"].HeaderText = "ID";
                 dgvProveedores.Columns["Cuit"].HeaderText = "CUIT";
                 dgvProveedores.Columns["Activo"].Visible = false;
+                dgvProveedores.Update();
+                dgvProveedores.Refresh();
             }
             catch (Exception ex)
             {
@@ -61,25 +63,13 @@ namespace Presentacion
                 try
                 {
                     ModProveedor mod = new ModProveedor();
-                    mod.Show();
+                    mod.ShowDialog();
                     LlenarTabla();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
                 }
-            }
-        }
-
-        private void BtnRefrescar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                LlenarTabla();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -98,8 +88,36 @@ namespace Presentacion
                 {
                     Proveedor obj = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
                     ModProveedor mod = new ModProveedor(obj);
-                    mod.Show();
+                    mod.ShowDialog();
                     LlenarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            {
+                ProveedorNegocio neg = new ProveedorNegocio();
+                Proveedor p = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
+                try
+                {
+                    using (var popup = new Confirmacion(@"eliminar """ + p.ToString() + @""""))
+                    {
+                        var R = popup.ShowDialog();
+                        if (R == DialogResult.OK)
+                        {
+                            bool conf = popup.R;
+                            if (p != null && conf == true)
+                            {
+                                neg.EliminarLogico(p.IdProveedor);
+                                LlenarTabla();
+                            }
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {

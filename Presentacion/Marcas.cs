@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Negocio;
+using Dominio;
 
 namespace Presentacion
 {
@@ -18,15 +19,11 @@ namespace Presentacion
             InitializeComponent();
         }
 
-        private void LlenarTabla()
+        private void Marcas_Load(object sender, EventArgs e)
         {
-            MarcasNegocio neg = new MarcasNegocio();
             try
             {
-                dgvMarcas.DataSource = neg.Listar();
-                dgvMarcas.Columns["IDMARCA"].HeaderText = "ID";
-                dgvMarcas.Columns["DESCRIPCION"].HeaderText = "Descripción";
-                dgvMarcas.Columns["Activo"].Visible = false;
+                LlenarTabla();
             }
             catch (Exception ex)
             {
@@ -34,12 +31,17 @@ namespace Presentacion
             }
         }
 
-        private void Marcas_Load(object sender, EventArgs e)
+        private void LlenarTabla()
         {
-            MarcasNegocio neg = new MarcasNegocio();
+            TipoProductoNegocio neg = new TipoProductoNegocio();
             try
             {
-                LlenarTabla();
+                dgvMarcas.DataSource = neg.Listar();
+                dgvMarcas.Columns["IdMarca"].HeaderText = "ID";
+                dgvMarcas.Columns["Descripcion"].HeaderText = "Descripción";
+                dgvMarcas.Columns["Activo"].Visible = false;
+                dgvMarcas.Update();
+                dgvMarcas.Refresh();
             }
             catch (Exception ex)
             {
@@ -61,8 +63,61 @@ namespace Presentacion
                 try
                 {
                     ModMarca mod = new ModMarca();
-                    mod.Show();
+                    mod.ShowDialog();
                     LlenarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+        }
+
+        private void BtnEditar_Click(object sender, EventArgs e)
+        {
+            {
+                foreach (Form item in Application.OpenForms)
+                {
+                    if (item.GetType() == typeof(ModMarca))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    Marca obj = (Marca)dgvMarcas.CurrentRow.DataBoundItem;
+                    ModMarca mod = new ModMarca(obj);
+                    mod.ShowDialog();
+                    LlenarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            {
+                MarcaNegocio neg = new MarcaNegocio();
+                Marca m = (Marca)dgvMarcas.CurrentRow.DataBoundItem;
+                try
+                {
+                    using (var popup = new Confirmacion(@"eliminar """ + m.ToString() + @""""))
+                    {
+                        var R = popup.ShowDialog();
+                        if (R == DialogResult.OK)
+                        {
+                            bool conf = popup.R;
+                            if (m != null && conf == true)
+                            {
+                                neg.EliminarLogico(m.IdMarca);
+                                LlenarTabla();
+                            }
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {

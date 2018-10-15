@@ -33,7 +33,7 @@ namespace Presentacion
 
         private void LlenarTabla()
         {
-            ClienteNegocio neg = new ClienteNegocio();
+            ClientePNegocio neg = new ClientePNegocio();
             try
             {
                 //dgvClientes.DataSource = neg.Listar();
@@ -50,7 +50,7 @@ namespace Presentacion
             {
                 foreach (Form item in Application.OpenForms)
                 {
-                    if (item.GetType() == typeof(ModCliente))
+                    if (item.GetType() == typeof(ModClienteP))
                     {
                         item.Focus();
                         return;
@@ -58,7 +58,7 @@ namespace Presentacion
                 }
                 try
                 {
-                    ModCliente mod = new ModCliente();
+                    ModClienteP mod = new ModClienteP();
                     mod.Show();
                     LlenarTabla();
                 }
@@ -86,7 +86,7 @@ namespace Presentacion
             {
                 foreach (Form item in Application.OpenForms)
                 {
-                    if (item.GetType() == typeof(ModCliente))
+                    if (item.GetType() == typeof(ModClienteP))
                     {
                         item.Focus();
                         return;
@@ -94,8 +94,8 @@ namespace Presentacion
                 }
                 try
                 {
-                    Cliente obj = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
-                    ModCliente mod = new ModCliente(obj);
+                    ClienteP obj = (ClienteP)dgvClientesP.CurrentRow.DataBoundItem;
+                    ModClienteP mod = new ModClienteP(obj);
                     mod.Show();
                     LlenarTabla();
                 }
@@ -104,6 +104,16 @@ namespace Presentacion
                     MessageBox.Show(ex.ToString());
                 }
             }
+        }
+
+        private void DgvClientesP_Click(object sender, DataGridViewCellEventArgs e)
+        {
+            BtnVer.Text = "Ver Detalles";
+        }
+
+        private void DgvClientesE_Click(object sender, DataGridViewCellEventArgs e)
+        {
+            BtnVer.Text = "Ver Contactos";
         }
     }
 }

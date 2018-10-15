@@ -16,5 +16,10 @@ namespace Dominio
         public string Pais { get; set; }
         public int Cp { get; set; }
         public bool Activo { get; set; }
+
+        public override string ToString()
+        {
+            return Calle + Altura.ToString();
+        }
     }
 }

@@ -91,6 +91,7 @@
             this.dgvTelefonos.Size = new System.Drawing.Size(978, 222);
             this.dgvTelefonos.TabIndex = 26;
             this.dgvTelefonos.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.dgvTelefonos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvTelefonos_Click);
             // 
             // dgvDirecciones
             // 
@@ -144,6 +145,7 @@
             this.dgvDirecciones.Size = new System.Drawing.Size(978, 222);
             this.dgvDirecciones.TabIndex = 25;
             this.dgvDirecciones.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.dgvDirecciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvDirecciones_Click);
             // 
             // DetallesContacto
             // 

@@ -13,5 +13,10 @@ namespace Dominio
         public char TipoPerfil { get; set; } // A - Administrador // S - Supervisor // V - Vendedor
         public string Usuario { get; set; }
         public string Contrasenia { get; set; }
+
+        public override string ToString()
+        {
+            return Nombre + " " + Apellido;
+        }
     }
 }
