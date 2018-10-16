@@ -64,7 +64,7 @@
             this.txtNombre.CustomButton.Visible = false;
             this.txtNombre.Lines = new string[0];
             this.txtNombre.Location = new System.Drawing.Point(171, 158);
-            this.txtNombre.MaxLength = 32767;
+            this.txtNombre.MaxLength = 60;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.PasswordChar = '\0';
             this.txtNombre.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -94,7 +94,7 @@
             this.txtApellido.CustomButton.Visible = false;
             this.txtApellido.Lines = new string[0];
             this.txtApellido.Location = new System.Drawing.Point(171, 208);
-            this.txtApellido.MaxLength = 32767;
+            this.txtApellido.MaxLength = 60;
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.PasswordChar = '\0';
             this.txtApellido.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -146,7 +146,7 @@
             this.txtDNI.CustomButton.Visible = false;
             this.txtDNI.Lines = new string[0];
             this.txtDNI.Location = new System.Drawing.Point(171, 258);
-            this.txtDNI.MaxLength = 32767;
+            this.txtDNI.MaxLength = 8;
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.PasswordChar = '\0';
             this.txtDNI.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -198,7 +198,7 @@
             this.txtEmail.CustomButton.Visible = false;
             this.txtEmail.Lines = new string[0];
             this.txtEmail.Location = new System.Drawing.Point(171, 308);
-            this.txtEmail.MaxLength = 32767;
+            this.txtEmail.MaxLength = 60;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PasswordChar = '\0';
             this.txtEmail.ScrollBars = System.Windows.Forms.ScrollBars.None;

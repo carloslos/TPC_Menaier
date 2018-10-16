@@ -37,6 +37,7 @@ namespace Presentacion
                 dgvEmpleados.Columns["IdEmpleado"].DisplayIndex = 4; dgvEmpleados.Columns["IDEMPLEADO"].HeaderText = "ID";
                 dgvEmpleados.Columns["FechaNac"].DisplayIndex = 5; dgvEmpleados.Columns["FECHANAC"].HeaderText = "Fecha de nacimiento";
                 dgvEmpleados.Columns["TipoPerfil"].DisplayIndex = 6; dgvEmpleados.Columns["TIPOPERFIL"].HeaderText = "Tipo de perfil";
+                dgvEmpleados.Columns["IdContacto"].Visible = false;
                 dgvEmpleados.Columns["Usuario"].Visible = false;
                 dgvEmpleados.Columns["Contrasenia"].Visible = false;
                 dgvEmpleados.Columns["Activo"].Visible = false;

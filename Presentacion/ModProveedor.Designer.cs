@@ -102,7 +102,7 @@
             this.TxtEmpresa.CustomButton.Visible = false;
             this.TxtEmpresa.Lines = new string[0];
             this.TxtEmpresa.Location = new System.Drawing.Point(154, 150);
-            this.TxtEmpresa.MaxLength = 32767;
+            this.TxtEmpresa.MaxLength = 60;
             this.TxtEmpresa.Name = "TxtEmpresa";
             this.TxtEmpresa.PasswordChar = '\0';
             this.TxtEmpresa.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -155,7 +155,7 @@
             this.TxtCuit.CustomButton.Visible = false;
             this.TxtCuit.Lines = new string[0];
             this.TxtCuit.Location = new System.Drawing.Point(154, 201);
-            this.TxtCuit.MaxLength = 32767;
+            this.TxtCuit.MaxLength = 11;
             this.TxtCuit.Name = "TxtCuit";
             this.TxtCuit.PasswordChar = '\0';
             this.TxtCuit.ScrollBars = System.Windows.Forms.ScrollBars.None;

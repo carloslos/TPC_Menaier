@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.DateFechaNac = new MetroFramework.Controls.MetroDateTime();
+            this.BoxTipoPerfil = new MetroFramework.Controls.MetroComboBox();
+            this.TxtEmail = new MetroFramework.Controls.MetroTextBox();
             this.tileTipoPerfil = new MetroFramework.Controls.MetroTile();
             this.lblTipoPerfil = new MetroFramework.Controls.MetroLabel();
-            this.BoxTipoPerfil = new MetroFramework.Controls.MetroComboBox();
             this.tileFechaNac = new MetroFramework.Controls.MetroTile();
             this.lblFechaNac = new MetroFramework.Controls.MetroLabel();
-            this.DateFechaNac = new MetroFramework.Controls.MetroDateTime();
             this.TxtNombre = new MetroFramework.Controls.MetroTextBox();
             this.TxtApellido = new MetroFramework.Controls.MetroTextBox();
             this.tileEmail = new MetroFramework.Controls.MetroTile();
@@ -41,7 +42,6 @@
             this.TxtDNI = new MetroFramework.Controls.MetroTextBox();
             this.tileDNI = new MetroFramework.Controls.MetroTile();
             this.lblDNI = new MetroFramework.Controls.MetroLabel();
-            this.TxtEmail = new MetroFramework.Controls.MetroTextBox();
             this.tileApellido = new MetroFramework.Controls.MetroTile();
             this.lblApellido = new MetroFramework.Controls.MetroLabel();
             this.tileNombre = new MetroFramework.Controls.MetroTile();
@@ -55,6 +55,59 @@
             this.tileApellido.SuspendLayout();
             this.tileNombre.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // DateFechaNac
+            // 
+            this.DateFechaNac.Location = new System.Drawing.Point(173, 410);
+            this.DateFechaNac.MinimumSize = new System.Drawing.Size(0, 29);
+            this.DateFechaNac.Name = "DateFechaNac";
+            this.DateFechaNac.Size = new System.Drawing.Size(200, 29);
+            this.DateFechaNac.TabIndex = 5;
+            // 
+            // BoxTipoPerfil
+            // 
+            this.BoxTipoPerfil.FormattingEnabled = true;
+            this.BoxTipoPerfil.ItemHeight = 23;
+            this.BoxTipoPerfil.Items.AddRange(new object[] {
+            "Administrador",
+            "Supervisor",
+            "Vendedor"});
+            this.BoxTipoPerfil.Location = new System.Drawing.Point(173, 350);
+            this.BoxTipoPerfil.Name = "BoxTipoPerfil";
+            this.BoxTipoPerfil.Size = new System.Drawing.Size(177, 29);
+            this.BoxTipoPerfil.TabIndex = 4;
+            this.BoxTipoPerfil.UseSelectable = true;
+            // 
+            // TxtEmail
+            // 
+            // 
+            // 
+            // 
+            this.TxtEmail.CustomButton.Image = null;
+            this.TxtEmail.CustomButton.Location = new System.Drawing.Point(159, 2);
+            this.TxtEmail.CustomButton.Name = "";
+            this.TxtEmail.CustomButton.Size = new System.Drawing.Size(15, 15);
+            this.TxtEmail.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.TxtEmail.CustomButton.TabIndex = 1;
+            this.TxtEmail.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.TxtEmail.CustomButton.UseSelectable = true;
+            this.TxtEmail.CustomButton.Visible = false;
+            this.TxtEmail.Lines = new string[0];
+            this.TxtEmail.Location = new System.Drawing.Point(173, 300);
+            this.TxtEmail.MaxLength = 60;
+            this.TxtEmail.Name = "TxtEmail";
+            this.TxtEmail.PasswordChar = '\0';
+            this.TxtEmail.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.TxtEmail.SelectedText = "";
+            this.TxtEmail.SelectionLength = 0;
+            this.TxtEmail.SelectionStart = 0;
+            this.TxtEmail.ShortcutsEnabled = true;
+            this.TxtEmail.Size = new System.Drawing.Size(177, 20);
+            this.TxtEmail.TabIndex = 3;
+            this.TxtEmail.UseSelectable = true;
+            this.TxtEmail.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.TxtEmail.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtEmail.TextChanged += new System.EventHandler(this.TxtEmail_TextChanged);
             // 
             // tileTipoPerfil
             // 
@@ -74,23 +127,9 @@
             this.lblTipoPerfil.Enabled = false;
             this.lblTipoPerfil.Location = new System.Drawing.Point(3, 6);
             this.lblTipoPerfil.Name = "lblTipoPerfil";
-            this.lblTipoPerfil.Size = new System.Drawing.Size(87, 19);
+            this.lblTipoPerfil.Size = new System.Drawing.Size(88, 19);
             this.lblTipoPerfil.TabIndex = 5;
             this.lblTipoPerfil.Text = "Tipo de Perfil";
-            // 
-            // BoxTipoPerfil
-            // 
-            this.BoxTipoPerfil.FormattingEnabled = true;
-            this.BoxTipoPerfil.ItemHeight = 23;
-            this.BoxTipoPerfil.Items.AddRange(new object[] {
-            "Administrador",
-            "Supervisor",
-            "Vendedor"});
-            this.BoxTipoPerfil.Location = new System.Drawing.Point(173, 350);
-            this.BoxTipoPerfil.Name = "BoxTipoPerfil";
-            this.BoxTipoPerfil.Size = new System.Drawing.Size(177, 29);
-            this.BoxTipoPerfil.TabIndex = 4;
-            this.BoxTipoPerfil.UseSelectable = true;
             // 
             // tileFechaNac
             // 
@@ -114,14 +153,6 @@
             this.lblFechaNac.TabIndex = 5;
             this.lblFechaNac.Text = "Nacimiento";
             // 
-            // DateFechaNac
-            // 
-            this.DateFechaNac.Location = new System.Drawing.Point(173, 410);
-            this.DateFechaNac.MinimumSize = new System.Drawing.Size(0, 29);
-            this.DateFechaNac.Name = "DateFechaNac";
-            this.DateFechaNac.Size = new System.Drawing.Size(200, 29);
-            this.DateFechaNac.TabIndex = 5;
-            // 
             // TxtNombre
             // 
             // 
@@ -138,7 +169,7 @@
             this.TxtNombre.CustomButton.Visible = false;
             this.TxtNombre.Lines = new string[0];
             this.TxtNombre.Location = new System.Drawing.Point(173, 150);
-            this.TxtNombre.MaxLength = 32767;
+            this.TxtNombre.MaxLength = 60;
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.PasswordChar = '\0';
             this.TxtNombre.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -168,7 +199,7 @@
             this.TxtApellido.CustomButton.Visible = false;
             this.TxtApellido.Lines = new string[0];
             this.TxtApellido.Location = new System.Drawing.Point(173, 200);
-            this.TxtApellido.MaxLength = 32767;
+            this.TxtApellido.MaxLength = 60;
             this.TxtApellido.Name = "TxtApellido";
             this.TxtApellido.PasswordChar = '\0';
             this.TxtApellido.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -220,7 +251,7 @@
             this.TxtDNI.CustomButton.Visible = false;
             this.TxtDNI.Lines = new string[0];
             this.TxtDNI.Location = new System.Drawing.Point(173, 250);
-            this.TxtDNI.MaxLength = 32767;
+            this.TxtDNI.MaxLength = 8;
             this.TxtDNI.Name = "TxtDNI";
             this.TxtDNI.PasswordChar = '\0';
             this.TxtDNI.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -255,37 +286,6 @@
             this.lblDNI.Size = new System.Drawing.Size(31, 19);
             this.lblDNI.TabIndex = 5;
             this.lblDNI.Text = "DNI";
-            // 
-            // TxtEmail
-            // 
-            // 
-            // 
-            // 
-            this.TxtEmail.CustomButton.Image = null;
-            this.TxtEmail.CustomButton.Location = new System.Drawing.Point(159, 2);
-            this.TxtEmail.CustomButton.Name = "";
-            this.TxtEmail.CustomButton.Size = new System.Drawing.Size(15, 15);
-            this.TxtEmail.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.TxtEmail.CustomButton.TabIndex = 1;
-            this.TxtEmail.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.TxtEmail.CustomButton.UseSelectable = true;
-            this.TxtEmail.CustomButton.Visible = false;
-            this.TxtEmail.Lines = new string[0];
-            this.TxtEmail.Location = new System.Drawing.Point(173, 300);
-            this.TxtEmail.MaxLength = 32767;
-            this.TxtEmail.Name = "TxtEmail";
-            this.TxtEmail.PasswordChar = '\0';
-            this.TxtEmail.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.TxtEmail.SelectedText = "";
-            this.TxtEmail.SelectionLength = 0;
-            this.TxtEmail.SelectionStart = 0;
-            this.TxtEmail.ShortcutsEnabled = true;
-            this.TxtEmail.Size = new System.Drawing.Size(177, 20);
-            this.TxtEmail.TabIndex = 3;
-            this.TxtEmail.UseSelectable = true;
-            this.TxtEmail.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.TxtEmail.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.TxtEmail.TextChanged += new System.EventHandler(this.TxtEmail_TextChanged);
             // 
             // tileApellido
             // 

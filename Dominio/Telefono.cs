@@ -14,7 +14,7 @@ namespace Dominio
 
         public override string ToString()
         {
-            return Numero.ToString();
+            return Numero.ToString() + " (" + Descripcion + ")";
         }
     }
 }

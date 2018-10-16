@@ -68,16 +68,16 @@ namespace Presentacion
         /*private void TxtEmpresa_TextChanged(object sender, EventArgs e)
         {
             TxtEmpresa.Text = TxtEmpresa.Text.TrimStart();
-            ValidarEntrada(0, val.EsAlfanumerico, TxtEmpresa, tileEmpresa, lblEmpresa);
+            ValidarTxt(0, val.EsAlfanumerico, TxtEmpresa, tileEmpresa, lblEmpresa);
         }
 
         private void TxtCuit_TextChanged(object sender, EventArgs e)
         {
             TxtCuit.Text = TxtCuit.Text.TrimStart();
-            ValidarEntrada(1, val.EsNumeroEntero, TxtCuit, tileCuit, lblCuit);
+            ValidarTxt(1, val.EsNumeroEntero, TxtCuit, tileCuit, lblCuit);
         }*/
 
-        private void ValidarEntrada(int c, Func<string, bool> metodo, MetroFramework.Controls.MetroTextBox txt, MetroFramework.Controls.MetroTile t, MetroFramework.Controls.MetroLabel l)
+        private void ValidarTxt(int c, Func<string, bool> metodo, MetroFramework.Controls.MetroTextBox txt, MetroFramework.Controls.MetroTile t, MetroFramework.Controls.MetroLabel l)
         {
             if (metodo(txt.Text))
             {

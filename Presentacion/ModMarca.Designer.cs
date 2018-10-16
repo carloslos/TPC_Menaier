@@ -98,7 +98,7 @@
             this.TxtDescripcion.CustomButton.Visible = false;
             this.TxtDescripcion.Lines = new string[0];
             this.TxtDescripcion.Location = new System.Drawing.Point(150, 175);
-            this.TxtDescripcion.MaxLength = 32767;
+            this.TxtDescripcion.MaxLength = 60;
             this.TxtDescripcion.Name = "TxtDescripcion";
             this.TxtDescripcion.PasswordChar = '\0';
             this.TxtDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.None;
