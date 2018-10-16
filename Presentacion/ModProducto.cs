@@ -47,13 +47,14 @@ namespace Presentacion
             this.Close();
         }
 
-        private void BtnAgregar_Click(object sender, EventArgs e)
+        private void BtnMod_Click(object sender, EventArgs e)
         {
             ProductoNegocio neg = new ProductoNegocio();
             Producto p = new Producto
             {
                 Descripcion = TxtDescripcion.Text.Trim(),
-                Ganancia = Convert.ToDouble(TxtGanancia.Text.Trim())
+                Ganancia = Convert.ToDouble(TxtGanancia.Text.Trim()),
+                StockMin = Convert.ToInt32(TxtStockMin.Text.Trim())
             };
             try
             {

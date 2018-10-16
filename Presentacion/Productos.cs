@@ -38,7 +38,7 @@ namespace Presentacion
                 dgvProductos.Columns["IdProducto"].HeaderText = "ID";
                 dgvProductos.Columns["Descripcion"].HeaderText = "Descripción";
                 dgvProductos.Columns["TipoProducto"].HeaderText = "Tipo de producto";
-                dgvProductos.Columns["Stockmin"].HeaderText = "Stock Minimo";
+                dgvProductos.Columns["StockMin"].HeaderText = "Stock Minimo";
                 dgvProductos.Columns["Activo"].Visible = false;
                 dgvProductos.Update();
                 dgvProductos.Refresh();
@@ -99,7 +99,7 @@ namespace Presentacion
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
             {
-                ProveedorNegocio neg = new ProveedorNegocio();
+                ProductoNegocio neg = new ProductoNegocio();
                 Producto p = (Producto)dgvProductos.CurrentRow.DataBoundItem;
                 try
                 {

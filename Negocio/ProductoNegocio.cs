@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Dominio;
 
 namespace Negocio
@@ -28,17 +29,17 @@ namespace Negocio
                 {
                     aux = new Producto
                     {
-                        IdProducto = (int)accesoDB.Lector["P.IDPRODUCTO"],
+                        IdProducto = (int)accesoDB.Lector["IDPRODUCTO"],
                         Marca = new Marca(),
                         TipoProducto = new TipoProducto(),
-                        Descripcion = (string)accesoDB.Lector["P.DESCRIPCION"],
-                        StockMin = (int)accesoDB.Lector["P.STOCKMIN"],
-                        Ganancia = (double)accesoDB.Lector["P.GANANCIA"]
+                        Descripcion = (string)accesoDB.Lector["DESCRIPCION"],
+                        StockMin = (int)accesoDB.Lector["STOCKMIN"],
+                        Ganancia = (double)accesoDB.Lector["GANANCIA"]
                     };
-                    aux.Marca.IdMarca = (int)accesoDB.Lector["P.IDMARCA"];
-                    aux.Marca.Descripcion = (string)accesoDB.Lector["M.DESCRIPCION"];
-                    aux.TipoProducto.IdTipoProducto = (int)accesoDB.Lector["P.IDTIPOPRODUCTO"];
-                    aux.TipoProducto.Descripcion = (string)accesoDB.Lector["TP.DESCRIPCION"];
+                    aux.Marca.IdMarca = (int)accesoDB.Lector["IDMARCA"];
+                    aux.Marca.Descripcion = (string)accesoDB.Lector[2];
+                    aux.TipoProducto.IdTipoProducto = (int)accesoDB.Lector["IDTIPOPRODUCTO"];
+                    aux.TipoProducto.Descripcion = (string)accesoDB.Lector[3];
 
                     lstProductos.Add(aux);
                 }
@@ -93,7 +94,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("UPDATE PRODUCTOS SET IDMARCA = @idmarca, IDTIPOPRODUCTO = @idtipoproducto, DESCRIPCION = @descripcion, PRECIO = @precio, STOCKMIN = @stockmin, GANANCIA = @ganancia WHERE IDPROVEEDOR = @id");
+                conexion.SetearConsulta("UPDATE PRODUCTOS SET IDMARCA = @idmarca, IDTIPOPRODUCTO = @idtipoproducto, DESCRIPCION = @descripcion, PRECIO = @precio, STOCKMIN = @stockmin, GANANCIA = @ganancia WHERE IDPRODUCTO = @id");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@idmarca", p.Marca.IdMarca);
                 conexion.Comando.Parameters.AddWithValue("@idtipoproducto", p.TipoProducto.IdTipoProducto);

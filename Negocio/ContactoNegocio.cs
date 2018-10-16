@@ -21,7 +21,7 @@ namespace Negocio
                 accesoDB.SetearConsulta("SELECT E.IDEMPLEADO, E.NOMBRE, E.APELLIDO, E.DNI, E.EMAIL, TE.IDTELEFONO, TE.NUMERO, TE.DESCRIPCION, DE.IDDOMICILIO, DE.CALLE, DE.ALTURA, DE.PISO, DE.BARRIO, DE.CIUDAD, DE.PAIS FROM EMPLEADOS AS E " +
                                         "INNER JOIN TELEFONOS_X_EMPLEADO AS TE ON E.IDEMPLEADO = TE.IDEMPLEADO " +
                                         "INNER JOIN DOMICILIOS_X_EMPLEADO AS DE ON E.IDEMPLEADO = DE.IDEMPLEADO " +
-                                        "WHERE ACTIVO IS 1");
+                                        "WHERE ACTIVO IS 1");                                                               // ESTA CONSULTA DEBE ESTAR MAL
                 accesoDB.AbrirConexion();
                 accesoDB.EjecutarConsulta();
 

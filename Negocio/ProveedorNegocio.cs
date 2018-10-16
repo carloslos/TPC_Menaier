@@ -28,8 +28,8 @@ namespace Negocio
                         IdProveedor = (int)accesoDB.Lector["IDPROVEEDOR"],
                         Empresa = (string)accesoDB.Lector["EMPRESA"],
                         Cuit = (long)accesoDB.Lector["CUIT"],
-                        LstContactos = new List<Contacto>(), // COMO LLENO ESTO???!!!
-                        LstProductos = new List<Producto>()
+                        LstContactos = new List<Contacto>(), // LLENAR
+                        LstProductos = new List<Producto>() // LLENAR
                     };
 
                     lstProveedores.Add(aux);
