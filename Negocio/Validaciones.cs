@@ -9,7 +9,7 @@ namespace Negocio
 {
     public class Validaciones
     {
-        public static bool EsNumero(string s)
+        public bool EsNumero(string s)
         {
             int p = 0;
             foreach (char c in s)
@@ -30,9 +30,8 @@ namespace Negocio
             return true;
         }
 
-        public static bool EsNumeroEntero(string s)
+        public bool EsNumeroEntero(string s)
         {
-            int p = 0;
             foreach (char c in s)
             {
                 if (!char.IsDigit(c))
