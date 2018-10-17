@@ -14,20 +14,21 @@ namespace Negocio
         {
             TipoProducto aux;
             List<TipoProducto> lstTiposProducto = new List<TipoProducto>();
-            AccesoDB accesoDB = new AccesoDB();
+            AccesoDB conexion = null;
 
             try
             {
-                accesoDB.SetearConsulta("SELECT IDTIPOPRODUCTO, DESCRIPCION FROM TIPOSPRODUCTO WHERE ACTIVO = 1");
-                accesoDB.AbrirConexion();
-                accesoDB.EjecutarConsulta();
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("SELECT IDTIPOPRODUCTO, DESCRIPCION FROM TIPOSPRODUCTO WHERE ACTIVO = 1");
+                conexion.AbrirConexion();
+                conexion.EjecutarConsulta();
 
-                while (accesoDB.Lector.Read())
+                while (conexion.Lector.Read())
                 {
                     aux = new TipoProducto
                     {
-                        IdTipoProducto = (int)accesoDB.Lector["IDTIPOPRODUCTO"],
-                        Descripcion = (string)accesoDB.Lector["DESCRIPCION"]
+                        IdTipoProducto = (int)conexion.Lector["IDTIPOPRODUCTO"],
+                        Descripcion = (string)conexion.Lector["DESCRIPCION"]
                     };
 
                     lstTiposProducto.Add(aux);
@@ -42,9 +43,9 @@ namespace Negocio
             }
             finally
             {
-                if (accesoDB.CheckearConexion() == true)
+                if (conexion.CheckearConexion() == true)
                 {
-                    accesoDB.CerrarConexion();
+                    conexion.CerrarConexion();
                 }
             }
         }
@@ -68,8 +69,10 @@ namespace Negocio
             }
             finally
             {
-                if (conexion != null)
+                if (conexion.CheckearConexion() == true)
+                {
                     conexion.CerrarConexion();
+                }
             }
         }
 
@@ -93,14 +96,16 @@ namespace Negocio
             }
             finally
             {
-                if (conexion != null)
+                if (conexion.CheckearConexion() == true)
+                {
                     conexion.CerrarConexion();
+                }
             }
         }
 
         public void EliminarFisico(int id)
         {
-            AccesoDB conexion;
+            AccesoDB conexion = null;
             try
             {
                 conexion = new AccesoDB();
@@ -114,11 +119,18 @@ namespace Negocio
             {
                 throw ex;
             }
+            finally
+            {
+                if (conexion.CheckearConexion() == true)
+                {
+                    conexion.CerrarConexion();
+                }
+            }
         }
 
         public void EliminarLogico(int id)
         {
-            AccesoDB conexion;
+            AccesoDB conexion = null;
             try
             {
                 conexion = new AccesoDB();
@@ -130,8 +142,14 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-
                 throw ex;
+            }
+            finally
+            {
+                if (conexion.CheckearConexion() == true)
+                {
+                    conexion.CerrarConexion();
+                }
             }
         }
     }

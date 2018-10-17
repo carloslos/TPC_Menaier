@@ -14,31 +14,26 @@ namespace Negocio
         {
             Contacto aux;
             List<Contacto> lstContactos = new List<Contacto>();
-            AccesoDB accesoDB = new AccesoDB();
+            AccesoDB conexion = null;
 
             try
             {
-                accesoDB.SetearConsulta("SELECT E.IDEMPLEADO, E.NOMBRE, E.APELLIDO, E.DNI, E.EMAIL, TE.IDTELEFONO, TE.NUMERO, TE.DESCRIPCION, DE.IDDOMICILIO, DE.CALLE, DE.ALTURA, DE.PISO, DE.BARRIO, DE.CIUDAD, DE.PAIS FROM EMPLEADOS AS E " +
-                                        "INNER JOIN TELEFONOS_X_EMPLEADO AS TE ON E.IDEMPLEADO = TE.IDEMPLEADO " +
-                                        "INNER JOIN DOMICILIOS_X_EMPLEADO AS DE ON E.IDEMPLEADO = DE.IDEMPLEADO " +
-                                        "WHERE ACTIVO IS 1");                                                               // ESTA CONSULTA DEBE ESTAR MAL
-                accesoDB.AbrirConexion();
-                accesoDB.EjecutarConsulta();
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("SELECT E.IDEMPLEADO, E.NOMBRE, E.APELLIDO, E.DNI, E.EMAIL FROM EMPLEADOS AS E " +
+                                        "WHERE ACTIVO IS 1");
+                conexion.AbrirConexion();
+                conexion.EjecutarConsulta();
 
-                while (accesoDB.Lector.Read())
+                while (conexion.Lector.Read())
                 {
                     aux = new Contacto
                     {
-                        IdContacto = (int)accesoDB.Lector["IDCONTACTO"],
-                        Nombre = (string)accesoDB.Lector["NOMBRE"],
-                        Apellido = (string)accesoDB.Lector["APELLIDO"],
-                        Dni = (int)accesoDB.Lector["DNI"],
-                        Email = (string)accesoDB.Lector["EMAIL"],
-                        LstTelefonos = new List<Telefono>(), // COMO LLENO ESTAS LISTAS???!!!
-                        LstDomicilios = new List<Domicilio>()
+                        IdContacto = (int)conexion.Lector["IDCONTACTO"],
+                        Nombre = (string)conexion.Lector["NOMBRE"],
+                        Apellido = (string)conexion.Lector["APELLIDO"],
+                        Dni = (int)conexion.Lector["DNI"],
+                        Email = (string)conexion.Lector["EMAIL"],
                     };
-
-                    //TE.IDTELEFONO, TE.NUMERO, TE.DESCRIPCION, DE.IDDOMICILIO, DE.CALLE, DE.ALTURA, DE.PISO, DE.BARRIO, DE.CIUDAD, DE.PAIS
 
                     lstContactos.Add(aux);
                 }
@@ -52,9 +47,9 @@ namespace Negocio
             }
             finally
             {
-                if (accesoDB.CheckearConexion() == true)
+                if (conexion.CheckearConexion() == true)
                 {
-                    accesoDB.CerrarConexion();
+                    conexion.CerrarConexion();
                 }
             }
         }
@@ -65,7 +60,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("INSERT INTO EMPLEADOS(NOMBRE, APELLIDO, DNI, FECHANAC, USUARIO, CONTRASENIA, TIPOPERFIL, EMAIL) VALUES (@nombre, @apellido, @dni, @fechanac, @usuario, @contrasenia, @tipoperfil, @email)");
+                conexion.SetearConsulta("INSERT INTO EMPLEADOS(NOMBRE, APELLIDO, DNI, EMAIL) VALUES (@nombre, @apellido, @dni, @email)");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@nombre", nuevo.Nombre);
                 conexion.Comando.Parameters.AddWithValue("@apellido", nuevo.Apellido);
@@ -81,8 +76,90 @@ namespace Negocio
             }
             finally
             {
-                if (conexion != null)
+                if (conexion.CheckearConexion() == true)
+                {
                     conexion.CerrarConexion();
+                }
+            }
+        }
+
+        public void Modificar(Contacto c)
+        {
+            AccesoDB conexion = null;
+            try
+            {
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("UPDATE EMPLEADOS SET NOMBRE = @nombre, APELLIDO = @apellido, DNI = @dni, EMAIL = @email WHERE IDCONTACTO = @id");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@nombre", c.Nombre);
+                conexion.Comando.Parameters.AddWithValue("@apellido", c.Apellido);
+                conexion.Comando.Parameters.AddWithValue("@dni", c.Dni);
+                conexion.Comando.Parameters.AddWithValue("@email", c.Email);
+
+                conexion.AbrirConexion();
+                conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conexion.CheckearConexion() == true)
+                {
+                    conexion.CerrarConexion();
+                }
+            }
+        }
+
+        public void EliminarFisico(int id)
+        {
+            AccesoDB conexion = null;
+            try
+            {
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("DELETE FROM CONTACTOS WHERE IDCONTACTO = @id");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@id", id);
+                conexion.AbrirConexion();
+                conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conexion.CheckearConexion() == true)
+                {
+                    conexion.CerrarConexion();
+                }
+            }
+        }
+
+        public void EliminarLogico(int id)
+        {
+            AccesoDB conexion = null;
+            try
+            {
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("UPDATE CONTACTOS SET ACTIVO = 0 WHERE IDCONTACTO = @id");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@id", id);
+                conexion.AbrirConexion();
+                conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                if (conexion.CheckearConexion() == true)
+                {
+                    conexion.CerrarConexion();
+                }
             }
         }
     }

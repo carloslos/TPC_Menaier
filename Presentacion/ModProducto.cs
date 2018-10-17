@@ -56,18 +56,24 @@ namespace Presentacion
                 BoxTipoProducto.ValueMember = "IdTipoProducto";
                 BoxTipoProducto.DataSource = negTP.Listar();
 
-                BoxMarca.SelectedIndex = -1;
-                BoxTipoProducto.SelectedIndex = -1;
-
-                if (p.Marca != null)
-                {
-                    BoxMarca.SelectedValue = p.Marca.IdMarca;
-                }
-
                 if (p.TipoProducto != null)
                 {
                     BoxTipoProducto.SelectedValue = p.TipoProducto.IdTipoProducto;
                 }
+                else
+                {
+                    BoxTipoProducto.SelectedIndex = -1;
+                }
+                if (p.Marca != null)
+                {
+                    BoxMarca.SelectedValue = p.Marca.IdMarca;
+                    RealizarValidaciones();
+                }
+                else
+                {
+                    BoxMarca.SelectedIndex = -1;
+                }
+
             }
             catch (Exception ex)
             {
@@ -86,14 +92,21 @@ namespace Presentacion
             Producto p = new Producto
             {
                 Descripcion = TxtDescripcion.Text.Trim(),
-                Ganancia = Convert.ToDouble(TxtGanancia.Text.Trim()),
+                Ganancia = (float)Convert.ToDouble(TxtGanancia.Text.Trim()),
                 StockMin = Convert.ToInt32(TxtStockMin.Text.Trim())
             };
+            p.TipoProducto.IdTipoProducto = Convert.ToInt32(BoxTipoProducto.SelectedValue);
+            p.TipoProducto.Descripcion = BoxTipoProducto.SelectedText;
+            p.Marca.IdMarca = Convert.ToInt32(BoxMarca.SelectedValue);
+            p.Marca.Descripcion = BoxMarca.SelectedText;
             try
             {
                 neg.Agregar(p);
                 TxtDescripcion.Text = "";
                 TxtGanancia.Text = "";
+                TxtStockMin.Text = "";
+                BoxMarca.SelectedIndex = -1;
+                BoxTipoProducto.SelectedIndex = -1;
                 LimpiarEntradas();
             }
             catch (Exception ex)
@@ -105,7 +118,7 @@ namespace Presentacion
         private void TxtDescripcion_TextChanged(object sender, EventArgs e)
         {
             TxtDescripcion.Text = TxtDescripcion.Text.TrimStart();
-            ValidarTxt(0, val.EsAlfanumerico, TxtDescripcion, tileDescripcion, lblDescripcion);
+            ValidarTxt(0, val.EsAlfa, TxtDescripcion, tileDescripcion, lblDescripcion);
         }
 
         private void TxtGanancia_TextChanged(object sender, EventArgs e)
@@ -152,6 +165,18 @@ namespace Presentacion
             ValidarEntradas();
         }
 
+        private void RealizarValidaciones()
+        {
+            TxtDescripcion.Text = TxtDescripcion.Text.TrimStart();
+            ValidarTxt(0, val.EsAlfa, TxtDescripcion, tileDescripcion, lblDescripcion);
+            TxtGanancia.Text = TxtGanancia.Text.TrimStart();
+            ValidarTxt(1, val.EsNumero, TxtGanancia, tileGanancia, lblGanancia);
+            TxtStockMin.Text = TxtStockMin.Text.TrimStart();
+            ValidarTxt(2, val.EsNumeroEntero, TxtStockMin, tileStockMin, lblStockMin);
+            ValidarBox(3, BoxMarca, tileMarca, lblMarca);
+            ValidarBox(4, BoxTipoProducto, tileTipoProducto, lblTipoProducto);
+        }
+
         private void ValidarBox(int c, MetroFramework.Controls.MetroComboBox b, MetroFramework.Controls.MetroTile t, MetroFramework.Controls.MetroLabel l)
         {
             if(b.SelectedIndex != -1)
@@ -161,6 +186,7 @@ namespace Presentacion
             }
             else
             {
+                EntradasVal[c] = false;
                 val.CambiarColor(t, l, 'b');
             }
             ValidarEntradas();
@@ -179,10 +205,13 @@ namespace Presentacion
         {
             int i;
             bool v = true;
-            for (i=0; i<5; i++)
+            for (i = 0; i < EntradasVal.Length-1; i++)
             {
-                if (EntradasVal[i] == false && v == true)
+                if (EntradasVal[i] == false)
+                {
                     v = false;
+                    break;
+                }
             }
             if (v == true) { BtnMod.Enabled = true; }
             else { BtnMod.Enabled = false; }

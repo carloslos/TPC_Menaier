@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Net.Mail;
 
 namespace Negocio
 {
@@ -11,16 +12,25 @@ namespace Negocio
     {
         public bool EsNumero(string s)
         {
-            int p = 0;
-            foreach (char c in s)
+            if (s == "")
             {
-                if (!char.IsDigit(c) && c != '.' && c != ',')
+                return false;
+            }
+            int p = 0, i, pp=-1;
+            for (i = 0; i<s.Length; i++)
+            {
+                if (!char.IsDigit(s[i]) && s[i] != '.')
                 {
                     return false;
                 }
-                if(c == '.' || c == ',')
+                if(s[i] == '.')
                 {
                     p++;
+                    pp = i;
+                }
+                if(pp == s.Length-1)
+                {
+                    return false;
                 }
                 if(p > 1)
                 {
@@ -32,6 +42,10 @@ namespace Negocio
 
         public bool EsNumeroEntero(string s)
         {
+            if (s == "")
+            {
+                return false;
+            }
             foreach (char c in s)
             {
                 if (!char.IsDigit(c))
@@ -42,22 +56,65 @@ namespace Negocio
             return true;
         }
 
-        public bool EsAlfanumerico(string s)
+        public bool EsCuit(string s)
         {
-            bool r;
-            Regex rg = new Regex(@"^[a-zA-Z0-9\s,]*$");
-            r = rg.IsMatch(s.Trim());
-            if (s.Trim() == "") { r = false; }
-            return r;
+            if(s.Length != 11)
+            {
+                return false;
+            }
+            foreach (char c in s)
+            {
+                if (!char.IsDigit(c))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public bool EsEmail(string s)
+        {
+            try
+            {
+                MailAddress email = new MailAddress(s);
+                return email.Address == s;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool EsDni(string s)
+        {
+            if (s.Length != 8)
+            {
+                return false;
+            }
+            foreach (char c in s)
+            {
+                if (!char.IsDigit(c))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         public bool EsAlfa(string s)
         {
-            bool r;
-            Regex rg = new Regex(@"^[a-zA-Z\s,]*$");
-            r = rg.IsMatch(s.Trim());
-            if (s.Trim() == "") { r = false; }
-            return r;
+            if (s == "")
+            {
+                return false;
+            }
+            foreach (char c in s)
+            {
+                if (!char.IsLetter(c) && c != ' ')
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         public void CambiarColor(MetroFramework.Controls.MetroTile t, MetroFramework.Controls.MetroLabel l, char c)

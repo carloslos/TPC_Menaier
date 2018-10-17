@@ -14,32 +14,32 @@ namespace Negocio
         {
             Producto aux;
             List<Producto> lstProductos = new List<Producto>();
-            AccesoDB accesoDB = new AccesoDB();
-
+            AccesoDB conexion = null;
             try
             {
-                accesoDB.SetearConsulta("SELECT P.IDPRODUCTO, P.DESCRIPCION, M.DESCRIPCION, TP.DESCRIPCION, P.STOCKMIN, P.GANANCIA, P.IDMARCA, P.IDTIPOPRODUCTO FROM PRODUCTOS AS P " +
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("SELECT P.IDPRODUCTO, P.DESCRIPCION, M.DESCRIPCION, TP.DESCRIPCION, P.STOCKMIN, P.GANANCIA, P.IDMARCA, P.IDTIPOPRODUCTO FROM PRODUCTOS AS P " +
                                         "INNER JOIN MARCAS AS M ON P.IDMARCA = M.IDMARCA " +
                                         "INNER JOIN TIPOSPRODUCTO AS TP ON P.IDTIPOPRODUCTO = TP.IDTIPOPRODUCTO " +
                                         "WHERE P.ACTIVO = 1");
-                accesoDB.AbrirConexion();
-                accesoDB.EjecutarConsulta();
+                conexion.AbrirConexion();
+                conexion.EjecutarConsulta();
 
-                while (accesoDB.Lector.Read())
+                while (conexion.Lector.Read())
                 {
                     aux = new Producto
                     {
-                        IdProducto = (int)accesoDB.Lector["IDPRODUCTO"],
+                        IdProducto = (int)conexion.Lector["IDPRODUCTO"],
                         Marca = new Marca(),
                         TipoProducto = new TipoProducto(),
-                        Descripcion = (string)accesoDB.Lector["DESCRIPCION"],
-                        StockMin = (int)accesoDB.Lector["STOCKMIN"],
-                        Ganancia = (double)accesoDB.Lector["GANANCIA"]
+                        Descripcion = (string)conexion.Lector["DESCRIPCION"],
+                        StockMin = (int)conexion.Lector["STOCKMIN"],
+                        Ganancia = (float)Convert.ToDouble(conexion.Lector["GANANCIA"])
                     };
-                    aux.Marca.IdMarca = (int)accesoDB.Lector["IDMARCA"];
-                    aux.Marca.Descripcion = (string)accesoDB.Lector[2];
-                    aux.TipoProducto.IdTipoProducto = (int)accesoDB.Lector["IDTIPOPRODUCTO"];
-                    aux.TipoProducto.Descripcion = (string)accesoDB.Lector[3];
+                    aux.Marca.IdMarca = (int)conexion.Lector["IDMARCA"];
+                    aux.Marca.Descripcion = (string)conexion.Lector[2];
+                    aux.TipoProducto.IdTipoProducto = (int)conexion.Lector["IDTIPOPRODUCTO"];
+                    aux.TipoProducto.Descripcion = (string)conexion.Lector[3];
 
                     lstProductos.Add(aux);
                 }
@@ -53,9 +53,9 @@ namespace Negocio
             }
             finally
             {
-                if (accesoDB.CheckearConexion() == true)
+                if (conexion.CheckearConexion() == true)
                 {
-                    accesoDB.CerrarConexion();
+                    conexion.CerrarConexion();
                 }
             }
         }
@@ -66,7 +66,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("INSERT INTO PRODUCTOS(IDMARCA, IDTIPOPRODUCTO, DESCRIPCION, STOCKMIN, GANANCIA) VALUES (@idmarca, @idtipoproducto, @descripcion, @stockmin, @ganancia)");
+                conexion.SetearConsulta("INSERT INTO PRODUCTOS([IDMARCA],[IDTIPOPRODUCTO],[DESCRIPCION],[STOCKMIN],[GANANCIA]) VALUES (@idmarca, @idtipoproducto, @descripcion, @stockmin, @ganancia)");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@idmarca", nuevo.Marca.IdMarca);
                 conexion.Comando.Parameters.AddWithValue("@idtipoproducto", nuevo.TipoProducto.IdTipoProducto);
@@ -83,14 +83,16 @@ namespace Negocio
             }
             finally
             {
-                if (conexion != null)
+                if (conexion.CheckearConexion() == true)
+                {
                     conexion.CerrarConexion();
+                }
             }
         }
 
         public void Modificar(Producto p)
         {
-            AccesoDB conexion;
+            AccesoDB conexion = null;
             try
             {
                 conexion = new AccesoDB();
@@ -110,11 +112,18 @@ namespace Negocio
             {
                 throw ex;
             }
+            finally
+            {
+                if (conexion.CheckearConexion() == true)
+                {
+                    conexion.CerrarConexion();
+                }
+            }
         }
 
         public void EliminarFisico(int id)
         {
-            AccesoDB conexion;
+            AccesoDB conexion = null;
             try
             {
                 conexion = new AccesoDB();
@@ -128,11 +137,18 @@ namespace Negocio
             {
                 throw ex;
             }
+            finally
+            {
+                if (conexion.CheckearConexion() == true)
+                {
+                    conexion.CerrarConexion();
+                }
+            }
         }
 
         public void EliminarLogico(int id)
         {
-            AccesoDB conexion;
+            AccesoDB conexion = null;
             try
             {
                 conexion = new AccesoDB();
@@ -146,6 +162,13 @@ namespace Negocio
             {
 
                 throw ex;
+            }
+            finally
+            {
+                if (conexion.CheckearConexion() == true)
+                {
+                    conexion.CerrarConexion();
+                }
             }
         }
     }

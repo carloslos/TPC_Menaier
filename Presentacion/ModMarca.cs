@@ -59,7 +59,7 @@ namespace Presentacion
         private void TxtDescripcion_TextChanged(object sender, EventArgs e)
         {
             TxtDescripcion.Text = TxtDescripcion.Text.TrimStart();
-            ValidarTxt(val.EsAlfanumerico, TxtDescripcion, tileDescripcion, lblDescripcion);
+            ValidarTxt(val.EsAlfa, TxtDescripcion, tileDescripcion, lblDescripcion);
         }
 
         private void ValidarTxt(Func<string, bool> metodo, MetroFramework.Controls.MetroTextBox txt, MetroFramework.Controls.MetroTile t, MetroFramework.Controls.MetroLabel l)

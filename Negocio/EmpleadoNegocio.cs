@@ -14,26 +14,27 @@ namespace Negocio
         {
             Empleado aux;
             List<Empleado> lstEmpleados = new List<Empleado>();
-            AccesoDB accesoDB = new AccesoDB();
+            AccesoDB conexion = null;
 
             try
             {
-                accesoDB.SetearConsulta("SELECT NOMBRE, APELLIDO, IDEMPLEADO, DNI, FECHANAC, TIPOPERFIL, EMAIL FROM EMPLEADOS WHERE ACTIVO = 1");
-                accesoDB.AbrirConexion();
-                accesoDB.EjecutarConsulta();
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("SELECT NOMBRE, APELLIDO, IDEMPLEADO, DNI, FECHANAC, TIPOPERFIL, EMAIL FROM EMPLEADOS WHERE ACTIVO = 1");
+                conexion.AbrirConexion();
+                conexion.EjecutarConsulta();
 
-                while (accesoDB.Lector.Read())
+                while (conexion.Lector.Read())
                 {
-                    string str = (string)accesoDB.Lector["TIPOPERFIL"];
+                    string str = (string)conexion.Lector["TIPOPERFIL"];
                     aux = new Empleado
                     {
-                        Nombre = (string)accesoDB.Lector["NOMBRE"],
-                        Apellido = (string)accesoDB.Lector["APELLIDO"],
-                        IdEmpleado = (int)accesoDB.Lector["IDEMPLEADO"],
-                        Dni = (int)accesoDB.Lector["DNI"],
-                        FechaNac = (DateTime)accesoDB.Lector["FECHANAC"],
+                        Nombre = (string)conexion.Lector["NOMBRE"],
+                        Apellido = (string)conexion.Lector["APELLIDO"],
+                        IdEmpleado = (int)conexion.Lector["IDEMPLEADO"],
+                        Dni = (int)conexion.Lector["DNI"],
+                        FechaNac = (DateTime)conexion.Lector["FECHANAC"],
                         TipoPerfil = str[0],
-                        Email = (string)accesoDB.Lector["EMAIL"]
+                        Email = (string)conexion.Lector["EMAIL"]
                     };
 
                     lstEmpleados.Add(aux);
@@ -48,9 +49,9 @@ namespace Negocio
             }
             finally
             {
-                if (accesoDB.CheckearConexion() == true)
+                if (conexion.CheckearConexion() == true)
                 {
-                    accesoDB.CerrarConexion();
+                    conexion.CerrarConexion();
                 }
             }
         }
@@ -79,14 +80,16 @@ namespace Negocio
             }
             finally
             {
-                if (conexion != null)
+                if (conexion.CheckearConexion() == true)
+                {
                     conexion.CerrarConexion();
+                }
             }
         }
 
         public void Modificar(Empleado e)
         {
-            AccesoDB conexion;
+            AccesoDB conexion = null;
             try
             {
                 conexion = new AccesoDB();
@@ -107,11 +110,18 @@ namespace Negocio
             {
                 throw ex;
             }
+            finally
+            {
+                if (conexion.CheckearConexion() == true)
+                {
+                    conexion.CerrarConexion();
+                }
+            }
         }
 
         public void EliminarFisico(int id)
         {
-            AccesoDB conexion;
+            AccesoDB conexion = null;
             try
             {
                 conexion = new AccesoDB();
@@ -125,11 +135,18 @@ namespace Negocio
             {
                 throw ex;
             }
+            finally
+            {
+                if (conexion.CheckearConexion() == true)
+                {
+                    conexion.CerrarConexion();
+                }
+            }
         }
 
         public void EliminarLogico(int id)
         {
-            AccesoDB conexion;
+            AccesoDB conexion = null;
             try
             {
                 conexion = new AccesoDB();
@@ -143,6 +160,13 @@ namespace Negocio
             {
 
                 throw ex;
+            }
+            finally
+            {
+                if (conexion.CheckearConexion() == true)
+                {
+                    conexion.CerrarConexion();
+                }
             }
         }
     }

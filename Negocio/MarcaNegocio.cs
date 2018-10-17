@@ -14,20 +14,21 @@ namespace Negocio
         {
             Marca aux;
             List<Marca> lstMarcas = new List<Marca>();
-            AccesoDB accesoDB = new AccesoDB();
+            AccesoDB conexion = null;
 
             try
             {
-                accesoDB.SetearConsulta("SELECT IDMARCA, DESCRIPCION FROM MARCAS WHERE ACTIVO = 1");
-                accesoDB.AbrirConexion();
-                accesoDB.EjecutarConsulta();
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("SELECT IDMARCA, DESCRIPCION FROM MARCAS WHERE ACTIVO = 1");
+                conexion.AbrirConexion();
+                conexion.EjecutarConsulta();
 
-                while (accesoDB.Lector.Read())
+                while (conexion.Lector.Read())
                 {
                     aux = new Marca
                     {
-                        IdMarca = (int)accesoDB.Lector["IDMARCA"],
-                        Descripcion = (string)accesoDB.Lector["DESCRIPCION"]
+                        IdMarca = (int)conexion.Lector["IDMARCA"],
+                        Descripcion = (string)conexion.Lector["DESCRIPCION"]
                     };
 
                     lstMarcas.Add(aux);
@@ -42,9 +43,9 @@ namespace Negocio
             }
             finally
             {
-                if (accesoDB.CheckearConexion() == true)
+                if (conexion.CheckearConexion() == true)
                 {
-                    accesoDB.CerrarConexion();
+                    conexion.CerrarConexion();
                 }
             }
         }
@@ -68,14 +69,16 @@ namespace Negocio
             }
             finally
             {
-                if (conexion != null)
+                if (conexion.CheckearConexion() == true)
+                {
                     conexion.CerrarConexion();
+                }
             }
         }
 
         public void Modificar(Marca m)
         {
-            AccesoDB conexion;
+            AccesoDB conexion = null;
             try
             {
                 conexion = new AccesoDB();
@@ -91,11 +94,18 @@ namespace Negocio
             {
                 throw ex;
             }
+            finally
+            {
+                if (conexion.CheckearConexion() == true)
+                {
+                    conexion.CerrarConexion();
+                }
+            }
         }
 
         public void EliminarFisico(int id)
         {
-            AccesoDB conexion;
+            AccesoDB conexion = null;
             try
             {
                 conexion = new AccesoDB();
@@ -109,11 +119,18 @@ namespace Negocio
             {
                 throw ex;
             }
+            finally
+            {
+                if (conexion.CheckearConexion() == true)
+                {
+                    conexion.CerrarConexion();
+                }
+            }
         }
 
         public void EliminarLogico(int id)
         {
-            AccesoDB conexion;
+            AccesoDB conexion = null;
             try
             {
                 conexion = new AccesoDB();
@@ -127,6 +144,13 @@ namespace Negocio
             {
 
                 throw ex;
+            }
+            finally
+            {
+                if (conexion.CheckearConexion() == true)
+                {
+                    conexion.CerrarConexion();
+                }
             }
         }
     }

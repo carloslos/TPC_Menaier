@@ -43,8 +43,8 @@ namespace Presentacion
                 }
                 try
                 {
-                    ModContacto mod = new ModContacto("Agregar");
-                    mod.Show();
+                    //ModContacto mod = new ModContacto("Agregar");
+                    //mod.Show();
                     LlenarTabla();
                 }
                 catch (Exception ex)

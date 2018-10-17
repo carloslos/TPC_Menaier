@@ -27,7 +27,7 @@ namespace Presentacion
             BtnMod.Text = "Editar";
             TxtNombre.Text = e.Nombre;
             TxtApellido.Text = e.Apellido;
-            TxtDNI.Text = e.Dni.ToString();
+            TxtDni.Text = e.Dni.ToString();
             TxtEmail.Text = e.Email;
             DateFechaNac.Value = e.FechaNac;
             switch (e.TipoPerfil)
@@ -77,6 +77,11 @@ namespace Presentacion
         }
 
         private void ModEmpleado_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtDni_TextChanged(object sender, EventArgs e)
         {
 
         }

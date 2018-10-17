@@ -39,9 +39,9 @@
             this.TxtApellido = new MetroFramework.Controls.MetroTextBox();
             this.tileEmail = new MetroFramework.Controls.MetroTile();
             this.lblEmail = new MetroFramework.Controls.MetroLabel();
-            this.TxtDNI = new MetroFramework.Controls.MetroTextBox();
-            this.tileDNI = new MetroFramework.Controls.MetroTile();
-            this.lblDNI = new MetroFramework.Controls.MetroLabel();
+            this.TxtDni = new MetroFramework.Controls.MetroTextBox();
+            this.tileDni = new MetroFramework.Controls.MetroTile();
+            this.lblDni = new MetroFramework.Controls.MetroLabel();
             this.tileApellido = new MetroFramework.Controls.MetroTile();
             this.lblApellido = new MetroFramework.Controls.MetroLabel();
             this.tileNombre = new MetroFramework.Controls.MetroTile();
@@ -51,7 +51,7 @@
             this.tileTipoPerfil.SuspendLayout();
             this.tileFechaNac.SuspendLayout();
             this.tileEmail.SuspendLayout();
-            this.tileDNI.SuspendLayout();
+            this.tileDni.SuspendLayout();
             this.tileApellido.SuspendLayout();
             this.tileNombre.SuspendLayout();
             this.SuspendLayout();
@@ -235,57 +235,58 @@
             this.lblEmail.TabIndex = 5;
             this.lblEmail.Text = "Email";
             // 
-            // TxtDNI
+            // TxtDni
             // 
             // 
             // 
             // 
-            this.TxtDNI.CustomButton.Image = null;
-            this.TxtDNI.CustomButton.Location = new System.Drawing.Point(159, 2);
-            this.TxtDNI.CustomButton.Name = "";
-            this.TxtDNI.CustomButton.Size = new System.Drawing.Size(15, 15);
-            this.TxtDNI.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.TxtDNI.CustomButton.TabIndex = 1;
-            this.TxtDNI.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.TxtDNI.CustomButton.UseSelectable = true;
-            this.TxtDNI.CustomButton.Visible = false;
-            this.TxtDNI.Lines = new string[0];
-            this.TxtDNI.Location = new System.Drawing.Point(173, 250);
-            this.TxtDNI.MaxLength = 8;
-            this.TxtDNI.Name = "TxtDNI";
-            this.TxtDNI.PasswordChar = '\0';
-            this.TxtDNI.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.TxtDNI.SelectedText = "";
-            this.TxtDNI.SelectionLength = 0;
-            this.TxtDNI.SelectionStart = 0;
-            this.TxtDNI.ShortcutsEnabled = true;
-            this.TxtDNI.Size = new System.Drawing.Size(177, 20);
-            this.TxtDNI.TabIndex = 2;
-            this.TxtDNI.UseSelectable = true;
-            this.TxtDNI.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.TxtDNI.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtDni.CustomButton.Image = null;
+            this.TxtDni.CustomButton.Location = new System.Drawing.Point(159, 2);
+            this.TxtDni.CustomButton.Name = "";
+            this.TxtDni.CustomButton.Size = new System.Drawing.Size(15, 15);
+            this.TxtDni.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.TxtDni.CustomButton.TabIndex = 1;
+            this.TxtDni.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.TxtDni.CustomButton.UseSelectable = true;
+            this.TxtDni.CustomButton.Visible = false;
+            this.TxtDni.Lines = new string[0];
+            this.TxtDni.Location = new System.Drawing.Point(173, 250);
+            this.TxtDni.MaxLength = 8;
+            this.TxtDni.Name = "TxtDni";
+            this.TxtDni.PasswordChar = '\0';
+            this.TxtDni.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.TxtDni.SelectedText = "";
+            this.TxtDni.SelectionLength = 0;
+            this.TxtDni.SelectionStart = 0;
+            this.TxtDni.ShortcutsEnabled = true;
+            this.TxtDni.Size = new System.Drawing.Size(177, 20);
+            this.TxtDni.TabIndex = 2;
+            this.TxtDni.UseSelectable = true;
+            this.TxtDni.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.TxtDni.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtDni.TextChanged += new System.EventHandler(this.TxtDni_TextChanged);
             // 
-            // tileDNI
+            // tileDni
             // 
-            this.tileDNI.ActiveControl = null;
-            this.tileDNI.Controls.Add(this.lblDNI);
-            this.tileDNI.Enabled = false;
-            this.tileDNI.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tileDNI.Location = new System.Drawing.Point(77, 250);
-            this.tileDNI.Name = "tileDNI";
-            this.tileDNI.Size = new System.Drawing.Size(100, 20);
-            this.tileDNI.TabIndex = 35;
-            this.tileDNI.UseSelectable = true;
+            this.tileDni.ActiveControl = null;
+            this.tileDni.Controls.Add(this.lblDni);
+            this.tileDni.Enabled = false;
+            this.tileDni.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tileDni.Location = new System.Drawing.Point(77, 250);
+            this.tileDni.Name = "tileDni";
+            this.tileDni.Size = new System.Drawing.Size(100, 20);
+            this.tileDni.TabIndex = 35;
+            this.tileDni.UseSelectable = true;
             // 
-            // lblDNI
+            // lblDni
             // 
-            this.lblDNI.AutoSize = true;
-            this.lblDNI.Enabled = false;
-            this.lblDNI.Location = new System.Drawing.Point(58, 0);
-            this.lblDNI.Name = "lblDNI";
-            this.lblDNI.Size = new System.Drawing.Size(31, 19);
-            this.lblDNI.TabIndex = 5;
-            this.lblDNI.Text = "DNI";
+            this.lblDni.AutoSize = true;
+            this.lblDni.Enabled = false;
+            this.lblDni.Location = new System.Drawing.Point(58, 0);
+            this.lblDni.Name = "lblDni";
+            this.lblDni.Size = new System.Drawing.Size(31, 19);
+            this.lblDni.TabIndex = 5;
+            this.lblDni.Text = "DNI";
             // 
             // tileApellido
             // 
@@ -367,8 +368,8 @@
             this.Controls.Add(this.TxtNombre);
             this.Controls.Add(this.TxtApellido);
             this.Controls.Add(this.tileEmail);
-            this.Controls.Add(this.TxtDNI);
-            this.Controls.Add(this.tileDNI);
+            this.Controls.Add(this.TxtDni);
+            this.Controls.Add(this.tileDni);
             this.Controls.Add(this.tileApellido);
             this.Controls.Add(this.tileNombre);
             this.Controls.Add(this.BtnVolver);
@@ -383,8 +384,8 @@
             this.tileFechaNac.PerformLayout();
             this.tileEmail.ResumeLayout(false);
             this.tileEmail.PerformLayout();
-            this.tileDNI.ResumeLayout(false);
-            this.tileDNI.PerformLayout();
+            this.tileDni.ResumeLayout(false);
+            this.tileDni.PerformLayout();
             this.tileApellido.ResumeLayout(false);
             this.tileApellido.PerformLayout();
             this.tileNombre.ResumeLayout(false);
@@ -401,12 +402,12 @@
         private MetroFramework.Controls.MetroLabel lblNombre;
         private MetroFramework.Controls.MetroTile tileApellido;
         private MetroFramework.Controls.MetroLabel lblApellido;
-        private MetroFramework.Controls.MetroTile tileDNI;
-        private MetroFramework.Controls.MetroLabel lblDNI;
+        private MetroFramework.Controls.MetroTile tileDni;
+        private MetroFramework.Controls.MetroLabel lblDni;
         private MetroFramework.Controls.MetroTextBox TxtEmail;
         private MetroFramework.Controls.MetroTile tileEmail;
         private MetroFramework.Controls.MetroLabel lblEmail;
-        private MetroFramework.Controls.MetroTextBox TxtDNI;
+        private MetroFramework.Controls.MetroTextBox TxtDni;
         private MetroFramework.Controls.MetroTextBox TxtApellido;
         private MetroFramework.Controls.MetroTextBox TxtNombre;
         private MetroFramework.Controls.MetroDateTime DateFechaNac;
