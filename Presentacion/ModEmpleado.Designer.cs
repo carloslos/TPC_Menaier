@@ -77,6 +77,7 @@
             this.BoxTipoPerfil.Size = new System.Drawing.Size(177, 29);
             this.BoxTipoPerfil.TabIndex = 4;
             this.BoxTipoPerfil.UseSelectable = true;
+            this.BoxTipoPerfil.SelectedValueChanged += new System.EventHandler(this.BoxTipoPerfil_SelectedValueChanged);
             // 
             // TxtEmail
             // 
@@ -182,6 +183,7 @@
             this.TxtNombre.UseSelectable = true;
             this.TxtNombre.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtNombre.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtNombre.TextChanged += new System.EventHandler(this.TxtNombre_TextChanged);
             // 
             // TxtApellido
             // 
@@ -212,6 +214,7 @@
             this.TxtApellido.UseSelectable = true;
             this.TxtApellido.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtApellido.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtApellido.TextChanged += new System.EventHandler(this.TxtApellido_TextChanged);
             // 
             // tileEmail
             // 
@@ -342,7 +345,7 @@
             this.BtnVolver.Text = "Volver";
             this.BtnVolver.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnVolver.UseSelectable = true;
-            this.BtnVolver.Click += new System.EventHandler(this.BtnCancelar_Click);
+            this.BtnVolver.Click += new System.EventHandler(this.BtnVolver_Click);
             // 
             // BtnMod
             // 
@@ -354,7 +357,7 @@
             this.BtnMod.Text = "Mod";
             this.BtnMod.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnMod.UseSelectable = true;
-            this.BtnMod.Click += new System.EventHandler(this.BtnAgregar_Click);
+            this.BtnMod.Click += new System.EventHandler(this.BtnMod_Click);
             // 
             // ModEmpleado
             // 

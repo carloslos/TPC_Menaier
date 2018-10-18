@@ -14,6 +14,7 @@ namespace Presentacion
     {
         private bool EntradasVal = false;
         Validaciones val = new Validaciones();
+        Marca m;
 
         public ModMarca()
         {
@@ -21,15 +22,17 @@ namespace Presentacion
             this.Text = "Agregar " + this.Text;
             BtnMod.Text = "Agregar";
             BtnMod.Enabled = false;
+            m = new Marca();
         }
 
-        public ModMarca(Marca m)
+        public ModMarca(Marca M)
         {
             InitializeComponent();
             this.Text = "Editar " + this.Text;
             BtnMod.Text = "Editar";
             BtnMod.Enabled = false;
-            TxtDescripcion.Text = m.Descripcion;
+            TxtDescripcion.Text = M.Descripcion;
+            m = M;
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
@@ -40,15 +43,19 @@ namespace Presentacion
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
             MarcaNegocio neg = new MarcaNegocio ();
-            Marca m = new Marca
-            {
-                Descripcion = TxtDescripcion.Text.Trim()
-            };
+            m.Descripcion = TxtDescripcion.Text;
             try
             {
-                neg.Agregar(m);
-                TxtDescripcion.Text = "";
-                LimpiarEntradas();
+                if(m.IdMarca == 0)
+                {
+                    neg.Agregar(m);
+                    LimpiarEntradas();
+                }
+                else
+                {
+                    neg.Modificar(m);
+                    this.Close();
+                }
             }
             catch (Exception ex)
             {
@@ -81,10 +88,10 @@ namespace Presentacion
                     val.CambiarColor(t, l, 'r');
                 }
             }
-            ValidarBox();
+            ValidarEntradas();
         }
 
-        private void ValidarBox()
+        private void ValidarEntradas()
         {
             if (EntradasVal == true) { BtnMod.Enabled = true; }
             else { BtnMod.Enabled = false; }
@@ -92,6 +99,7 @@ namespace Presentacion
 
         private void LimpiarEntradas()
         {
+            TxtDescripcion.Text = "";
             val.CambiarColor(tileDescripcion, lblDescripcion, 'b');
         }
     }

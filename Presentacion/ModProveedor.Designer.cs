@@ -43,7 +43,7 @@
             // BtnVolver
             // 
             this.BtnVolver.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.BtnVolver.Location = new System.Drawing.Point(207, 277);
+            this.BtnVolver.Location = new System.Drawing.Point(207, 290);
             this.BtnVolver.Name = "BtnVolver";
             this.BtnVolver.Size = new System.Drawing.Size(99, 23);
             this.BtnVolver.TabIndex = 9;
@@ -55,7 +55,7 @@
             // BtnMod
             // 
             this.BtnMod.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnMod.Location = new System.Drawing.Point(79, 277);
+            this.BtnMod.Location = new System.Drawing.Point(79, 290);
             this.BtnMod.Name = "BtnMod";
             this.BtnMod.Size = new System.Drawing.Size(100, 23);
             this.BtnMod.TabIndex = 8;

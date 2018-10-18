@@ -33,7 +33,7 @@ namespace Presentacion
 
         private void LlenarTabla()
         {
-            TipoProductoNegocio neg = new TipoProductoNegocio();
+            MarcaNegocio neg = new MarcaNegocio();
             try
             {
                 dgvMarcas.DataSource = neg.Listar();

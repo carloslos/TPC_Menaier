@@ -56,7 +56,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("INSERT INTO MARCAS(DESCRIPCION) VALUES (@descripcion)");
+                conexion.SetearConsulta("INSERT INTO MARCAS([DESCRIPCION],[ACTIVO]) VALUES (@descripcion,1)");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@descripcion", nuevo.Descripcion);
 

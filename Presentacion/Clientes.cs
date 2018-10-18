@@ -45,67 +45,6 @@ namespace Presentacion
             }
         }
 
-        private void BtnAgregar_Click(object sender, EventArgs e)
-        {
-            {
-                foreach (Form item in Application.OpenForms)
-                {
-                    if (item.GetType() == typeof(ModClienteP))
-                    {
-                        item.Focus();
-                        return;
-                    }
-                }
-                try
-                {
-                    ModClienteP mod = new ModClienteP();
-                    mod.Show();
-                    LlenarTabla();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-            }
-        }
-
-        private void BtnRefrescar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                LlenarTabla();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-        }
-
-        private void BtnEditar_Click(object sender, EventArgs e)
-        {
-            {
-                foreach (Form item in Application.OpenForms)
-                {
-                    if (item.GetType() == typeof(ModClienteP))
-                    {
-                        item.Focus();
-                        return;
-                    }
-                }
-                try
-                {
-                    ClienteP obj = (ClienteP)dgvClientesP.CurrentRow.DataBoundItem;
-                    ModClienteP mod = new ModClienteP(obj);
-                    mod.Show();
-                    LlenarTabla();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-            }
-        }
-
         private void DgvClientesP_Click(object sender, DataGridViewCellEventArgs e)
         {
             BtnVer.Text = "Ver Detalles";
@@ -114,6 +53,11 @@ namespace Presentacion
         private void DgvClientesE_Click(object sender, DataGridViewCellEventArgs e)
         {
             BtnVer.Text = "Ver Contactos";
+        }
+
+        private void BtnMod_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

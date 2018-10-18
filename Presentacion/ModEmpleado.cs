@@ -13,52 +13,79 @@ namespace Presentacion
 {
     public partial class ModEmpleado : Presentacion.Metro_Template
     {
+        private bool[] EntradasVal = new bool[5];
+        Empleado em;
+        Validaciones val = new Validaciones();
+
         public ModEmpleado()
         {
             InitializeComponent();
             this.Text = "Agregar " + this.Text;
             BtnMod.Text = "Agregar";
+            BtnMod.Enabled = false;
+            em = new Empleado();
         }
 
-        public ModEmpleado(Empleado e)
+        public ModEmpleado(Empleado E)
         {
             InitializeComponent();
+            string tp;
             this.Text = "Editar " + this.Text;
             BtnMod.Text = "Editar";
-            TxtNombre.Text = e.Nombre;
-            TxtApellido.Text = e.Apellido;
-            TxtDni.Text = e.Dni.ToString();
-            TxtEmail.Text = e.Email;
-            DateFechaNac.Value = e.FechaNac;
-            switch (e.TipoPerfil)
+            BtnMod.Enabled = false;
+            TxtNombre.Text = E.Nombre;
+            TxtApellido.Text = E.Apellido;
+            TxtDni.Text = E.Dni.ToString();
+            switch(E.TipoPerfil)
             {
                 case 'A':
-                    BoxTipoPerfil.Text = "Administrador";
+                    tp = "Administrador";
                     break;
                 case 'S':
-                    BoxTipoPerfil.Text = "Supervisor";
+                    tp = "Supervisor";
                     break;
                 case 'V':
-                    BoxTipoPerfil.Text = "Vendedor";
-                    break;
                 default:
+                    tp = "Vendedor";
                     break;
             }
+            BoxTipoPerfil.SelectedValue = tp;
+            em = E;
         }
 
-        private void BtnAgregar_Click(object sender, EventArgs e)
+        private void ModEmpleado_Load(object sender, EventArgs e)
         {
-            EmpleadoNegocio neg = new EmpleadoNegocio();
-            Empleado empleado = new Empleado
+            for (int i = 0; i < EntradasVal.Length; i++)
             {
-                Nombre = TxtNombre.Text.Trim(), // VALIDAR
-                Apellido = TxtApellido.Text.Trim()
-            };
+                EntradasVal[i] = false;
+            }
+            RealizarValidaciones();
+        }
+
+        private void BtnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnMod_Click(object sender, EventArgs e)
+        {
             try
             {
-                neg.Agregar(empleado);
-                TxtNombre.Text = "";
-                TxtApellido.Text = "";
+                EmpleadoNegocio neg = new EmpleadoNegocio();
+                em.Nombre = TxtNombre.Text.Trim();
+                em.Apellido = TxtApellido.Text.Trim();
+                em.Dni = Convert.ToInt32(TxtDni.Text.Trim());   
+                em.TipoPerfil = BoxTipoPerfil.SelectedText[0];
+                if (em.IdEmpleado == 0)
+                {
+                    neg.Agregar(em);
+                    LimpiarEntradas();
+                }
+                else
+                {
+                    neg.Modificar(em);
+                    this.Close();
+                }
             }
             catch (Exception ex)
             {
@@ -66,24 +93,110 @@ namespace Presentacion
             }
         }
 
-        private void BtnCancelar_Click(object sender, EventArgs e)
+        private void TxtNombre_TextChanged(object sender, EventArgs e)
         {
-            this.Close();
+            TxtNombre.Text = TxtNombre.Text.TrimStart();
+            ValidarTxt(0, val.EsAlfa, TxtNombre, tileNombre, lblNombre);
         }
 
-        private void TxtEmail_TextChanged(object sender, EventArgs e)
+        private void TxtApellido_TextChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void ModEmpleado_Load(object sender, EventArgs e)
-        {
-
+            TxtApellido.Text = TxtApellido.Text.TrimStart();
+            ValidarTxt(1, val.EsAlfa, TxtApellido, tileApellido, lblApellido);
         }
 
         private void TxtDni_TextChanged(object sender, EventArgs e)
         {
+            TxtDni.Text = TxtDni.Text.TrimStart();
+            ValidarTxt(2, val.EsDni, TxtDni, tileDni, lblDni);
+        }
 
+        private void TxtEmail_TextChanged(object sender, EventArgs e)
+        {
+            TxtEmail.Text = TxtEmail.Text.TrimStart();
+            ValidarTxt(3, val.EsEmail, TxtEmail, tileEmail, lblEmail);
+        }
+
+        private void BoxTipoPerfil_SelectedValueChanged(object sender, EventArgs e)
+        {
+            ValidarBox(4, BoxTipoPerfil, tileTipoPerfil, lblTipoPerfil);
+        }
+
+        private void ValidarTxt(int c, Func<string, bool> metodo, MetroFramework.Controls.MetroTextBox txt, MetroFramework.Controls.MetroTile t, MetroFramework.Controls.MetroLabel l)
+        {
+            if (metodo(txt.Text))
+            {
+                EntradasVal[c] = true;
+                val.CambiarColor(t, l, 'g');
+            }
+            else
+            {
+                EntradasVal[c] = false;
+                if (txt.Text == "")
+                {
+                    val.CambiarColor(t, l, 'b');
+                }
+                else
+                {
+                    val.CambiarColor(t, l, 'r');
+                }
+            }
+            ValidarEntradas();
+        }
+
+        private void RealizarValidaciones()
+        {
+            TxtNombre.Text = TxtNombre.Text.TrimStart();
+            ValidarTxt(0, val.EsAlfa, TxtNombre, tileNombre, lblNombre);
+            TxtApellido.Text = TxtApellido.Text.TrimStart();
+            ValidarTxt(1, val.EsAlfa, TxtApellido, tileApellido, lblApellido);
+            TxtDni.Text = TxtDni.Text.TrimStart();
+            ValidarTxt(2, val.EsDni, TxtDni, tileDni, lblDni);
+            ValidarBox(3, BoxTipoPerfil, tileTipoPerfil, lblTipoPerfil);
+            ValidarEntradas();
+        }
+
+        private void LimpiarEntradas()
+        {
+            TxtNombre.Text = "";
+            TxtApellido.Text = "";
+            TxtDni.Text = "";
+            BoxTipoPerfil.SelectedIndex = -1;
+            val.CambiarColor(tileNombre, lblNombre, 'b');
+            val.CambiarColor(tileApellido, lblApellido, 'b');
+            val.CambiarColor(tileDni, lblDni, 'b');
+            val.CambiarColor(tileTipoPerfil, lblTipoPerfil, 'b');
+        }
+
+        private void ValidarBox(int c, MetroFramework.Controls.MetroComboBox b, MetroFramework.Controls.MetroTile t, MetroFramework.Controls.MetroLabel l)
+        {
+            if (b.SelectedIndex != -1)
+            {
+                EntradasVal[c] = true;
+                val.CambiarColor(t, l, 'g');
+            }
+            else
+            {
+                EntradasVal[c] = false;
+                val.CambiarColor(t, l, 'b');
+            }
+            ValidarEntradas();
+        }
+
+        private void ValidarEntradas()
+        {
+            int i;
+            bool v = true;
+            for (i = 0; i < EntradasVal.Length - 1; i++)
+            {
+                if (EntradasVal[i] == false)
+                {
+                    v = false;
+                    break;
+                }
+            }
+            if (v == true) { BtnMod.Enabled = true; }
+            else { BtnMod.Enabled = false; }
         }
     }
 }

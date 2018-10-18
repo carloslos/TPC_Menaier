@@ -125,6 +125,16 @@ namespace Presentacion
                 }
             }
         }
+
+        private void BtnProductos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnContactos_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

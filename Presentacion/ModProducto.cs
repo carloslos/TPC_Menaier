@@ -13,7 +13,7 @@ namespace Presentacion
     public partial class ModProducto : Presentacion.Metro_Template
     {
         private bool[] EntradasVal = new bool[5];
-        Producto p = null;
+        Producto p;
         Validaciones val = new Validaciones();
 
         public ModProducto()

@@ -34,7 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.BtnAgregar = new MetroFramework.Controls.MetroButton();
+            this.BtnMod = new MetroFramework.Controls.MetroButton();
             this.BtnVer = new MetroFramework.Controls.MetroButton();
             this.BtnEliminar = new MetroFramework.Controls.MetroButton();
             this.dgvClientesP = new MetroFramework.Controls.MetroGrid();
@@ -43,17 +43,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientesE)).BeginInit();
             this.SuspendLayout();
             // 
-            // BtnAgregar
+            // BtnMod
             // 
-            this.BtnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnAgregar.Location = new System.Drawing.Point(280, 564);
-            this.BtnAgregar.Name = "BtnAgregar";
-            this.BtnAgregar.Size = new System.Drawing.Size(118, 23);
-            this.BtnAgregar.TabIndex = 11;
-            this.BtnAgregar.Text = "Agregar";
-            this.BtnAgregar.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.BtnAgregar.UseSelectable = true;
-            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
+            this.BtnMod.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnMod.Location = new System.Drawing.Point(280, 564);
+            this.BtnMod.Name = "BtnMod";
+            this.BtnMod.Size = new System.Drawing.Size(118, 23);
+            this.BtnMod.TabIndex = 11;
+            this.BtnMod.Text = "Mod";
+            this.BtnMod.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BtnMod.UseSelectable = true;
+            this.BtnMod.Click += new System.EventHandler(this.BtnMod_Click);
             // 
             // BtnVer
             // 
@@ -193,7 +193,7 @@
             this.Controls.Add(this.dgvClientesE);
             this.Controls.Add(this.BtnEliminar);
             this.Controls.Add(this.BtnVer);
-            this.Controls.Add(this.BtnAgregar);
+            this.Controls.Add(this.BtnMod);
             this.MinimumSize = new System.Drawing.Size(1024, 600);
             this.Name = "Clientes";
             this.ShowInTaskbar = false;
@@ -206,7 +206,7 @@
         }
 
         #endregion
-        private MetroFramework.Controls.MetroButton BtnAgregar;
+        private MetroFramework.Controls.MetroButton BtnMod;
         private MetroFramework.Controls.MetroButton BtnVer;
         private MetroFramework.Controls.MetroButton BtnEliminar;
         private MetroFramework.Controls.MetroGrid dgvClientesP;

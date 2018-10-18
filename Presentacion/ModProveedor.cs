@@ -14,7 +14,7 @@ namespace Presentacion
     {
         private bool[] EntradasVal = new bool[2];
         Validaciones val = new Validaciones();
-        Proveedor p = null;
+        Proveedor p;
 
         public ModProveedor()
         {
@@ -42,6 +42,7 @@ namespace Presentacion
             {
                 EntradasVal[i] = false;
             }
+            RealizarValidaciones();
         }
     
         private void BtnVolver_Click(object sender, EventArgs e)
@@ -105,6 +106,14 @@ namespace Presentacion
                 }
             }
             ValidarEntradas();
+        }
+
+        private void RealizarValidaciones()
+        {
+            TxtEmpresa.Text = TxtEmpresa.Text.TrimStart();
+            ValidarTxt(0, val.EsAlfa, TxtEmpresa, tileEmpresa, lblEmpresa);
+            TxtCuit.Text = TxtCuit.Text.TrimStart();
+            ValidarTxt(1, val.EsCuit, TxtCuit, tileCuit, lblCuit);
         }
 
         private void LimpiarEntradas()
