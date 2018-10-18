@@ -66,7 +66,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("INSERT INTO PRODUCTOS([IDMARCA],[IDTIPOPRODUCTO],[DESCRIPCION],[STOCKMIN],[GANANCIA]) VALUES (@idmarca, @idtipoproducto, @descripcion, @stockmin, @ganancia)");
+                conexion.SetearConsulta("INSERT INTO PRODUCTOS([IDMARCA],[IDTIPOPRODUCTO],[DESCRIPCION],[STOCKMIN],[GANANCIA],[ACTIVO]) VALUES (@idmarca,@idtipoproducto,@descripcion,@stockmin,@ganancia,1)");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@idmarca", nuevo.Marca.IdMarca);
                 conexion.Comando.Parameters.AddWithValue("@idtipoproducto", nuevo.TipoProducto.IdTipoProducto);
@@ -96,7 +96,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("UPDATE PRODUCTOS SET IDMARCA = @idmarca, IDTIPOPRODUCTO = @idtipoproducto, DESCRIPCION = @descripcion, PRECIO = @precio, STOCKMIN = @stockmin, GANANCIA = @ganancia WHERE IDPRODUCTO = @id");
+                conexion.SetearConsulta("UPDATE PRODUCTOS SET IDMARCA = @idmarca, IDTIPOPRODUCTO = @idtipoproducto, DESCRIPCION = @descripcion, STOCKMIN = @stockmin, GANANCIA = @ganancia WHERE IDPRODUCTO = @id");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@idmarca", p.Marca.IdMarca);
                 conexion.Comando.Parameters.AddWithValue("@idtipoproducto", p.TipoProducto.IdTipoProducto);

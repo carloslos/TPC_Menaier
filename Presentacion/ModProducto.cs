@@ -34,6 +34,10 @@ namespace Presentacion
             TxtDescripcion.Text = P.Descripcion;
             TxtGanancia.Text = P.Ganancia.ToString();
             TxtStockMin.Text = P.StockMin.ToString();
+            BoxTipoProducto.SelectedValue = P.TipoProducto.IdTipoProducto;
+            BoxTipoProducto.SelectedText = P.TipoProducto.Descripcion;
+            BoxMarca.SelectedValue = P.Marca.IdMarca;
+            BoxMarca.SelectedText = P.Marca.Descripcion;
             p = P;
         }
 
@@ -88,26 +92,31 @@ namespace Presentacion
 
         private void BtnMod_Click(object sender, EventArgs e)
         {
-            ProductoNegocio neg = new ProductoNegocio();
-            Producto p = new Producto
-            {
-                Descripcion = TxtDescripcion.Text.Trim(),
-                Ganancia = (float)Convert.ToDouble(TxtGanancia.Text.Trim()),
-                StockMin = Convert.ToInt32(TxtStockMin.Text.Trim())
-            };
-            p.TipoProducto.IdTipoProducto = Convert.ToInt32(BoxTipoProducto.SelectedValue);
-            p.TipoProducto.Descripcion = BoxTipoProducto.SelectedText;
-            p.Marca.IdMarca = Convert.ToInt32(BoxMarca.SelectedValue);
-            p.Marca.Descripcion = BoxMarca.SelectedText;
             try
             {
-                neg.Agregar(p);
-                TxtDescripcion.Text = "";
-                TxtGanancia.Text = "";
-                TxtStockMin.Text = "";
-                BoxMarca.SelectedIndex = -1;
-                BoxTipoProducto.SelectedIndex = -1;
-                LimpiarEntradas();
+                ProductoNegocio neg = new ProductoNegocio();
+                p.Descripcion = TxtDescripcion.Text.Trim();
+                p.Ganancia = (float)Convert.ToDouble(TxtGanancia.Text.Trim());
+                p.StockMin = Convert.ToInt32(TxtStockMin.Text.Trim());
+                if(p.IdProducto == 0)
+                {
+                    p.TipoProducto = new TipoProducto();
+                    p.Marca = new Marca();
+                }
+                p.TipoProducto.IdTipoProducto = Convert.ToInt32(BoxTipoProducto.SelectedValue);
+                p.TipoProducto.Descripcion = BoxTipoProducto.SelectedText;
+                p.Marca.IdMarca = Convert.ToInt32(BoxMarca.SelectedValue);
+                p.Marca.Descripcion = BoxMarca.SelectedText;
+                if (p.IdProducto == 0)
+                {
+                    neg.Agregar(p);
+                    LimpiarEntradas();
+                }
+                else
+                {
+                    neg.Modificar(p);
+                    this.Close();
+                }
             }
             catch (Exception ex)
             {
@@ -167,11 +176,11 @@ namespace Presentacion
 
         private void RealizarValidaciones()
         {
-            TxtDescripcion.Text = TxtDescripcion.Text.TrimStart();
+            TxtDescripcion.Text = TxtDescripcion.Text.Trim();
             ValidarTxt(0, val.EsAlfa, TxtDescripcion, tileDescripcion, lblDescripcion);
-            TxtGanancia.Text = TxtGanancia.Text.TrimStart();
+            TxtGanancia.Text = TxtGanancia.Text.Trim();
             ValidarTxt(1, val.EsNumero, TxtGanancia, tileGanancia, lblGanancia);
-            TxtStockMin.Text = TxtStockMin.Text.TrimStart();
+            TxtStockMin.Text = TxtStockMin.Text.Trim();
             ValidarTxt(2, val.EsNumeroEntero, TxtStockMin, tileStockMin, lblStockMin);
             ValidarBox(3, BoxMarca, tileMarca, lblMarca);
             ValidarBox(4, BoxTipoProducto, tileTipoProducto, lblTipoProducto);
@@ -194,6 +203,11 @@ namespace Presentacion
 
         private void LimpiarEntradas()
         {
+            TxtDescripcion.Text = "";
+            TxtGanancia.Text = "";
+            TxtStockMin.Text = "";
+            BoxMarca.SelectedIndex = -1;
+            BoxTipoProducto.SelectedIndex = -1;
             val.CambiarColor(tileDescripcion, lblDescripcion, 'b');
             val.CambiarColor(tileGanancia, lblGanancia, 'b');
             val.CambiarColor(tileStockMin, lblStockMin, 'b');
