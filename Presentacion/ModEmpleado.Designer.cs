@@ -58,11 +58,15 @@
             // 
             // DateFechaNac
             // 
-            this.DateFechaNac.Location = new System.Drawing.Point(173, 410);
+            this.DateFechaNac.Location = new System.Drawing.Point(146, 410);
+            this.DateFechaNac.MaxDate = new System.DateTime(2300, 1, 1, 0, 0, 0, 0);
+            this.DateFechaNac.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.DateFechaNac.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateFechaNac.Name = "DateFechaNac";
-            this.DateFechaNac.Size = new System.Drawing.Size(200, 29);
+            this.DateFechaNac.Size = new System.Drawing.Size(254, 29);
             this.DateFechaNac.TabIndex = 5;
+            this.DateFechaNac.Value = new System.DateTime(1999, 1, 1, 0, 0, 0, 0);
+            this.DateFechaNac.ValueChanged += new System.EventHandler(this.DateFechaNac_ValueChanged);
             // 
             // BoxTipoPerfil
             // 
@@ -138,7 +142,7 @@
             this.tileFechaNac.Controls.Add(this.lblFechaNac);
             this.tileFechaNac.Enabled = false;
             this.tileFechaNac.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tileFechaNac.Location = new System.Drawing.Point(77, 410);
+            this.tileFechaNac.Location = new System.Drawing.Point(50, 410);
             this.tileFechaNac.Name = "tileFechaNac";
             this.tileFechaNac.Size = new System.Drawing.Size(100, 29);
             this.tileFechaNac.TabIndex = 42;

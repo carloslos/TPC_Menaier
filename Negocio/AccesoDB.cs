@@ -38,7 +38,6 @@ namespace Negocio
             };
         }
 
-        //esto para luego...
         public void SetearSP(string sp)
         {
             comando = new SqlCommand
@@ -109,6 +108,11 @@ namespace Negocio
             {
                 throw ex;
             }
+        }
+
+        public void SetearFecha()
+        {
+
         }
 
     }

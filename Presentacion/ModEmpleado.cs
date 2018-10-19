@@ -13,7 +13,7 @@ namespace Presentacion
 {
     public partial class ModEmpleado : Presentacion.Metro_Template
     {
-        private bool[] EntradasVal = new bool[5];
+        private bool[] EntradasVal = new bool[6];
         Empleado em;
         Validaciones val = new Validaciones();
 
@@ -36,7 +36,7 @@ namespace Presentacion
             TxtNombre.Text = E.Nombre;
             TxtApellido.Text = E.Apellido;
             TxtDni.Text = E.Dni.ToString();
-            switch(E.TipoPerfil)
+            switch (E.TipoPerfil)
             {
                 case 'A':
                     tp = "Administrador";
@@ -50,6 +50,7 @@ namespace Presentacion
                     break;
             }
             BoxTipoPerfil.SelectedValue = tp;
+            DateFechaNac.Value = E.FechaNac;
             em = E;
         }
 
@@ -74,8 +75,10 @@ namespace Presentacion
                 EmpleadoNegocio neg = new EmpleadoNegocio();
                 em.Nombre = TxtNombre.Text.Trim();
                 em.Apellido = TxtApellido.Text.Trim();
-                em.Dni = Convert.ToInt32(TxtDni.Text.Trim());   
-                em.TipoPerfil = BoxTipoPerfil.SelectedText[0];
+                em.Dni = Convert.ToInt32(TxtDni.Text.Trim());
+                //string s = BoxTipoPerfil.SelectedText;                // ESTA COSA
+                //em.TipoPerfil = s[0];
+                em.FechaNac = DateFechaNac.Value;             
                 if (em.IdEmpleado == 0)
                 {
                     neg.Agregar(em);
@@ -122,6 +125,11 @@ namespace Presentacion
             ValidarBox(4, BoxTipoPerfil, tileTipoPerfil, lblTipoPerfil);
         }
 
+        private void DateFechaNac_ValueChanged(object sender, EventArgs e)
+        {
+            ValidarDate(5, DateFechaNac.Value, tileFechaNac, lblFechaNac);
+        }
+
         private void ValidarTxt(int c, Func<string, bool> metodo, MetroFramework.Controls.MetroTextBox txt, MetroFramework.Controls.MetroTile t, MetroFramework.Controls.MetroLabel l)
         {
             if (metodo(txt.Text))
@@ -153,6 +161,8 @@ namespace Presentacion
             TxtDni.Text = TxtDni.Text.TrimStart();
             ValidarTxt(2, val.EsDni, TxtDni, tileDni, lblDni);
             ValidarBox(3, BoxTipoPerfil, tileTipoPerfil, lblTipoPerfil);
+            ValidarBox(4, BoxTipoPerfil, tileTipoPerfil, lblTipoPerfil);
+            ValidarDate(5, DateFechaNac.Value, tileFechaNac, lblFechaNac);
             ValidarEntradas();
         }
 
@@ -166,6 +176,22 @@ namespace Presentacion
             val.CambiarColor(tileApellido, lblApellido, 'b');
             val.CambiarColor(tileDni, lblDni, 'b');
             val.CambiarColor(tileTipoPerfil, lblTipoPerfil, 'b');
+        }
+
+        private void ValidarDate (int c, DateTime d, MetroFramework.Controls.MetroTile t, MetroFramework.Controls.MetroLabel l)
+        {
+            DateTime v = new DateTime(1900, 1, 1), a = DateTime.Today.AddYears(-18);
+            if (d > v && d < a)
+            {
+                EntradasVal[c] = true;
+                val.CambiarColor(t, l, 'g');
+            }
+            else
+            {
+                EntradasVal[c] = false;
+                val.CambiarColor(t, l, 'r');
+            }
+            ValidarEntradas();
         }
 
         private void ValidarBox(int c, MetroFramework.Controls.MetroComboBox b, MetroFramework.Controls.MetroTile t, MetroFramework.Controls.MetroLabel l)
