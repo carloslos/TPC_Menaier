@@ -23,6 +23,8 @@ namespace Presentacion
             this.Text = "Agregar " + this.Text;
             BtnMod.Text = "Agregar";
             BtnMod.Enabled = false;
+            DateFechaNac.CustomFormat = " ";
+            DateFechaNac.Format = DateTimePickerFormat.Custom;
             em = new Empleado();
         }
 
@@ -36,20 +38,9 @@ namespace Presentacion
             TxtNombre.Text = E.Nombre;
             TxtApellido.Text = E.Apellido;
             TxtDni.Text = E.Dni.ToString();
-            switch (E.TipoPerfil)
-            {
-                case 'A':
-                    tp = "Administrador";
-                    break;
-                case 'S':
-                    tp = "Supervisor";
-                    break;
-                case 'V':
-                default:
-                    tp = "Vendedor";
-                    break;
-            }
-            BoxTipoPerfil.SelectedValue = tp;
+            TxtEmail.Text = E.Email;
+            BoxTipoPerfil.SelectedItem = E.TipoPerfilS;
+            DateFechaNac.CustomFormat = "dd/MM/yyyy";
             DateFechaNac.Value = E.FechaNac;
             em = E;
         }
@@ -76,8 +67,9 @@ namespace Presentacion
                 em.Nombre = TxtNombre.Text.Trim();
                 em.Apellido = TxtApellido.Text.Trim();
                 em.Dni = Convert.ToInt32(TxtDni.Text.Trim());
-                //string s = BoxTipoPerfil.SelectedText;                // ESTA COSA
-                //em.TipoPerfil = s[0];
+                em.Email = TxtEmail.Text.Trim();
+                string s = BoxTipoPerfil.SelectedItem.ToString();
+                em.TipoPerfil = s[0];
                 em.FechaNac = DateFechaNac.Value;             
                 if (em.IdEmpleado == 0)
                 {
@@ -127,6 +119,7 @@ namespace Presentacion
 
         private void DateFechaNac_ValueChanged(object sender, EventArgs e)
         {
+            DateFechaNac.CustomFormat = "dd/MM/yyyy";
             ValidarDate(5, DateFechaNac.Value, tileFechaNac, lblFechaNac);
         }
 
@@ -171,25 +164,37 @@ namespace Presentacion
             TxtNombre.Text = "";
             TxtApellido.Text = "";
             TxtDni.Text = "";
+            TxtEmail.Text = "";
             BoxTipoPerfil.SelectedIndex = -1;
+            DateFechaNac.CustomFormat = " ";
+            DateFechaNac.Format = DateTimePickerFormat.Custom;
             val.CambiarColor(tileNombre, lblNombre, 'b');
             val.CambiarColor(tileApellido, lblApellido, 'b');
             val.CambiarColor(tileDni, lblDni, 'b');
+            val.CambiarColor(tileEmail, lblEmail, 'b');
             val.CambiarColor(tileTipoPerfil, lblTipoPerfil, 'b');
+            val.CambiarColor(tileFechaNac, lblFechaNac, 'b');
         }
 
         private void ValidarDate (int c, DateTime d, MetroFramework.Controls.MetroTile t, MetroFramework.Controls.MetroLabel l)
         {
             DateTime v = new DateTime(1900, 1, 1), a = DateTime.Today.AddYears(-18);
-            if (d > v && d < a)
+            if (DateFechaNac.CustomFormat == " ")
             {
-                EntradasVal[c] = true;
-                val.CambiarColor(t, l, 'g');
+                val.CambiarColor(t, l, 'b');
             }
             else
             {
-                EntradasVal[c] = false;
-                val.CambiarColor(t, l, 'r');
+                if (d > v && d < a)
+                {
+                    EntradasVal[c] = true;
+                    val.CambiarColor(t, l, 'g');
+                }
+                else
+                {
+                    EntradasVal[c] = false;
+                    val.CambiarColor(t, l, 'r');
+                }
             }
             ValidarEntradas();
         }

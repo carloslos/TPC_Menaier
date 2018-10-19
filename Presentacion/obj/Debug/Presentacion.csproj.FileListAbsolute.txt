@@ -45,7 +45,6 @@ C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\bin\Debug\PasswordTextBoxCo
 C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\bin\Debug\Dominio.pdb
 C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\bin\Debug\Negocio.pdb
 C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.csprojAssemblyReference.cache
-C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ModCliente.resources
 C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ModContacto.resources
 C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ModEmpleado.resources
 C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ModMarca.resources
@@ -143,3 +142,5 @@ C:\Users\Carlos\Source\Repos\Azhar1921\TPC_Menaier\Presentacion\obj\Debug\Presen
 C:\Users\Carlos\Source\Repos\Azhar1921\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ModClienteP.resources
 C:\Users\tisoporte\Source\Repos\Azhar1921\TPC_Menaier\Presentacion\obj\Debug\Presentacion.Confirmacion.resources
 C:\Users\tisoporte\Source\Repos\Azhar1921\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ModClienteP.resources
+C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.Confirmacion.resources
+C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ModClienteP.resources

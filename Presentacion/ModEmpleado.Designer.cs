@@ -59,7 +59,7 @@
             // DateFechaNac
             // 
             this.DateFechaNac.Location = new System.Drawing.Point(146, 410);
-            this.DateFechaNac.MaxDate = new System.DateTime(2300, 1, 1, 0, 0, 0, 0);
+            this.DateFechaNac.MaxDate = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
             this.DateFechaNac.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.DateFechaNac.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateFechaNac.Name = "DateFechaNac";
@@ -132,7 +132,7 @@
             this.lblTipoPerfil.Enabled = false;
             this.lblTipoPerfil.Location = new System.Drawing.Point(3, 6);
             this.lblTipoPerfil.Name = "lblTipoPerfil";
-            this.lblTipoPerfil.Size = new System.Drawing.Size(88, 19);
+            this.lblTipoPerfil.Size = new System.Drawing.Size(87, 19);
             this.lblTipoPerfil.TabIndex = 5;
             this.lblTipoPerfil.Text = "Tipo de Perfil";
             // 
