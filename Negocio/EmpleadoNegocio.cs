@@ -26,6 +26,7 @@ namespace Negocio
 
                 while (conexion.Lector.Read())
                 {
+                    string s = (string)conexion.Lector["TIPOPERFIL"];
                     aux = new Empleado
                     {
                         Nombre = (string)conexion.Lector["NOMBRE"],
@@ -33,7 +34,7 @@ namespace Negocio
                         IdEmpleado = (int)conexion.Lector["IDEMPLEADO"],
                         Dni = (int)conexion.Lector["DNI"],
                         FechaNac = (DateTime)conexion.Lector["FECHANAC"],
-                        TipoPerfil = (char)conexion.Lector["TIPOPERFIL"],
+                        TipoPerfil = s[0],
                         Email = (string)conexion.Lector["EMAIL"]
                     };
 
@@ -53,9 +54,7 @@ namespace Negocio
 
                     lstEmpleados.Add(aux);
                 }
-
                 return lstEmpleados;
-
             }
             catch (Exception ex)
             {

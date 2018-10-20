@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Net.Mail;
+using System.ComponentModel.DataAnnotations;
 
 namespace Negocio
 {
@@ -76,8 +76,10 @@ namespace Negocio
         {
             try
             {
-                MailAddress email = new MailAddress(s);
-                return email.Address == s;
+                if (new EmailAddressAttribute().IsValid(s))
+                    return true;
+                else
+                    return false;
             }
             catch
             {

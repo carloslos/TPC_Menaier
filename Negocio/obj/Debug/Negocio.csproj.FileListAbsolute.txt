@@ -37,3 +37,4 @@ C:\Users\tisoporte\Source\Repos\Azhar1921\TPC_Menaier\Negocio\obj\Debug\Negocio.
 C:\Users\tisoporte\Source\Repos\Azhar1921\TPC_Menaier\Negocio\bin\Debug\MetroFramework.dll
 C:\Users\Azhar\Source\Repos\TPC_Menaier\Negocio\bin\Debug\MetroFramework.dll
 C:\Users\Carlos\Source\Repos\Azhar1921\TPC_Menaier\Negocio\bin\Debug\MetroFramework.dll
+C:\Users\Azhar\Source\Repos\TPC_Menaier\Negocio\bin\Debug\System.ComponentModel.Annotations.dll

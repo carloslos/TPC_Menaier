@@ -152,7 +152,9 @@
             this.Name = "MenuPrincipal";
             this.Text = "Menu Principal";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             this.ResumeLayout(false);
+
         }
 
         #endregion

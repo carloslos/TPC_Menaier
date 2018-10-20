@@ -31,7 +31,6 @@ namespace Presentacion
         public ModEmpleado(Empleado E)
         {
             InitializeComponent();
-            string tp;
             this.Text = "Editar " + this.Text;
             BtnMod.Text = "Editar";
             BtnMod.Enabled = false;
