@@ -8,32 +8,36 @@ using System.Data.SqlClient;
 
 namespace Negocio
 {
-    public class TipoProductoNegocio
+    public class TelefonoNegocio
     {
-        public List<TipoProducto> Listar()
+        public List<Telefono> Listar(int IdRelacion)
         {
-            TipoProducto aux;
-            List<TipoProducto> lstTiposProducto = new List<TipoProducto>();
+            Telefono aux;
+            List<Telefono> lstTelefonos = new List<Telefono>();
             AccesoDB conexion = null;
 
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("SELECT IDTIPOPRODUCTO, DESCRIPCION FROM TIPOSPRODUCTO WHERE ACTIVO = 1");
+                conexion.SetearConsulta("SELECT IDTELEFONO, DESCRIPCION, NUMERO FROM CONTACTOS WHERE IDRELACION = @idrelacion AND ACTIVO = 1");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@idrelacion", IdRelacion);
                 conexion.AbrirConexion();
                 conexion.EjecutarConsulta();
 
                 while (conexion.Lector.Read())
                 {
-                    aux = new TipoProducto
+                    aux = new Telefono
                     {
-                        IdTipoProducto = (int)conexion.Lector["IDTIPOPRODUCTO"],
-                        Descripcion = (string)conexion.Lector["DESCRIPCION"]
+                        IdTelefono = (int)conexion.Lector["IDTELEFONO"],
+                        IdRelacion = IdRelacion,
+                        Descripcion = (string)conexion.Lector["DESCRIPCION"],
+                        Numero = (int)conexion.Lector["NUMERO"]
                     };
 
-                    lstTiposProducto.Add(aux);
+                    lstTelefonos.Add(aux);
                 }
-                return lstTiposProducto;
+                return lstTelefonos;
             }
             catch (Exception ex)
             {
@@ -48,15 +52,17 @@ namespace Negocio
             }
         }
 
-        public void Agregar(TipoProducto nuevo)
+        public void Agregar(Telefono nuevo)
         {
             AccesoDB conexion = null;
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("INSERT INTO TIPOSPRODUCTO(DESCRIPCION, ACTIVO) VALUES (@descripcion, 1)");
+                conexion.SetearConsulta("INSERT INTO TELEFONOS([IDRELACION],[DESCRIPCION],[NUMERO],[ACTIVO]) VALUES (@idrelacion,@descripcion,@numero,1)");
                 conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@idrelacion", nuevo.IdRelacion);
                 conexion.Comando.Parameters.AddWithValue("@descripcion", nuevo.Descripcion);
+                conexion.Comando.Parameters.AddWithValue("@numero", nuevo.Numero);
 
                 conexion.AbrirConexion();
                 conexion.EjecutarAccion();
@@ -74,16 +80,16 @@ namespace Negocio
             }
         }
 
-        public void Modificar(TipoProducto tp)
+        public void Modificar(Telefono t)
         {
             AccesoDB conexion = null;
             try
             {
-                conexion = new AccesoDB();
-                conexion.SetearConsulta("UPDATE TIPOSPRODUCTO SET DESCRIPCION = @descripcion WHERE IDTIPOPRODUCTO = @id");
+                conexion.SetearConsulta("UPDATE TELEFONOS SET DESCRIPCION = @descripcion, NUMERO = @numero WHERE IDTELEFONO = @idtelefono");
                 conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@descripcion", tp.Descripcion);
-                conexion.Comando.Parameters.AddWithValue("@id", tp.IdTipoProducto);
+                conexion.Comando.Parameters.AddWithValue("@descripcion", t.Descripcion);
+                conexion.Comando.Parameters.AddWithValue("@numero", t.Numero);
+                conexion.Comando.Parameters.AddWithValue("@idtelefono", t.IdTelefono);
 
                 conexion.AbrirConexion();
                 conexion.EjecutarAccion();
@@ -107,7 +113,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("DELETE FROM TIPOSPRODUCTO WHERE IDTIPOPRODUCTO = @id");
+                conexion.SetearConsulta("DELETE FROM TELEFONOS WHERE IDTELEFONO = @id");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@id", id);
                 conexion.AbrirConexion();
@@ -132,7 +138,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("UPDATE TIPOSPRODUCTO SET ACTIVO = 0 WHERE IDTIPOPRODUCTO = @id");
+                conexion.SetearConsulta("UPDATE TELEFONOS SET ACTIVO = 0 WHERE IDTELEFONO = @id");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@id", id);
                 conexion.AbrirConexion();
@@ -154,9 +160,11 @@ namespace Negocio
 }
 
 /*
-CREATE TABLE TIPOSPRODUCTO
+CREATE TABLE TELEFONOS
 (
-    IDTIPOPRODUCTO INT NOT NULL PRIMARY KEY,
+    IDTELEFONO INT NOT NULL IDENTITY(100000000,1) PRIMARY KEY,
+    IDCONTACTO INT NOT NULL,
+	NUMERO INT NOT NULL,
     DESCRIPCION VARCHAR(60) NOT NULL
 )
 */

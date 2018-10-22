@@ -107,6 +107,12 @@
     <Compile Include="ModContacto.Designer.cs">
       <DependentUpon>ModContacto.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModDomicilio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModDomicilio.Designer.cs">
+      <DependentUpon>ModDomicilio.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,12 @@
     </Compile>
     <Compile Include="ModProveedor.Designer.cs">
       <DependentUpon>ModProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModTelefono.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModTelefono.Designer.cs">
+      <DependentUpon>ModTelefono.cs</DependentUpon>
     </Compile>
     <Compile Include="ModTipoProducto.cs">
       <SubType>Form</SubType>

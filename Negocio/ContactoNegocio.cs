@@ -60,7 +60,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("INSERT INTO EMPLEADOS(NOMBRE, APELLIDO, DNI, EMAIL) VALUES (@nombre, @apellido, @dni, @email)");
+                conexion.SetearConsulta("INSERT INTO CONTACTOS(NOMBRE, APELLIDO, DNI, EMAIL) VALUES (@nombre, @apellido, @dni, @email)");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@nombre", nuevo.Nombre);
                 conexion.Comando.Parameters.AddWithValue("@apellido", nuevo.Apellido);

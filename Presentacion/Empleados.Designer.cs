@@ -61,6 +61,7 @@
             this.BtnDetalles.Text = "Detalles";
             this.BtnDetalles.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnDetalles.UseSelectable = true;
+            this.BtnDetalles.Click += new System.EventHandler(this.BtnDetalles_Click);
             // 
             // BtnAgregar
             // 

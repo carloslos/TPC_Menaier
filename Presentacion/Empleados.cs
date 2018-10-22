@@ -127,6 +127,30 @@ namespace Presentacion
                 }
             }
         }
+
+        private void BtnDetalles_Click(object sender, EventArgs e)
+        {
+            {
+                foreach (Form item in Application.OpenForms)
+                {
+                    if (item.GetType() == typeof(DetallesContacto))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    DetallesContacto detalles = new DetallesContacto((Empleado)dgvEmpleados.CurrentRow.DataBoundItem);
+                    detalles.Show();
+                    LlenarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+        }
     }
 }
 
