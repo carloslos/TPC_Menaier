@@ -9,7 +9,6 @@ namespace Negocio
 {
     public class ContactoNegocio
     {
-
         public List<Contacto> Listar(int id)
         {
             Contacto aux;
@@ -18,9 +17,13 @@ namespace Negocio
 
             try
             {
+
+                /// TODO: HACER ESTA CONSULTA, QUIZA JUNTAR CONTACTOS_X_TODO
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("SELECT E.IDEMPLEADO, E.NOMBRE, E.APELLIDO, E.DNI, E.EMAIL FROM EMPLEADOS AS E " +
-                                        "WHERE ACTIVO IS 1");
+                conexion.SetearConsulta("SELECT C.NOMBRE, C.APELLIDO, C.DNI, C.EMAIL FROM CONTACTOS AS C" +
+                        "INNER  " +
+                        "INNER JOIN TIPOSPRODUCTO AS TP ON P.IDTIPOPRODUCTO = TP.IDTIPOPRODUCTO " +
+                        "WHERE P.ACTIVO = 1");
                 conexion.AbrirConexion();
                 conexion.EjecutarConsulta();
 
