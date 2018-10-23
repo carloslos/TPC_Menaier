@@ -19,7 +19,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("SELECT IDTELEFONO, DESCRIPCION, NUMERO FROM CONTACTOS WHERE IDRELACION = @idrelacion AND ACTIVO = 1");
+                conexion.SetearConsulta("SELECT IDTELEFONO, DESCRIPCION, NUMERO FROM TELEFONOS WHERE IDRELACION = @idrelacion AND ACTIVO = 1");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@idrelacion", IdRelacion);
                 conexion.AbrirConexion();

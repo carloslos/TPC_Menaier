@@ -121,6 +121,7 @@
             this.Controls.Add(this.BtnMod);
             this.Controls.Add(this.tileDescripcion);
             this.Controls.Add(this.TxtDescripcion);
+            this.MinimumSize = new System.Drawing.Size(385, 376);
             this.Name = "ModTipoProducto";
             this.Text = "Tipo de Producto";
             this.tileDescripcion.ResumeLayout(false);

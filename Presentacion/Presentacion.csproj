@@ -232,6 +232,9 @@
     <EmbeddedResource Include="ModContacto.resx">
       <DependentUpon>ModContacto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModDomicilio.resx">
+      <DependentUpon>ModDomicilio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModEmpleado.resx">
       <DependentUpon>ModEmpleado.cs</DependentUpon>
     </EmbeddedResource>
@@ -243,6 +246,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModProveedor.resx">
       <DependentUpon>ModProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModTelefono.resx">
+      <DependentUpon>ModTelefono.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModTipoProducto.resx">
       <DependentUpon>ModTipoProducto.cs</DependentUpon>

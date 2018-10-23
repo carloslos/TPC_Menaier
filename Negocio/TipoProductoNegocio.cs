@@ -19,7 +19,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("SELECT IDTIPOPRODUCTO, DESCRIPCION FROM TIPOSPRODUCTO WHERE ACTIVO = 1");
+                conexion.SetearConsulta("SELECT IDTIPOPRODUCTO, DESCRIPCION FROM TIPOSPRODUCTO WHERE ACTIVO = 1 ORDER BY DESCRIPCION ASC");
                 conexion.AbrirConexion();
                 conexion.EjecutarConsulta();
 

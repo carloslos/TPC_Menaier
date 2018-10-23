@@ -17,13 +17,12 @@ namespace Negocio
 
             try
             {
-
-                /// TODO: HACER ESTA CONSULTA, QUIZA JUNTAR CONTACTOS_X_TODO
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("SELECT C.NOMBRE, C.APELLIDO, C.DNI, C.EMAIL FROM CONTACTOS AS C" +
-                        "INNER  " +
-                        "INNER JOIN TIPOSPRODUCTO AS TP ON P.IDTIPOPRODUCTO = TP.IDTIPOPRODUCTO " +
-                        "WHERE P.ACTIVO = 1");
+                conexion.SetearConsulta("SELECT C.IDCONTACTO, C.NOMBRE, C.APELLIDO, C.DNI, C.EMAIL FROM CONTACTOS AS C" +
+                        "INNER JOIN CONTATOS_X_RELACION AS CXR ON CXR.IDRELACION = @id " +
+                        "WHERE C.ACTIVO = 1");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@id", id);
                 conexion.AbrirConexion();
                 conexion.EjecutarConsulta();
 
@@ -37,12 +36,9 @@ namespace Negocio
                         Dni = (int)conexion.Lector["DNI"],
                         Email = (string)conexion.Lector["EMAIL"],
                     };
-
                     lstContactos.Add(aux);
                 }
-
                 return lstContactos;
-
             }
             catch (Exception ex)
             {

@@ -10,8 +10,8 @@ namespace Dominio
     {
         public int IdTelefono { get; set; }
         public int IdRelacion { get; set; }
-        public int Numero { get; set; }
         public string Descripcion { get; set; }
+        public int Numero { get; set; }
         public bool Activo { get; set; }
 
         public override string ToString()

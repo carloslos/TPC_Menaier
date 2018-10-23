@@ -77,7 +77,6 @@ namespace Presentacion
                 {
                     BoxMarca.SelectedIndex = -1;
                 }
-
             }
             catch (Exception ex)
             {
