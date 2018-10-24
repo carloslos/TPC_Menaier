@@ -126,6 +126,7 @@
             this.dgvEmpleados.Size = new System.Drawing.Size(978, 476);
             this.dgvEmpleados.TabIndex = 22;
             this.dgvEmpleados.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.dgvEmpleados.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvEmpleados_CellContentDoubleClick);
             // 
             // BtnEditar
             // 

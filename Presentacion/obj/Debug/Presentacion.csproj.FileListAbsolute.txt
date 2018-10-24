@@ -145,3 +145,4 @@ C:\Users\tisoporte\Source\Repos\Azhar1921\TPC_Menaier\Presentacion\obj\Debug\Pre
 C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.Confirmacion.resources
 C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ModClienteP.resources
 C:\Users\tisoporte\Source\Repos\Azhar1921\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ModTelefono.resources
+C:\Users\tisoporte\Source\Repos\Azhar1921\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ModDomicilio.resources

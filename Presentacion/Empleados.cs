@@ -30,11 +30,11 @@ namespace Presentacion
             try
             {
                 dgvEmpleados.DataSource = neg.Listar();
-                dgvEmpleados.Columns["Nombre"].DisplayIndex = 0; dgvEmpleados.Columns["Nombre"].HeaderText = "Nombre";
-                dgvEmpleados.Columns["Apellido"].DisplayIndex = 1; dgvEmpleados.Columns["Apellido"].HeaderText = "Apellido";
-                dgvEmpleados.Columns["Dni"].DisplayIndex = 2; dgvEmpleados.Columns["Dni"].HeaderText = "DNI";
-                dgvEmpleados.Columns["Email"].DisplayIndex = 3; dgvEmpleados.Columns["Email"].HeaderText = "Email";
-                dgvEmpleados.Columns["IdEmpleado"].DisplayIndex = 4; dgvEmpleados.Columns["FechaNac"].HeaderText = "ID";
+                dgvEmpleados.Columns["IdEmpleado"].DisplayIndex = 0; dgvEmpleados.Columns["FechaNac"].HeaderText = "ID";
+                dgvEmpleados.Columns["Nombre"].DisplayIndex = 1;
+                dgvEmpleados.Columns["Apellido"].DisplayIndex = 2;
+                dgvEmpleados.Columns["Dni"].DisplayIndex = 3; dgvEmpleados.Columns["Dni"].HeaderText = "DNI";
+                dgvEmpleados.Columns["Email"].DisplayIndex = 4;
                 dgvEmpleados.Columns["FechaNac"].DisplayIndex = 5; dgvEmpleados.Columns["FechaNac"].HeaderText = "Fecha de nacimiento";
                 dgvEmpleados.Columns["TipoPerfilS"].DisplayIndex = 6; dgvEmpleados.Columns["TipoPerfilS"].HeaderText = "Tipo de perfil";
                 dgvEmpleados.Columns["TipoPerfil"].Visible = false;
@@ -129,6 +129,30 @@ namespace Presentacion
         }
 
         private void BtnDetalles_Click(object sender, EventArgs e)
+        {
+            {
+                foreach (Form item in Application.OpenForms)
+                {
+                    if (item.GetType() == typeof(DetallesContacto))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    DetallesContacto detalles = new DetallesContacto((Empleado)dgvEmpleados.CurrentRow.DataBoundItem);
+                    detalles.Show();
+                    LlenarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+        }
+
+        private void DgvEmpleados_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             {
                 foreach (Form item in Application.OpenForms)

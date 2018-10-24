@@ -9,7 +9,7 @@ namespace Negocio
 {
     public class ProductoNegocio
     {
-        public List<Producto> Listar()
+        public List<Producto> Listar(int Id)
         {
             Producto aux;
             List<Producto> lstProductos = new List<Producto>();
@@ -17,10 +17,24 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("SELECT P.IDPRODUCTO, P.DESCRIPCION, M.DESCRIPCION, TP.DESCRIPCION, P.STOCKMIN, P.GANANCIA, P.IDMARCA, P.IDTIPOPRODUCTO FROM PRODUCTOS AS P " +
-                                        "INNER JOIN MARCAS AS M ON P.IDMARCA = M.IDMARCA " +
-                                        "INNER JOIN TIPOSPRODUCTO AS TP ON P.IDTIPOPRODUCTO = TP.IDTIPOPRODUCTO " +
-                                        "WHERE P.ACTIVO = 1");
+                if(Id == 0)
+                {
+                    conexion.SetearConsulta("SELECT P.IDPRODUCTO, P.DESCRIPCION, M.DESCRIPCION, TP.DESCRIPCION, P.STOCKMIN, P.GANANCIA, P.IDMARCA, P.IDTIPOPRODUCTO FROM PRODUCTOS AS P " +
+                        "INNER JOIN MARCAS AS M ON P.IDMARCA = M.IDMARCA " +
+                        "INNER JOIN TIPOSPRODUCTO AS TP ON P.IDTIPOPRODUCTO = TP.IDTIPOPRODUCTO " +
+                        "WHERE P.ACTIVO = 1");
+                }
+                else
+                {
+                    conexion.SetearConsulta("SELECT P.IDPRODUCTO, P.DESCRIPCION, M.DESCRIPCION, TP.DESCRIPCION, P.STOCKMIN, P.GANANCIA, P.IDMARCA, P.IDTIPOPRODUCTO FROM PRODUCTOS AS P " +
+                        "INNER JOIN PRODUCTOS_X_PROVEEDOR AS PXP ON PXP.IDPROVEEDOR = @id " +
+                        "INNER JOIN MARCAS AS M ON P.IDMARCA = M.IDMARCA " +
+                        "INNER JOIN TIPOSPRODUCTO AS TP ON P.IDTIPOPRODUCTO = TP.IDTIPOPRODUCTO " +
+                        "WHERE P.ACTIVO = 1");
+                    conexion.Comando.Parameters.Clear();
+                    conexion.Comando.Parameters.AddWithValue("@id", Id);
+                }
+
                 conexion.AbrirConexion();
                 conexion.EjecutarConsulta();
 

@@ -128,12 +128,78 @@ namespace Presentacion
 
         private void BtnProductos_Click(object sender, EventArgs e)
         {
-
+            {
+                foreach (Form item in Application.OpenForms)
+                {
+                    if (item.GetType() == typeof(Contactos))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    Proveedor p = new Proveedor();
+                    p = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
+                    Productos pr = new Productos(p.GetId());
+                    pr.Show();
+                    LlenarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
         }
 
         private void BtnContactos_Click(object sender, EventArgs e)
         {
+            {
+                foreach (Form item in Application.OpenForms)
+                {
+                    if (item.GetType() == typeof(Contactos))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    Proveedor p = new Proveedor();
+                    p = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
+                    Contactos c = new Contactos(p.GetId());
+                    c.Show();
+                    LlenarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+        }
 
+        private void DgvProveedores_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            foreach (Form item in Application.OpenForms)
+            {
+                if (item.GetType() == typeof(Contactos))
+                {
+                    item.Focus();
+                    return;
+                }
+            }
+            try
+            {
+                Proveedor p = new Proveedor();
+                p = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
+                Contactos c = new Contactos(p.GetId());
+                c.Show();
+                LlenarTabla();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

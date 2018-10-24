@@ -18,8 +18,8 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("SELECT C.IDCONTACTO, C.NOMBRE, C.APELLIDO, C.DNI, C.EMAIL FROM CONTACTOS AS C" +
-                        "INNER JOIN CONTATOS_X_RELACION AS CXR ON CXR.IDRELACION = @id " +
+                conexion.SetearConsulta("SELECT C.IDCONTACTO, C.NOMBRE, C.APELLIDO, C.DNI, C.EMAIL FROM CONTACTOS AS C " +
+                        "INNER JOIN CONTACTOS_X_RELACION AS CXR ON CXR.IDRELACION = @id " +
                         "WHERE C.ACTIVO = 1");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@id", id);

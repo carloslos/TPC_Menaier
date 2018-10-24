@@ -12,8 +12,16 @@ namespace Presentacion
 {
     public partial class Productos : Presentacion.Metro_Template
     {
+        private int Id = 0;
+
         public Productos()
         {
+            InitializeComponent();
+        }
+
+        public Productos(int IdP)
+        {
+            Id = IdP;
             InitializeComponent();
         }
 
@@ -21,6 +29,7 @@ namespace Presentacion
         {
             try
             {
+                MessageBox.Show(Id.ToString());
                 LlenarTabla();
             }
             catch (Exception ex)
@@ -34,7 +43,7 @@ namespace Presentacion
             ProductoNegocio neg = new ProductoNegocio();
             try
             {
-                dgvProductos.DataSource = neg.Listar();
+                dgvProductos.DataSource = neg.Listar(Id);
                 dgvProductos.Columns["IdProducto"].HeaderText = "ID";
                 dgvProductos.Columns["Descripcion"].HeaderText = "Descripción";
                 dgvProductos.Columns["TipoProducto"].HeaderText = "Tipo de producto";

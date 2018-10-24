@@ -5,31 +5,44 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Dominio;
+using Negocio;
 
 namespace Presentacion
 {
     public partial class Contactos : Presentacion.Metro_Template
     {
-        public Contactos()
+        int IdRelacion;
+
+        public Contactos(int Id)
         {
+            IdRelacion = Id;
             InitializeComponent();
         }
-
-        private void BtnDetalles_Click(object sender, EventArgs e)
-        {
-
-        }
-
+    
         private void Contactos_Load(object sender, EventArgs e)
         {
-
+            LlenarTabla();
         }
-
+        
         private void LlenarTabla()
         {
-
+            ContactoNegocio neg = new ContactoNegocio();
+            try
+            {
+                dgvContactos.DataSource = neg.Listar(IdRelacion);
+                dgvContactos.Columns["IdContacto"].HeaderText = "ID";
+                dgvContactos.Columns["Dni"].HeaderText = "DNI";
+                dgvContactos.Columns["Activo"].Visible = false;
+                dgvContactos.Update();
+                dgvContactos.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
-
+        
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
             {
@@ -43,8 +56,109 @@ namespace Presentacion
                 }
                 try
                 {
-                    //ModContacto mod = new ModContacto("Agregar");
-                    //mod.Show();
+                    ModContacto mod = new ModContacto();
+                    mod.Show();
+                    LlenarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+        }
+        
+        private void BtnEditar_Click(object sender, EventArgs e)
+        {
+            {
+                foreach (Form item in Application.OpenForms)
+                {
+                    if (item.GetType() == typeof(Contacto))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    Contacto obj = (Contacto)dgvContactos.CurrentRow.DataBoundItem;
+                    ModContacto mod = new ModContacto(obj);
+                    mod.Show();
+                    LlenarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            {
+                EmpleadoNegocio neg = new EmpleadoNegocio();
+                Empleado em = (Empleado)dgvContactos.CurrentRow.DataBoundItem;
+                try
+                {
+                    using (var popup = new Confirmacion(@"eliminar """ + em.ToString() + @""""))
+                    {
+                        var R = popup.ShowDialog();
+                        if (R == DialogResult.OK)
+                        {
+                            bool conf = popup.R;
+                            if (em != null && conf == true)
+                            {
+                                neg.EliminarLogico(em.IdEmpleado);
+                                LlenarTabla();
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+        }
+        
+        private void BtnDetalles_Click(object sender, EventArgs e)
+        {
+            {
+                foreach (Form item in Application.OpenForms)
+                {
+                    if (item.GetType() == typeof(DetallesContacto))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    DetallesContacto detalles = new DetallesContacto((Empleado)dgvContactos.CurrentRow.DataBoundItem);
+                    detalles.Show();
+                    LlenarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+        }
+        
+        private void DgvContactos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            {
+                foreach (Form item in Application.OpenForms)
+                {
+                    if (item.GetType() == typeof(DetallesContacto))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    DetallesContacto detalles = new DetallesContacto((Contacto)dgvContactos.CurrentRow.DataBoundItem);
+                    detalles.Show();
                     LlenarTabla();
                 }
                 catch (Exception ex)
