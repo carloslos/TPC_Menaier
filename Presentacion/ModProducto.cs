@@ -126,7 +126,7 @@ namespace Presentacion
         private void TxtDescripcion_TextChanged(object sender, EventArgs e)
         {
             TxtDescripcion.Text = TxtDescripcion.Text.TrimStart();
-            ValidarTxt(0, val.EsAlfa, TxtDescripcion, tileDescripcion, lblDescripcion);
+            ValidarTxt(0, val.EsAlfanum, TxtDescripcion, tileDescripcion, lblDescripcion);
         }
 
         private void TxtGanancia_TextChanged(object sender, EventArgs e)

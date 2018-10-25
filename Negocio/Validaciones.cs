@@ -119,6 +119,22 @@ namespace Negocio
             return true;
         }
 
+        public bool EsAlfanum(string s)
+        {
+            if (s == "")
+            {
+                return false;
+            }
+            foreach (char c in s)
+            {
+                if (!char.IsLetter(c) && c != ' ' && !char.IsNumber(c))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         public void CambiarColor(MetroFramework.Controls.MetroTile t, MetroFramework.Controls.MetroLabel l, char c)
         {
             switch (c)

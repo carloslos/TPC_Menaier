@@ -10,7 +10,6 @@ namespace Negocio
 {
     public class EmpleadoNegocio
     {
-
         public List<Empleado> Listar()
         {
             Empleado aux;

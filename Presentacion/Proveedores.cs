@@ -141,8 +141,8 @@ namespace Presentacion
                 {
                     Proveedor p = new Proveedor();
                     p = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
-                    Productos pr = new Productos(p.GetId());
-                    pr.Show();
+                    ProductosProv pp = new ProductosProv(p.ToString(), p.GetId());
+                    pp.Show();
                     LlenarTabla();
                 }
                 catch (Exception ex)
