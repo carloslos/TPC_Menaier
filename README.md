@@ -1,2 +1,3 @@
-Programacion III - TP Cuatrimestral 
+Programación III - Trabajo Practico Cuatrimestral
+
 UNIVERSIDAD TECNOLÓGICA NACIONAL
