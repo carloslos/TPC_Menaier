@@ -232,6 +232,9 @@
     <EmbeddedResource Include="Confirmacion.resx">
       <DependentUpon>Confirmacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModClienteE.resx">
+      <DependentUpon>ModClienteE.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModClienteP.resx">
       <DependentUpon>ModClienteP.cs</DependentUpon>
     </EmbeddedResource>

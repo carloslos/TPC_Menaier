@@ -18,5 +18,10 @@ namespace Dominio
         {
             return Empresa;
         }
+
+        public int GetId()
+        {
+            return IdCliente;
+        }
     }
 }

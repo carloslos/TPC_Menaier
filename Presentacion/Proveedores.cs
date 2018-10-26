@@ -51,130 +51,120 @@ namespace Presentacion
 
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
+            foreach (Form item in Application.OpenForms)
             {
-                foreach (Form item in Application.OpenForms)
+                if (item.GetType() == typeof(ModProveedor))
                 {
-                    if (item.GetType() == typeof(ModProveedor))
-                    {
-                        item.Focus();
-                        return;
-                    }
+                    item.Focus();
+                    return;
                 }
-                try
-                {
-                    ModProveedor mod = new ModProveedor();
-                    mod.ShowDialog();
-                    LlenarTabla();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
+            }
+            try
+            {
+                ModProveedor mod = new ModProveedor();
+                mod.ShowDialog();
+                LlenarTabla();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 
         private void BtnEditar_Click(object sender, EventArgs e)
         {
+            foreach (Form item in Application.OpenForms)
             {
-                foreach (Form item in Application.OpenForms)
+                if (item.GetType() == typeof(ModProveedor))
                 {
-                    if (item.GetType() == typeof(ModProveedor))
-                    {
-                        item.Focus();
-                        return;
-                    }
+                    item.Focus();
+                    return;
                 }
-                try
-                {
-                    Proveedor obj = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
-                    ModProveedor mod = new ModProveedor(obj);
-                    mod.ShowDialog();
-                    LlenarTabla();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
+            }
+            try
+            {
+                Proveedor obj = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
+                ModProveedor mod = new ModProveedor(obj);
+                mod.ShowDialog();
+                LlenarTabla();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
+            ProveedorNegocio neg = new ProveedorNegocio();
+            Proveedor p = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
+            try
             {
-                ProveedorNegocio neg = new ProveedorNegocio();
-                Proveedor p = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
-                try
+                using (var popup = new Confirmacion(@"eliminar """ + p.ToString() + @""""))
                 {
-                    using (var popup = new Confirmacion(@"eliminar """ + p.ToString() + @""""))
+                    var R = popup.ShowDialog();
+                    if (R == DialogResult.OK)
                     {
-                        var R = popup.ShowDialog();
-                        if (R == DialogResult.OK)
+                        bool conf = popup.R;
+                        if (p != null && conf == true)
                         {
-                            bool conf = popup.R;
-                            if (p != null && conf == true)
-                            {
-                                neg.EliminarLogico(p.IdProveedor);
-                                LlenarTabla();
-                            }
+                            neg.EliminarLogico(p.IdProveedor);
+                            LlenarTabla();
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 
         private void BtnProductos_Click(object sender, EventArgs e)
         {
+            foreach (Form item in Application.OpenForms)
             {
-                foreach (Form item in Application.OpenForms)
+                if (item.GetType() == typeof(Contactos))
                 {
-                    if (item.GetType() == typeof(Contactos))
-                    {
-                        item.Focus();
-                        return;
-                    }
+                    item.Focus();
+                    return;
                 }
-                try
-                {
-                    Proveedor p = new Proveedor();
-                    p = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
-                    ProductosProv pp = new ProductosProv(p.ToString(), p.GetId());
-                    pp.Show();
-                    LlenarTabla();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
+            }
+            try
+            {
+                Proveedor p = new Proveedor();
+                p = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
+                ProductosProv pp = new ProductosProv(p.ToString(), p.GetId());
+                pp.Show();
+                LlenarTabla();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 
         private void BtnContactos_Click(object sender, EventArgs e)
         {
+            foreach (Form item in Application.OpenForms)
             {
-                foreach (Form item in Application.OpenForms)
+                if (item.GetType() == typeof(Contactos))
                 {
-                    if (item.GetType() == typeof(Contactos))
-                    {
-                        item.Focus();
-                        return;
-                    }
+                    item.Focus();
+                    return;
                 }
-                try
-                {
-                    Proveedor p = new Proveedor();
-                    p = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
-                    Contactos c = new Contactos(p.GetId());
-                    c.Show();
-                    LlenarTabla();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
+            }
+            try
+            {
+                Proveedor p = new Proveedor();
+                p = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
+                Contactos c = new Contactos(p.GetId());
+                c.Show();
+                LlenarTabla();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 

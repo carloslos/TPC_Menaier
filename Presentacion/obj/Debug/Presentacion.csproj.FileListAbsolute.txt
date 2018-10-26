@@ -147,3 +147,7 @@ C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ModC
 C:\Users\tisoporte\Source\Repos\Azhar1921\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ModTelefono.resources
 C:\Users\tisoporte\Source\Repos\Azhar1921\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ModDomicilio.resources
 C:\Users\tisoporte\Source\Repos\Azhar1921\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ProductosProv.resources
+C:\Users\Carlos\Source\Repos\Azhar1921\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ModDomicilio.resources
+C:\Users\Carlos\Source\Repos\Azhar1921\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ModTelefono.resources
+C:\Users\Carlos\Source\Repos\Azhar1921\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ProductosProv.resources
+C:\Users\Carlos\Source\Repos\Azhar1921\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ModClienteE.resources

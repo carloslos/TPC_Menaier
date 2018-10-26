@@ -31,14 +31,17 @@ namespace Presentacion
                 ProductoNegocio neg = new ProductoNegocio();
                 lstProductos = neg.Listar(0);
                 lstProductosProv = neg.Listar(IdProveedor);
-                for (int i = lstProductos.Count - 1; i >= 0; i--)
+                if (lstProductos.Count > 0 && lstProductosProv.Count > 0)
                 {
-                    for (int j = lstProductosProv.Count - 1; i >= 0; i--)
+                    for (int i = lstProductos.Count - 1; i >= 0; i--)
                     {
-                        if (lstProductos[i].IdProducto == lstProductosProv[j].IdProducto)
+                        for (int j = lstProductosProv.Count - 1; i >= 0; i--)
                         {
-                            lstProductos.Remove(lstProductos[i]);
-                            break;
+                            if (lstProductos[i].IdProducto == lstProductosProv[j].IdProducto)
+                            {
+                                lstProductos.Remove(lstProductos[i]);
+                                break;
+                            }
                         }
                     }
                 }
@@ -64,6 +67,8 @@ namespace Presentacion
                 dgvProductosProv.Update();
                 dgvProductosProv.Refresh();
 
+                /// TODO: SORT DGV (TODAS)
+
                 dgvProductos.DataSource = lstProductos;
                 dgvProductos.Columns["IdProducto"].HeaderText = "ID";
                 dgvProductos.Columns["Descripcion"].HeaderText = "Descripción";
@@ -82,24 +87,30 @@ namespace Presentacion
 
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
-            Producto p = (Producto)dgvProductos.CurrentRow.DataBoundItem;
-            lstProductosProv.Add(p);
-            lstProductos.Remove(p);
-            LlenarTabla();
-
+            if(dgvProductos.RowCount > 0)
+            {
+                Producto p = (Producto)dgvProductos.CurrentRow.DataBoundItem;
+                dgvProductos.DataSource = null;
+                dgvProductosProv.DataSource = null;
+                lstProductosProv.Add(p);
+                lstProductos.Remove(p);
+                LlenarTabla();
+            }
         }
 
-        /// <summary>
-        /// TODO: MOVER PRODUCTOS ENTRE TABLAS
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// TODO: GUARDAR CAMBIOS Y CANCELAR (PRODUCTOS DE PROVEEDOR)
 
         private void BtnQuitar_Click(object sender, EventArgs e)
         {
-            lstProductos.Add((Producto)dgvProductosProv.CurrentRow.DataBoundItem);
-            lstProductosProv.Remove((Producto)dgvProductosProv.CurrentRow.DataBoundItem);
-            LlenarTabla();
+            if (dgvProductosProv.RowCount > 0)
+            {
+                Producto p = (Producto)dgvProductosProv.CurrentRow.DataBoundItem;
+                dgvProductos.DataSource = null;
+                dgvProductosProv.DataSource = null;
+                lstProductos.Add(p);
+                lstProductosProv.Remove(p);
+                LlenarTabla();
+            }
         }
     }
 }

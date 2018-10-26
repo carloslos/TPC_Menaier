@@ -23,14 +23,14 @@ namespace Presentacion
             BtnMod.Enabled = false;
         }
 
+        /// TODO: MOD CLIENTE P
+
         public ModClienteP(ClienteP c)
         {
             InitializeComponent();
             this.Text = "Editar " + this.Text;
             BtnMod.Text = "Editar";
             BtnMod.Enabled = false;
-            //TxtEmpresa.Text = p.Empresa;
-            //TxtCuit.Text = p.Cuit.ToString();
         }
 
         private void ModCliente_Load(object sender, EventArgs e)

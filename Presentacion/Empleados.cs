@@ -30,7 +30,7 @@ namespace Presentacion
             try
             {
                 dgvEmpleados.DataSource = neg.Listar();
-                dgvEmpleados.Columns["IdEmpleado"].DisplayIndex = 0; dgvEmpleados.Columns["FechaNac"].HeaderText = "ID";
+                dgvEmpleados.Columns["IdEmpleado"].DisplayIndex = 0; dgvEmpleados.Columns["IdEmpleado"].HeaderText = "ID";
                 dgvEmpleados.Columns["Nombre"].DisplayIndex = 1;
                 dgvEmpleados.Columns["Apellido"].DisplayIndex = 2;
                 dgvEmpleados.Columns["Dni"].DisplayIndex = 3; dgvEmpleados.Columns["Dni"].HeaderText = "DNI";
@@ -53,126 +53,116 @@ namespace Presentacion
 
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
+            foreach (Form item in Application.OpenForms)
             {
-                foreach (Form item in Application.OpenForms)
+                if (item.GetType() == typeof(ModEmpleado))
                 {
-                    if (item.GetType() == typeof(ModEmpleado))
-                    {
-                        item.Focus();
-                        return;
-                    }
+                   item.Focus();
+                   return;
                 }
-                try
-                {
-                    ModEmpleado mod = new ModEmpleado();
-                    mod.Show();
-                    LlenarTabla();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
+            }
+            try
+            {
+                ModEmpleado mod = new ModEmpleado();
+                mod.Show();
+                LlenarTabla();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 
         private void BtnEditar_Click(object sender, EventArgs e)
         {
+            foreach (Form item in Application.OpenForms)
             {
-                foreach (Form item in Application.OpenForms)
+                if (item.GetType() == typeof(ModEmpleado))
                 {
-                    if (item.GetType() == typeof(ModEmpleado))
-                    {
-                        item.Focus();
-                        return;
-                    }
+                    item.Focus();
+                    return;
                 }
-                try
-                {
-                    Empleado obj = (Empleado)dgvEmpleados.CurrentRow.DataBoundItem;
-                    ModEmpleado mod = new ModEmpleado(obj);
-                    mod.Show();
-                    LlenarTabla();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
+            }
+            try
+            {
+                Empleado obj = (Empleado)dgvEmpleados.CurrentRow.DataBoundItem;
+                ModEmpleado mod = new ModEmpleado(obj);
+                mod.Show();
+                LlenarTabla();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
+            EmpleadoNegocio neg = new EmpleadoNegocio();
+            Empleado em = (Empleado)dgvEmpleados.CurrentRow.DataBoundItem;
+            try
             {
-                EmpleadoNegocio neg = new EmpleadoNegocio();
-                Empleado em = (Empleado)dgvEmpleados.CurrentRow.DataBoundItem;
-                try
+                using (var popup = new Confirmacion(@"eliminar """ + em.ToString() + @""""))
                 {
-                    using (var popup = new Confirmacion(@"eliminar """ + em.ToString() + @""""))
+                    var R = popup.ShowDialog();
+                    if (R == DialogResult.OK)
                     {
-                        var R = popup.ShowDialog();
-                        if (R == DialogResult.OK)
+                        bool conf = popup.R;
+                        if (em != null && conf == true)
                         {
-                            bool conf = popup.R;
-                            if (em != null && conf == true)
-                            {
-                                neg.EliminarLogico(em.IdEmpleado);
-                                LlenarTabla();
-                            }
+                            neg.EliminarLogico(em.IdEmpleado);
+                            LlenarTabla();
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 
         private void BtnDetalles_Click(object sender, EventArgs e)
         {
+            foreach (Form item in Application.OpenForms)
             {
-                foreach (Form item in Application.OpenForms)
+                if (item.GetType() == typeof(DetallesContacto))
                 {
-                    if (item.GetType() == typeof(DetallesContacto))
-                    {
-                        item.Focus();
-                        return;
-                    }
+                    item.Focus();
+                    return;
                 }
-                try
-                {
-                    DetallesContacto detalles = new DetallesContacto((Empleado)dgvEmpleados.CurrentRow.DataBoundItem);
-                    detalles.Show();
-                    LlenarTabla();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
+            }
+            try
+            {
+                DetallesContacto detalles = new DetallesContacto((Empleado)dgvEmpleados.CurrentRow.DataBoundItem);
+                detalles.Show();
+                LlenarTabla();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 
         private void DgvEmpleados_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            foreach (Form item in Application.OpenForms)
             {
-                foreach (Form item in Application.OpenForms)
+                if (item.GetType() == typeof(DetallesContacto))
                 {
-                    if (item.GetType() == typeof(DetallesContacto))
-                    {
-                        item.Focus();
-                        return;
-                    }
+                    item.Focus();
+                    return;
                 }
-                try
-                {
-                    DetallesContacto detalles = new DetallesContacto((Empleado)dgvEmpleados.CurrentRow.DataBoundItem);
-                    detalles.Show();
-                    LlenarTabla();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
+            }
+            try
+            {
+                DetallesContacto detalles = new DetallesContacto((Empleado)dgvEmpleados.CurrentRow.DataBoundItem);
+                detalles.Show();
+                LlenarTabla();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
     }
