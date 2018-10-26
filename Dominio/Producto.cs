@@ -18,7 +18,7 @@ namespace Dominio
 
         public override string ToString()
         {
-            return Descripcion + " (" + Marca.Descripcion + ")";
+            return Descripcion;
         }
     }
 }

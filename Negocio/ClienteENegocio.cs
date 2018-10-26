@@ -19,7 +19,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("SELECT EMPRESA, IDCLIENTE, DNICUIT FROM CLIENTES" +
+                conexion.SetearConsulta("SELECT EMPRESA, IDCLIENTE, DNICUIT FROM CLIENTES " +
                     "WHERE ACTIVO = 1 AND TIPOCLIENTE = 'E'");
 
                 conexion.AbrirConexion();
@@ -31,7 +31,7 @@ namespace Negocio
                     {
                         Empresa = (string)conexion.Lector["EMPRESA"],
                         IdCliente = (int)conexion.Lector["IDCLIENTE"],
-                        Cuit = (int)conexion.Lector["DNICUIT"],
+                        Cuit = (long)conexion.Lector["DNICUIT"],
                     };
 
                     lstClientesE.Add(aux);

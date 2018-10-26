@@ -19,11 +19,14 @@ namespace Presentacion
         public ModCompra()
         {
             InitializeComponent();
-            this.Text = "Agregar " + this.Text;
-            BtnMod.Text = "Agregar";
-            BtnMod.Enabled = false;
+            this.Text = "Registrar " + this.Text;
+            BtnMod.Text = "Guardar";
             DateCompra.CustomFormat = " ";
             DateCompra.Format = DateTimePickerFormat.Custom;
+            ProveedorNegocio negP = new ProveedorNegocio();
+            BoxProveedor.DisplayMember = "Empresa";
+            BoxProveedor.ValueMember = "IdProveedor";
+            BoxProveedor.DataSource = negP.Listar();
             c = new Compra
             {
                 LstLotes = new List<Lote>()
@@ -33,13 +36,25 @@ namespace Presentacion
         public ModCompra(Compra C)
         {
             InitializeComponent();
-            this.Text = "Editar " + this.Text;
-            BtnMod.Text = "Editar";
+            this.Text = this.Text + " " + C.IdCompra.ToString();
+            BtnMod.Text = "-";
             BtnMod.Enabled = false;
             c = C;
-            dgvLotes.DataSource = c.LstLotes;
-            BoxProveedor.SelectedItem = C.Proveedor;
+            LlenarTabla();
+
+            ProveedorNegocio negP = new ProveedorNegocio();
+            BoxProveedor.DisplayMember = "Empresa";
+            BoxProveedor.ValueMember = "IdProveedor";
+            BoxProveedor.DataSource = negP.Listar();
+
             DateCompra.CustomFormat = "dd/MM/yyyy";
+            DateCompra.Value = C.FechaCompra;
+            BtnAgregar.Visible = false;
+            BtnEditar.Visible = false;
+            BtnEliminar.Visible = false;
+            BtnMod.Enabled = false;
+            BoxProveedor.Enabled = false;
+            DateCompra.Enabled = false;
         }
 
         private void ModProducto_Load(object sender, EventArgs e)
@@ -50,29 +65,41 @@ namespace Presentacion
             }
             DateCompra.Value = c.FechaCompra;
 
-            ProveedorNegocio negP = new ProveedorNegocio();
             try
             {
-                BoxProveedor.DisplayMember = "Empresa";
-                BoxProveedor.ValueMember = "IdProveedor";
-                BoxProveedor.DataSource = negP.Listar();
-
-                dgvLotes.Update();
-                dgvLotes.Refresh();
-
                 if (c.Proveedor != null)
                 {
-                    BoxProveedor.SelectedValue = c.Proveedor.IdProveedor;
+                    BoxProveedor.SelectedItem = c.Proveedor;
                     RealizarValidaciones();
                 }
                 else
                 {
                     BoxProveedor.SelectedIndex = -1;
                 }
+                LlenarTabla();
             }
             catch (Exception ex)
             {
                 throw (ex);
+            }
+        }
+
+        private void LlenarTabla()
+        {
+            LoteNegocio neg = new LoteNegocio();
+            try
+            {
+                dgvLotes.DataSource = c.LstLotes;
+                dgvLotes.Columns["IdLote"].HeaderText = "ID";
+                dgvLotes.Columns["CostoPU"].HeaderText = "Costo x Unidad";
+                dgvLotes.Columns["CostoT"].HeaderText = "Costo Total";
+                dgvLotes.Columns["Activo"].Visible = false;
+                dgvLotes.Update();
+                dgvLotes.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 

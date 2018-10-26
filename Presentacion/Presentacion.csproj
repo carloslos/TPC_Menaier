@@ -89,12 +89,6 @@
     <Compile Include="Confirmacion.Designer.cs">
       <DependentUpon>Confirmacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="DetallesCompra.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DetallesCompra.Designer.cs">
-      <DependentUpon>DetallesCompra.cs</DependentUpon>
-    </Compile>
     <Compile Include="ModClienteE.cs">
       <SubType>Form</SubType>
     </Compile>

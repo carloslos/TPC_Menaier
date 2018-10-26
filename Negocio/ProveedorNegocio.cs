@@ -36,9 +36,7 @@ namespace Negocio
 
                     lstProveedores.Add(aux);
                 }
-
                 return lstProveedores;
-
             }
             catch (Exception ex)
             {

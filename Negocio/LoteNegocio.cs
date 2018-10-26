@@ -38,6 +38,7 @@ namespace Negocio
                         CostoPU = (float)Convert.ToDouble(conexion.Lector["COSTOPU"]),
                         Vencimiento = (DateTime)conexion.Lector["VENCIMIENTO"]
                     };
+                    aux.CostoT = aux.CostoPU * aux.Unidades;
                     aux.Producto.IdProducto = (int)conexion.Lector["IDPRODUCTO"];
                     aux.Producto.Descripcion = (string)conexion.Lector[2];
 

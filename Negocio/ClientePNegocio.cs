@@ -19,7 +19,8 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("SELECT NOMBRE, APELLIDO, IDCLIENTE, DNICUIT, EMAIL FROM CLIENTES WHERE ACTIVO = 1 AND TIPOCLIENTE = 'P'");
+                conexion.SetearConsulta("SELECT NOMBRE, APELLIDO, IDCLIENTE, DNICUIT, EMAIL FROM CLIENTES " +
+                    "WHERE ACTIVO = 1 AND TIPOCLIENTE = 'P'");
 
                 conexion.AbrirConexion();
                 conexion.EjecutarConsulta();
@@ -31,7 +32,7 @@ namespace Negocio
                         Nombre = (string)conexion.Lector["NOMBRE"],
                         Apellido = (string)conexion.Lector["APELLIDO"],
                         IdCliente = (int)conexion.Lector["IDCLIENTE"],
-                        Dni = (int)conexion.Lector["DNICUIT"],
+                        Dni = (int)Convert.ToInt64(conexion.Lector["DNICUIT"]),
                         Email = (string)conexion.Lector["EMAIL"]
                     };
 

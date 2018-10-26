@@ -12,6 +12,7 @@ namespace Dominio
         public Producto Producto { get; set; }
         public int Unidades { get; set; }
         public float CostoPU { get; set; }
+        public float CostoT { get; set; }
         public DateTime Vencimiento { get; set; }
         public bool Activo { get; set; }
 

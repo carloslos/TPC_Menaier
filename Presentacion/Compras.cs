@@ -34,7 +34,7 @@ namespace Presentacion
                 dgvCompras.Columns["Activo"].Visible = false;
                 dgvCompras.Update();
                 dgvCompras.Refresh();
-    }
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
@@ -67,7 +67,7 @@ namespace Presentacion
         {
             foreach (Form item in Application.OpenForms)
             {
-                if (item.GetType() == typeof(DetallesCompra))
+                if (item.GetType() == typeof(ModCompra))
                 {
                     item.Focus();
                     return;
@@ -78,7 +78,7 @@ namespace Presentacion
                 LoteNegocio negL = new LoteNegocio();
                 Compra c = (Compra)dgvCompras.CurrentRow.DataBoundItem;
                 c.LstLotes = negL.Listar(c.IdCompra);
-                DetallesCompra detalles = new DetallesCompra(c);
+                ModCompra detalles = new ModCompra(c);
                 detalles.Show();
                 LlenarTabla();
             }
@@ -88,11 +88,11 @@ namespace Presentacion
             }
         }
 
-        private void DgvEmpleados_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void DgvCompras_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             foreach (Form item in Application.OpenForms)
             {
-                if (item.GetType() == typeof(DetallesCompra))
+                if (item.GetType() == typeof(ModCompra))
                 {
                     item.Focus();
                     return;
@@ -100,7 +100,7 @@ namespace Presentacion
             }
             try
             {
-                DetallesCompra detalles = new DetallesCompra((Compra)dgvCompras.CurrentRow.DataBoundItem);
+                ModCompra detalles = new ModCompra((Compra)dgvCompras.CurrentRow.DataBoundItem);
                 detalles.Show();
                 LlenarTabla();
             }
