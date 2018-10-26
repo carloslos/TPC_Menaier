@@ -7,38 +7,43 @@ using Dominio;
 
 namespace Negocio
 {
-    public class ContactoNegocio
+    public class LoteNegocio
     {
-        public List<Contacto> Listar(int id)
+        public List<Lote> Listar(int Id)
         {
-            Contacto aux;
-            List<Contacto> lstContactos = new List<Contacto>();
+            Lote aux;
+            List<Lote> lstLotes = new List<Lote>();
             AccesoDB conexion = null;
-
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("SELECT C.IDCONTACTO, C.NOMBRE, C.APELLIDO, C.DNI, C.EMAIL FROM CONTACTOS AS C " +
-                        "INNER JOIN CONTACTOS_X_RELACION AS CXR ON CXR.IDRELACION = @id " +
-                        "WHERE C.ACTIVO = 1");
+                conexion.SetearConsulta("SELECT L.IDLOTE, L.IDPRODUCTO, P.DESCRIPCION, L.UNIDADES, L.COSTOPU, L.VENCIMIENTO FROM LOTES AS L " +
+                    "INNER JOIN LOTES_X_COMPRA AS LXC ON LXC.IDLOTE = L.IDLOTE " +
+                    "INNER JOIN PRODUCTOS AS P ON P.IDPRODUCTO = L.IDPRODUCTO " +
+                    "WHERE LXC.IDCOMPRA = @idcompra " +
+                    "ORDER BY P.DESCRIPCION ASC");
                 conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@id", id);
+                conexion.Comando.Parameters.AddWithValue("@idcompra", Id);
+
                 conexion.AbrirConexion();
                 conexion.EjecutarConsulta();
 
                 while (conexion.Lector.Read())
                 {
-                    aux = new Contacto
+                    aux = new Lote
                     {
-                        IdContacto = (int)conexion.Lector["IDCONTACTO"],
-                        Nombre = (string)conexion.Lector["NOMBRE"],
-                        Apellido = (string)conexion.Lector["APELLIDO"],
-                        Dni = (int)conexion.Lector["DNI"],
-                        Email = (string)conexion.Lector["EMAIL"],
+                        IdLote = (long)conexion.Lector["IDLOTE"],
+                        Producto = new Producto(),
+                        Unidades = (int)conexion.Lector["UNIDADES"],
+                        CostoPU = (float)Convert.ToDouble(conexion.Lector["COSTOPU"]),
+                        Vencimiento = (DateTime)conexion.Lector["VENCIMIENTO"]
                     };
-                    lstContactos.Add(aux);
+                    aux.Producto.IdProducto = (int)conexion.Lector["IDPRODUCTO"];
+                    aux.Producto.Descripcion = (string)conexion.Lector[2];
+
+                    lstLotes.Add(aux);
                 }
-                return lstContactos;
+                return lstLotes;
             }
             catch (Exception ex)
             {
@@ -53,18 +58,19 @@ namespace Negocio
             }
         }
 
-        public void Agregar(Contacto nuevo)
+        public void Agregar(Lote nuevo)
         {
             AccesoDB conexion = null;
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("INSERT INTO CONTACTOS(NOMBRE, APELLIDO, DNI, EMAIL) VALUES (@nombre, @apellido, @dni, @email)");
+                conexion.SetearConsulta("INSERT INTO LOTES(IDLOTE, IDPRODUCTO,UNIDADES,COSTOPU,VENCIMIENTO) VALUES (@idlote,@idproducto,@unidades,@costopu,@vencimiento,1)");
                 conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@nombre", nuevo.Nombre);
-                conexion.Comando.Parameters.AddWithValue("@apellido", nuevo.Apellido);
-                conexion.Comando.Parameters.AddWithValue("@dni", nuevo.Dni);
-                conexion.Comando.Parameters.AddWithValue("@email", nuevo.Email);
+                conexion.Comando.Parameters.AddWithValue("@idlote", nuevo.IdLote);
+                conexion.Comando.Parameters.AddWithValue("@idproducto", nuevo.Producto.IdProducto);
+                conexion.Comando.Parameters.AddWithValue("@unidades", nuevo.Unidades);
+                conexion.Comando.Parameters.AddWithValue("@costopu", nuevo.CostoPU);
+                conexion.Comando.Parameters.AddWithValue("@vencimiento", nuevo.Vencimiento);
 
                 conexion.AbrirConexion();
                 conexion.EjecutarAccion();
@@ -82,19 +88,20 @@ namespace Negocio
             }
         }
 
-        public void Modificar(Contacto c)
+        public void Modificar(Producto p)
         {
             AccesoDB conexion = null;
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("UPDATE EMPLEADOS SET NOMBRE = @nombre, APELLIDO = @apellido, DNI = @dni, EMAIL = @email WHERE IDCONTACTO = @idcontacto");
+                conexion.SetearConsulta("UPDATE PRODUCTOS SET IDMARCA = @idmarca, IDTIPOPRODUCTO = @idtipoproducto, DESCRIPCION = @descripcion, STOCKMIN = @stockmin, GANANCIA = @ganancia WHERE IDPRODUCTO = @idproducto");
                 conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@idcontacto", c.IdContacto);
-                conexion.Comando.Parameters.AddWithValue("@nombre", c.Nombre);
-                conexion.Comando.Parameters.AddWithValue("@apellido", c.Apellido);
-                conexion.Comando.Parameters.AddWithValue("@dni", c.Dni);
-                conexion.Comando.Parameters.AddWithValue("@email", c.Email);
+                conexion.Comando.Parameters.AddWithValue("@idmarca", p.Marca.IdMarca);
+                conexion.Comando.Parameters.AddWithValue("@idtipoproducto", p.TipoProducto.IdTipoProducto);
+                conexion.Comando.Parameters.AddWithValue("@descripcion", p.Descripcion);
+                conexion.Comando.Parameters.AddWithValue("@stockmin", p.StockMin);
+                conexion.Comando.Parameters.AddWithValue("@ganancia", p.Ganancia);
+                conexion.Comando.Parameters.AddWithValue("@idproducto", p.IdProducto);
 
                 conexion.AbrirConexion();
                 conexion.EjecutarAccion();
@@ -118,7 +125,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("DELETE FROM CONTACTOS WHERE IDCONTACTO = @id");
+                conexion.SetearConsulta("DELETE FROM PRODUCTOS WHERE IDPRODUCTO = @id");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@id", id);
                 conexion.AbrirConexion();
@@ -143,7 +150,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("UPDATE CONTACTOS SET ACTIVO = 0 WHERE IDCONTACTO = @id");
+                conexion.SetearConsulta("UPDATE PRODUCTOS SET ACTIVO = 0 WHERE IDPRODUCTO = @id");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@id", id);
                 conexion.AbrirConexion();
@@ -166,12 +173,13 @@ namespace Negocio
 }
 
 /*
-CREATE TABLE CONTACTOS
+CREATE TABLE LOTES
 (
-	IDCONTACTO INT NOT NULL PRIMARY KEY,
-	NOMBRE VARCHAR(60) NOT NULL,
-	APELLIDO VARCHAR(60) NOT NULL,
-	DNI INT,
-	EMAIL VARCHAR(60) NOT NULL
+	IDLOTE BIGINT IDENTITY(140000000,1) NOT NULL PRIMARY KEY,
+	IDPRODUCTO INT NOT NULL FOREIGN KEY REFERENCES PRODUCTOS(IDPRODUCTO),
+	UNIDADES INT NOT NULL,
+	COSTOPU FLOAT NOT NULL,
+	VENCIMIENTO DATE,
+	ACTIVO BIT NOT NULL
 )
 */

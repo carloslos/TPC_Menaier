@@ -94,8 +94,9 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("UPDATE DOMICILIOS SET CALLE = @calle, ALTURA = @altura, DEPARTAMENTO = @departamento, BARRIO = @barrio, CIUDAD = @ciudad, PAIS = @pais, CP = @cp WHERE IDPRODUCTO = @id");
+                conexion.SetearConsulta("UPDATE DOMICILIOS SET CALLE = @calle, ALTURA = @altura, DEPARTAMENTO = @departamento, BARRIO = @barrio, CIUDAD = @ciudad, PAIS = @pais, CP = @cp WHERE IDPRODUCTO = @iddomicilio");
                 conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@iddomicilio", d.IdDomicilio);
                 conexion.Comando.Parameters.AddWithValue("@calle", d.Calle);
                 conexion.Comando.Parameters.AddWithValue("@altura", d.Altura);
                 conexion.Comando.Parameters.AddWithValue("@departamento", d.Departamento);

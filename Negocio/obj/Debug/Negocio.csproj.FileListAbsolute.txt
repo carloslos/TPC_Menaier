@@ -40,3 +40,14 @@ C:\Users\Carlos\Source\Repos\Azhar1921\TPC_Menaier\Negocio\bin\Debug\MetroFramew
 C:\Users\Azhar\Source\Repos\TPC_Menaier\Negocio\bin\Debug\System.ComponentModel.Annotations.dll
 C:\Users\tisoporte\Source\Repos\Azhar1921\TPC_Menaier\Negocio\bin\Debug\System.ComponentModel.Annotations.dll
 C:\Users\Carlos\Source\Repos\Azhar1921\TPC_Menaier\Negocio\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\bin\Debug\Negocio.dll
+C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\bin\Debug\Negocio.pdb
+C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\bin\Debug\Dominio.dll
+C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\bin\Debug\MetroFramework.dll
+C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\bin\Debug\Dominio.pdb
+C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\obj\Debug\Negocio.csprojAssemblyReference.cache
+C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\obj\Debug\Negocio.dll
+C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\obj\Debug\Negocio.pdb

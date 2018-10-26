@@ -57,6 +57,7 @@
     <Compile Include="ContactoNegocio.cs" />
     <Compile Include="DomicilioNegocio.cs" />
     <Compile Include="EmpleadoNegocio.cs" />
+    <Compile Include="LoteNegocio.cs" />
     <Compile Include="MarcaNegocio.cs" />
     <Compile Include="ProductoNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,6 +78,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

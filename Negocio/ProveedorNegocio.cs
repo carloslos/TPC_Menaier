@@ -19,6 +19,7 @@ namespace Negocio
             {
                 conexion = new AccesoDB();
                 conexion.SetearConsulta("SELECT IDPROVEEDOR, EMPRESA, CUIT FROM PROVEEDORES WHERE ACTIVO = 1");
+
                 conexion.AbrirConexion();
                 conexion.EjecutarConsulta();
 
@@ -29,8 +30,8 @@ namespace Negocio
                         IdProveedor = (int)conexion.Lector["IDPROVEEDOR"],
                         Empresa = (string)conexion.Lector["EMPRESA"],
                         Cuit = (long)conexion.Lector["CUIT"],
-                        LstContactos = new List<Contacto>(), // LLENAR
-                        LstProductos = new List<Producto>() // LLENAR
+                        LstContactos = new List<Contacto>(), 
+                        LstProductos = new List<Producto>()
                     };
 
                     lstProveedores.Add(aux);
@@ -85,11 +86,11 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("UPDATE PROVEEDORES SET EMPRESA = @empresa, CUIT = @cuit WHERE IDPROVEEDOR = @id");
+                conexion.SetearConsulta("UPDATE PROVEEDORES SET EMPRESA = @empresa, CUIT = @cuit WHERE IDPROVEEDOR = @idproveedor");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@empresa", p.Empresa);
                 conexion.Comando.Parameters.AddWithValue("@cuit", p.Cuit);
-                conexion.Comando.Parameters.AddWithValue("@id", p.IdProveedor);
+                conexion.Comando.Parameters.AddWithValue("@idproveedor", p.IdProveedor);
 
                 conexion.AbrirConexion();
                 conexion.EjecutarAccion();

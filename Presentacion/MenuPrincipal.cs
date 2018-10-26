@@ -20,7 +20,6 @@ namespace Presentacion
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
             BtnVentas.Enabled = false;
-            BtnCompras.Enabled = false;
         }
 
         private void BtnEmpleados_Click(object sender, EventArgs e)
@@ -105,12 +104,34 @@ namespace Presentacion
 
         private void BtnVentas_Click(object sender, EventArgs e)
         {
-
+            {
+                foreach (Form item in Application.OpenForms)
+                {
+                    if (item.GetType() == typeof(Ventas))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                Ventas wndVentas = new Ventas();
+                wndVentas.Show();
+            }
         }
 
         private void BtnCompras_Click(object sender, EventArgs e)
         {
-
+            {
+                foreach (Form item in Application.OpenForms)
+                {
+                    if (item.GetType() == typeof(Compras))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                Compras wndCompras = new Compras();
+                wndCompras.Show();
+            }
         }
 
         private void BtnProductos_Click(object sender, EventArgs e)

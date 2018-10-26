@@ -38,7 +38,7 @@ namespace Presentacion
             {
                 dgvProveedores.DataSource = neg.Listar();
                 dgvProveedores.Columns["IdProveedor"].HeaderText = "ID";
-                dgvProveedores.Columns["Cuit"].HeaderText = "CUIT";
+                dgvProveedores.Columns["DNI"].HeaderText = "CUIT";
                 dgvProveedores.Columns["Activo"].Visible = false;
                 dgvProveedores.Update();
                 dgvProveedores.Refresh();

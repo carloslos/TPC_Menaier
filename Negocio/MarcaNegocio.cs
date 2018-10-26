@@ -82,9 +82,9 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("UPDATE MARCAS SET DESCRIPCION = @descripcion WHERE IDMARCA = @id");
+                conexion.SetearConsulta("UPDATE MARCAS SET DESCRIPCION = @descripcion WHERE IDMARCA = @idmarca");
                 conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@id", m.IdMarca);
+                conexion.Comando.Parameters.AddWithValue("@idmarca", m.IdMarca);
                 conexion.Comando.Parameters.AddWithValue("@descripcion", m.Descripcion);
 
                 conexion.AbrirConexion();

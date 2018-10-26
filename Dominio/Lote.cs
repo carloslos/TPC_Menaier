@@ -10,10 +10,9 @@ namespace Dominio
     {
         public long IdLote { get; set; }
         public Producto Producto { get; set; }
-        public int Cantidad { get; set; }
-        public float CostoUnitario { get; set; }
-        public DateTime FechaCompra { get; set; }
-        public DateTime FechaVencimiento { get; set; }
+        public int Unidades { get; set; }
+        public float CostoPU { get; set; }
+        public DateTime Vencimiento { get; set; }
         public bool Activo { get; set; }
 
         public override string ToString()
@@ -21,4 +20,16 @@ namespace Dominio
             return IdLote.ToString() + " (" + Producto.Descripcion + ")";
         }
     }
-}
+}        
+
+/*
+CREATE TABLE LOTES
+(
+	IDLOTE BIGINT IDENTITY(140000000,1) NOT NULL PRIMARY KEY,
+	IDPRODUCTO INT NOT NULL FOREIGN KEY REFERENCES PRODUCTOS(IDPRODUCTO),
+	UNIDADES INT NOT NULL,
+	COSTOPU FLOAT NOT NULL,
+	VENCIMIENTO DATE,
+	ACTIVO BIT NOT NULL
+)
+*/

@@ -80,10 +80,10 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("UPDATE TIPOSPRODUCTO SET DESCRIPCION = @descripcion WHERE IDTIPOPRODUCTO = @id");
+                conexion.SetearConsulta("UPDATE TIPOSPRODUCTO SET DESCRIPCION = @descripcion WHERE IDTIPOPRODUCTO = @idtipoproducto");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@descripcion", tp.Descripcion);
-                conexion.Comando.Parameters.AddWithValue("@id", tp.IdTipoProducto);
+                conexion.Comando.Parameters.AddWithValue("@idtipoproducto", tp.IdTipoProducto);
 
                 conexion.AbrirConexion();
                 conexion.EjecutarAccion();

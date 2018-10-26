@@ -19,14 +19,14 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("SELECT EMPRESA, IDCLIENTE, DNICUIT FROM CLIENTES WHERE ACTIVO = 1 AND TIPOCLIENTE = 'E'");
+                conexion.SetearConsulta("SELECT EMPRESA, IDCLIENTE, DNICUIT FROM CLIENTES" +
+                    "WHERE ACTIVO = 1 AND TIPOCLIENTE = 'E'");
 
                 conexion.AbrirConexion();
                 conexion.EjecutarConsulta();
 
                 while (conexion.Lector.Read())
                 {
-                    string s = (string)conexion.Lector["TIPOPERFIL"];
                     aux = new ClienteE
                     {
                         Empresa = (string)conexion.Lector["EMPRESA"],
@@ -84,11 +84,11 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("UPDATE CLIENTES SET EMPRESA = @empresa, DNICUIT = @cuit WHERE IDCLIENTE = @id");
+                conexion.SetearConsulta("UPDATE CLIENTES SET EMPRESA = @empresa, DNICUIT = @cuit WHERE IDCLIENTE = @idcliente");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@empresa", c.Empresa);
                 conexion.Comando.Parameters.AddWithValue("@cuit", c.Cuit);
-                conexion.Comando.Parameters.AddWithValue("@id", c.IdCliente);
+                conexion.Comando.Parameters.AddWithValue("@idcliente", c.IdCliente);
 
                 conexion.AbrirConexion();
                 conexion.EjecutarAccion();

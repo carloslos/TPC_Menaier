@@ -58,12 +58,13 @@
             // 
             // DateFechaNac
             // 
-            this.DateFechaNac.Location = new System.Drawing.Point(146, 410);
+            this.DateFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DateFechaNac.Location = new System.Drawing.Point(173, 410);
             this.DateFechaNac.MaxDate = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
             this.DateFechaNac.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.DateFechaNac.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateFechaNac.Name = "DateFechaNac";
-            this.DateFechaNac.Size = new System.Drawing.Size(254, 29);
+            this.DateFechaNac.Size = new System.Drawing.Size(177, 29);
             this.DateFechaNac.TabIndex = 5;
             this.DateFechaNac.Value = new System.DateTime(1999, 1, 1, 0, 0, 0, 0);
             this.DateFechaNac.ValueChanged += new System.EventHandler(this.DateFechaNac_ValueChanged);
@@ -132,7 +133,7 @@
             this.lblTipoPerfil.Enabled = false;
             this.lblTipoPerfil.Location = new System.Drawing.Point(3, 6);
             this.lblTipoPerfil.Name = "lblTipoPerfil";
-            this.lblTipoPerfil.Size = new System.Drawing.Size(87, 19);
+            this.lblTipoPerfil.Size = new System.Drawing.Size(88, 19);
             this.lblTipoPerfil.TabIndex = 5;
             this.lblTipoPerfil.Text = "Tipo de Perfil";
             // 
@@ -142,7 +143,7 @@
             this.tileFechaNac.Controls.Add(this.lblFechaNac);
             this.tileFechaNac.Enabled = false;
             this.tileFechaNac.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tileFechaNac.Location = new System.Drawing.Point(50, 410);
+            this.tileFechaNac.Location = new System.Drawing.Point(77, 410);
             this.tileFechaNac.Name = "tileFechaNac";
             this.tileFechaNac.Size = new System.Drawing.Size(100, 29);
             this.tileFechaNac.TabIndex = 42;

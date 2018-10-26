@@ -26,7 +26,6 @@ namespace Negocio
 
                 while (conexion.Lector.Read())
                 {
-                    string s = (string)conexion.Lector["TIPOPERFIL"];
                     aux = new ClienteP
                     {
                         Nombre = (string)conexion.Lector["NOMBRE"],
@@ -88,13 +87,13 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("UPDATE CLIENTES SET NOMBRE = @nombre, APELLIDO = @apellido, DNICUIT = @dni, EMAIL = @email WHERE IDCLIENTE = @id");
+                conexion.SetearConsulta("UPDATE CLIENTES SET NOMBRE = @nombre, APELLIDO = @apellido, DNICUIT = @dni, EMAIL = @email WHERE IDCLIENTE = @idcliente");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@nombre", c.Nombre);
                 conexion.Comando.Parameters.AddWithValue("@apellido", c.Apellido);
                 conexion.Comando.Parameters.AddWithValue("@dni", c.Dni);
                 conexion.Comando.Parameters.AddWithValue("@email", c.Email);
-                conexion.Comando.Parameters.AddWithValue("@id", c.IdCliente);
+                conexion.Comando.Parameters.AddWithValue("@idcliente", c.IdCliente);
 
                 conexion.AbrirConexion();
                 conexion.EjecutarAccion();

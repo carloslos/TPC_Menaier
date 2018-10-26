@@ -111,14 +111,14 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("UPDATE PRODUCTOS SET IDMARCA = @idmarca, IDTIPOPRODUCTO = @idtipoproducto, DESCRIPCION = @descripcion, STOCKMIN = @stockmin, GANANCIA = @ganancia WHERE IDPRODUCTO = @id");
+                conexion.SetearConsulta("UPDATE PRODUCTOS SET IDMARCA = @idmarca, IDTIPOPRODUCTO = @idtipoproducto, DESCRIPCION = @descripcion, STOCKMIN = @stockmin, GANANCIA = @ganancia WHERE IDPRODUCTO = @idproducto");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@idmarca", p.Marca.IdMarca);
                 conexion.Comando.Parameters.AddWithValue("@idtipoproducto", p.TipoProducto.IdTipoProducto);
                 conexion.Comando.Parameters.AddWithValue("@descripcion", p.Descripcion);
                 conexion.Comando.Parameters.AddWithValue("@stockmin", p.StockMin);
                 conexion.Comando.Parameters.AddWithValue("@ganancia", p.Ganancia);
-                conexion.Comando.Parameters.AddWithValue("@id", p.IdProducto);
+                conexion.Comando.Parameters.AddWithValue("@idproducto", p.IdProducto);
 
                 conexion.AbrirConexion();
                 conexion.EjecutarAccion();
