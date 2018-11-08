@@ -19,7 +19,7 @@ namespace Presentacion
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
-            BtnVentas.Enabled = false;
+
         }
 
         private void BtnEmpleados_Click(object sender, EventArgs e)

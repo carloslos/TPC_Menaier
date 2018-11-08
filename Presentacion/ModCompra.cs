@@ -236,6 +236,11 @@ namespace Presentacion
             if (v == true) { BtnMod.Enabled = true; }
             else { BtnMod.Enabled = false; }
         }
+
+        private void DateCompra_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

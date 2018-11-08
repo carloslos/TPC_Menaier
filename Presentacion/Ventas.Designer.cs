@@ -99,6 +99,7 @@
             this.BtnDetalles.Text = "Detalles";
             this.BtnDetalles.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnDetalles.UseSelectable = true;
+            this.BtnDetalles.Click += new System.EventHandler(this.BtnDetalles_Click);
             // 
             // BtnAgregar
             // 
@@ -110,6 +111,7 @@
             this.BtnAgregar.Text = "Agregar";
             this.BtnAgregar.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnAgregar.UseSelectable = true;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // Ventas
             // 
@@ -121,6 +123,7 @@
             this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "Ventas";
             this.Text = "Ventas";
+            this.Load += new System.EventHandler(this.Ventas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).EndInit();
             this.ResumeLayout(false);
 

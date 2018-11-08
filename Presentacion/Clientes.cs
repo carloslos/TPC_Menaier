@@ -161,7 +161,8 @@ namespace Presentacion
             }
             try
             {
-                DetallesContacto detalles = new DetallesContacto((ClienteP)dgvClientesP.CurrentRow.DataBoundItem);
+                ClienteP aux = (ClienteP)dgvClientesP.CurrentRow.DataBoundItem;
+                DetallesContacto detalles = new DetallesContacto(aux.Datos);
                 detalles.Show();
                 LlenarTablaP();
             }

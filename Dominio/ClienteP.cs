@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class ClienteP : Contacto
+    public class ClienteP : Cliente
     {
-        public int IdCliente { get; set; }
+        public Contacto Datos { get; set; }
 
         public override string ToString()
         {
-            return Nombre + " " + Apellido;
+            return Datos.Nombre + " " + Datos.Apellido;
         }
     }
 }

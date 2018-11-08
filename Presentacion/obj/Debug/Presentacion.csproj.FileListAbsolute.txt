@@ -201,3 +201,4 @@ C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ModD
 C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ModTelefono.resources
 C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ProductosProv.resources
 C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.Ventas.resources
+C:\Users\tisoporte\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.Ventas.resources

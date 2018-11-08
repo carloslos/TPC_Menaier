@@ -27,3 +27,4 @@ C:\Users\tisoporte\Source\Repos\TPC_Menaier\Dominio\bin\Debug\Dominio.pdb
 C:\Users\tisoporte\Source\Repos\TPC_Menaier\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
 C:\Users\tisoporte\Source\Repos\TPC_Menaier\Dominio\obj\Debug\Dominio.dll
 C:\Users\tisoporte\Source\Repos\TPC_Menaier\Dominio\obj\Debug\Dominio.pdb
+C:\Users\tisoporte\Source\Repos\TPC_Menaier\Dominio\obj\Debug\Dominio.csprojAssemblyReference.cache

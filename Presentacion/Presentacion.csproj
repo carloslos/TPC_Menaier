@@ -271,6 +271,9 @@
     <EmbeddedResource Include="ModEmpleado.resx">
       <DependentUpon>ModEmpleado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModLote.resx">
+      <DependentUpon>ModLote.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModMarca.resx">
       <DependentUpon>ModMarca.cs</DependentUpon>
     </EmbeddedResource>
@@ -306,6 +309,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MetroTemplate.resx">
       <DependentUpon>MetroTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModVenta.resx">
+      <DependentUpon>ModVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Productos.resx">
       <DependentUpon>Productos.cs</DependentUpon>

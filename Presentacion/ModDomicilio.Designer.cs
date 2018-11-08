@@ -46,7 +46,7 @@
             this.tileAltura.Controls.Add(this.lblAltura);
             this.tileAltura.Enabled = false;
             this.tileAltura.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tileAltura.Location = new System.Drawing.Point(68, 189);
+            this.tileAltura.Location = new System.Drawing.Point(54, 189);
             this.tileAltura.Name = "tileAltura";
             this.tileAltura.Size = new System.Drawing.Size(100, 20);
             this.tileAltura.TabIndex = 18;
@@ -77,7 +77,7 @@
             this.TxtAltura.CustomButton.UseSelectable = true;
             this.TxtAltura.CustomButton.Visible = false;
             this.TxtAltura.Lines = new string[0];
-            this.TxtAltura.Location = new System.Drawing.Point(168, 189);
+            this.TxtAltura.Location = new System.Drawing.Point(154, 189);
             this.TxtAltura.MaxLength = 60;
             this.TxtAltura.Name = "TxtAltura";
             this.TxtAltura.PasswordChar = '\0';
@@ -95,7 +95,7 @@
             // BtnVolver
             // 
             this.BtnVolver.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.BtnVolver.Location = new System.Drawing.Point(249, 506);
+            this.BtnVolver.Location = new System.Drawing.Point(219, 277);
             this.BtnVolver.Name = "BtnVolver";
             this.BtnVolver.Size = new System.Drawing.Size(99, 23);
             this.BtnVolver.TabIndex = 15;
@@ -106,7 +106,7 @@
             // BtnMod
             // 
             this.BtnMod.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnMod.Location = new System.Drawing.Point(102, 506);
+            this.BtnMod.Location = new System.Drawing.Point(67, 277);
             this.BtnMod.Name = "BtnMod";
             this.BtnMod.Size = new System.Drawing.Size(100, 23);
             this.BtnMod.TabIndex = 14;
@@ -120,7 +120,7 @@
             this.tileCalle.Controls.Add(this.lblCalle);
             this.tileCalle.Enabled = false;
             this.tileCalle.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tileCalle.Location = new System.Drawing.Point(68, 132);
+            this.tileCalle.Location = new System.Drawing.Point(54, 132);
             this.tileCalle.Name = "tileCalle";
             this.tileCalle.Size = new System.Drawing.Size(100, 20);
             this.tileCalle.TabIndex = 16;
@@ -151,7 +151,7 @@
             this.TxtCalle.CustomButton.UseSelectable = true;
             this.TxtCalle.CustomButton.Visible = false;
             this.TxtCalle.Lines = new string[0];
-            this.TxtCalle.Location = new System.Drawing.Point(168, 132);
+            this.TxtCalle.Location = new System.Drawing.Point(154, 132);
             this.TxtCalle.MaxLength = 60;
             this.TxtCalle.Name = "TxtCalle";
             this.TxtCalle.PasswordChar = '\0';
@@ -169,15 +169,16 @@
             // ModDomicilio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(450, 600);
+            this.ClientSize = new System.Drawing.Size(385, 376);
             this.Controls.Add(this.tileAltura);
             this.Controls.Add(this.TxtAltura);
             this.Controls.Add(this.BtnVolver);
             this.Controls.Add(this.BtnMod);
             this.Controls.Add(this.tileCalle);
             this.Controls.Add(this.TxtCalle);
-            this.MinimumSize = new System.Drawing.Size(450, 600);
+            this.MinimumSize = new System.Drawing.Size(385, 376);
             this.Name = "ModDomicilio";
+            this.Text = "Domicilio";
             this.Load += new System.EventHandler(this.ModDomicilio_Load);
             this.tileAltura.ResumeLayout(false);
             this.tileAltura.PerformLayout();

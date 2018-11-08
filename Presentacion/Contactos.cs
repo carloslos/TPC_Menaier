@@ -92,8 +92,6 @@ namespace Presentacion
             }
         }
 
-        /// TODO: CHECKEAR IF NULL EN EDITAR, DETALLES, ELIMINAR, CONTACTOS, ETC (TODOS)
-
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
             {
