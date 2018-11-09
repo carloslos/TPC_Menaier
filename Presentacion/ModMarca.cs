@@ -37,7 +37,7 @@ namespace Presentacion
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
         }
 
         private void BtnAgregar_Click(object sender, EventArgs e)
@@ -54,7 +54,7 @@ namespace Presentacion
                 else
                 {
                     neg.Modificar(m);
-                    this.Close();
+                    this.Dispose();
                 }
             }
             catch (Exception ex)

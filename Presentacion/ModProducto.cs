@@ -109,7 +109,7 @@ namespace Presentacion
                 else
                 {
                     neg.Modificar(p);
-                    this.Close();
+                    this.Dispose();
                 }
             }
             catch (Exception ex)
@@ -227,7 +227,7 @@ namespace Presentacion
 
         private void BtnVolver_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
         }
     }
 }

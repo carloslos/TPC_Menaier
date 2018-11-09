@@ -202,3 +202,5 @@ C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ModT
 C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ProductosProv.resources
 C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.Ventas.resources
 C:\Users\tisoporte\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.Ventas.resources
+C:\Users\tisoporte\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ModLote.resources
+C:\Users\tisoporte\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ModVenta.resources

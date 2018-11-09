@@ -32,23 +32,24 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvVenta = new MetroFramework.Controls.MetroGrid();
-            this.BoxProducto = new MetroFramework.Controls.MetroComboBox();
-            this.tileProducto = new MetroFramework.Controls.MetroTile();
-            this.lblProducto = new MetroFramework.Controls.MetroLabel();
             this.BoxCliente = new MetroFramework.Controls.MetroComboBox();
             this.tileCliente = new MetroFramework.Controls.MetroTile();
             this.lblCliente = new MetroFramework.Controls.MetroLabel();
             this.BoxEmpleado = new MetroFramework.Controls.MetroComboBox();
             this.tileEmpleado = new MetroFramework.Controls.MetroTile();
             this.lblEmpleado = new MetroFramework.Controls.MetroLabel();
-            this.tileAltura = new MetroFramework.Controls.MetroTile();
-            this.lblCantidad = new MetroFramework.Controls.MetroLabel();
-            this.TxtCantidad = new MetroFramework.Controls.MetroTextBox();
+            this.DateFecha = new MetroFramework.Controls.MetroDateTime();
+            this.tileFechaNac = new MetroFramework.Controls.MetroTile();
+            this.lblFecha = new MetroFramework.Controls.MetroLabel();
+            this.BtnAgregarLote = new MetroFramework.Controls.MetroButton();
+            this.BtnVolver = new MetroFramework.Controls.MetroButton();
+            this.BtnMod = new MetroFramework.Controls.MetroButton();
+            this.BtnEliminarLote = new MetroFramework.Controls.MetroButton();
+            this.BtnEditarLote = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenta)).BeginInit();
-            this.tileProducto.SuspendLayout();
             this.tileCliente.SuspendLayout();
             this.tileEmpleado.SuspendLayout();
-            this.tileAltura.SuspendLayout();
+            this.tileFechaNac.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvVenta
@@ -99,47 +100,15 @@
             this.dgvVenta.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvVenta.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvVenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVenta.Size = new System.Drawing.Size(433, 475);
+            this.dgvVenta.Size = new System.Drawing.Size(544, 475);
             this.dgvVenta.TabIndex = 13;
             this.dgvVenta.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // BoxProducto
-            // 
-            this.BoxProducto.FormattingEnabled = true;
-            this.BoxProducto.ItemHeight = 23;
-            this.BoxProducto.Location = new System.Drawing.Point(712, 130);
-            this.BoxProducto.Name = "BoxProducto";
-            this.BoxProducto.Size = new System.Drawing.Size(177, 29);
-            this.BoxProducto.TabIndex = 55;
-            this.BoxProducto.UseSelectable = true;
-            // 
-            // tileProducto
-            // 
-            this.tileProducto.ActiveControl = null;
-            this.tileProducto.Controls.Add(this.lblProducto);
-            this.tileProducto.Enabled = false;
-            this.tileProducto.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tileProducto.Location = new System.Drawing.Point(612, 130);
-            this.tileProducto.Name = "tileProducto";
-            this.tileProducto.Size = new System.Drawing.Size(104, 29);
-            this.tileProducto.TabIndex = 56;
-            this.tileProducto.UseSelectable = true;
-            // 
-            // lblProducto
-            // 
-            this.lblProducto.AutoSize = true;
-            this.lblProducto.Enabled = false;
-            this.lblProducto.Location = new System.Drawing.Point(22, 6);
-            this.lblProducto.Name = "lblProducto";
-            this.lblProducto.Size = new System.Drawing.Size(67, 19);
-            this.lblProducto.TabIndex = 5;
-            this.lblProducto.Text = " Producto";
             // 
             // BoxCliente
             // 
             this.BoxCliente.FormattingEnabled = true;
             this.BoxCliente.ItemHeight = 23;
-            this.BoxCliente.Location = new System.Drawing.Point(712, 252);
+            this.BoxCliente.Location = new System.Drawing.Point(748, 127);
             this.BoxCliente.Name = "BoxCliente";
             this.BoxCliente.Size = new System.Drawing.Size(177, 29);
             this.BoxCliente.TabIndex = 57;
@@ -151,7 +120,7 @@
             this.tileCliente.Controls.Add(this.lblCliente);
             this.tileCliente.Enabled = false;
             this.tileCliente.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tileCliente.Location = new System.Drawing.Point(612, 252);
+            this.tileCliente.Location = new System.Drawing.Point(648, 127);
             this.tileCliente.Name = "tileCliente";
             this.tileCliente.Size = new System.Drawing.Size(104, 29);
             this.tileCliente.TabIndex = 58;
@@ -171,7 +140,7 @@
             // 
             this.BoxEmpleado.FormattingEnabled = true;
             this.BoxEmpleado.ItemHeight = 23;
-            this.BoxEmpleado.Location = new System.Drawing.Point(712, 323);
+            this.BoxEmpleado.Location = new System.Drawing.Point(748, 188);
             this.BoxEmpleado.Name = "BoxEmpleado";
             this.BoxEmpleado.Size = new System.Drawing.Size(177, 29);
             this.BoxEmpleado.TabIndex = 59;
@@ -183,7 +152,7 @@
             this.tileEmpleado.Controls.Add(this.lblEmpleado);
             this.tileEmpleado.Enabled = false;
             this.tileEmpleado.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tileEmpleado.Location = new System.Drawing.Point(612, 323);
+            this.tileEmpleado.Location = new System.Drawing.Point(648, 188);
             this.tileEmpleado.Name = "tileEmpleado";
             this.tileEmpleado.Size = new System.Drawing.Size(104, 29);
             this.tileEmpleado.TabIndex = 60;
@@ -199,83 +168,121 @@
             this.lblEmpleado.TabIndex = 5;
             this.lblEmpleado.Text = " Empleado";
             // 
-            // tileAltura
+            // DateFecha
             // 
-            this.tileAltura.ActiveControl = null;
-            this.tileAltura.Controls.Add(this.lblCantidad);
-            this.tileAltura.Enabled = false;
-            this.tileAltura.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tileAltura.Location = new System.Drawing.Point(612, 189);
-            this.tileAltura.Name = "tileAltura";
-            this.tileAltura.Size = new System.Drawing.Size(100, 20);
-            this.tileAltura.TabIndex = 62;
-            this.tileAltura.UseSelectable = true;
+            this.DateFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DateFecha.Location = new System.Drawing.Point(744, 246);
+            this.DateFecha.MaxDate = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
+            this.DateFecha.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.DateFecha.MinimumSize = new System.Drawing.Size(0, 29);
+            this.DateFecha.Name = "DateFecha";
+            this.DateFecha.Size = new System.Drawing.Size(177, 29);
+            this.DateFecha.TabIndex = 61;
+            this.DateFecha.Value = new System.DateTime(1999, 1, 1, 0, 0, 0, 0);
             // 
-            // lblCantidad
+            // tileFechaNac
             // 
-            this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Enabled = false;
-            this.lblCantidad.Location = new System.Drawing.Point(27, 0);
-            this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(62, 19);
-            this.lblCantidad.TabIndex = 5;
-            this.lblCantidad.Text = "Cantidad";
+            this.tileFechaNac.ActiveControl = null;
+            this.tileFechaNac.Controls.Add(this.lblFecha);
+            this.tileFechaNac.Enabled = false;
+            this.tileFechaNac.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tileFechaNac.Location = new System.Drawing.Point(648, 246);
+            this.tileFechaNac.Name = "tileFechaNac";
+            this.tileFechaNac.Size = new System.Drawing.Size(100, 29);
+            this.tileFechaNac.TabIndex = 62;
+            this.tileFechaNac.UseSelectable = true;
             // 
-            // TxtCantidad
+            // lblFecha
             // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Enabled = false;
+            this.lblFecha.Location = new System.Drawing.Point(46, 5);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(43, 19);
+            this.lblFecha.TabIndex = 5;
+            this.lblFecha.Text = "Fecha";
             // 
+            // BtnAgregarLote
             // 
+            this.BtnAgregarLote.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnAgregarLote.Location = new System.Drawing.Point(628, 316);
+            this.BtnAgregarLote.Name = "BtnAgregarLote";
+            this.BtnAgregarLote.Size = new System.Drawing.Size(104, 23);
+            this.BtnAgregarLote.TabIndex = 65;
+            this.BtnAgregarLote.Text = "Agregar Lote";
+            this.BtnAgregarLote.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BtnAgregarLote.UseSelectable = true;
             // 
-            this.TxtCantidad.CustomButton.Image = null;
-            this.TxtCantidad.CustomButton.Location = new System.Drawing.Point(159, 2);
-            this.TxtCantidad.CustomButton.Name = "";
-            this.TxtCantidad.CustomButton.Size = new System.Drawing.Size(15, 15);
-            this.TxtCantidad.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.TxtCantidad.CustomButton.TabIndex = 1;
-            this.TxtCantidad.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.TxtCantidad.CustomButton.UseSelectable = true;
-            this.TxtCantidad.CustomButton.Visible = false;
-            this.TxtCantidad.Lines = new string[0];
-            this.TxtCantidad.Location = new System.Drawing.Point(712, 189);
-            this.TxtCantidad.MaxLength = 60;
-            this.TxtCantidad.Name = "TxtCantidad";
-            this.TxtCantidad.PasswordChar = '\0';
-            this.TxtCantidad.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.TxtCantidad.SelectedText = "";
-            this.TxtCantidad.SelectionLength = 0;
-            this.TxtCantidad.SelectionStart = 0;
-            this.TxtCantidad.ShortcutsEnabled = true;
-            this.TxtCantidad.Size = new System.Drawing.Size(177, 20);
-            this.TxtCantidad.TabIndex = 61;
-            this.TxtCantidad.UseSelectable = true;
-            this.TxtCantidad.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.TxtCantidad.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // BtnVolver
+            // 
+            this.BtnVolver.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnVolver.Location = new System.Drawing.Point(834, 515);
+            this.BtnVolver.Name = "BtnVolver";
+            this.BtnVolver.Size = new System.Drawing.Size(118, 23);
+            this.BtnVolver.TabIndex = 64;
+            this.BtnVolver.Text = "Volver";
+            this.BtnVolver.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BtnVolver.UseSelectable = true;
+            // 
+            // BtnMod
+            // 
+            this.BtnMod.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnMod.Location = new System.Drawing.Point(634, 515);
+            this.BtnMod.Name = "BtnMod";
+            this.BtnMod.Size = new System.Drawing.Size(118, 23);
+            this.BtnMod.TabIndex = 63;
+            this.BtnMod.Text = "Mod";
+            this.BtnMod.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BtnMod.UseSelectable = true;
+            // 
+            // BtnEliminarLote
+            // 
+            this.BtnEliminarLote.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnEliminarLote.Location = new System.Drawing.Point(848, 316);
+            this.BtnEliminarLote.Name = "BtnEliminarLote";
+            this.BtnEliminarLote.Size = new System.Drawing.Size(104, 23);
+            this.BtnEliminarLote.TabIndex = 66;
+            this.BtnEliminarLote.Text = "Eliminar Lote";
+            this.BtnEliminarLote.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BtnEliminarLote.UseSelectable = true;
+            // 
+            // BtnEditarLote
+            // 
+            this.BtnEditarLote.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnEditarLote.Location = new System.Drawing.Point(738, 316);
+            this.BtnEditarLote.Name = "BtnEditarLote";
+            this.BtnEditarLote.Size = new System.Drawing.Size(104, 23);
+            this.BtnEditarLote.TabIndex = 67;
+            this.BtnEditarLote.Text = "Editar Lote";
+            this.BtnEditarLote.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BtnEditarLote.UseSelectable = true;
             // 
             // ModVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(1024, 600);
-            this.Controls.Add(this.tileAltura);
-            this.Controls.Add(this.TxtCantidad);
+            this.Controls.Add(this.BtnEditarLote);
+            this.Controls.Add(this.BtnEliminarLote);
+            this.Controls.Add(this.BtnAgregarLote);
+            this.Controls.Add(this.BtnVolver);
+            this.Controls.Add(this.BtnMod);
+            this.Controls.Add(this.DateFecha);
+            this.Controls.Add(this.tileFechaNac);
             this.Controls.Add(this.BoxEmpleado);
             this.Controls.Add(this.tileEmpleado);
             this.Controls.Add(this.BoxCliente);
             this.Controls.Add(this.tileCliente);
-            this.Controls.Add(this.BoxProducto);
-            this.Controls.Add(this.tileProducto);
             this.Controls.Add(this.dgvVenta);
             this.MinimumSize = new System.Drawing.Size(1024, 600);
             this.Name = "ModVenta";
             this.Text = "Venta";
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenta)).EndInit();
-            this.tileProducto.ResumeLayout(false);
-            this.tileProducto.PerformLayout();
             this.tileCliente.ResumeLayout(false);
             this.tileCliente.PerformLayout();
             this.tileEmpleado.ResumeLayout(false);
             this.tileEmpleado.PerformLayout();
-            this.tileAltura.ResumeLayout(false);
-            this.tileAltura.PerformLayout();
+            this.tileFechaNac.ResumeLayout(false);
+            this.tileFechaNac.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -283,17 +290,19 @@
         #endregion
 
         private MetroFramework.Controls.MetroGrid dgvVenta;
-        private MetroFramework.Controls.MetroComboBox BoxProducto;
-        private MetroFramework.Controls.MetroTile tileProducto;
-        private MetroFramework.Controls.MetroLabel lblProducto;
         private MetroFramework.Controls.MetroComboBox BoxCliente;
         private MetroFramework.Controls.MetroTile tileCliente;
         private MetroFramework.Controls.MetroLabel lblCliente;
         private MetroFramework.Controls.MetroComboBox BoxEmpleado;
         private MetroFramework.Controls.MetroTile tileEmpleado;
         private MetroFramework.Controls.MetroLabel lblEmpleado;
-        private MetroFramework.Controls.MetroTile tileAltura;
-        private MetroFramework.Controls.MetroLabel lblCantidad;
-        private MetroFramework.Controls.MetroTextBox TxtCantidad;
+        private MetroFramework.Controls.MetroDateTime DateFecha;
+        private MetroFramework.Controls.MetroTile tileFechaNac;
+        private MetroFramework.Controls.MetroLabel lblFecha;
+        private MetroFramework.Controls.MetroButton BtnAgregarLote;
+        private MetroFramework.Controls.MetroButton BtnVolver;
+        private MetroFramework.Controls.MetroButton BtnMod;
+        private MetroFramework.Controls.MetroButton BtnEliminarLote;
+        private MetroFramework.Controls.MetroButton BtnEditarLote;
     }
 }

@@ -63,7 +63,7 @@
             this.TxtNombre.CustomButton.UseSelectable = true;
             this.TxtNombre.CustomButton.Visible = false;
             this.TxtNombre.Lines = new string[0];
-            this.TxtNombre.Location = new System.Drawing.Point(171, 158);
+            this.TxtNombre.Location = new System.Drawing.Point(185, 158);
             this.TxtNombre.MaxLength = 60;
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.PasswordChar = '\0';
@@ -94,7 +94,7 @@
             this.TxtApellido.CustomButton.UseSelectable = true;
             this.TxtApellido.CustomButton.Visible = false;
             this.TxtApellido.Lines = new string[0];
-            this.TxtApellido.Location = new System.Drawing.Point(171, 208);
+            this.TxtApellido.Location = new System.Drawing.Point(185, 208);
             this.TxtApellido.MaxLength = 60;
             this.TxtApellido.Name = "TxtApellido";
             this.TxtApellido.PasswordChar = '\0';
@@ -116,7 +116,7 @@
             this.tileEmail.Controls.Add(this.lblEmail);
             this.tileEmail.Enabled = false;
             this.tileEmail.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tileEmail.Location = new System.Drawing.Point(75, 308);
+            this.tileEmail.Location = new System.Drawing.Point(89, 308);
             this.tileEmail.Name = "tileEmail";
             this.tileEmail.Size = new System.Drawing.Size(100, 20);
             this.tileEmail.TabIndex = 47;
@@ -147,7 +147,7 @@
             this.TxtDni.CustomButton.UseSelectable = true;
             this.TxtDni.CustomButton.Visible = false;
             this.TxtDni.Lines = new string[0];
-            this.TxtDni.Location = new System.Drawing.Point(171, 258);
+            this.TxtDni.Location = new System.Drawing.Point(185, 258);
             this.TxtDni.MaxLength = 8;
             this.TxtDni.Name = "TxtDni";
             this.TxtDni.PasswordChar = '\0';
@@ -169,7 +169,7 @@
             this.tileDni.Controls.Add(this.lblDni);
             this.tileDni.Enabled = false;
             this.tileDni.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tileDni.Location = new System.Drawing.Point(75, 258);
+            this.tileDni.Location = new System.Drawing.Point(89, 258);
             this.tileDni.Name = "tileDni";
             this.tileDni.Size = new System.Drawing.Size(100, 20);
             this.tileDni.TabIndex = 46;
@@ -200,7 +200,7 @@
             this.TxtEmail.CustomButton.UseSelectable = true;
             this.TxtEmail.CustomButton.Visible = false;
             this.TxtEmail.Lines = new string[0];
-            this.TxtEmail.Location = new System.Drawing.Point(171, 308);
+            this.TxtEmail.Location = new System.Drawing.Point(185, 308);
             this.TxtEmail.MaxLength = 60;
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.PasswordChar = '\0';
@@ -222,7 +222,7 @@
             this.tileApellido.Controls.Add(this.lblApellido);
             this.tileApellido.Enabled = false;
             this.tileApellido.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tileApellido.Location = new System.Drawing.Point(75, 208);
+            this.tileApellido.Location = new System.Drawing.Point(89, 208);
             this.tileApellido.Name = "tileApellido";
             this.tileApellido.Size = new System.Drawing.Size(100, 20);
             this.tileApellido.TabIndex = 45;
@@ -244,7 +244,7 @@
             this.tileNombre.Controls.Add(this.lblNombre);
             this.tileNombre.Enabled = false;
             this.tileNombre.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tileNombre.Location = new System.Drawing.Point(75, 158);
+            this.tileNombre.Location = new System.Drawing.Point(89, 158);
             this.tileNombre.Name = "tileNombre";
             this.tileNombre.Size = new System.Drawing.Size(100, 20);
             this.tileNombre.TabIndex = 44;
@@ -263,7 +263,7 @@
             // BtnVolver
             // 
             this.BtnVolver.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnVolver.Location = new System.Drawing.Point(227, 517);
+            this.BtnVolver.Location = new System.Drawing.Point(248, 506);
             this.BtnVolver.Name = "BtnVolver";
             this.BtnVolver.Size = new System.Drawing.Size(99, 23);
             this.BtnVolver.TabIndex = 43;
@@ -274,7 +274,7 @@
             // BtnMod
             // 
             this.BtnMod.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnMod.Location = new System.Drawing.Point(99, 517);
+            this.BtnMod.Location = new System.Drawing.Point(103, 506);
             this.BtnMod.Name = "BtnMod";
             this.BtnMod.Size = new System.Drawing.Size(100, 23);
             this.BtnMod.TabIndex = 42;

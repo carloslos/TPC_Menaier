@@ -23,14 +23,14 @@ namespace Presentacion
         {
             R = true;
             this.DialogResult = DialogResult.OK;
-            this.Close();
+            this.Dispose();
         }
 
         private void BtnNo_Click(object sender, EventArgs e)
         {
             R = false;
             this.DialogResult = DialogResult.OK;
-            this.Close();
+            this.Dispose();
         }
     }
 }

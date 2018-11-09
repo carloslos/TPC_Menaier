@@ -42,6 +42,7 @@
             this.tileProductos = new MetroFramework.Controls.MetroTile();
             this.lblProductos = new MetroFramework.Controls.MetroLabel();
             this.tileProveedor = new MetroFramework.Controls.MetroTile();
+            this.BtnCerrar = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductosProv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.tileProductos.SuspendLayout();
@@ -165,7 +166,7 @@
             // 
             // BtnQuitar
             // 
-            this.BtnQuitar.Location = new System.Drawing.Point(487, 380);
+            this.BtnQuitar.Location = new System.Drawing.Point(487, 358);
             this.BtnQuitar.Name = "BtnQuitar";
             this.BtnQuitar.Size = new System.Drawing.Size(50, 50);
             this.BtnQuitar.TabIndex = 34;
@@ -218,10 +219,22 @@
             this.tileProveedor.TabIndex = 53;
             this.tileProveedor.UseSelectable = true;
             // 
+            // BtnCerrar
+            // 
+            this.BtnCerrar.Location = new System.Drawing.Point(487, 452);
+            this.BtnCerrar.Name = "BtnCerrar";
+            this.BtnCerrar.Size = new System.Drawing.Size(50, 50);
+            this.BtnCerrar.TabIndex = 55;
+            this.BtnCerrar.Text = "X";
+            this.BtnCerrar.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BtnCerrar.UseSelectable = true;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
+            // 
             // ProductosProv
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(1024, 600);
+            this.Controls.Add(this.BtnCerrar);
             this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.dgvProductosProv);
             this.Controls.Add(this.tileProductos);
@@ -252,5 +265,6 @@
         private MetroFramework.Controls.MetroTile tileProductos;
         private MetroFramework.Controls.MetroLabel lblProductos;
         private MetroFramework.Controls.MetroTile tileProveedor;
+        private MetroFramework.Controls.MetroButton BtnCerrar;
     }
 }

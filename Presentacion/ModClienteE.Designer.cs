@@ -30,12 +30,20 @@
         {
             this.BtnVolver = new MetroFramework.Controls.MetroButton();
             this.BtnMod = new MetroFramework.Controls.MetroButton();
+            this.TxtEmpresa = new MetroFramework.Controls.MetroTextBox();
+            this.TxtCuit = new MetroFramework.Controls.MetroTextBox();
+            this.tileCuit = new MetroFramework.Controls.MetroTile();
+            this.lblCuit = new MetroFramework.Controls.MetroLabel();
+            this.tileEmpresa = new MetroFramework.Controls.MetroTile();
+            this.lblEmpresa = new MetroFramework.Controls.MetroLabel();
+            this.tileCuit.SuspendLayout();
+            this.tileEmpresa.SuspendLayout();
             this.SuspendLayout();
             // 
             // BtnVolver
             // 
             this.BtnVolver.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnVolver.Location = new System.Drawing.Point(186, 294);
+            this.BtnVolver.Location = new System.Drawing.Point(247, 507);
             this.BtnVolver.Name = "BtnVolver";
             this.BtnVolver.Size = new System.Drawing.Size(99, 23);
             this.BtnVolver.TabIndex = 11;
@@ -46,7 +54,7 @@
             // BtnMod
             // 
             this.BtnMod.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnMod.Location = new System.Drawing.Point(58, 294);
+            this.BtnMod.Location = new System.Drawing.Point(104, 507);
             this.BtnMod.Name = "BtnMod";
             this.BtnMod.Size = new System.Drawing.Size(100, 23);
             this.BtnMod.TabIndex = 10;
@@ -54,14 +62,127 @@
             this.BtnMod.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnMod.UseSelectable = true;
             // 
+            // TxtEmpresa
+            // 
+            // 
+            // 
+            // 
+            this.TxtEmpresa.CustomButton.Image = null;
+            this.TxtEmpresa.CustomButton.Location = new System.Drawing.Point(159, 2);
+            this.TxtEmpresa.CustomButton.Name = "";
+            this.TxtEmpresa.CustomButton.Size = new System.Drawing.Size(15, 15);
+            this.TxtEmpresa.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.TxtEmpresa.CustomButton.TabIndex = 1;
+            this.TxtEmpresa.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.TxtEmpresa.CustomButton.UseSelectable = true;
+            this.TxtEmpresa.CustomButton.Visible = false;
+            this.TxtEmpresa.Lines = new string[0];
+            this.TxtEmpresa.Location = new System.Drawing.Point(185, 215);
+            this.TxtEmpresa.MaxLength = 60;
+            this.TxtEmpresa.Name = "TxtEmpresa";
+            this.TxtEmpresa.PasswordChar = '\0';
+            this.TxtEmpresa.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.TxtEmpresa.SelectedText = "";
+            this.TxtEmpresa.SelectionLength = 0;
+            this.TxtEmpresa.SelectionStart = 0;
+            this.TxtEmpresa.ShortcutsEnabled = true;
+            this.TxtEmpresa.Size = new System.Drawing.Size(177, 20);
+            this.TxtEmpresa.TabIndex = 56;
+            this.TxtEmpresa.UseSelectable = true;
+            this.TxtEmpresa.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.TxtEmpresa.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // TxtCuit
+            // 
+            // 
+            // 
+            // 
+            this.TxtCuit.CustomButton.Image = null;
+            this.TxtCuit.CustomButton.Location = new System.Drawing.Point(159, 2);
+            this.TxtCuit.CustomButton.Name = "";
+            this.TxtCuit.CustomButton.Size = new System.Drawing.Size(15, 15);
+            this.TxtCuit.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.TxtCuit.CustomButton.TabIndex = 1;
+            this.TxtCuit.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.TxtCuit.CustomButton.UseSelectable = true;
+            this.TxtCuit.CustomButton.Visible = false;
+            this.TxtCuit.Lines = new string[0];
+            this.TxtCuit.Location = new System.Drawing.Point(185, 285);
+            this.TxtCuit.MaxLength = 8;
+            this.TxtCuit.Name = "TxtCuit";
+            this.TxtCuit.PasswordChar = '\0';
+            this.TxtCuit.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.TxtCuit.SelectedText = "";
+            this.TxtCuit.SelectionLength = 0;
+            this.TxtCuit.SelectionStart = 0;
+            this.TxtCuit.ShortcutsEnabled = true;
+            this.TxtCuit.Size = new System.Drawing.Size(177, 20);
+            this.TxtCuit.TabIndex = 58;
+            this.TxtCuit.UseSelectable = true;
+            this.TxtCuit.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.TxtCuit.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // tileCuit
+            // 
+            this.tileCuit.ActiveControl = null;
+            this.tileCuit.Controls.Add(this.lblCuit);
+            this.tileCuit.Enabled = false;
+            this.tileCuit.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tileCuit.Location = new System.Drawing.Point(89, 285);
+            this.tileCuit.Name = "tileCuit";
+            this.tileCuit.Size = new System.Drawing.Size(100, 20);
+            this.tileCuit.TabIndex = 62;
+            this.tileCuit.UseSelectable = true;
+            // 
+            // lblCuit
+            // 
+            this.lblCuit.AutoSize = true;
+            this.lblCuit.Enabled = false;
+            this.lblCuit.Location = new System.Drawing.Point(52, 1);
+            this.lblCuit.Name = "lblCuit";
+            this.lblCuit.Size = new System.Drawing.Size(37, 19);
+            this.lblCuit.TabIndex = 5;
+            this.lblCuit.Text = "CUIT";
+            // 
+            // tileEmpresa
+            // 
+            this.tileEmpresa.ActiveControl = null;
+            this.tileEmpresa.Controls.Add(this.lblEmpresa);
+            this.tileEmpresa.Enabled = false;
+            this.tileEmpresa.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tileEmpresa.Location = new System.Drawing.Point(89, 215);
+            this.tileEmpresa.Name = "tileEmpresa";
+            this.tileEmpresa.Size = new System.Drawing.Size(100, 20);
+            this.tileEmpresa.TabIndex = 60;
+            this.tileEmpresa.UseSelectable = true;
+            // 
+            // lblEmpresa
+            // 
+            this.lblEmpresa.AutoSize = true;
+            this.lblEmpresa.Enabled = false;
+            this.lblEmpresa.Location = new System.Drawing.Point(30, 0);
+            this.lblEmpresa.Name = "lblEmpresa";
+            this.lblEmpresa.Size = new System.Drawing.Size(60, 19);
+            this.lblEmpresa.TabIndex = 0;
+            this.lblEmpresa.Text = "Empresa";
+            // 
             // ModClienteE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(450, 600);
+            this.Controls.Add(this.TxtEmpresa);
+            this.Controls.Add(this.TxtCuit);
+            this.Controls.Add(this.tileCuit);
+            this.Controls.Add(this.tileEmpresa);
             this.Controls.Add(this.BtnVolver);
             this.Controls.Add(this.BtnMod);
+            this.MinimumSize = new System.Drawing.Size(450, 600);
             this.Name = "ModClienteE";
             this.Text = "Cliente";
+            this.tileCuit.ResumeLayout(false);
+            this.tileCuit.PerformLayout();
+            this.tileEmpresa.ResumeLayout(false);
+            this.tileEmpresa.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -70,5 +191,11 @@
 
         private MetroFramework.Controls.MetroButton BtnVolver;
         private MetroFramework.Controls.MetroButton BtnMod;
+        private MetroFramework.Controls.MetroTextBox TxtEmpresa;
+        private MetroFramework.Controls.MetroTextBox TxtCuit;
+        private MetroFramework.Controls.MetroTile tileCuit;
+        private MetroFramework.Controls.MetroLabel lblCuit;
+        private MetroFramework.Controls.MetroTile tileEmpresa;
+        private MetroFramework.Controls.MetroLabel lblEmpresa;
     }
 }

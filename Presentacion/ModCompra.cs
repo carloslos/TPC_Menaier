@@ -105,7 +105,7 @@ namespace Presentacion
 
         private void BtnVolver_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
         }
 
         private void BtnMod_Click(object sender, EventArgs e)

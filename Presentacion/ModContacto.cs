@@ -72,7 +72,7 @@ namespace Presentacion
 
         private void BtnVolver_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
         }
 
         private void BtnMod_Click(object sender, EventArgs e)
@@ -87,7 +87,7 @@ namespace Presentacion
                 if (c.IdContacto != 0)
                 {
                     neg.Modificar(c);
-                    this.Close();
+                    this.Dispose();
                 }
                 else
                 {

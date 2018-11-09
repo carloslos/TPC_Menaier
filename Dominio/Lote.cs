@@ -10,10 +10,10 @@ namespace Dominio
     {
         public long IdLote { get; set; }
         public Producto Producto { get; set; }
-        public int Unidades { get; set; }
+        public int UnidadesP { get; set; }
+        public int UnidadesE { get; set; }
         public float CostoPU { get; set; }
         public float CostoT { get; set; }
-        public DateTime Vencimiento { get; set; }
         public bool Activo { get; set; }
 
         public override string ToString()

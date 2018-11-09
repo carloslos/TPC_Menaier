@@ -67,8 +67,6 @@ namespace Presentacion
                 dgvProductosProv.Update();
                 dgvProductosProv.Refresh();
 
-                /// TODO: SORT DGV (TODAS)
-
                 dgvProductos.DataSource = lstProductos;
                 dgvProductos.Columns["IdProducto"].HeaderText = "ID";
                 dgvProductos.Columns["Descripcion"].HeaderText = "Descripción";
@@ -98,8 +96,6 @@ namespace Presentacion
             }
         }
 
-        /// TODO: GUARDAR CAMBIOS Y CANCELAR (PRODUCTOS DE PROVEEDOR)
-
         private void BtnQuitar_Click(object sender, EventArgs e)
         {
             if (dgvProductosProv.RowCount > 0)
@@ -111,6 +107,11 @@ namespace Presentacion
                 lstProductosProv.Remove(p);
                 LlenarTabla();
             }
+        }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

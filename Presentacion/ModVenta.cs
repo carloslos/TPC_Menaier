@@ -11,8 +11,6 @@ namespace Presentacion
 {
     public partial class ModVenta : Presentacion.Metro_Template
     {
-        /// TODO: MOD VENTAS
-
         public ModVenta()
         {
             InitializeComponent();
