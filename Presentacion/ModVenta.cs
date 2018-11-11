@@ -11,8 +11,8 @@ namespace Presentacion
 {
     public partial class ModVenta : MetroFramework.Forms.MetroForm
     { 
-        /*
         private bool[] EntradasVal = new bool[4];
+        private bool[] ProductoVal = new bool[2];
         Venta v;
         bool edit;
         Validaciones val = new Validaciones();
@@ -48,7 +48,6 @@ namespace Presentacion
             {
                 BtnMod.Text = "----";
                 BtnAgregarP.Visible = false;
-                BtnEditarP.Visible = false;
                 BtnEliminarP.Visible = false;
                 BoxCliente.Enabled = false;
                 BoxEmpleado.Enabled = false;
@@ -70,6 +69,11 @@ namespace Presentacion
                 EntradasVal[i] = b;
             }
 
+            for (int i = 0; i < ProductoVal.Length; i++)
+            {
+                ProductoVal[i] = false;
+            }
+
             try
             {
                 LstClientes = new List<Cliente>();
@@ -86,7 +90,12 @@ namespace Presentacion
                 BoxCliente.ValueMember = "IdEmpleado";
                 BoxCliente.DataSource = negE.Listar();
 
-                ProductoVendidoNegocio negP = new ProductoVendidoNegocio();
+                ProductoNegocio negP = new ProductoNegocio();
+                BoxCliente.DisplayMember = "Descripcion";
+                BoxCliente.ValueMember = "IdProducto";
+                BoxCliente.DataSource = negP.Listar(0);
+
+                ProductoVendidoNegocio negPV = new ProductoVendidoNegocio();
                 BindProductos = new BindingList<ProductoVendido>(v.LstProductosVendidos);
                 BoxCliente.DataSource = BindProductos;
                 
@@ -111,6 +120,7 @@ namespace Presentacion
                 {
                     BoxEmpleado.SelectedIndex = -1;
                 }
+
                 LlenarTabla();
                 ValidarEntradas();
             }
@@ -143,7 +153,7 @@ namespace Presentacion
         private void BtnMod_Click(object sender, EventArgs e)
         {
             VentaNegocio negV = new VentaNegocio();
-            ProductoVendidoNegocio negP = new ProductoVendidoNegocio();
+            ProductoVendidoNegocio negPV = new ProductoVendidoNegocio();
             try
             {
                 if (v.IdVenta == 0)
@@ -154,10 +164,11 @@ namespace Presentacion
                 v.Cliente = (Cliente)BoxCliente.SelectedItem;
                 v.Empleado = (Empleado)BoxEmpleado.SelectedItem;
                 v.FechaVenta = DateFecha.Value;
+                v.Precio = (float)Convert.ToDouble(TxtTotal.Text);
                 if (v.IdVenta != 0)
                 {
                     negV.Modificar(v);
-                    negP.EliminarProductosDeVenta(v.IdVenta);
+                    negPV.EliminarProductosDeVenta(v.IdVenta);
                 }
                 else
                 {
@@ -166,7 +177,7 @@ namespace Presentacion
                 foreach (ProductoVendido pv in v.LstProductosVendidos)
                 {
                     pv.IdVenta = v.IdVenta;
-                    negP.Agregar(pv);
+                    negPV.Agregar(pv);
                 }
                 this.Close();
             }
@@ -176,61 +187,61 @@ namespace Presentacion
             }
         }
 
-        private void DgvLotes_Changed()
+        private void DgvProductos_Changed()
         {
             ValidarDgv(0, dgvVenta);
             ActualizarTotal();
         }
 
-        private void DgvLotes_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        private void DgvProductos_Changed_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            DgvLotes_Changed();
+            DgvProductos_Changed();
         }
 
-        private void DgvLotes_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        private void DgvProductos_Changed_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
-            DgvLotes_Changed();
+            DgvProductos_Changed();
         }
 
-        private void BoxProveedor_SelectedValueChanged(object sender, EventArgs e)
+        private void BoxCliente_SelectedValueChanged(object sender, EventArgs e)
         {
-            ValidarBox(1, BoxProveedor, tileProveedor, lblProveedor);
+            ValidarBox(1, BoxCliente, tileCliente, lblCliente);
         }
 
-        private void DateCompra_ValueChanged(object sender, EventArgs e)
+        private void BoxEmpleado_SelectedValueChanged(object sender, EventArgs e)
         {
-            DateCompra.CustomFormat = "dd/MM/yyyy";
-            ValidarDate(2, DateCompra.Value, tileFechaCompra, lblFechaCompra);
+            ValidarBox(2, BoxEmpleado, tileEmpleado, lblEmpleado);
+        }
+
+        private void DateFecha_ValueChanged(object sender, EventArgs e)
+        {
+            DateFecha.CustomFormat = "dd/MM/yyyy";
+            ValidarDate(3, DateFecha.Value, tileFecha, lblFecha);
         }
 
         private void RealizarValidaciones()
         {
-            ValidarDgv(0, dgvLotes);
-            ValidarBox(1, BoxProveedor, tileProveedor, lblProveedor);
-            DateCompra.CustomFormat = "dd/MM/yyyy";
-            ValidarDate(2, DateCompra.Value, tileFechaCompra, lblFechaCompra);
+            ValidarDgv(0, dgvVenta);
+            ValidarBox(1, BoxCliente, tileCliente, lblCliente);
+            ValidarBox(2, BoxEmpleado, tileEmpleado, lblEmpleado);
+            DateFecha.CustomFormat = "dd/MM/yyyy";
+            ValidarDate(3, DateFecha.Value, tileFecha, lblFecha);
         }
 
         private void ValidarDgv(int c, MetroFramework.Controls.MetroGrid DgvLotes)
         {
-            if (dgvLotes.RowCount == 0)
-            {
-                EntradasVal[c] = false;
-            }
-            else
-            {
-                EntradasVal[c] = true;
-            }
+            if (dgvVenta.RowCount == 0) { EntradasVal[c] = false; }
+            else { EntradasVal[c] = true; }
             ValidarEntradas();
         }
 
         private void ActualizarTotal()
         {
             float total = 0;
-            for (int i = 0; i < dgvLotes.RowCount; i++)
+            for (int i = 0; i < dgvVenta.RowCount; i++)
             {
-                Lote l = (Lote)dgvLotes.Rows[i].DataBoundItem;
-                total += l.CostoT;
+                ProductoVendido pv = (ProductoVendido)dgvVenta.Rows[i].DataBoundItem;
+                total += pv.Precio;
             }
             TxtTotal.Text = "$ " + total.ToString();
         }
@@ -252,24 +263,26 @@ namespace Presentacion
 
         private void LimpiarEntradas()
         {
-            c = new Compra
+            v = new Venta
             {
-                LstLotes = new List<Lote>()
+                LstProductosVendidos = new List<ProductoVendido>()
             };
-            dgvLotes.DataSource = c.LstLotes;
-            dgvLotes.Update();
-            dgvLotes.Refresh();
-            BoxProveedor.SelectedIndex = -1; ;
-            DateCompra.CustomFormat = " ";
-            DateCompra.Format = DateTimePickerFormat.Custom;
-            val.CambiarColor(tileProveedor, lblProveedor, 'b');
-            val.CambiarColor(tileFechaCompra, lblFechaCompra, 'b');
+            dgvVenta.DataSource = v.LstProductosVendidos;
+            dgvVenta.Update();
+            dgvVenta.Refresh();
+            BoxCliente.SelectedIndex = -1;
+            BoxEmpleado.SelectedIndex = -1;
+            DateFecha.CustomFormat = " ";
+            DateFecha.Format = DateTimePickerFormat.Custom;
+            val.CambiarColor(tileCliente, lblCliente, 'b');
+            val.CambiarColor(tileEmpleado, lblEmpleado, 'b');
+            val.CambiarColor(tileFecha, lblFecha, 'b');
         }
 
         private void ValidarDate(int c, DateTime d, MetroFramework.Controls.MetroTile t, MetroFramework.Controls.MetroLabel l)
         {
             DateTime v = new DateTime(1900, 1, 1), a = DateTime.Today;
-            if (DateCompra.CustomFormat == " ")
+            if (DateFecha.CustomFormat == " ")
             {
                 val.CambiarColor(t, l, 'b');
             }
@@ -307,49 +320,24 @@ namespace Presentacion
 
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
-            foreach (Form item in Application.OpenForms)
-            {
-                if (item.GetType() == typeof(ModLote))
-                {
-                    item.Focus();
-                    return;
-                }
-            }
             try
             {
-                ModLote mod = new ModLote(c.IdCompra);
-                DialogResult res = mod.ShowDialog();
-                if (res == DialogResult.OK)
+                ProductoVendidoNegocio negPV = new ProductoVendidoNegocio();
+                ProductoVendido pv = new ProductoVendido
                 {
-                    c.LstLotes.Add(mod.l);
-                    BindLotes.ResetBindings();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-        }
+                    Producto = (Producto)BoxProducto.SelectedItem,
+                    Cantidad = Convert.ToInt32(TxtCantidad.Text)
+                };
+                if (negPV.DescontarStock(pv))
+                {
+                    pv.Precio = negPV.CalcularPrecio(pv);
+                    v.LstProductosVendidos.Add(pv);
+                    BindProductos.ResetBindings();
 
-        private void BtnEditar_Click(object sender, EventArgs e)
-        {
-            foreach (Form item in Application.OpenForms)
-            {
-                if (item.GetType() == typeof(ModLote))
-                {
-                    item.Focus();
-                    return;
-                }
-            }
-            try
-            {
-                Lote obj = (Lote)dgvLotes.CurrentRow.DataBoundItem;
-                ModLote mod = new ModLote(obj);
-                DialogResult res = mod.ShowDialog();
-                if (res == DialogResult.OK)
-                {
-                    obj = mod.l;
-                    BindLotes.ResetBindings();
+                    BoxProducto.SelectedIndex = -1;
+                    TxtCantidad.Text = "";
+                    ProductoVal[0] = false;
+                    ProductoVal[1] = false;
                 }
             }
             catch (Exception ex)
@@ -360,8 +348,8 @@ namespace Presentacion
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
-            LoteNegocio neg = new LoteNegocio();
-            Lote l = (Lote)dgvLotes.CurrentRow.DataBoundItem;
+            ProductoVendidoNegocio neg = new ProductoVendidoNegocio();
+            ProductoVendido l = (ProductoVendido)dgvVenta.CurrentRow.DataBoundItem;
             try
             {
                 using (var popup = new Confirmacion(@"eliminar """ + l.ToString() + @""""))
@@ -372,8 +360,8 @@ namespace Presentacion
                         bool conf = popup.R;
                         if (l != null && conf == true)
                         {
-                            neg.EliminarLogico(l.IdLote);
-                            BindLotes.Remove(l);
+                            neg.EliminarFisico(l.IdPxv);
+                            BindProductos.Remove(l);
                             LlenarTabla();
                         }
                     }
@@ -383,6 +371,27 @@ namespace Presentacion
             {
                 MessageBox.Show(ex.ToString());
             }
-        }*/
+        }
+
+        private void TxtCantidad_TextChanged(object sender, EventArgs e)
+        {
+            TxtCantidad.Text = TxtCantidad.Text.Trim();
+            if (val.EsNumeroEntero(TxtCantidad.Text)) { ProductoVal[1] = true; }
+            else { ProductoVal[1] = false; }
+            ValidarProducto();
+        }
+
+        private void ValidarProducto()
+        {
+            if (ProductoVal[0] == true && ProductoVal[1] == true) { BtnAgregarP.Enabled = true; }
+            else { BtnAgregarP.Enabled = false; }
+        }
+
+        private void BoxProducto_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if(BoxProducto.SelectedIndex != -1) { ProductoVal[0] = true; }
+            else { ProductoVal[0] = false; }
+            ValidarProducto();
+        }
     }
 }

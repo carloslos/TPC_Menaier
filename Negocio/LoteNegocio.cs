@@ -98,7 +98,7 @@ namespace Negocio
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@idproducto", l.Producto.IdProducto);
                 conexion.Comando.Parameters.AddWithValue("@unidadesp", l.UnidadesP);
-                conexion.Comando.Parameters.AddWithValue("@unideadesexistentes", l.UnidadesE);
+                conexion.Comando.Parameters.AddWithValue("@unidadese", l.UnidadesE);
                 conexion.Comando.Parameters.AddWithValue("@costopu", l.CostoPU);
                 conexion.Comando.Parameters.AddWithValue("@idlote", l.IdLote);
 

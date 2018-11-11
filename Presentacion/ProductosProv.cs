@@ -8,9 +8,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Negocio;
 using Dominio;
-/// <summary>
-/// TODO: PRODUCTOS X PROVEEDOR (GUARDAR CAMBIOS)
-/// </summary>
+
 namespace Presentacion
 {
     public partial class ProductosProv : MetroFramework.Forms.MetroForm
@@ -113,6 +111,12 @@ namespace Presentacion
 
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
+            ProductoNegocio negP = new ProductoNegocio();
+            negP.EliminarProductoDeProveedor(IdProveedor);
+            foreach (Producto p in lstProductosProv)
+            {
+                negP.AgregarProductoDeProveedor(p.IdProducto, IdProveedor);
+            }
             this.Close();
         }
     }

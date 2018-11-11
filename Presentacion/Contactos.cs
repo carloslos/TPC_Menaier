@@ -45,126 +45,116 @@ namespace Presentacion
         
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
+            foreach (Form item in Application.OpenForms)
             {
-                foreach (Form item in Application.OpenForms)
+                if (item.GetType() == typeof(ModContacto))
                 {
-                    if (item.GetType() == typeof(ModContacto))
-                    {
-                        item.Focus();
-                        return;
-                    }
+                    item.Focus();
+                    return;
                 }
-                try
-                {
-                    ModContacto mod = new ModContacto();
-                    mod.Show();
-                    LlenarTabla();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
+            }
+            try
+            {
+                ModContacto mod = new ModContacto();
+                mod.Show();
+                LlenarTabla();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
         
         private void BtnEditar_Click(object sender, EventArgs e)
         {
+            foreach (Form item in Application.OpenForms)
             {
-                foreach (Form item in Application.OpenForms)
+                if (item.GetType() == typeof(Contacto))
                 {
-                    if (item.GetType() == typeof(Contacto))
-                    {
-                        item.Focus();
-                        return;
-                    }
+                    item.Focus();
+                    return;
                 }
-                try
-                {
-                    Contacto obj = (Contacto)dgvContactos.CurrentRow.DataBoundItem;
-                    ModContacto mod = new ModContacto(obj);
-                    mod.Show();
-                    LlenarTabla();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
+            }
+            try
+            {
+                Contacto obj = (Contacto)dgvContactos.CurrentRow.DataBoundItem;
+                ModContacto mod = new ModContacto(obj);
+                mod.Show();
+                LlenarTabla();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
+            ContactoNegocio neg = new ContactoNegocio();
+            Contacto C = (Contacto)dgvContactos.CurrentRow.DataBoundItem;
+            try
             {
-                EmpleadoNegocio neg = new EmpleadoNegocio();
-                Empleado em = (Empleado)dgvContactos.CurrentRow.DataBoundItem;
-                try
+                using (var popup = new Confirmacion(@"eliminar """ + C.ToString() + @""""))
                 {
-                    using (var popup = new Confirmacion(@"eliminar """ + em.ToString() + @""""))
+                    var R = popup.ShowDialog();
+                    if (R == DialogResult.OK)
                     {
-                        var R = popup.ShowDialog();
-                        if (R == DialogResult.OK)
+                        bool conf = popup.R;
+                        if (C != null && conf == true)
                         {
-                            bool conf = popup.R;
-                            if (em != null && conf == true)
-                            {
-                                neg.EliminarLogico(em.IdEmpleado);
-                                LlenarTabla();
-                            }
+                            neg.EliminarLogico(C.IdContacto);
+                            LlenarTabla();
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
         
         private void BtnDetalles_Click(object sender, EventArgs e)
         {
+            foreach (Form item in Application.OpenForms)
             {
-                foreach (Form item in Application.OpenForms)
+                if (item.GetType() == typeof(DetallesContacto))
                 {
-                    if (item.GetType() == typeof(DetallesContacto))
-                    {
-                        item.Focus();
-                        return;
-                    }
+                    item.Focus();
+                    return;
                 }
-                try
-                {
-                    DetallesContacto detalles = new DetallesContacto((Contacto)dgvContactos.CurrentRow.DataBoundItem);
-                    detalles.Show();
-                    LlenarTabla();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
+            }
+            try
+            {
+                DetallesContacto detalles = new DetallesContacto((Contacto)dgvContactos.CurrentRow.DataBoundItem);
+                detalles.Show();
+                LlenarTabla();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
         
         private void DgvContactos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            foreach (Form item in Application.OpenForms)
             {
-                foreach (Form item in Application.OpenForms)
+                if (item.GetType() == typeof(DetallesContacto))
                 {
-                    if (item.GetType() == typeof(DetallesContacto))
-                    {
-                        item.Focus();
-                        return;
-                    }
+                    item.Focus();
+                    return;
                 }
-                try
-                {
-                    DetallesContacto detalles = new DetallesContacto((Contacto)dgvContactos.CurrentRow.DataBoundItem);
-                    detalles.Show();
-                    LlenarTabla();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
+            }
+            try
+            {
+                DetallesContacto detalles = new DetallesContacto((Contacto)dgvContactos.CurrentRow.DataBoundItem);
+                detalles.Show();
+                LlenarTabla();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
     }

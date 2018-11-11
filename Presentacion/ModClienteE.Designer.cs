@@ -124,7 +124,7 @@
             this.TxtCuit.UseSelectable = true;
             this.TxtCuit.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtCuit.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.TxtCuit.TextChanged += new System.EventHandler(this.TxtEmpresa_TextChanged);
+            this.TxtCuit.TextChanged += new System.EventHandler(this.TxtCuit_TextChanged);
             // 
             // tileCuit
             // 

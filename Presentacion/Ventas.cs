@@ -30,6 +30,7 @@ namespace Presentacion
                 dgvVentas.DataSource = neg.Listar();
                 dgvVentas.Columns["IdVenta"].HeaderText = "ID";
                 dgvVentas.Columns["FechaVenta"].HeaderText = "Fecha de Venta";
+                dgvVentas.Columns["Precio"].HeaderText = "Monto";
                 dgvVentas.Columns["FechaRegistro"].Visible = false;
                 dgvVentas.Columns["Activo"].Visible = false;
                 dgvVentas.Update();

@@ -88,7 +88,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("UPDATE EMPLEADOS SET NOMBRE = @nombre, APELLIDO = @apellido, DNI = @dni, EMAIL = @email WHERE IDCONTACTO = @idcontacto");
+                conexion.SetearConsulta("UPDATE CONTACTOS SET NOMBRE = @nombre, APELLIDO = @apellido, DNI = @dni, EMAIL = @email WHERE IDCONTACTO = @idcontacto");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@idcontacto", c.IdContacto);
                 conexion.Comando.Parameters.AddWithValue("@nombre", c.Nombre);

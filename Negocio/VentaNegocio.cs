@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dominio;
-/// <summary>
-/// TODO: VENTA NEGOCIO (GUARDAR PRODUCTOS X VENTA)
-/// </summary>
+using System.Data.SqlClient;
+using System.Data;
+
 namespace Negocio
 {
     public class VentaNegocio
@@ -19,7 +19,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("SELECT V.IDVENTA, E.NOMBRE, E.APELLIDO, V.IDEMPLEADO, C.NOMBRE, C.APELLIDO, C.EMPRESA, V.IDCLIENTE, V.FECHAVENTA, V.FECHAREGISTRO FROM VENTAS AS V " +
+                conexion.SetearConsulta("SELECT V.IDVENTA, E.NOMBRE, E.APELLIDO, V.IDEMPLEADO, C.NOMBRE, C.APELLIDO, V.IDCLIENTE, V.FECHAVENTA, V.FECHAREGISTRO FROM VENTAS AS V " +
                     "INNER JOIN EMPLEADOS AS E ON V.IDEMPLEADO = E.IDEMPLEADO " +
                     "INNER JOIN CLIENTES AS C ON C.IDCLIENTE = V.IDCLIENTE " +
                     "WHERE V.ACTIVO = 1");
@@ -33,18 +33,18 @@ namespace Negocio
                     {
                         IdVenta = (int)conexion.Lector[0],
                         Empleado = new Empleado(),
-                        FechaRegistro = (DateTime)conexion.Lector[9],
-                        FechaVenta = (DateTime)conexion.Lector[8]
+                        FechaRegistro = (DateTime)conexion.Lector[8],
+                        FechaVenta = (DateTime)conexion.Lector[7]
                     };
                     aux.Empleado.Nombre = (string)conexion.Lector[1];
                     aux.Empleado.Apellido = (string)conexion.Lector[2];
                     aux.Empleado.IdEmpleado = (int)conexion.Lector[3];
                     aux.Empleado.IdContacto = aux.Empleado.IdEmpleado;
-                    if (conexion.Lector.IsDBNull(4))
+                    if (conexion.Lector.IsDBNull(5))
                     {
                         ClienteE auxC = new ClienteE
                         {
-                            Nombre = (string)conexion.Lector[6]
+                            Nombre = (string)conexion.Lector[4]
                         };
                         aux.Cliente = auxC;
                     }
@@ -57,7 +57,7 @@ namespace Negocio
                         };
                         aux.Cliente = auxC;
                     }
-                    aux.Cliente.IdCliente = (int)conexion.Lector[7];
+                    aux.Cliente.IdCliente = (int)conexion.Lector[6];
 
                     lstVentas.Add(aux);
                 }
@@ -76,11 +76,11 @@ namespace Negocio
             }
         }
 
-        public void Agregar(Venta nuevo)
+        public string Agregar(Venta nuevo)
         {
-            AccesoDB conexion = null;
+            //AccesoDB conexion = null;
             try
-            {
+            {/*
                 conexion = new AccesoDB();
                 conexion.SetearConsulta("INSERT INTO VENTAS(IDCLIENTE,IDEMPLEADO,FECHAVENTA,FECHAREGISTRO,ACTIVO) VALUES (@idcliente,@dempleado,@fechaventa,@fecharegistro,1)");
                 conexion.Comando.Parameters.Clear();
@@ -90,18 +90,28 @@ namespace Negocio
                 conexion.Comando.Parameters.AddWithValue("@fecharegistro", nuevo.FechaRegistro);
 
                 conexion.AbrirConexion();
-                conexion.EjecutarAccion();
+                conexion.EjecutarAccion();*/
+
+                string insertedID = "";
+
+                string query = "INSERT INTO VENTAS(IDCLIENTE,IDEMPLEADO,FECHAVENTA,FECHAREGISTRO,ACTIVO) VALUES (@idcliente,@dempleado,@fechaventa,@fecharegistro,1); SELECT SCOPE_IDENTITY();";
+
+                using (var dbconn = new SqlConnection(@"data source=.\SQLEXPRESS; initial catalog= MENAIER_DB;  integrated security=sspi"))
+                using (var dbcm = new SqlCommand(query, dbconn))
+                {
+                    dbcm.Parameters.AddWithValue("@idcliente", nuevo.Cliente.IdCliente);
+                    dbcm.Parameters.AddWithValue("@idempleado", nuevo.Empleado.IdEmpleado);
+                    dbcm.Parameters.AddWithValue("@fechaventa", nuevo.FechaVenta);
+                    dbcm.Parameters.AddWithValue("@fecharegistro", nuevo.FechaRegistro);
+
+                    dbconn.Open();
+                    insertedID = dbcm.ExecuteScalar().ToString();
+                }
+                return insertedID;
             }
             catch (Exception ex)
             {
                 throw ex;
-            }
-            finally
-            {
-                if (conexion.CheckearConexion() == true)
-                {
-                    conexion.CerrarConexion();
-                }
             }
         }
 

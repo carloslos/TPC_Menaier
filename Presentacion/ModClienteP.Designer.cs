@@ -93,6 +93,7 @@
             this.TxtNombre.UseSelectable = true;
             this.TxtNombre.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtNombre.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtNombre.TextChanged += new System.EventHandler(this.TxtNombre_TextChanged);
             // 
             // TxtApellido
             // 
@@ -122,6 +123,7 @@
             this.TxtApellido.UseSelectable = true;
             this.TxtApellido.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtApellido.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtApellido.TextChanged += new System.EventHandler(this.TxtApellido_TextChanged);
             // 
             // tileEmail
             // 
@@ -165,6 +167,7 @@
             this.TxtDni.UseSelectable = true;
             this.TxtDni.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtDni.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtDni.TextChanged += new System.EventHandler(this.TxtDni_TextChanged);
             // 
             // tileDni
             // 
@@ -208,6 +211,7 @@
             this.TxtEmail.UseSelectable = true;
             this.TxtEmail.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtEmail.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtEmail.TextChanged += new System.EventHandler(this.TxtDni_TextChanged);
             // 
             // tileApellido
             // 

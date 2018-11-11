@@ -161,6 +161,58 @@ namespace Negocio
             }
         }
 
+        public void AgregarProductoDeProveedor(int IdProducto, int IdProveedor)
+        {
+            AccesoDB conexion = null;
+            try
+            {
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("INSERT INTO PRODUCTOS_X_PROVEEDOR(IDPRODUCTO, IDPROVEEDOR) VALUES (@idproducto, @idproveedor)");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@idproducto", IdProducto);
+                conexion.Comando.Parameters.AddWithValue("@idproveedor", IdProveedor);
+
+                conexion.AbrirConexion();
+                conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conexion.CheckearConexion() == true)
+                {
+                    conexion.CerrarConexion();
+                }
+            }
+        }
+
+        public void EliminarProductoDeProveedor(int id)
+        {
+            AccesoDB conexion = null;
+            try
+            {
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("DELETE FROM PRODUCTOS_X_PROVEEDOR WHERE IDPROVEEDOR = @id");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@id", id);
+                conexion.AbrirConexion();
+                conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conexion.CheckearConexion() == true)
+                {
+                    conexion.CerrarConexion();
+                }
+            }
+        }
+
         public void EliminarLogico(int id)
         {
             AccesoDB conexion = null;
