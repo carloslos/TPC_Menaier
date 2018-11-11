@@ -128,7 +128,6 @@
             // 
             // Productos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(1024, 600);
             this.Controls.Add(this.BtnEditar);
             this.Controls.Add(this.BtnEliminar);
@@ -137,6 +136,7 @@
             this.MinimumSize = new System.Drawing.Size(1024, 600);
             this.Name = "Productos";
             this.Text = "Productos";
+            this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.Productos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.ResumeLayout(false);

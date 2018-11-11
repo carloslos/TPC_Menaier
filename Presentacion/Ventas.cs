@@ -10,7 +10,7 @@ using Dominio;
 
 namespace Presentacion
 {
-    public partial class Ventas : Presentacion.Metro_Template
+    public partial class Ventas : MetroFramework.Forms.MetroForm
     {
         public Ventas()
         {
@@ -78,8 +78,8 @@ namespace Presentacion
                 ProductoVendidoNegocio negPV = new ProductoVendidoNegocio();
                 Venta v = (Venta)dgvVentas.CurrentRow.DataBoundItem;
                 v.LstProductosVendidos = negPV.Listar(v.IdVenta);
-                ModVenta detalles = new ModVenta(v);
-                detalles.Show();
+                //ModVenta detalles = new ModVenta(v, false);
+                //detalles.Show();
                 LlenarTabla();
             }
             catch (Exception ex)
@@ -100,8 +100,8 @@ namespace Presentacion
             }
             try
             {
-                ModVenta detalles = new ModVenta((Venta)dgvVentas.CurrentRow.DataBoundItem);
-                detalles.Show();
+                //ModVenta detalles = new ModVenta((Venta)dgvVentas.CurrentRow.DataBoundItem, false);
+                //detalles.Show();
                 LlenarTabla();
             }
             catch (Exception ex)

@@ -64,7 +64,7 @@ namespace Presentacion
             try
             {
                 ModEmpleado mod = new ModEmpleado();
-                mod.Show();
+                mod.ShowDialog();
                 LlenarTabla();
             }
             catch (Exception ex)
@@ -87,7 +87,7 @@ namespace Presentacion
             {
                 Empleado obj = (Empleado)dgvEmpleados.CurrentRow.DataBoundItem;
                 ModEmpleado mod = new ModEmpleado(obj);
-                mod.Show();
+                mod.ShowDialog();
                 LlenarTabla();
             }
             catch (Exception ex)

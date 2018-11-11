@@ -197,7 +197,7 @@
             this.lblTelefonos.Enabled = false;
             this.lblTelefonos.Location = new System.Drawing.Point(30, 0);
             this.lblTelefonos.Name = "lblTelefonos";
-            this.lblTelefonos.Size = new System.Drawing.Size(65, 19);
+            this.lblTelefonos.Size = new System.Drawing.Size(63, 19);
             this.lblTelefonos.TabIndex = 0;
             this.lblTelefonos.Text = "Telefonos";
             // 
@@ -275,7 +275,6 @@
             // 
             // DetallesContacto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(1024, 600);
             this.Controls.Add(this.dgvTelefonos);
             this.Controls.Add(this.BtnEditarD);
@@ -290,6 +289,7 @@
             this.MinimumSize = new System.Drawing.Size(1024, 600);
             this.Name = "DetallesContacto";
             this.Text = "Detalles de Contacto";
+            this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.DetallesContacto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefonos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDomicilios)).EndInit();

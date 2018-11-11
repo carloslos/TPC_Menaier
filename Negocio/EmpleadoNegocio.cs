@@ -19,7 +19,9 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
+
                 conexion.SetearConsulta("SELECT NOMBRE, APELLIDO, IDEMPLEADO, DNI, FECHANAC, TIPOPERFIL, EMAIL FROM EMPLEADOS WHERE ACTIVO = 1");
+
                 conexion.AbrirConexion();
                 conexion.EjecutarConsulta();
 
@@ -74,7 +76,8 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("SET DATEFORMAT dmy; INSERT INTO EMPLEADOS(NOMBRE,APELLIDO,DNI,FECHANAC,TIPOPERFIL,EMAIL,ACTIVO) VALUES (@nombre, @apellido, @dni, @fechanac, @tipoperfil, @email,1)");
+
+                conexion.SetearConsulta("INSERT INTO EMPLEADOS(NOMBRE,APELLIDO,DNI,FECHANAC,TIPOPERFIL,EMAIL,ACTIVO) VALUES (@nombre, @apellido, @dni, @fechanac, @tipoperfil, @email,1)");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@nombre", nuevo.Nombre);
                 conexion.Comando.Parameters.AddWithValue("@apellido", nuevo.Apellido);
@@ -105,12 +108,13 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("SET DATEFORMAT dmy; UPDATE EMPLEADOS SET NOMBRE = @nombre, APELLIDO = @apellido, DNI = @dni, FECHANAC = @fechanac, TIPOPERFIL = @tipoperfil, EMAIL = @email WHERE IDEMPLEADO = @idempleado");
+
+                conexion.SetearConsulta("UPDATE EMPLEADOS SET NOMBRE = @nombre, APELLIDO = @apellido, DNI = @dni, FECHANAC = @fechanac, TIPOPERFIL = @tipoperfil, EMAIL = @email WHERE IDEMPLEADO = @idempleado");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@nombre", e.Nombre);
                 conexion.Comando.Parameters.AddWithValue("@apellido", e.Apellido);
                 conexion.Comando.Parameters.AddWithValue("@dni", e.Dni);
-                conexion.Comando.Parameters.AddWithValue("@fechanac", e.FechaNac.ToShortDateString());
+                conexion.Comando.Parameters.AddWithValue("@fechanac", e.FechaNac);
                 conexion.Comando.Parameters.AddWithValue("@tipoperfil", e.TipoPerfil);
                 conexion.Comando.Parameters.AddWithValue("@email", e.Email);
                 conexion.Comando.Parameters.AddWithValue("@idempleado", e.IdEmpleado);

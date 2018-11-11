@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dominio;
-
+/// <summary>
+/// TODO: VENTA NEGOCIO (GUARDAR PRODUCTOS X VENTA)
+/// </summary>
 namespace Negocio
 {
     public class VentaNegocio
@@ -42,15 +44,17 @@ namespace Negocio
                     {
                         ClienteE auxC = new ClienteE
                         {
-                            Empresa = (string)conexion.Lector[6]
+                            Nombre = (string)conexion.Lector[6]
                         };
                         aux.Cliente = auxC;
                     }
                     else
                     {
-                        ClienteP auxC = new ClienteP();
-                        auxC.Datos.Nombre = (string)conexion.Lector[4];
-                        auxC.Datos.Apellido = (string)conexion.Lector[5];
+                        ClienteP auxC = new ClienteP
+                        {
+                            Nombre = (string)conexion.Lector[4],
+                            Apellido = (string)conexion.Lector[5]
+                        };
                         aux.Cliente = auxC;
                     }
                     aux.Cliente.IdCliente = (int)conexion.Lector[7];

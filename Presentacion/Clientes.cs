@@ -37,12 +37,11 @@ namespace Presentacion
             try
             {
                 dgvClientesP.DataSource = neg.Listar();
-                dgvClientesP.Columns["IdCliente"].DisplayIndex = 0; dgvClientesP.Columns["IdCliente"].HeaderText = "ID";
+                dgvClientesP.Columns["IdCliente"].HeaderText = "ID"; dgvClientesP.Columns["IdCliente"].DisplayIndex = 0; 
                 dgvClientesP.Columns["Nombre"].DisplayIndex = 1;
                 dgvClientesP.Columns["Apellido"].DisplayIndex = 2;
-                dgvClientesP.Columns["Dni"].DisplayIndex = 3; dgvClientesP.Columns["Dni"].HeaderText = "DNI";
+                dgvClientesP.Columns["Dni"].HeaderText = "DNI"; dgvClientesP.Columns["DNI"].DisplayIndex = 3;
                 dgvClientesP.Columns["Email"].DisplayIndex = 4;
-                dgvClientesP.Columns["IdContacto"].Visible = false;
                 dgvClientesP.Columns["Activo"].Visible = false;
                 dgvClientesP.Update();
                 dgvClientesP.Refresh();
@@ -60,7 +59,7 @@ namespace Presentacion
             {
                 dgvClientesE.DataSource = neg.Listar();
                 dgvClientesE.Columns["IdCliente"].DisplayIndex = 0; dgvClientesE.Columns["IdCliente"].HeaderText = "ID";
-                dgvClientesE.Columns["Empresa"].DisplayIndex = 1;
+                dgvClientesE.Columns["Nombre"].DisplayIndex = 1; dgvClientesE.Columns["Nombre"].HeaderText = "Empresa";
                 dgvClientesE.Columns["Cuit"].DisplayIndex = 2; dgvClientesE.Columns["Cuit"].HeaderText = "CUIT";
                 dgvClientesE.Columns["Activo"].Visible = false;
                 dgvClientesE.Update();
@@ -162,7 +161,7 @@ namespace Presentacion
             try
             {
                 ClienteP aux = (ClienteP)dgvClientesP.CurrentRow.DataBoundItem;
-                DetallesContacto detalles = new DetallesContacto(aux.Datos);
+                DetallesContacto detalles = new DetallesContacto(aux);
                 detalles.Show();
                 LlenarTablaP();
             }

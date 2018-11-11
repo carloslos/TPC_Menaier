@@ -10,7 +10,7 @@ using Dominio;
 
 namespace Presentacion
 {
-    public partial class ModProducto : Presentacion.Metro_Template
+    public partial class ModProducto : MetroFramework.Forms.MetroForm
     {
         private bool[] EntradasVal = new bool[5];
         Producto p;
@@ -34,18 +34,17 @@ namespace Presentacion
             TxtDescripcion.Text = P.Descripcion;
             TxtGanancia.Text = P.Ganancia.ToString();
             TxtStockMin.Text = P.StockMin.ToString();
-            BoxTipoProducto.SelectedValue = P.TipoProducto.IdTipoProducto;
-            BoxTipoProducto.SelectedText = P.TipoProducto.Descripcion;
-            BoxMarca.SelectedValue = P.Marca.IdMarca;
-            BoxMarca.SelectedText = P.Marca.Descripcion;
             p = P;
         }
 
         private void ModProducto_Load(object sender, EventArgs e)
         {
+            bool b;
+            if (p.IdProducto != 0) { b = true; }
+            else { b = false; }
             for (int i = 0; i < EntradasVal.Length; i++)
             {
-                EntradasVal[i] = false;
+                EntradasVal[i] = b;
             }
 
             TipoProductoNegocio negTP = new TipoProductoNegocio();
@@ -63,6 +62,7 @@ namespace Presentacion
                 if (p.TipoProducto != null)
                 {
                     BoxTipoProducto.SelectedValue = p.TipoProducto.IdTipoProducto;
+                    BoxTipoProducto.SelectedText = p.TipoProducto.Descripcion;
                 }
                 else
                 {
@@ -71,6 +71,7 @@ namespace Presentacion
                 if (p.Marca != null)
                 {
                     BoxMarca.SelectedValue = p.Marca.IdMarca;
+                    BoxMarca.SelectedText = p.Marca.Descripcion;
                     RealizarValidaciones();
                 }
                 else
@@ -109,7 +110,7 @@ namespace Presentacion
                 else
                 {
                     neg.Modificar(p);
-                    this.Dispose();
+                    this.Close();
                 }
             }
             catch (Exception ex)
@@ -227,7 +228,7 @@ namespace Presentacion
 
         private void BtnVolver_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
         }
     }
 }

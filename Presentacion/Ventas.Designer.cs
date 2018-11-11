@@ -115,7 +115,6 @@
             // 
             // Ventas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(900, 600);
             this.Controls.Add(this.dgvVentas);
             this.Controls.Add(this.BtnDetalles);
@@ -123,6 +122,7 @@
             this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "Ventas";
             this.Text = "Ventas";
+            this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.Ventas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).EndInit();
             this.ResumeLayout(false);

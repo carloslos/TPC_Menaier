@@ -10,7 +10,7 @@ using Dominio;
 
 namespace Presentacion
 {
-    public partial class ModProveedor : Presentacion.Metro_Template
+    public partial class ModProveedor : MetroFramework.Forms.MetroForm
     {
         private bool[] EntradasVal = new bool[2];
         Validaciones val = new Validaciones();
@@ -30,7 +30,7 @@ namespace Presentacion
             InitializeComponent();
             this.Text = "Editar " + this.Text;
             BtnMod.Text = "Editar";
-            BtnMod.Enabled = false;
+            BtnMod.Enabled = true;
             TxtEmpresa.Text = P.Empresa;
             TxtCuit.Text = P.Cuit.ToString();
             p = P;
@@ -38,16 +38,18 @@ namespace Presentacion
 
         private void ModProveedor_Load(object sender, EventArgs e)
         {
+            bool b;
+            if (p.IdProveedor != 0) { b = true; }
+            else { b = false; }
             for (int i = 0; i < EntradasVal.Length; i++)
             {
-                EntradasVal[i] = false;
+                EntradasVal[i] = b;
             }
-            RealizarValidaciones();
         }
     
         private void BtnVolver_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
         }
 
         private void BtnMod_Click(object sender, EventArgs e)
@@ -60,7 +62,7 @@ namespace Presentacion
                 if (p.IdProveedor != 0)
                 {
                     neg.Modificar(p);
-                    this.Dispose();
+                    this.Close();
                 }
                 else
                 {
@@ -106,14 +108,6 @@ namespace Presentacion
                 }
             }
             ValidarEntradas();
-        }
-
-        private void RealizarValidaciones()
-        {
-            TxtEmpresa.Text = TxtEmpresa.Text.TrimStart();
-            ValidarTxt(0, val.EsAlfa, TxtEmpresa, tileEmpresa, lblEmpresa);
-            TxtCuit.Text = TxtCuit.Text.TrimStart();
-            ValidarTxt(1, val.EsCuit, TxtCuit, tileCuit, lblCuit);
         }
 
         private void LimpiarEntradas()

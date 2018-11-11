@@ -124,6 +124,7 @@
             this.BtnDetalles.Text = "Detalles";
             this.BtnDetalles.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnDetalles.UseSelectable = true;
+            this.BtnDetalles.Click += new System.EventHandler(this.BtnDetalles_Click);
             // 
             // BtnAgregar
             // 
@@ -138,7 +139,6 @@
             // 
             // Contactos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(1024, 600);
             this.Controls.Add(this.BtnEditar);
             this.Controls.Add(this.BtnEliminar);
@@ -148,6 +148,7 @@
             this.MinimumSize = new System.Drawing.Size(1024, 600);
             this.Name = "Contactos";
             this.Text = "Contactos";
+            this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.Contactos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvContactos)).EndInit();
             this.ResumeLayout(false);

@@ -8,6 +8,7 @@ namespace Dominio
 {
     public class ProductoVendido
     {
+        public long Pxv { get; set; }
         public Venta Venta { get; set; }
         public Producto Producto { get; set; }
         public int Cantidad { get; set; }

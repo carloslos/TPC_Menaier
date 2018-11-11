@@ -10,7 +10,7 @@ using Negocio;
 
 namespace Presentacion
 {
-    public partial class ModTipoProducto : Presentacion.Metro_Template
+    public partial class ModTipoProducto : MetroFramework.Forms.MetroForm
     {
         private bool EntradasVal = false;
         TipoProducto tp = null;
@@ -37,7 +37,7 @@ namespace Presentacion
 
         private void BtnVolver_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
         }
 
         private void BtnMod_Click(object sender, EventArgs e)
@@ -49,7 +49,7 @@ namespace Presentacion
                 if (tp.IdTipoProducto != 0)
                 {
                     neg.Modificar(tp);
-                    this.Dispose();
+                    this.Close();
                 }
                 else
                 {

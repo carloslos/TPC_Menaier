@@ -10,9 +10,9 @@ using Negocio;
 
 namespace Presentacion
 {
-    public partial class ModDomicilio : Presentacion.Metro_Template
+    public partial class ModDomicilio : MetroFramework.Forms.MetroForm
     {
-        private bool[] EntradasVal = new bool[2];
+        private bool[] EntradasVal = new bool[7];
         Domicilio d = null;
         Validaciones val = new Validaciones();
 
@@ -28,7 +28,7 @@ namespace Presentacion
             };
         }
 
-        public ModDomicilio(int IdRelacion, Domicilio D)
+        public ModDomicilio(Domicilio D)
         {
             InitializeComponent();
             this.Text = "Editar " + this.Text;
@@ -36,21 +36,30 @@ namespace Presentacion
             BtnMod.Enabled = false;
             TxtCalle.Text = D.Calle;
             TxtAltura.Text = D.Altura.ToString();
+            TxtDepartamento.Text = D.Departamento;
+            TxtBarrio.Text = D.Barrio;
+            TxtCiudad.Text = D.Ciudad;
+            TxtPais.Text = D.Pais;
+            TxtCP.Text = D.Cp.ToString();
             d = D;
-            d.IdRelacion = IdRelacion;
         }
 
         private void ModDomicilio_Load(object sender, EventArgs e)
         {
+            bool b;
+            if (d.IdDomicilio != 0) { b = true; }
+            else { b = false; }
             for (int i = 0; i < EntradasVal.Length; i++)
             {
-                EntradasVal[i] = false;
+                EntradasVal[i] = b;
             }
+            EntradasVal[2] = true;
+            ValidarEntradas();
         }
 
         private void BtnVolver_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
         }
 
         private void BtnMod_Click(object sender, EventArgs e)
@@ -60,16 +69,20 @@ namespace Presentacion
             {
                 d.Calle = TxtCalle.Text.Trim();
                 d.Altura = Convert.ToInt32(TxtAltura.Text.Trim());
+                d.Departamento = TxtDepartamento.Text.Trim();
+                d.Barrio = TxtBarrio.Text.Trim();
+                d.Ciudad = TxtCiudad.Text.Trim();
+                d.Pais = TxtPais.Text.Trim();
+                d.Cp = Convert.ToInt32(TxtCP.Text.Trim());
                 if (d.IdDomicilio != 0)
                 {
                     neg.Modificar(d);
-                    this.Dispose();
                 }
                 else
                 {
                     neg.Agregar(d);
-                    LimpiarEntradas();
                 }
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -87,6 +100,45 @@ namespace Presentacion
         {
             TxtAltura.Text = TxtAltura.Text.TrimStart();
             ValidarTxt(1, val.EsNumeroEntero, TxtAltura, tileAltura, lblAltura);
+        }
+
+        private void TxtDepartamento_TextChanged(object sender, EventArgs e)
+        {
+            TxtDepartamento.Text = TxtDepartamento.Text.TrimStart();
+            if(TxtDepartamento.Text == "")
+            {
+                EntradasVal[2] = true;
+                val.CambiarColor(tileDepartamento, lblDepartamento, 'g');
+                ValidarEntradas();
+            }
+            else
+            {
+                ValidarTxt(2, val.EsAlfanum, TxtDepartamento, tileDepartamento, lblDepartamento);
+            }
+        }
+
+        private void TxtBarrio_TextChanged(object sender, EventArgs e)
+        {
+            TxtBarrio.Text = TxtBarrio.Text.TrimStart();
+            ValidarTxt(3, val.EsAlfa, TxtBarrio, tileBarrio, lblBarrio);
+        }
+
+        private void TxtCiudad_TextChanged(object sender, EventArgs e)
+        {
+            TxtCiudad.Text = TxtCiudad.Text.TrimStart();
+            ValidarTxt(4, val.EsAlfa, TxtCiudad, tileCiudad, lblCiudad);
+        }
+
+        private void TxtPais_TextChanged(object sender, EventArgs e)
+        {
+            TxtPais.Text = TxtPais.Text.TrimStart();
+            ValidarTxt(5, val.EsAlfa, TxtPais, tilePais, lblPais);
+        }
+
+        private void TxtCP_TextChanged(object sender, EventArgs e)
+        {
+            TxtCP.Text = TxtCP.Text.TrimStart();
+            ValidarTxt(6, val.EsNumeroEntero, TxtCP, tileCP, lblCP);
         }
 
         private void ValidarTxt(int p, Func<string, bool> metodo, MetroFramework.Controls.MetroTextBox txt, MetroFramework.Controls.MetroTile t, MetroFramework.Controls.MetroLabel l)

@@ -70,13 +70,12 @@
             // 
             // Confirmacion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(380, 260);
             this.Controls.Add(this.tileTxt);
             this.Controls.Add(this.BtnSi);
             this.Controls.Add(this.BtnNo);
             this.Name = "Confirmacion";
-            this.Text = "";
+            this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.ResumeLayout(false);
 
         }

@@ -197,12 +197,6 @@
     <Compile Include="Marcas.Designer.cs">
       <DependentUpon>Marcas.cs</DependentUpon>
     </Compile>
-    <Compile Include="MetroTemplate.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MetroTemplate.Designer.cs">
-      <DependentUpon>MetroTemplate.cs</DependentUpon>
-    </Compile>
     <Compile Include="ModVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,6 +250,9 @@
     <EmbeddedResource Include="ModClienteE.resx">
       <DependentUpon>ModClienteE.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModClienteP.aa-DJ.resx">
+      <DependentUpon>ModClienteP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModClienteP.resx">
       <DependentUpon>ModClienteP.cs</DependentUpon>
     </EmbeddedResource>
@@ -307,9 +304,6 @@
     <EmbeddedResource Include="Marcas.resx">
       <DependentUpon>Marcas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MetroTemplate.resx">
-      <DependentUpon>MetroTemplate.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ModVenta.resx">
       <DependentUpon>ModVenta.cs</DependentUpon>
     </EmbeddedResource>
@@ -341,6 +335,7 @@
     <EmbeddedResource Include="Ventas.resx">
       <DependentUpon>Ventas.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

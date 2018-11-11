@@ -10,7 +10,7 @@ using Negocio;
 
 namespace Presentacion
 {
-    public partial class Compras : Presentacion.Metro_Template
+    public partial class Compras : MetroFramework.Forms.MetroForm
     {
         public Compras()
         {
@@ -54,7 +54,7 @@ namespace Presentacion
             try
             {
                 ModCompra mod = new ModCompra();
-                mod.Show();
+                mod.ShowDialog();
                 LlenarTabla();
             }
             catch (Exception ex)
@@ -78,7 +78,7 @@ namespace Presentacion
                 LoteNegocio negL = new LoteNegocio();
                 Compra c = (Compra)dgvCompras.CurrentRow.DataBoundItem;
                 c.LstLotes = negL.Listar(c.IdCompra);
-                ModCompra detalles = new ModCompra(c);
+                ModCompra detalles = new ModCompra(c, false);
                 detalles.Show();
                 LlenarTabla();
             }
@@ -100,9 +100,62 @@ namespace Presentacion
             }
             try
             {
-                ModCompra detalles = new ModCompra((Compra)dgvCompras.CurrentRow.DataBoundItem);
+                ModCompra detalles = new ModCompra((Compra)dgvCompras.CurrentRow.DataBoundItem, false);
                 detalles.Show();
                 LlenarTabla();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void BtnEditar_Click(object sender, EventArgs e)
+        {
+            foreach (Form item in Application.OpenForms)
+            {
+                if (item.GetType() == typeof(ModCompra))
+                {
+                    item.Focus();
+                    return;
+                }
+            }
+            try
+            {
+                LoteNegocio negL = new LoteNegocio();
+                Compra c = (Compra)dgvCompras.CurrentRow.DataBoundItem;
+                c.LstLotes = negL.Listar(c.IdCompra);
+                ModCompra detalles = new ModCompra(c, true);
+                detalles.ShowDialog();
+                LlenarTabla();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            CompraNegocio negC = new CompraNegocio();
+            LoteNegocio negL = new LoteNegocio();
+            Compra c = (Compra)dgvCompras.CurrentRow.DataBoundItem;
+            try
+            {
+                using (var popup = new Confirmacion(@"eliminar """ + c.ToString() + @""""))
+                {
+                    var R = popup.ShowDialog();
+                    if (R == DialogResult.OK)
+                    {
+                        bool conf = popup.R;
+                        if (c != null && conf == true)
+                        {
+                            negL.EliminarLotesDeCompra(c.IdCompra);
+                            negC.EliminarLogico(c.IdCompra);
+                            LlenarTabla();
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {

@@ -144,16 +144,21 @@ namespace Negocio
                     t.Style = MetroFramework.MetroColorStyle.Green;
                     l.Style = MetroFramework.MetroColorStyle.Green;
                     break;
-                case 'r':
+                case 'r': 
                 case 'R':
                     t.Style = MetroFramework.MetroColorStyle.Red;
                     l.Style = MetroFramework.MetroColorStyle.Red;
                     break;
                 case 'b':
                 case 'B':
-                default:
                     t.Style = MetroFramework.MetroColorStyle.Blue;
                     l.Style = MetroFramework.MetroColorStyle.Blue;
+                    break;
+                case 's':
+                case 'S':
+                default:
+                    t.Style = MetroFramework.MetroColorStyle.Silver;
+                    l.Style = MetroFramework.MetroColorStyle.Silver;
                     break;
             }
             t.Refresh();

@@ -61,7 +61,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("INSERT INTO DOMICILIOS([IDRELACION],[CALLE],[ALTURA],[DEPARTAMENTO],[BARRIO],[CIUDAD],[PAIS],[CP],[ACTIVO]) VALUES (@idrelacion,@calle,@altura,@departamento,@barrio,@ciudad,@pais,@cp,1)");
+                conexion.SetearConsulta("INSERT INTO DOMICILIOS(IDRELACION,CALLE,ALTURA,DEPARTAMENTO,BARRIO,CIUDAD,PAIS,CP,ACTIVO) VALUES (@idrelacion,@calle,@altura,@departamento,@barrio,@ciudad,@pais,@cp,1)");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@idrelacion", nuevo.IdRelacion);
                 conexion.Comando.Parameters.AddWithValue("@calle", nuevo.Calle);
@@ -94,7 +94,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("UPDATE DOMICILIOS SET CALLE = @calle, ALTURA = @altura, DEPARTAMENTO = @departamento, BARRIO = @barrio, CIUDAD = @ciudad, PAIS = @pais, CP = @cp WHERE IDPRODUCTO = @iddomicilio");
+                conexion.SetearConsulta("UPDATE DOMICILIOS SET CALLE = @calle, ALTURA = @altura, DEPARTAMENTO = @departamento, BARRIO = @barrio, CIUDAD = @ciudad, PAIS = @pais, CP = @cp WHERE IDDOMICILIO = @iddomicilio");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@iddomicilio", d.IdDomicilio);
                 conexion.Comando.Parameters.AddWithValue("@calle", d.Calle);

@@ -8,11 +8,15 @@ namespace Dominio
 {
     public class ClienteP : Cliente
     {
-        public Contacto Datos { get; set; }
+        public string Apellido { get; set; }
+        public int Dni { get; set; }
+        public string Email { get; set; }
+        public List<Telefono> LstTelefonos { get; set; }
+        public List<Domicilio> LstDomicilios { get; set; }
 
         public override string ToString()
         {
-            return Datos.Nombre + " " + Datos.Apellido;
+            return Nombre + " " + Apellido;
         }
     }
 }

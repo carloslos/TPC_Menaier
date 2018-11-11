@@ -19,7 +19,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("SELECT EMPRESA, IDCLIENTE, DNICUIT FROM CLIENTES " +
+                conexion.SetearConsulta("SELECT NOMBRE, IDCLIENTE, DNICUIT FROM CLIENTES " +
                     "WHERE ACTIVO = 1 AND TIPOCLIENTE = 'E'");
 
                 conexion.AbrirConexion();
@@ -29,7 +29,8 @@ namespace Negocio
                 {
                     aux = new ClienteE
                     {
-                        Empresa = (string)conexion.Lector["EMPRESA"],
+                        LstContactos = new List<Contacto>(),
+                        Nombre = (string)conexion.Lector["NOMBRE"],
                         IdCliente = (int)conexion.Lector["IDCLIENTE"],
                         Cuit = (long)conexion.Lector["DNICUIT"],
                     };
@@ -57,9 +58,9 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("INSERT INTO CLIENTES(EMPRESA,DNICUIT,TIPOCLIENTE,ACTIVO) VALUES (@empresa, @cuit, 'E', 1)");
+                conexion.SetearConsulta("INSERT INTO CLIENTES(NOMBRE,DNICUIT,TIPOCLIENTE,ACTIVO) VALUES (@nombre, @cuit, 'E', 1)");
                 conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@empresa", nuevo.Empresa);
+                conexion.Comando.Parameters.AddWithValue("@nombre", nuevo.Nombre);
                 conexion.Comando.Parameters.AddWithValue("@cuit", nuevo.Cuit);
 
                 conexion.AbrirConexion();
@@ -86,7 +87,7 @@ namespace Negocio
                 conexion = new AccesoDB();
                 conexion.SetearConsulta("UPDATE CLIENTES SET EMPRESA = @empresa, DNICUIT = @cuit WHERE IDCLIENTE = @idcliente");
                 conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@empresa", c.Empresa);
+                conexion.Comando.Parameters.AddWithValue("@empresa", c.Nombre);
                 conexion.Comando.Parameters.AddWithValue("@cuit", c.Cuit);
                 conexion.Comando.Parameters.AddWithValue("@idcliente", c.IdCliente);
 

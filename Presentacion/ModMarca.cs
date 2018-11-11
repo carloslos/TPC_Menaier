@@ -10,7 +10,7 @@ using Negocio;
 
 namespace Presentacion
 {
-    public partial class ModMarca : Presentacion.Metro_Template
+    public partial class ModMarca : MetroFramework.Forms.MetroForm
     {
         private bool EntradasVal = false;
         Validaciones val = new Validaciones();
@@ -30,14 +30,14 @@ namespace Presentacion
             InitializeComponent();
             this.Text = "Editar " + this.Text;
             BtnMod.Text = "Editar";
-            BtnMod.Enabled = false;
+            BtnMod.Enabled = true;
             TxtDescripcion.Text = M.Descripcion;
             m = M;
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
         }
 
         private void BtnAgregar_Click(object sender, EventArgs e)
@@ -49,13 +49,12 @@ namespace Presentacion
                 if(m.IdMarca == 0)
                 {
                     neg.Agregar(m);
-                    LimpiarEntradas();
                 }
                 else
                 {
                     neg.Modificar(m);
-                    this.Dispose();
                 }
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -95,12 +94,6 @@ namespace Presentacion
         {
             if (EntradasVal == true) { BtnMod.Enabled = true; }
             else { BtnMod.Enabled = false; }
-        }
-
-        private void LimpiarEntradas()
-        {
-            TxtDescripcion.Text = "";
-            val.CambiarColor(tileDescripcion, lblDescripcion, 'b');
         }
     }
 }

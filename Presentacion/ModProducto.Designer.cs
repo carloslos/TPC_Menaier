@@ -28,29 +28,128 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.BoxMarca = new MetroFramework.Controls.MetroComboBox();
+            this.BoxTipoProducto = new MetroFramework.Controls.MetroComboBox();
+            this.TxtStockMin = new MetroFramework.Controls.MetroTextBox();
+            this.tileMarca = new MetroFramework.Controls.MetroTile();
+            this.lblMarca = new MetroFramework.Controls.MetroLabel();
+            this.BtnVolver = new MetroFramework.Controls.MetroButton();
+            this.BtnMod = new MetroFramework.Controls.MetroButton();
             this.tileTipoProducto = new MetroFramework.Controls.MetroTile();
             this.lblTipoProducto = new MetroFramework.Controls.MetroLabel();
-            this.BoxTipoProducto = new MetroFramework.Controls.MetroComboBox();
             this.TxtDescripcion = new MetroFramework.Controls.MetroTextBox();
             this.tileStockMin = new MetroFramework.Controls.MetroTile();
             this.lblStockMin = new MetroFramework.Controls.MetroLabel();
             this.TxtGanancia = new MetroFramework.Controls.MetroTextBox();
             this.tileGanancia = new MetroFramework.Controls.MetroTile();
             this.lblGanancia = new MetroFramework.Controls.MetroLabel();
-            this.TxtStockMin = new MetroFramework.Controls.MetroTextBox();
             this.tileDescripcion = new MetroFramework.Controls.MetroTile();
             this.lblDescripcion = new MetroFramework.Controls.MetroLabel();
-            this.BtnVolver = new MetroFramework.Controls.MetroButton();
-            this.BtnMod = new MetroFramework.Controls.MetroButton();
-            this.tileMarca = new MetroFramework.Controls.MetroTile();
-            this.lblMarca = new MetroFramework.Controls.MetroLabel();
-            this.BoxMarca = new MetroFramework.Controls.MetroComboBox();
+            this.tileMarca.SuspendLayout();
             this.tileTipoProducto.SuspendLayout();
             this.tileStockMin.SuspendLayout();
             this.tileGanancia.SuspendLayout();
             this.tileDescripcion.SuspendLayout();
-            this.tileMarca.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // BoxMarca
+            // 
+            this.BoxMarca.FormattingEnabled = true;
+            this.BoxMarca.ItemHeight = 23;
+            this.BoxMarca.Location = new System.Drawing.Point(193, 388);
+            this.BoxMarca.Name = "BoxMarca";
+            this.BoxMarca.Size = new System.Drawing.Size(177, 29);
+            this.BoxMarca.TabIndex = 57;
+            this.BoxMarca.UseSelectable = true;
+            this.BoxMarca.SelectedValueChanged += new System.EventHandler(this.BoxMarca_SelectedValueChanged);
+            // 
+            // BoxTipoProducto
+            // 
+            this.BoxTipoProducto.FormattingEnabled = true;
+            this.BoxTipoProducto.ItemHeight = 23;
+            this.BoxTipoProducto.Location = new System.Drawing.Point(193, 318);
+            this.BoxTipoProducto.Name = "BoxTipoProducto";
+            this.BoxTipoProducto.Size = new System.Drawing.Size(177, 29);
+            this.BoxTipoProducto.TabIndex = 49;
+            this.BoxTipoProducto.UseSelectable = true;
+            this.BoxTipoProducto.SelectedValueChanged += new System.EventHandler(this.BoxTipoProducto_SelectedValueChanged);
+            // 
+            // TxtStockMin
+            // 
+            // 
+            // 
+            // 
+            this.TxtStockMin.CustomButton.Image = null;
+            this.TxtStockMin.CustomButton.Location = new System.Drawing.Point(159, 2);
+            this.TxtStockMin.CustomButton.Name = "";
+            this.TxtStockMin.CustomButton.Size = new System.Drawing.Size(15, 15);
+            this.TxtStockMin.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.TxtStockMin.CustomButton.TabIndex = 1;
+            this.TxtStockMin.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.TxtStockMin.CustomButton.UseSelectable = true;
+            this.TxtStockMin.CustomButton.Visible = false;
+            this.TxtStockMin.Lines = new string[0];
+            this.TxtStockMin.Location = new System.Drawing.Point(193, 254);
+            this.TxtStockMin.MaxLength = 9;
+            this.TxtStockMin.Name = "TxtStockMin";
+            this.TxtStockMin.PasswordChar = '\0';
+            this.TxtStockMin.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.TxtStockMin.SelectedText = "";
+            this.TxtStockMin.SelectionLength = 0;
+            this.TxtStockMin.SelectionStart = 0;
+            this.TxtStockMin.ShortcutsEnabled = true;
+            this.TxtStockMin.Size = new System.Drawing.Size(177, 20);
+            this.TxtStockMin.TabIndex = 48;
+            this.TxtStockMin.UseSelectable = true;
+            this.TxtStockMin.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.TxtStockMin.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtStockMin.TextChanged += new System.EventHandler(this.TxtStockMin_TextChanged);
+            // 
+            // tileMarca
+            // 
+            this.tileMarca.ActiveControl = null;
+            this.tileMarca.Controls.Add(this.lblMarca);
+            this.tileMarca.Enabled = false;
+            this.tileMarca.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tileMarca.Location = new System.Drawing.Point(81, 388);
+            this.tileMarca.Name = "tileMarca";
+            this.tileMarca.Size = new System.Drawing.Size(116, 29);
+            this.tileMarca.TabIndex = 58;
+            this.tileMarca.UseSelectable = true;
+            // 
+            // lblMarca
+            // 
+            this.lblMarca.AutoSize = true;
+            this.lblMarca.Enabled = false;
+            this.lblMarca.Location = new System.Drawing.Point(64, 6);
+            this.lblMarca.Name = "lblMarca";
+            this.lblMarca.Size = new System.Drawing.Size(46, 19);
+            this.lblMarca.TabIndex = 5;
+            this.lblMarca.Text = "Marca";
+            // 
+            // BtnVolver
+            // 
+            this.BtnVolver.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnVolver.Location = new System.Drawing.Point(240, 529);
+            this.BtnVolver.Name = "BtnVolver";
+            this.BtnVolver.Size = new System.Drawing.Size(99, 23);
+            this.BtnVolver.TabIndex = 56;
+            this.BtnVolver.Text = "Volver";
+            this.BtnVolver.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BtnVolver.UseSelectable = true;
+            this.BtnVolver.Click += new System.EventHandler(this.BtnVolver_Click);
+            // 
+            // BtnMod
+            // 
+            this.BtnMod.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnMod.Location = new System.Drawing.Point(112, 529);
+            this.BtnMod.Name = "BtnMod";
+            this.BtnMod.Size = new System.Drawing.Size(100, 23);
+            this.BtnMod.TabIndex = 55;
+            this.BtnMod.Text = "Mod";
+            this.BtnMod.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BtnMod.UseSelectable = true;
+            this.BtnMod.Click += new System.EventHandler(this.BtnMod_Click);
             // 
             // tileTipoProducto
             // 
@@ -73,17 +172,6 @@
             this.lblTipoProducto.Size = new System.Drawing.Size(112, 19);
             this.lblTipoProducto.TabIndex = 5;
             this.lblTipoProducto.Text = "Tipo de Producto";
-            // 
-            // BoxTipoProducto
-            // 
-            this.BoxTipoProducto.FormattingEnabled = true;
-            this.BoxTipoProducto.ItemHeight = 23;
-            this.BoxTipoProducto.Location = new System.Drawing.Point(193, 318);
-            this.BoxTipoProducto.Name = "BoxTipoProducto";
-            this.BoxTipoProducto.Size = new System.Drawing.Size(177, 29);
-            this.BoxTipoProducto.TabIndex = 49;
-            this.BoxTipoProducto.UseSelectable = true;
-            this.BoxTipoProducto.SelectedValueChanged += new System.EventHandler(this.BoxTipoProducto_SelectedValueChanged);
             // 
             // TxtDescripcion
             // 
@@ -191,37 +279,6 @@
             this.lblGanancia.TabIndex = 5;
             this.lblGanancia.Text = "Ganancia";
             // 
-            // TxtStockMin
-            // 
-            // 
-            // 
-            // 
-            this.TxtStockMin.CustomButton.Image = null;
-            this.TxtStockMin.CustomButton.Location = new System.Drawing.Point(159, 2);
-            this.TxtStockMin.CustomButton.Name = "";
-            this.TxtStockMin.CustomButton.Size = new System.Drawing.Size(15, 15);
-            this.TxtStockMin.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.TxtStockMin.CustomButton.TabIndex = 1;
-            this.TxtStockMin.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.TxtStockMin.CustomButton.UseSelectable = true;
-            this.TxtStockMin.CustomButton.Visible = false;
-            this.TxtStockMin.Lines = new string[0];
-            this.TxtStockMin.Location = new System.Drawing.Point(193, 254);
-            this.TxtStockMin.MaxLength = 9;
-            this.TxtStockMin.Name = "TxtStockMin";
-            this.TxtStockMin.PasswordChar = '\0';
-            this.TxtStockMin.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.TxtStockMin.SelectedText = "";
-            this.TxtStockMin.SelectionLength = 0;
-            this.TxtStockMin.SelectionStart = 0;
-            this.TxtStockMin.ShortcutsEnabled = true;
-            this.TxtStockMin.Size = new System.Drawing.Size(177, 20);
-            this.TxtStockMin.TabIndex = 48;
-            this.TxtStockMin.UseSelectable = true;
-            this.TxtStockMin.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.TxtStockMin.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.TxtStockMin.TextChanged += new System.EventHandler(this.TxtStockMin_TextChanged);
-            // 
             // tileDescripcion
             // 
             this.tileDescripcion.ActiveControl = null;
@@ -244,66 +301,8 @@
             this.lblDescripcion.TabIndex = 0;
             this.lblDescripcion.Text = "Descripcion";
             // 
-            // BtnVolver
-            // 
-            this.BtnVolver.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnVolver.Location = new System.Drawing.Point(240, 529);
-            this.BtnVolver.Name = "BtnVolver";
-            this.BtnVolver.Size = new System.Drawing.Size(99, 23);
-            this.BtnVolver.TabIndex = 56;
-            this.BtnVolver.Text = "Volver";
-            this.BtnVolver.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.BtnVolver.UseSelectable = true;
-            this.BtnVolver.Click += new System.EventHandler(this.BtnVolver_Click);
-            // 
-            // BtnMod
-            // 
-            this.BtnMod.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnMod.Location = new System.Drawing.Point(112, 529);
-            this.BtnMod.Name = "BtnMod";
-            this.BtnMod.Size = new System.Drawing.Size(100, 23);
-            this.BtnMod.TabIndex = 55;
-            this.BtnMod.Text = "Mod";
-            this.BtnMod.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.BtnMod.UseSelectable = true;
-            this.BtnMod.Click += new System.EventHandler(this.BtnMod_Click);
-            // 
-            // tileMarca
-            // 
-            this.tileMarca.ActiveControl = null;
-            this.tileMarca.Controls.Add(this.lblMarca);
-            this.tileMarca.Enabled = false;
-            this.tileMarca.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tileMarca.Location = new System.Drawing.Point(81, 388);
-            this.tileMarca.Name = "tileMarca";
-            this.tileMarca.Size = new System.Drawing.Size(116, 29);
-            this.tileMarca.TabIndex = 58;
-            this.tileMarca.UseSelectable = true;
-            // 
-            // lblMarca
-            // 
-            this.lblMarca.AutoSize = true;
-            this.lblMarca.Enabled = false;
-            this.lblMarca.Location = new System.Drawing.Point(64, 6);
-            this.lblMarca.Name = "lblMarca";
-            this.lblMarca.Size = new System.Drawing.Size(46, 19);
-            this.lblMarca.TabIndex = 5;
-            this.lblMarca.Text = "Marca";
-            // 
-            // BoxMarca
-            // 
-            this.BoxMarca.FormattingEnabled = true;
-            this.BoxMarca.ItemHeight = 23;
-            this.BoxMarca.Location = new System.Drawing.Point(193, 388);
-            this.BoxMarca.Name = "BoxMarca";
-            this.BoxMarca.Size = new System.Drawing.Size(177, 29);
-            this.BoxMarca.TabIndex = 57;
-            this.BoxMarca.UseSelectable = true;
-            this.BoxMarca.SelectedValueChanged += new System.EventHandler(this.BoxMarca_SelectedValueChanged);
-            // 
             // ModProducto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(450, 600);
             this.Controls.Add(this.BoxMarca);
             this.Controls.Add(this.BoxTipoProducto);
@@ -320,7 +319,10 @@
             this.MinimumSize = new System.Drawing.Size(450, 600);
             this.Name = "ModProducto";
             this.Text = "Producto";
+            this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.ModProducto_Load);
+            this.tileMarca.ResumeLayout(false);
+            this.tileMarca.PerformLayout();
             this.tileTipoProducto.ResumeLayout(false);
             this.tileTipoProducto.PerformLayout();
             this.tileStockMin.ResumeLayout(false);
@@ -329,8 +331,6 @@
             this.tileGanancia.PerformLayout();
             this.tileDescripcion.ResumeLayout(false);
             this.tileDescripcion.PerformLayout();
-            this.tileMarca.ResumeLayout(false);
-            this.tileMarca.PerformLayout();
             this.ResumeLayout(false);
 
         }

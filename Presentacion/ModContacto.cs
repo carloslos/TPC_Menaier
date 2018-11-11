@@ -10,7 +10,7 @@ using Negocio;
 
 namespace Presentacion
 {
-    public partial class ModContacto : Presentacion.Metro_Template
+    public partial class ModContacto : MetroFramework.Forms.MetroForm
     {
         private bool[] EntradasVal = new bool[4];
         Validaciones val = new Validaciones();
@@ -40,10 +40,14 @@ namespace Presentacion
 
         private void ModContacto_Load(object sender, EventArgs e)
         {
+            bool b;
+            if (c.IdContacto != 0) { b = true; }
+            else { b = false; }
             for (int i = 0; i < EntradasVal.Length; i++)
             {
-                EntradasVal[i] = false;
+                EntradasVal[i] = b;
             }
+            ValidarEntradas();
         }
 
         private void TxtNombre_TextChanged(object sender, EventArgs e)
@@ -72,7 +76,7 @@ namespace Presentacion
 
         private void BtnVolver_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
         }
 
         private void BtnMod_Click(object sender, EventArgs e)
@@ -87,7 +91,7 @@ namespace Presentacion
                 if (c.IdContacto != 0)
                 {
                     neg.Modificar(c);
-                    this.Dispose();
+                    this.Close();
                 }
                 else
                 {

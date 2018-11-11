@@ -58,7 +58,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("INSERT INTO TELEFONOS([IDRELACION],[DESCRIPCION],[NUMERO],[ACTIVO]) VALUES (@idrelacion,@descripcion,@numero,1)");
+                conexion.SetearConsulta("INSERT INTO TELEFONOS(IDRELACION,DESCRIPCION,NUMERO,ACTIVO) VALUES (@idrelacion,@descripcion,@numero,1)");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@idrelacion", nuevo.IdRelacion);
                 conexion.Comando.Parameters.AddWithValue("@descripcion", nuevo.Descripcion);
@@ -85,6 +85,7 @@ namespace Negocio
             AccesoDB conexion = null;
             try
             {
+                conexion = new AccesoDB();
                 conexion.SetearConsulta("UPDATE TELEFONOS SET DESCRIPCION = @descripcion, NUMERO = @numero WHERE IDTELEFONO = @idtelefono");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@descripcion", t.Descripcion);

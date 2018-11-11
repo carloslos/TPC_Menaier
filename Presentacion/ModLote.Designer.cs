@@ -28,73 +28,125 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.TxtUnidadesE = new MetroFramework.Controls.MetroTextBox();
+            this.tileUnidadesE = new MetroFramework.Controls.MetroTile();
+            this.lblUnidadesE = new MetroFramework.Controls.MetroLabel();
             this.BoxProducto = new MetroFramework.Controls.MetroComboBox();
-            this.TxtUnidades = new MetroFramework.Controls.MetroTextBox();
+            this.TxtUnidadesP = new MetroFramework.Controls.MetroTextBox();
             this.tileProducto = new MetroFramework.Controls.MetroTile();
             this.lblProducto = new MetroFramework.Controls.MetroLabel();
             this.TxtCostoUnitario = new MetroFramework.Controls.MetroTextBox();
-            this.tileUnidades = new MetroFramework.Controls.MetroTile();
-            this.lblUnidades = new MetroFramework.Controls.MetroLabel();
-            this.TxtTotal = new MetroFramework.Controls.MetroTextBox();
-            this.tileTotal = new MetroFramework.Controls.MetroTile();
-            this.lblTotal = new MetroFramework.Controls.MetroLabel();
+            this.tileUnidadesP = new MetroFramework.Controls.MetroTile();
+            this.lblUnidadesP = new MetroFramework.Controls.MetroLabel();
+            this.TxtCostoTotal = new MetroFramework.Controls.MetroTextBox();
+            this.tileCostoTotal = new MetroFramework.Controls.MetroTile();
+            this.lblCostoTotal = new MetroFramework.Controls.MetroLabel();
             this.tileCostoUnitario = new MetroFramework.Controls.MetroTile();
             this.lblCostoUnitario = new MetroFramework.Controls.MetroLabel();
             this.BtnVolver = new MetroFramework.Controls.MetroButton();
             this.BtnMod = new MetroFramework.Controls.MetroButton();
-            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
-            this.metroTile1 = new MetroFramework.Controls.MetroTile();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.tileUnidadesE.SuspendLayout();
             this.tileProducto.SuspendLayout();
-            this.tileUnidades.SuspendLayout();
-            this.tileTotal.SuspendLayout();
+            this.tileUnidadesP.SuspendLayout();
+            this.tileCostoTotal.SuspendLayout();
             this.tileCostoUnitario.SuspendLayout();
-            this.metroTile1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // TxtUnidadesE
+            // 
+            // 
+            // 
+            // 
+            this.TxtUnidadesE.CustomButton.Image = null;
+            this.TxtUnidadesE.CustomButton.Location = new System.Drawing.Point(159, 2);
+            this.TxtUnidadesE.CustomButton.Name = "";
+            this.TxtUnidadesE.CustomButton.Size = new System.Drawing.Size(15, 15);
+            this.TxtUnidadesE.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.TxtUnidadesE.CustomButton.TabIndex = 1;
+            this.TxtUnidadesE.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.TxtUnidadesE.CustomButton.UseSelectable = true;
+            this.TxtUnidadesE.CustomButton.Visible = false;
+            this.TxtUnidadesE.Lines = new string[0];
+            this.TxtUnidadesE.Location = new System.Drawing.Point(207, 264);
+            this.TxtUnidadesE.MaxLength = 60;
+            this.TxtUnidadesE.Name = "TxtUnidadesE";
+            this.TxtUnidadesE.PasswordChar = '\0';
+            this.TxtUnidadesE.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.TxtUnidadesE.SelectedText = "";
+            this.TxtUnidadesE.SelectionLength = 0;
+            this.TxtUnidadesE.SelectionStart = 0;
+            this.TxtUnidadesE.ShortcutsEnabled = true;
+            this.TxtUnidadesE.Size = new System.Drawing.Size(177, 20);
+            this.TxtUnidadesE.TabIndex = 59;
+            this.TxtUnidadesE.UseSelectable = true;
+            this.TxtUnidadesE.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.TxtUnidadesE.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtUnidadesE.TextChanged += new System.EventHandler(this.TxtUnidadesE_TextChanged);
+            // 
+            // tileUnidadesE
+            // 
+            this.tileUnidadesE.ActiveControl = null;
+            this.tileUnidadesE.Controls.Add(this.lblUnidadesE);
+            this.tileUnidadesE.Enabled = false;
+            this.tileUnidadesE.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tileUnidadesE.Location = new System.Drawing.Point(67, 264);
+            this.tileUnidadesE.Name = "tileUnidadesE";
+            this.tileUnidadesE.Size = new System.Drawing.Size(144, 20);
+            this.tileUnidadesE.TabIndex = 60;
+            this.tileUnidadesE.UseSelectable = true;
+            // 
+            // lblUnidadesE
+            // 
+            this.lblUnidadesE.AutoSize = true;
+            this.lblUnidadesE.Enabled = false;
+            this.lblUnidadesE.Location = new System.Drawing.Point(8, 1);
+            this.lblUnidadesE.Name = "lblUnidadesE";
+            this.lblUnidadesE.Size = new System.Drawing.Size(122, 19);
+            this.lblUnidadesE.TabIndex = 5;
+            this.lblUnidadesE.Text = "Unidades Existentes";
             // 
             // BoxProducto
             // 
             this.BoxProducto.FormattingEnabled = true;
             this.BoxProducto.ItemHeight = 23;
-            this.BoxProducto.Items.AddRange(new object[] {
-            "Administrador",
-            "Supervisor",
-            "Vendedor"});
             this.BoxProducto.Location = new System.Drawing.Point(207, 157);
             this.BoxProducto.Name = "BoxProducto";
             this.BoxProducto.Size = new System.Drawing.Size(177, 29);
             this.BoxProducto.TabIndex = 49;
             this.BoxProducto.UseSelectable = true;
+            this.BoxProducto.SelectedValueChanged += new System.EventHandler(this.BoxProducto_SelectedValueChanged);
             // 
-            // TxtUnidades
+            // TxtUnidadesP
             // 
             // 
             // 
             // 
-            this.TxtUnidades.CustomButton.Image = null;
-            this.TxtUnidades.CustomButton.Location = new System.Drawing.Point(159, 2);
-            this.TxtUnidades.CustomButton.Name = "";
-            this.TxtUnidades.CustomButton.Size = new System.Drawing.Size(15, 15);
-            this.TxtUnidades.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.TxtUnidades.CustomButton.TabIndex = 1;
-            this.TxtUnidades.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.TxtUnidades.CustomButton.UseSelectable = true;
-            this.TxtUnidades.CustomButton.Visible = false;
-            this.TxtUnidades.Lines = new string[0];
-            this.TxtUnidades.Location = new System.Drawing.Point(207, 216);
-            this.TxtUnidades.MaxLength = 60;
-            this.TxtUnidades.Name = "TxtUnidades";
-            this.TxtUnidades.PasswordChar = '\0';
-            this.TxtUnidades.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.TxtUnidades.SelectedText = "";
-            this.TxtUnidades.SelectionLength = 0;
-            this.TxtUnidades.SelectionStart = 0;
-            this.TxtUnidades.ShortcutsEnabled = true;
-            this.TxtUnidades.Size = new System.Drawing.Size(177, 20);
-            this.TxtUnidades.TabIndex = 48;
-            this.TxtUnidades.UseSelectable = true;
-            this.TxtUnidades.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.TxtUnidades.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtUnidadesP.CustomButton.Image = null;
+            this.TxtUnidadesP.CustomButton.Location = new System.Drawing.Point(159, 2);
+            this.TxtUnidadesP.CustomButton.Name = "";
+            this.TxtUnidadesP.CustomButton.Size = new System.Drawing.Size(15, 15);
+            this.TxtUnidadesP.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.TxtUnidadesP.CustomButton.TabIndex = 1;
+            this.TxtUnidadesP.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.TxtUnidadesP.CustomButton.UseSelectable = true;
+            this.TxtUnidadesP.CustomButton.Visible = false;
+            this.TxtUnidadesP.Lines = new string[0];
+            this.TxtUnidadesP.Location = new System.Drawing.Point(207, 216);
+            this.TxtUnidadesP.MaxLength = 60;
+            this.TxtUnidadesP.Name = "TxtUnidadesP";
+            this.TxtUnidadesP.PasswordChar = '\0';
+            this.TxtUnidadesP.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.TxtUnidadesP.SelectedText = "";
+            this.TxtUnidadesP.SelectionLength = 0;
+            this.TxtUnidadesP.SelectionStart = 0;
+            this.TxtUnidadesP.ShortcutsEnabled = true;
+            this.TxtUnidadesP.Size = new System.Drawing.Size(177, 20);
+            this.TxtUnidadesP.TabIndex = 48;
+            this.TxtUnidadesP.UseSelectable = true;
+            this.TxtUnidadesP.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.TxtUnidadesP.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtUnidadesP.TextChanged += new System.EventHandler(this.TxtUnidadesP_TextChanged);
+            this.TxtUnidadesP.Click += new System.EventHandler(this.TxtUnidadesP_TextChanged);
             // 
             // tileProducto
             // 
@@ -147,80 +199,84 @@
             this.TxtCostoUnitario.UseSelectable = true;
             this.TxtCostoUnitario.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtCostoUnitario.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtCostoUnitario.TextChanged += new System.EventHandler(this.TxtCostoUnitario_TextChanged);
             // 
-            // tileUnidades
+            // tileUnidadesP
             // 
-            this.tileUnidades.ActiveControl = null;
-            this.tileUnidades.Controls.Add(this.lblUnidades);
-            this.tileUnidades.Enabled = false;
-            this.tileUnidades.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tileUnidades.Location = new System.Drawing.Point(67, 216);
-            this.tileUnidades.Name = "tileUnidades";
-            this.tileUnidades.Size = new System.Drawing.Size(144, 20);
-            this.tileUnidades.TabIndex = 56;
-            this.tileUnidades.UseSelectable = true;
+            this.tileUnidadesP.ActiveControl = null;
+            this.tileUnidadesP.Controls.Add(this.lblUnidadesP);
+            this.tileUnidadesP.Enabled = false;
+            this.tileUnidadesP.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tileUnidadesP.Location = new System.Drawing.Point(67, 216);
+            this.tileUnidadesP.Name = "tileUnidadesP";
+            this.tileUnidadesP.Size = new System.Drawing.Size(144, 20);
+            this.tileUnidadesP.TabIndex = 56;
+            this.tileUnidadesP.UseSelectable = true;
             // 
-            // lblUnidades
+            // lblUnidadesP
             // 
-            this.lblUnidades.AutoSize = true;
-            this.lblUnidades.Enabled = false;
-            this.lblUnidades.Location = new System.Drawing.Point(17, 0);
-            this.lblUnidades.Name = "lblUnidades";
-            this.lblUnidades.Size = new System.Drawing.Size(113, 19);
-            this.lblUnidades.TabIndex = 5;
-            this.lblUnidades.Text = "Unidades Pedidas";
+            this.lblUnidadesP.AutoSize = true;
+            this.lblUnidadesP.Enabled = false;
+            this.lblUnidadesP.Location = new System.Drawing.Point(17, 0);
+            this.lblUnidadesP.Name = "lblUnidadesP";
+            this.lblUnidadesP.Size = new System.Drawing.Size(112, 19);
+            this.lblUnidadesP.TabIndex = 5;
+            this.lblUnidadesP.Text = "Unidades Pedidas";
             // 
-            // TxtTotal
-            // 
-            // 
+            // TxtCostoTotal
             // 
             // 
-            this.TxtTotal.CustomButton.Image = null;
-            this.TxtTotal.CustomButton.Location = new System.Drawing.Point(159, 2);
-            this.TxtTotal.CustomButton.Name = "";
-            this.TxtTotal.CustomButton.Size = new System.Drawing.Size(15, 15);
-            this.TxtTotal.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.TxtTotal.CustomButton.TabIndex = 1;
-            this.TxtTotal.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.TxtTotal.CustomButton.UseSelectable = true;
-            this.TxtTotal.CustomButton.Visible = false;
-            this.TxtTotal.Lines = new string[0];
-            this.TxtTotal.Location = new System.Drawing.Point(207, 362);
-            this.TxtTotal.MaxLength = 8;
-            this.TxtTotal.Name = "TxtTotal";
-            this.TxtTotal.PasswordChar = '\0';
-            this.TxtTotal.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.TxtTotal.SelectedText = "";
-            this.TxtTotal.SelectionLength = 0;
-            this.TxtTotal.SelectionStart = 0;
-            this.TxtTotal.ShortcutsEnabled = true;
-            this.TxtTotal.Size = new System.Drawing.Size(177, 20);
-            this.TxtTotal.TabIndex = 47;
-            this.TxtTotal.UseSelectable = true;
-            this.TxtTotal.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.TxtTotal.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // tileTotal
             // 
-            this.tileTotal.ActiveControl = null;
-            this.tileTotal.Controls.Add(this.lblTotal);
-            this.tileTotal.Enabled = false;
-            this.tileTotal.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tileTotal.Location = new System.Drawing.Point(67, 362);
-            this.tileTotal.Name = "tileTotal";
-            this.tileTotal.Size = new System.Drawing.Size(144, 20);
-            this.tileTotal.TabIndex = 55;
-            this.tileTotal.UseSelectable = true;
+            this.TxtCostoTotal.CustomButton.Image = null;
+            this.TxtCostoTotal.CustomButton.Location = new System.Drawing.Point(159, 2);
+            this.TxtCostoTotal.CustomButton.Name = "";
+            this.TxtCostoTotal.CustomButton.Size = new System.Drawing.Size(15, 15);
+            this.TxtCostoTotal.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.TxtCostoTotal.CustomButton.TabIndex = 1;
+            this.TxtCostoTotal.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.TxtCostoTotal.CustomButton.UseSelectable = true;
+            this.TxtCostoTotal.CustomButton.Visible = false;
+            this.TxtCostoTotal.Enabled = false;
+            this.TxtCostoTotal.Lines = new string[0];
+            this.TxtCostoTotal.Location = new System.Drawing.Point(207, 362);
+            this.TxtCostoTotal.MaxLength = 8;
+            this.TxtCostoTotal.Name = "TxtCostoTotal";
+            this.TxtCostoTotal.PasswordChar = '\0';
+            this.TxtCostoTotal.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.TxtCostoTotal.SelectedText = "";
+            this.TxtCostoTotal.SelectionLength = 0;
+            this.TxtCostoTotal.SelectionStart = 0;
+            this.TxtCostoTotal.ShortcutsEnabled = true;
+            this.TxtCostoTotal.Size = new System.Drawing.Size(177, 20);
+            this.TxtCostoTotal.TabIndex = 47;
+            this.TxtCostoTotal.UseSelectable = true;
+            this.TxtCostoTotal.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.TxtCostoTotal.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // lblTotal
+            // tileCostoTotal
             // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Enabled = false;
-            this.lblTotal.Location = new System.Drawing.Point(92, 0);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(38, 19);
-            this.lblTotal.TabIndex = 5;
-            this.lblTotal.Text = "Total";
+            this.tileCostoTotal.ActiveControl = null;
+            this.tileCostoTotal.Controls.Add(this.lblCostoTotal);
+            this.tileCostoTotal.Enabled = false;
+            this.tileCostoTotal.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tileCostoTotal.Location = new System.Drawing.Point(67, 362);
+            this.tileCostoTotal.Name = "tileCostoTotal";
+            this.tileCostoTotal.Size = new System.Drawing.Size(144, 20);
+            this.tileCostoTotal.Style = MetroFramework.MetroColorStyle.Silver;
+            this.tileCostoTotal.TabIndex = 55;
+            this.tileCostoTotal.UseSelectable = true;
+            // 
+            // lblCostoTotal
+            // 
+            this.lblCostoTotal.AutoSize = true;
+            this.lblCostoTotal.Enabled = false;
+            this.lblCostoTotal.Location = new System.Drawing.Point(59, 1);
+            this.lblCostoTotal.Name = "lblCostoTotal";
+            this.lblCostoTotal.Size = new System.Drawing.Size(70, 19);
+            this.lblCostoTotal.Style = MetroFramework.MetroColorStyle.Silver;
+            this.lblCostoTotal.TabIndex = 5;
+            this.lblCostoTotal.Text = "CostoTotal";
             // 
             // tileCostoUnitario
             // 
@@ -254,6 +310,7 @@
             this.BtnVolver.Text = "Volver";
             this.BtnVolver.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnVolver.UseSelectable = true;
+            this.BtnVolver.Click += new System.EventHandler(this.BtnVolver_Click);
             // 
             // BtnMod
             // 
@@ -265,109 +322,59 @@
             this.BtnMod.Text = "Mod";
             this.BtnMod.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnMod.UseSelectable = true;
-            // 
-            // metroTextBox1
-            // 
-            // 
-            // 
-            // 
-            this.metroTextBox1.CustomButton.Image = null;
-            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(159, 2);
-            this.metroTextBox1.CustomButton.Name = "";
-            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(15, 15);
-            this.metroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBox1.CustomButton.TabIndex = 1;
-            this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBox1.CustomButton.UseSelectable = true;
-            this.metroTextBox1.CustomButton.Visible = false;
-            this.metroTextBox1.Lines = new string[0];
-            this.metroTextBox1.Location = new System.Drawing.Point(207, 264);
-            this.metroTextBox1.MaxLength = 60;
-            this.metroTextBox1.Name = "metroTextBox1";
-            this.metroTextBox1.PasswordChar = '\0';
-            this.metroTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBox1.SelectedText = "";
-            this.metroTextBox1.SelectionLength = 0;
-            this.metroTextBox1.SelectionStart = 0;
-            this.metroTextBox1.ShortcutsEnabled = true;
-            this.metroTextBox1.Size = new System.Drawing.Size(177, 20);
-            this.metroTextBox1.TabIndex = 59;
-            this.metroTextBox1.UseSelectable = true;
-            this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroTile1
-            // 
-            this.metroTile1.ActiveControl = null;
-            this.metroTile1.Controls.Add(this.metroLabel1);
-            this.metroTile1.Enabled = false;
-            this.metroTile1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.metroTile1.Location = new System.Drawing.Point(67, 264);
-            this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(144, 20);
-            this.metroTile1.TabIndex = 60;
-            this.metroTile1.UseSelectable = true;
-            // 
-            // metroLabel1
-            // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Enabled = false;
-            this.metroLabel1.Location = new System.Drawing.Point(8, 1);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(122, 19);
-            this.metroLabel1.TabIndex = 5;
-            this.metroLabel1.Text = "Unidades Existentes";
+            this.BtnMod.Click += new System.EventHandler(this.BtnMod_Click);
             // 
             // ModLote
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(450, 600);
-            this.Controls.Add(this.metroTextBox1);
-            this.Controls.Add(this.metroTile1);
+            this.Controls.Add(this.TxtUnidadesE);
+            this.Controls.Add(this.tileUnidadesE);
             this.Controls.Add(this.BoxProducto);
-            this.Controls.Add(this.TxtUnidades);
+            this.Controls.Add(this.TxtUnidadesP);
             this.Controls.Add(this.tileProducto);
             this.Controls.Add(this.TxtCostoUnitario);
-            this.Controls.Add(this.tileUnidades);
-            this.Controls.Add(this.TxtTotal);
-            this.Controls.Add(this.tileTotal);
+            this.Controls.Add(this.tileUnidadesP);
+            this.Controls.Add(this.TxtCostoTotal);
+            this.Controls.Add(this.tileCostoTotal);
             this.Controls.Add(this.tileCostoUnitario);
             this.Controls.Add(this.BtnVolver);
             this.Controls.Add(this.BtnMod);
             this.MinimumSize = new System.Drawing.Size(450, 600);
             this.Name = "ModLote";
             this.Text = "Lote";
+            this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.Load += new System.EventHandler(this.ModLote_Load);
+            this.tileUnidadesE.ResumeLayout(false);
+            this.tileUnidadesE.PerformLayout();
             this.tileProducto.ResumeLayout(false);
             this.tileProducto.PerformLayout();
-            this.tileUnidades.ResumeLayout(false);
-            this.tileUnidades.PerformLayout();
-            this.tileTotal.ResumeLayout(false);
-            this.tileTotal.PerformLayout();
+            this.tileUnidadesP.ResumeLayout(false);
+            this.tileUnidadesP.PerformLayout();
+            this.tileCostoTotal.ResumeLayout(false);
+            this.tileCostoTotal.PerformLayout();
             this.tileCostoUnitario.ResumeLayout(false);
             this.tileCostoUnitario.PerformLayout();
-            this.metroTile1.ResumeLayout(false);
-            this.metroTile1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private MetroFramework.Controls.MetroComboBox BoxProducto;
-        private MetroFramework.Controls.MetroTextBox TxtUnidades;
+        private MetroFramework.Controls.MetroTextBox TxtUnidadesP;
         private MetroFramework.Controls.MetroTile tileProducto;
         private MetroFramework.Controls.MetroLabel lblProducto;
         private MetroFramework.Controls.MetroTextBox TxtCostoUnitario;
-        private MetroFramework.Controls.MetroTile tileUnidades;
-        private MetroFramework.Controls.MetroLabel lblUnidades;
-        private MetroFramework.Controls.MetroTextBox TxtTotal;
-        private MetroFramework.Controls.MetroTile tileTotal;
-        private MetroFramework.Controls.MetroLabel lblTotal;
+        private MetroFramework.Controls.MetroTile tileUnidadesP;
+        private MetroFramework.Controls.MetroLabel lblUnidadesP;
+        private MetroFramework.Controls.MetroTextBox TxtCostoTotal;
+        private MetroFramework.Controls.MetroTile tileCostoTotal;
+        private MetroFramework.Controls.MetroLabel lblCostoTotal;
         private MetroFramework.Controls.MetroTile tileCostoUnitario;
         private MetroFramework.Controls.MetroLabel lblCostoUnitario;
         private MetroFramework.Controls.MetroButton BtnVolver;
         private MetroFramework.Controls.MetroButton BtnMod;
-        private MetroFramework.Controls.MetroTextBox metroTextBox1;
-        private MetroFramework.Controls.MetroTile metroTile1;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroTextBox TxtUnidadesE;
+        private MetroFramework.Controls.MetroTile tileUnidadesE;
+        private MetroFramework.Controls.MetroLabel lblUnidadesE;
     }
 }

@@ -8,10 +8,12 @@ using System.Linq;
 using System.Windows.Forms;
 using Negocio;
 using Dominio;
-
+/// <summary>
+/// TODO: PRODUCTOS X PROVEEDOR (GUARDAR CAMBIOS)
+/// </summary>
 namespace Presentacion
 {
-    public partial class ProductosProv : Presentacion.Metro_Template
+    public partial class ProductosProv : MetroFramework.Forms.MetroForm
     {
         int IdProveedor;
         List<Producto> lstProductos;
@@ -85,7 +87,7 @@ namespace Presentacion
 
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
-            if(dgvProductos.RowCount > 0)
+            if (dgvProductos.RowCount > 0)
             {
                 Producto p = (Producto)dgvProductos.CurrentRow.DataBoundItem;
                 dgvProductos.DataSource = null;
@@ -95,7 +97,7 @@ namespace Presentacion
                 LlenarTabla();
             }
         }
-
+    
         private void BtnQuitar_Click(object sender, EventArgs e)
         {
             if (dgvProductosProv.RowCount > 0)
@@ -111,7 +113,7 @@ namespace Presentacion
 
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
         }
     }
 }

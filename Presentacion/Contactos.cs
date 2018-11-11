@@ -10,7 +10,7 @@ using Negocio;
 
 namespace Presentacion
 {
-    public partial class Contactos : Presentacion.Metro_Template
+    public partial class Contactos : MetroFramework.Forms.MetroForm
     {
         int IdRelacion;
 
@@ -133,7 +133,7 @@ namespace Presentacion
                 }
                 try
                 {
-                    DetallesContacto detalles = new DetallesContacto((Empleado)dgvContactos.CurrentRow.DataBoundItem);
+                    DetallesContacto detalles = new DetallesContacto((Contacto)dgvContactos.CurrentRow.DataBoundItem);
                     detalles.Show();
                     LlenarTabla();
                 }

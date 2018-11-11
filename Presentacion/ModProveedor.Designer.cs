@@ -172,7 +172,6 @@
             // 
             // ModProveedor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(385, 376);
             this.Controls.Add(this.tileCuit);
             this.Controls.Add(this.TxtCuit);
@@ -183,6 +182,7 @@
             this.MinimumSize = new System.Drawing.Size(385, 376);
             this.Name = "ModProveedor";
             this.Text = "Proveedor";
+            this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.ModProveedor_Load);
             this.tileEmpresa.ResumeLayout(false);
             this.tileEmpresa.PerformLayout();

@@ -10,7 +10,7 @@ using Negocio;
 
 namespace Presentacion
 {
-    public partial class ModClienteP : Presentacion.Metro_Template
+    public partial class ModClienteP : MetroFramework.Forms.MetroForm
     {
         private bool[] EntradasVal = new bool[4];
         Validaciones val = new Validaciones();
@@ -31,19 +31,23 @@ namespace Presentacion
             this.Text = "Editar " + this.Text;
             BtnMod.Text = "Editar";
             BtnMod.Enabled = false;
-            TxtNombre.Text = C.Datos.Nombre;
-            TxtApellido.Text = C.Datos.Apellido;
-            TxtDni.Text = C.Datos.Dni.ToString();
-            TxtEmail.Text = C.Datos.Email;
+            TxtNombre.Text = C.Nombre;
+            TxtApellido.Text = C.Apellido;
+            TxtDni.Text = C.Dni.ToString();
+            TxtEmail.Text = C.Email;
             c = C;
         }
 
         private void ModClienteP_Load(object sender, EventArgs e)
         {
+            bool b;
+            if (c.IdCliente != 0) { b = true; }
+            else { b = false; }
             for (int i = 0; i < EntradasVal.Length; i++)
             {
-                EntradasVal[i] = false;
+                EntradasVal[i] = b;
             }
+            ValidarEntradas();
         }
 
         private void TxtNombre_TextChanged(object sender, EventArgs e)
@@ -72,7 +76,7 @@ namespace Presentacion
 
         private void BtnVolver_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
         }
 
         private void BtnMod_Click(object sender, EventArgs e)
@@ -80,20 +84,19 @@ namespace Presentacion
             ClientePNegocio neg = new ClientePNegocio();
             try
             {
-                c.Datos.Nombre = TxtNombre.Text.Trim();
-                c.Datos.Apellido = TxtApellido.Text.Trim();
-                c.Datos.Dni = Convert.ToInt32(TxtDni.Text.Trim());
-                c.Datos.Email = TxtEmail.Text.Trim();
-                if (c.Datos.IdContacto != 0)
+                c.Nombre = TxtNombre.Text.Trim();
+                c.Apellido = TxtApellido.Text.Trim();
+                c.Dni = Convert.ToInt32(TxtDni.Text.Trim());
+                c.Email = TxtEmail.Text.Trim();
+                if (c.IdCliente != 0)
                 {
                     neg.Modificar(c);
-                    this.Dispose();
                 }
                 else
                 {
                     neg.Agregar(c);
-                    LimpiarEntradas();
                 }
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -123,18 +126,6 @@ namespace Presentacion
             ValidarEntradas();
         }
 
-        private void LimpiarEntradas()
-        {
-            val.CambiarColor(tileNombre, lblNombre, 'b');
-            val.CambiarColor(tileApellido, lblApellido, 'b');
-            val.CambiarColor(tileDni, lblDni, 'b');
-            val.CambiarColor(tileEmail, lblEmail, 'b');
-            TxtNombre.Text = "";
-            TxtApellido.Text = "";
-            TxtDni.Text = "";
-            TxtEmail.Text = "";
-        }
-
         private void ValidarEntradas()
         {
             int i;
@@ -149,11 +140,6 @@ namespace Presentacion
             }
             if (v == true) { BtnMod.Enabled = true; }
             else { BtnMod.Enabled = false; }
-        }
-
-        private void BtnMod_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

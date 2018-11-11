@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/// <summary>
+/// TODO: MENU PRINCIPAL (EMBELLECER)
+/// </summary>
 namespace Presentacion
 {
     public partial class MenuPrincipal : MetroFramework.Forms.MetroForm

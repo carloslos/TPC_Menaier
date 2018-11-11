@@ -115,7 +115,6 @@
             // 
             // ModTipoProducto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(385, 376);
             this.Controls.Add(this.BtnVolver);
             this.Controls.Add(this.BtnMod);
@@ -124,6 +123,7 @@
             this.MinimumSize = new System.Drawing.Size(385, 376);
             this.Name = "ModTipoProducto";
             this.Text = "Tipo de Producto";
+            this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.tileDescripcion.ResumeLayout(false);
             this.tileDescripcion.PerformLayout();
             this.ResumeLayout(false);

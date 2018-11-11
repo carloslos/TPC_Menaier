@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModClienteP));
             this.BtnVolver = new MetroFramework.Controls.MetroButton();
             this.BtnMod = new MetroFramework.Controls.MetroButton();
             this.TxtNombre = new MetroFramework.Controls.MetroTextBox();
@@ -50,43 +51,37 @@
             // 
             // BtnVolver
             // 
-            this.BtnVolver.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnVolver.Location = new System.Drawing.Point(243, 506);
+            resources.ApplyResources(this.BtnVolver, "BtnVolver");
             this.BtnVolver.Name = "BtnVolver";
-            this.BtnVolver.Size = new System.Drawing.Size(99, 23);
-            this.BtnVolver.TabIndex = 9;
-            this.BtnVolver.Text = "Volver";
             this.BtnVolver.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnVolver.UseSelectable = true;
+            this.BtnVolver.Click += new System.EventHandler(this.BtnVolver_Click);
             // 
             // BtnMod
             // 
-            this.BtnMod.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnMod.Location = new System.Drawing.Point(108, 506);
+            resources.ApplyResources(this.BtnMod, "BtnMod");
             this.BtnMod.Name = "BtnMod";
-            this.BtnMod.Size = new System.Drawing.Size(100, 23);
-            this.BtnMod.TabIndex = 8;
-            this.BtnMod.Text = "Mod";
             this.BtnMod.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnMod.UseSelectable = true;
-            this.BtnMod.Click += new System.EventHandler(this.BtnMod_Click_1);
+            this.BtnMod.Click += new System.EventHandler(this.BtnMod_Click);
             // 
             // TxtNombre
             // 
             // 
             // 
             // 
-            this.TxtNombre.CustomButton.Image = null;
-            this.TxtNombre.CustomButton.Location = new System.Drawing.Point(159, 2);
+            this.TxtNombre.CustomButton.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.TxtNombre.CustomButton.ImeMode = ((System.Windows.Forms.ImeMode)(resources.GetObject("resource.ImeMode")));
+            this.TxtNombre.CustomButton.Location = ((System.Drawing.Point)(resources.GetObject("resource.Location")));
             this.TxtNombre.CustomButton.Name = "";
-            this.TxtNombre.CustomButton.Size = new System.Drawing.Size(15, 15);
+            this.TxtNombre.CustomButton.Size = ((System.Drawing.Size)(resources.GetObject("resource.Size")));
             this.TxtNombre.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.TxtNombre.CustomButton.TabIndex = 1;
+            this.TxtNombre.CustomButton.TabIndex = ((int)(resources.GetObject("resource.TabIndex")));
             this.TxtNombre.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.TxtNombre.CustomButton.UseSelectable = true;
-            this.TxtNombre.CustomButton.Visible = false;
+            this.TxtNombre.CustomButton.Visible = ((bool)(resources.GetObject("resource.Visible")));
             this.TxtNombre.Lines = new string[0];
-            this.TxtNombre.Location = new System.Drawing.Point(185, 158);
+            resources.ApplyResources(this.TxtNombre, "TxtNombre");
             this.TxtNombre.MaxLength = 60;
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.PasswordChar = '\0';
@@ -95,8 +90,6 @@
             this.TxtNombre.SelectionLength = 0;
             this.TxtNombre.SelectionStart = 0;
             this.TxtNombre.ShortcutsEnabled = true;
-            this.TxtNombre.Size = new System.Drawing.Size(177, 20);
-            this.TxtNombre.TabIndex = 48;
             this.TxtNombre.UseSelectable = true;
             this.TxtNombre.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtNombre.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -106,17 +99,18 @@
             // 
             // 
             // 
-            this.TxtApellido.CustomButton.Image = null;
-            this.TxtApellido.CustomButton.Location = new System.Drawing.Point(159, 2);
+            this.TxtApellido.CustomButton.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            this.TxtApellido.CustomButton.ImeMode = ((System.Windows.Forms.ImeMode)(resources.GetObject("resource.ImeMode1")));
+            this.TxtApellido.CustomButton.Location = ((System.Drawing.Point)(resources.GetObject("resource.Location1")));
             this.TxtApellido.CustomButton.Name = "";
-            this.TxtApellido.CustomButton.Size = new System.Drawing.Size(15, 15);
+            this.TxtApellido.CustomButton.Size = ((System.Drawing.Size)(resources.GetObject("resource.Size1")));
             this.TxtApellido.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.TxtApellido.CustomButton.TabIndex = 1;
+            this.TxtApellido.CustomButton.TabIndex = ((int)(resources.GetObject("resource.TabIndex1")));
             this.TxtApellido.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.TxtApellido.CustomButton.UseSelectable = true;
-            this.TxtApellido.CustomButton.Visible = false;
+            this.TxtApellido.CustomButton.Visible = ((bool)(resources.GetObject("resource.Visible1")));
             this.TxtApellido.Lines = new string[0];
-            this.TxtApellido.Location = new System.Drawing.Point(185, 208);
+            resources.ApplyResources(this.TxtApellido, "TxtApellido");
             this.TxtApellido.MaxLength = 60;
             this.TxtApellido.Name = "TxtApellido";
             this.TxtApellido.PasswordChar = '\0';
@@ -125,8 +119,6 @@
             this.TxtApellido.SelectionLength = 0;
             this.TxtApellido.SelectionStart = 0;
             this.TxtApellido.ShortcutsEnabled = true;
-            this.TxtApellido.Size = new System.Drawing.Size(177, 20);
-            this.TxtApellido.TabIndex = 49;
             this.TxtApellido.UseSelectable = true;
             this.TxtApellido.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtApellido.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -135,40 +127,33 @@
             // 
             this.tileEmail.ActiveControl = null;
             this.tileEmail.Controls.Add(this.lblEmail);
-            this.tileEmail.Enabled = false;
+            resources.ApplyResources(this.tileEmail, "tileEmail");
             this.tileEmail.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tileEmail.Location = new System.Drawing.Point(89, 308);
             this.tileEmail.Name = "tileEmail";
-            this.tileEmail.Size = new System.Drawing.Size(100, 20);
-            this.tileEmail.TabIndex = 55;
             this.tileEmail.UseSelectable = true;
             // 
             // lblEmail
             // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Enabled = false;
-            this.lblEmail.Location = new System.Drawing.Point(48, 0);
+            resources.ApplyResources(this.lblEmail, "lblEmail");
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(41, 19);
-            this.lblEmail.TabIndex = 5;
-            this.lblEmail.Text = "Email";
             // 
             // TxtDni
             // 
             // 
             // 
             // 
-            this.TxtDni.CustomButton.Image = null;
-            this.TxtDni.CustomButton.Location = new System.Drawing.Point(159, 2);
+            this.TxtDni.CustomButton.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+            this.TxtDni.CustomButton.ImeMode = ((System.Windows.Forms.ImeMode)(resources.GetObject("resource.ImeMode2")));
+            this.TxtDni.CustomButton.Location = ((System.Drawing.Point)(resources.GetObject("resource.Location2")));
             this.TxtDni.CustomButton.Name = "";
-            this.TxtDni.CustomButton.Size = new System.Drawing.Size(15, 15);
+            this.TxtDni.CustomButton.Size = ((System.Drawing.Size)(resources.GetObject("resource.Size2")));
             this.TxtDni.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.TxtDni.CustomButton.TabIndex = 1;
+            this.TxtDni.CustomButton.TabIndex = ((int)(resources.GetObject("resource.TabIndex2")));
             this.TxtDni.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.TxtDni.CustomButton.UseSelectable = true;
-            this.TxtDni.CustomButton.Visible = false;
+            this.TxtDni.CustomButton.Visible = ((bool)(resources.GetObject("resource.Visible2")));
             this.TxtDni.Lines = new string[0];
-            this.TxtDni.Location = new System.Drawing.Point(185, 258);
+            resources.ApplyResources(this.TxtDni, "TxtDni");
             this.TxtDni.MaxLength = 8;
             this.TxtDni.Name = "TxtDni";
             this.TxtDni.PasswordChar = '\0';
@@ -177,8 +162,6 @@
             this.TxtDni.SelectionLength = 0;
             this.TxtDni.SelectionStart = 0;
             this.TxtDni.ShortcutsEnabled = true;
-            this.TxtDni.Size = new System.Drawing.Size(177, 20);
-            this.TxtDni.TabIndex = 50;
             this.TxtDni.UseSelectable = true;
             this.TxtDni.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtDni.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -187,40 +170,33 @@
             // 
             this.tileDni.ActiveControl = null;
             this.tileDni.Controls.Add(this.lblDni);
-            this.tileDni.Enabled = false;
+            resources.ApplyResources(this.tileDni, "tileDni");
             this.tileDni.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tileDni.Location = new System.Drawing.Point(89, 258);
             this.tileDni.Name = "tileDni";
-            this.tileDni.Size = new System.Drawing.Size(100, 20);
-            this.tileDni.TabIndex = 54;
             this.tileDni.UseSelectable = true;
             // 
             // lblDni
             // 
-            this.lblDni.AutoSize = true;
-            this.lblDni.Enabled = false;
-            this.lblDni.Location = new System.Drawing.Point(58, 0);
+            resources.ApplyResources(this.lblDni, "lblDni");
             this.lblDni.Name = "lblDni";
-            this.lblDni.Size = new System.Drawing.Size(31, 19);
-            this.lblDni.TabIndex = 5;
-            this.lblDni.Text = "DNI";
             // 
             // TxtEmail
             // 
             // 
             // 
             // 
-            this.TxtEmail.CustomButton.Image = null;
-            this.TxtEmail.CustomButton.Location = new System.Drawing.Point(159, 2);
+            this.TxtEmail.CustomButton.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
+            this.TxtEmail.CustomButton.ImeMode = ((System.Windows.Forms.ImeMode)(resources.GetObject("resource.ImeMode3")));
+            this.TxtEmail.CustomButton.Location = ((System.Drawing.Point)(resources.GetObject("resource.Location3")));
             this.TxtEmail.CustomButton.Name = "";
-            this.TxtEmail.CustomButton.Size = new System.Drawing.Size(15, 15);
+            this.TxtEmail.CustomButton.Size = ((System.Drawing.Size)(resources.GetObject("resource.Size3")));
             this.TxtEmail.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.TxtEmail.CustomButton.TabIndex = 1;
+            this.TxtEmail.CustomButton.TabIndex = ((int)(resources.GetObject("resource.TabIndex3")));
             this.TxtEmail.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.TxtEmail.CustomButton.UseSelectable = true;
-            this.TxtEmail.CustomButton.Visible = false;
+            this.TxtEmail.CustomButton.Visible = ((bool)(resources.GetObject("resource.Visible3")));
             this.TxtEmail.Lines = new string[0];
-            this.TxtEmail.Location = new System.Drawing.Point(185, 308);
+            resources.ApplyResources(this.TxtEmail, "TxtEmail");
             this.TxtEmail.MaxLength = 60;
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.PasswordChar = '\0';
@@ -229,8 +205,6 @@
             this.TxtEmail.SelectionLength = 0;
             this.TxtEmail.SelectionStart = 0;
             this.TxtEmail.ShortcutsEnabled = true;
-            this.TxtEmail.Size = new System.Drawing.Size(177, 20);
-            this.TxtEmail.TabIndex = 51;
             this.TxtEmail.UseSelectable = true;
             this.TxtEmail.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtEmail.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -239,50 +213,33 @@
             // 
             this.tileApellido.ActiveControl = null;
             this.tileApellido.Controls.Add(this.lblApellido);
-            this.tileApellido.Enabled = false;
+            resources.ApplyResources(this.tileApellido, "tileApellido");
             this.tileApellido.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tileApellido.Location = new System.Drawing.Point(89, 208);
             this.tileApellido.Name = "tileApellido";
-            this.tileApellido.Size = new System.Drawing.Size(100, 20);
-            this.tileApellido.TabIndex = 53;
             this.tileApellido.UseSelectable = true;
             // 
             // lblApellido
             // 
-            this.lblApellido.AutoSize = true;
-            this.lblApellido.Enabled = false;
-            this.lblApellido.Location = new System.Drawing.Point(31, 1);
+            resources.ApplyResources(this.lblApellido, "lblApellido");
             this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(58, 19);
-            this.lblApellido.TabIndex = 5;
-            this.lblApellido.Text = "Apellido";
             // 
             // tileNombre
             // 
             this.tileNombre.ActiveControl = null;
             this.tileNombre.Controls.Add(this.lblNombre);
-            this.tileNombre.Enabled = false;
+            resources.ApplyResources(this.tileNombre, "tileNombre");
             this.tileNombre.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tileNombre.Location = new System.Drawing.Point(89, 158);
             this.tileNombre.Name = "tileNombre";
-            this.tileNombre.Size = new System.Drawing.Size(100, 20);
-            this.tileNombre.TabIndex = 52;
             this.tileNombre.UseSelectable = true;
             // 
             // lblNombre
             // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Enabled = false;
-            this.lblNombre.Location = new System.Drawing.Point(30, 0);
+            resources.ApplyResources(this.lblNombre, "lblNombre");
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(59, 19);
-            this.lblNombre.TabIndex = 0;
-            this.lblNombre.Text = "Nombre";
             // 
             // ModClienteP
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(450, 600);
+            resources.ApplyResources(this, "$this");
             this.Controls.Add(this.TxtNombre);
             this.Controls.Add(this.TxtApellido);
             this.Controls.Add(this.tileEmail);
@@ -293,9 +250,8 @@
             this.Controls.Add(this.tileNombre);
             this.Controls.Add(this.BtnVolver);
             this.Controls.Add(this.BtnMod);
-            this.MinimumSize = new System.Drawing.Size(450, 600);
             this.Name = "ModClienteP";
-            this.Text = "Cliente";
+            this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.ModClienteP_Load);
             this.tileEmail.ResumeLayout(false);
             this.tileEmail.PerformLayout();

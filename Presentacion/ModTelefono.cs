@@ -10,7 +10,7 @@ using Negocio;
 
 namespace Presentacion
 {
-    public partial class ModTelefono : Presentacion.Metro_Template
+    public partial class ModTelefono : MetroFramework.Forms.MetroForm
     {
         private bool[] EntradasVal = new bool[2];
         Telefono t = null;
@@ -28,7 +28,7 @@ namespace Presentacion
             };
         }
 
-        public ModTelefono(int IdRelacion, Telefono T)
+        public ModTelefono(Telefono T)
         {
             InitializeComponent();
             this.Text = "Editar " + this.Text;
@@ -37,20 +37,22 @@ namespace Presentacion
             TxtDescripcion.Text = T.Descripcion;
             TxtNumero.Text = T.Numero.ToString();
             t = T;
-            t.IdRelacion = IdRelacion;
         }
 
         private void ModTelefono_Load(object sender, EventArgs e)
         {
+            bool b;
+            if(t.IdTelefono != 0) { b = true; }
+            else { b = false; }
             for (int i = 0; i < EntradasVal.Length; i++)
             {
-                EntradasVal[i] = false;
+                EntradasVal[i] = b;
             }
         }
 
         private void BtnVolver_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
         }
 
         private void BtnMod_Click(object sender, EventArgs e)
@@ -63,13 +65,12 @@ namespace Presentacion
                 if (t.IdTelefono != 0)
                 {
                     neg.Modificar(t);
-                    this.Dispose();
                 }
                 else
                 {
                     neg.Agregar(t);
-                    LimpiarEntradas();
                 }
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -115,14 +116,6 @@ namespace Presentacion
         {
             if (EntradasVal[0] == true && EntradasVal[1] == true) { BtnMod.Enabled = true; }
             else { BtnMod.Enabled = false; }
-        }
-
-        private void LimpiarEntradas()
-        {
-            val.CambiarColor(tileDescripcion, lblDescripcion, 'b');
-            val.CambiarColor(tileNumero, lblNumero, 'b');
-            TxtDescripcion.Text = "";
-            TxtNumero.Text = "";
         }
     }
 }

@@ -17,10 +17,9 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("SELECT L.IDLOTE, L.IDPRODUCTO, P.DESCRIPCION, L.UNIDADESP, L.UNIDADESE, L.COSTOPU, FROM LOTES AS L " +
-                    "INNER JOIN LOTES_X_COMPRA AS LXC ON LXC.IDLOTE = L.IDLOTE " +
+                conexion.SetearConsulta("SELECT L.IDLOTE, L.IDCOMPRA, L.IDPRODUCTO, P.DESCRIPCION, L.UNIDADESP, L.UNIDADESE, L.COSTOPU FROM LOTES AS L " +
                     "INNER JOIN PRODUCTOS AS P ON P.IDPRODUCTO = L.IDPRODUCTO " +
-                    "WHERE LXC.IDCOMPRA = @idcompra " +
+                    "WHERE L.IDCOMPRA = @idcompra " +
                     "ORDER BY P.DESCRIPCION ASC");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@idcompra", Id);
@@ -33,6 +32,7 @@ namespace Negocio
                     aux = new Lote
                     {
                         IdLote = (long)conexion.Lector["IDLOTE"],
+                        IdCompra = (int)conexion.Lector["IDCOMPRA"],
                         Producto = new Producto(),
                         UnidadesP = (int)conexion.Lector["UNIDADESP"],
                         UnidadesE = (int)conexion.Lector["UNIDADESE"],
@@ -40,7 +40,7 @@ namespace Negocio
                     };
                     aux.CostoT = aux.CostoPU * aux.UnidadesP;
                     aux.Producto.IdProducto = (int)conexion.Lector["IDPRODUCTO"];
-                    aux.Producto.Descripcion = (string)conexion.Lector[2];
+                    aux.Producto.Descripcion = (string)conexion.Lector[3];
 
                     lstLotes.Add(aux);
                 }
@@ -65,8 +65,9 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("INSERT INTO LOTES(IDPRODUCTO,UNIDADESP,UNIDADESE,COSTOPU) VALUES (@idproducto,@unidadesp,@unidadesp,@costopu,1)");
+                conexion.SetearConsulta("INSERT INTO LOTES(IDCOMPRA,IDPRODUCTO,UNIDADESP,UNIDADESE,COSTOPU,ACTIVO) VALUES (@idcompra,@idproducto,@unidadesp,@unidadesp,@costopu,1)");
                 conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@idcompra", nuevo.IdCompra);
                 conexion.Comando.Parameters.AddWithValue("@idproducto", nuevo.Producto.IdProducto);
                 conexion.Comando.Parameters.AddWithValue("@unidadesp", nuevo.UnidadesP);
                 conexion.Comando.Parameters.AddWithValue("@costopu", nuevo.CostoPU);
@@ -117,7 +118,33 @@ namespace Negocio
             }
         }
 
-        public void EliminarFisico(int id)
+
+        public void EliminarLotesDeCompra(int id)
+        {
+            AccesoDB conexion = null;
+            try
+            {
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("DELETE FROM LOTES WHERE IDCOMPRA = @id");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@id", id);
+                conexion.AbrirConexion();
+                conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conexion.CheckearConexion() == true)
+                {
+                    conexion.CerrarConexion();
+                }
+            }
+        }
+
+        public void EliminarFisico(long id)
         {
             AccesoDB conexion = null;
             try
@@ -142,7 +169,7 @@ namespace Negocio
             }
         }
 
-        public void EliminarLogico(int id)
+        public void EliminarLogico(long id)
         {
             AccesoDB conexion = null;
             try

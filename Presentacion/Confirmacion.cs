@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Presentacion
 {
-    public partial class Confirmacion : Presentacion.Metro_Template
+    public partial class Confirmacion : MetroFramework.Forms.MetroForm
     {
         public bool R { get; set; }
 
@@ -23,14 +23,14 @@ namespace Presentacion
         {
             R = true;
             this.DialogResult = DialogResult.OK;
-            this.Dispose();
+            this.Close();
         }
 
         private void BtnNo_Click(object sender, EventArgs e)
         {
             R = false;
             this.DialogResult = DialogResult.OK;
-            this.Dispose();
+            this.Close();
         }
     }
 }

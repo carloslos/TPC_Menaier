@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dominio;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace Negocio
 {
@@ -56,31 +58,39 @@ namespace Negocio
             }
         }
         
-        public void Agregar(Compra nuevo)
+        public string Agregar(Compra nuevo)
         {
-            AccesoDB conexion = null;
+            //AccesoDB conexion = null;
             try
             {
-                conexion = new AccesoDB();
+                /*conexion = new AccesoDB();
                 conexion.SetearConsulta("INSERT INTO COMPRAS(IDPROVEEDOR,FECHACOMPRA,ACTIVO) VALUES (@idproveedor,@fechacompra,1)");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@idproveedor", nuevo.Proveedor.IdProveedor);
                 conexion.Comando.Parameters.AddWithValue("@fechacompra", nuevo.FechaCompra);
                 conexion.Comando.Parameters.AddWithValue("@fecharegistro", DateTime.Now);
-
                 conexion.AbrirConexion();
-                conexion.EjecutarAccion();
+                conexion.EjecutarAccion();*/
+
+                string insertedID = "";
+
+                string query = "INSERT INTO COMPRAS(IDPROVEEDOR,FECHACOMPRA,ACTIVO) VALUES (@idproveedor,@fechacompra,1); SELECT SCOPE_IDENTITY();";
+
+                using (var dbconn = new SqlConnection(@"data source=.\SQLEXPRESS; initial catalog= MENAIER_DB;  integrated security=sspi"))
+                using (var dbcm = new SqlCommand(query, dbconn))
+                {
+                    dbcm.Parameters.AddWithValue("@idproveedor", nuevo.Proveedor.IdProveedor);
+                    dbcm.Parameters.AddWithValue("@fechacompra", nuevo.FechaCompra);
+                    dbcm.Parameters.AddWithValue("@fecharegistro", DateTime.Now);
+
+                    dbconn.Open();
+                    insertedID = dbcm.ExecuteScalar().ToString();
+                }
+                return insertedID;
             }
             catch (Exception ex)
             {
                 throw ex;
-            }
-            finally
-            {
-                if (conexion.CheckearConexion() == true)
-                {
-                    conexion.CerrarConexion();
-                }
             }
         }
         
@@ -118,7 +128,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("DELETE FROM COMPRAS WHERE IDPRODUCTO = @id");
+                conexion.SetearConsulta("DELETE FROM COMPRAS WHERE IDCOMPRA = @id");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@id", id);
                 conexion.AbrirConexion();
@@ -143,7 +153,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("UPDATE COMPRAS SET ACTIVO = 0 WHERE IDPRODUCTO = @id");
+                conexion.SetearConsulta("UPDATE COMPRAS SET ACTIVO = 0 WHERE IDCOMPRA = @id");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@id", id);
                 conexion.AbrirConexion();

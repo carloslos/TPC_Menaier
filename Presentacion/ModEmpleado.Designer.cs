@@ -58,6 +58,7 @@
             // 
             // DateFechaNac
             // 
+            this.DateFechaNac.CustomFormat = "dd/mm/yyyy";
             this.DateFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DateFechaNac.Location = new System.Drawing.Point(173, 410);
             this.DateFechaNac.MaxDate = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
@@ -133,7 +134,7 @@
             this.lblTipoPerfil.Enabled = false;
             this.lblTipoPerfil.Location = new System.Drawing.Point(3, 6);
             this.lblTipoPerfil.Name = "lblTipoPerfil";
-            this.lblTipoPerfil.Size = new System.Drawing.Size(88, 19);
+            this.lblTipoPerfil.Size = new System.Drawing.Size(87, 19);
             this.lblTipoPerfil.TabIndex = 5;
             this.lblTipoPerfil.Text = "Tipo de Perfil";
             // 
@@ -366,7 +367,6 @@
             // 
             // ModEmpleado
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(450, 600);
             this.Controls.Add(this.DateFechaNac);
             this.Controls.Add(this.BoxTipoPerfil);
@@ -385,6 +385,7 @@
             this.MinimumSize = new System.Drawing.Size(450, 600);
             this.Name = "ModEmpleado";
             this.Text = "Empleado";
+            this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.ModEmpleado_Load);
             this.tileTipoPerfil.ResumeLayout(false);
             this.tileTipoPerfil.PerformLayout();

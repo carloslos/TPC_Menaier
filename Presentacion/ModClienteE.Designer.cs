@@ -43,24 +43,26 @@
             // BtnVolver
             // 
             this.BtnVolver.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnVolver.Location = new System.Drawing.Point(247, 507);
+            this.BtnVolver.Location = new System.Drawing.Point(214, 287);
             this.BtnVolver.Name = "BtnVolver";
             this.BtnVolver.Size = new System.Drawing.Size(99, 23);
             this.BtnVolver.TabIndex = 11;
             this.BtnVolver.Text = "Volver";
             this.BtnVolver.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnVolver.UseSelectable = true;
+            this.BtnVolver.Click += new System.EventHandler(this.BtnVolver_Click);
             // 
             // BtnMod
             // 
             this.BtnMod.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnMod.Location = new System.Drawing.Point(104, 507);
+            this.BtnMod.Location = new System.Drawing.Point(71, 287);
             this.BtnMod.Name = "BtnMod";
             this.BtnMod.Size = new System.Drawing.Size(100, 23);
             this.BtnMod.TabIndex = 10;
             this.BtnMod.Text = "Mod";
             this.BtnMod.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnMod.UseSelectable = true;
+            this.BtnMod.Click += new System.EventHandler(this.BtnMod_Click);
             // 
             // TxtEmpresa
             // 
@@ -77,7 +79,7 @@
             this.TxtEmpresa.CustomButton.UseSelectable = true;
             this.TxtEmpresa.CustomButton.Visible = false;
             this.TxtEmpresa.Lines = new string[0];
-            this.TxtEmpresa.Location = new System.Drawing.Point(185, 215);
+            this.TxtEmpresa.Location = new System.Drawing.Point(152, 109);
             this.TxtEmpresa.MaxLength = 60;
             this.TxtEmpresa.Name = "TxtEmpresa";
             this.TxtEmpresa.PasswordChar = '\0';
@@ -91,6 +93,7 @@
             this.TxtEmpresa.UseSelectable = true;
             this.TxtEmpresa.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtEmpresa.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtEmpresa.TextChanged += new System.EventHandler(this.TxtEmpresa_TextChanged);
             // 
             // TxtCuit
             // 
@@ -107,7 +110,7 @@
             this.TxtCuit.CustomButton.UseSelectable = true;
             this.TxtCuit.CustomButton.Visible = false;
             this.TxtCuit.Lines = new string[0];
-            this.TxtCuit.Location = new System.Drawing.Point(185, 285);
+            this.TxtCuit.Location = new System.Drawing.Point(152, 179);
             this.TxtCuit.MaxLength = 8;
             this.TxtCuit.Name = "TxtCuit";
             this.TxtCuit.PasswordChar = '\0';
@@ -121,6 +124,7 @@
             this.TxtCuit.UseSelectable = true;
             this.TxtCuit.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtCuit.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtCuit.TextChanged += new System.EventHandler(this.TxtEmpresa_TextChanged);
             // 
             // tileCuit
             // 
@@ -128,7 +132,7 @@
             this.tileCuit.Controls.Add(this.lblCuit);
             this.tileCuit.Enabled = false;
             this.tileCuit.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tileCuit.Location = new System.Drawing.Point(89, 285);
+            this.tileCuit.Location = new System.Drawing.Point(56, 179);
             this.tileCuit.Name = "tileCuit";
             this.tileCuit.Size = new System.Drawing.Size(100, 20);
             this.tileCuit.TabIndex = 62;
@@ -150,7 +154,7 @@
             this.tileEmpresa.Controls.Add(this.lblEmpresa);
             this.tileEmpresa.Enabled = false;
             this.tileEmpresa.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tileEmpresa.Location = new System.Drawing.Point(89, 215);
+            this.tileEmpresa.Location = new System.Drawing.Point(56, 109);
             this.tileEmpresa.Name = "tileEmpresa";
             this.tileEmpresa.Size = new System.Drawing.Size(100, 20);
             this.tileEmpresa.TabIndex = 60;
@@ -168,17 +172,18 @@
             // 
             // ModClienteE
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(450, 600);
+            this.ClientSize = new System.Drawing.Size(385, 376);
             this.Controls.Add(this.TxtEmpresa);
             this.Controls.Add(this.TxtCuit);
             this.Controls.Add(this.tileCuit);
             this.Controls.Add(this.tileEmpresa);
             this.Controls.Add(this.BtnVolver);
             this.Controls.Add(this.BtnMod);
-            this.MinimumSize = new System.Drawing.Size(450, 600);
+            this.MinimumSize = new System.Drawing.Size(385, 376);
             this.Name = "ModClienteE";
             this.Text = "Cliente";
+            this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.Load += new System.EventHandler(this.ModClienteE_Load);
             this.tileCuit.ResumeLayout(false);
             this.tileCuit.PerformLayout();
             this.tileEmpresa.ResumeLayout(false);

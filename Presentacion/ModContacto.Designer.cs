@@ -270,6 +270,7 @@
             this.BtnVolver.Text = "Volver";
             this.BtnVolver.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnVolver.UseSelectable = true;
+            this.BtnVolver.Click += new System.EventHandler(this.BtnVolver_Click);
             // 
             // BtnMod
             // 
@@ -281,10 +282,10 @@
             this.BtnMod.Text = "Mod";
             this.BtnMod.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnMod.UseSelectable = true;
+            this.BtnMod.Click += new System.EventHandler(this.BtnMod_Click);
             // 
             // ModContacto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(450, 600);
             this.Controls.Add(this.TxtNombre);
             this.Controls.Add(this.TxtApellido);
@@ -299,6 +300,7 @@
             this.MinimumSize = new System.Drawing.Size(450, 600);
             this.Name = "ModContacto";
             this.Text = "Contacto";
+            this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.tileEmail.ResumeLayout(false);
             this.tileEmail.PerformLayout();
             this.tileDni.ResumeLayout(false);

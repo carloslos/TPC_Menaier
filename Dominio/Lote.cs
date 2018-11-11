@@ -9,6 +9,7 @@ namespace Dominio
     public class Lote
     {
         public long IdLote { get; set; }
+        public int IdCompra { get; set; }
         public Producto Producto { get; set; }
         public int UnidadesP { get; set; }
         public int UnidadesE { get; set; }

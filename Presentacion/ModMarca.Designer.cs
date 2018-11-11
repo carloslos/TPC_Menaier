@@ -115,7 +115,6 @@
             // 
             // ModMarca
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(385, 376);
             this.Controls.Add(this.BtnVolver);
             this.Controls.Add(this.BtnMod);
@@ -123,6 +122,7 @@
             this.Controls.Add(this.TxtDescripcion);
             this.Name = "ModMarca";
             this.Text = "Marca";
+            this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.tileDescripcion.ResumeLayout(false);
             this.tileDescripcion.PerformLayout();
             this.ResumeLayout(false);

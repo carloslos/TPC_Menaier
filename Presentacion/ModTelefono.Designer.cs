@@ -172,7 +172,6 @@
             // 
             // ModTelefono
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(385, 376);
             this.Controls.Add(this.tileNumero);
             this.Controls.Add(this.TxtNumero);
@@ -183,6 +182,7 @@
             this.MinimumSize = new System.Drawing.Size(385, 376);
             this.Name = "ModTelefono";
             this.Text = "Telefono";
+            this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.ModTelefono_Load);
             this.tileDescripcion.ResumeLayout(false);
             this.tileDescripcion.PerformLayout();

@@ -10,7 +10,7 @@ using Dominio;
 
 namespace Presentacion
 {
-    public partial class Productos : Presentacion.Metro_Template
+    public partial class Productos : MetroFramework.Forms.MetroForm
     {
         public Productos()
         {

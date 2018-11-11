@@ -27,13 +27,14 @@ namespace Negocio
 
                 while (conexion.Lector.Read())
                 {
-                    aux = new ClienteP { Datos = new Contacto() };
-                    aux.Datos.Nombre = (string)conexion.Lector["NOMBRE"];
-                    aux.Datos.Apellido = (string)conexion.Lector["APELLIDO"];
-                    aux.IdCliente = (int)conexion.Lector["IDCLIENTE"];
-                    aux.Datos.IdContacto = aux.IdCliente;
-                    aux.Datos.Dni = (int)Convert.ToInt64(conexion.Lector["DNICUIT"]);
-                    aux.Datos.Email = (string)conexion.Lector["EMAIL"];
+                    aux = new ClienteP
+                    {
+                        Nombre = (string)conexion.Lector["NOMBRE"],
+                        Apellido = (string)conexion.Lector["APELLIDO"],
+                        IdCliente = (int)conexion.Lector["IDCLIENTE"],
+                        Dni = (int)Convert.ToInt64(conexion.Lector["DNICUIT"]),
+                        Email = (string)conexion.Lector["EMAIL"]
+                    };
 
                     lstClientesP.Add(aux);
                 }
@@ -60,10 +61,10 @@ namespace Negocio
                 conexion = new AccesoDB();
                 conexion.SetearConsulta("INSERT INTO CLIENTES(NOMBRE,APELLIDO,DNICUIT,EMAIL,TIPOCLIENTE,ACTIVO) VALUES (@nombre, @apellido, @dni, @email, 'P', 1)");
                 conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@nombre", nuevo.Datos.Nombre);
-                conexion.Comando.Parameters.AddWithValue("@apellido", nuevo.Datos.Apellido);
-                conexion.Comando.Parameters.AddWithValue("@dni", nuevo.Datos.Dni);
-                conexion.Comando.Parameters.AddWithValue("@email", nuevo.Datos.Email);
+                conexion.Comando.Parameters.AddWithValue("@nombre", nuevo.Nombre);
+                conexion.Comando.Parameters.AddWithValue("@apellido", nuevo.Apellido);
+                conexion.Comando.Parameters.AddWithValue("@dni", nuevo.Dni);
+                conexion.Comando.Parameters.AddWithValue("@email", nuevo.Email);
 
                 conexion.AbrirConexion();
                 conexion.EjecutarAccion();
@@ -89,10 +90,10 @@ namespace Negocio
                 conexion = new AccesoDB();
                 conexion.SetearConsulta("UPDATE CLIENTES SET NOMBRE = @nombre, APELLIDO = @apellido, DNICUIT = @dni, EMAIL = @email WHERE IDCLIENTE = @idcliente");
                 conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@nombre", c.Datos.Nombre);
-                conexion.Comando.Parameters.AddWithValue("@apellido", c.Datos.Apellido);
-                conexion.Comando.Parameters.AddWithValue("@dni", c.Datos.Dni);
-                conexion.Comando.Parameters.AddWithValue("@email", c.Datos.Email);
+                conexion.Comando.Parameters.AddWithValue("@nombre", c.Nombre);
+                conexion.Comando.Parameters.AddWithValue("@apellido", c.Apellido);
+                conexion.Comando.Parameters.AddWithValue("@dni", c.Dni);
+                conexion.Comando.Parameters.AddWithValue("@email", c.Email);
                 conexion.Comando.Parameters.AddWithValue("@idcliente", c.IdCliente);
 
                 conexion.AbrirConexion();
