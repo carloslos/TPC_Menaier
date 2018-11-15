@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 /// <summary>
-/// TODO: MOD VENTA
+/// TODO: MOD VENTA - DESCONTAR STOCK
 /// </summary>
 namespace Presentacion
 {

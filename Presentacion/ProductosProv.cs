@@ -8,9 +8,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Negocio;
 using Dominio;
-/// <summary>
-/// TODO: AGREGAR BOTON GUARDAR/CANCELAR
-/// </summary>
+
 namespace Presentacion
 {
     public partial class ProductosProv : MetroFramework.Forms.MetroForm
@@ -30,14 +28,15 @@ namespace Presentacion
         {
             try
             {
+                // TODO: PRODUCTOS POR PROVEEDOR - ALGO MAL ACA
                 ProductoNegocio neg = new ProductoNegocio();
                 lstProductos = neg.Listar(0);
                 lstProductosProv = neg.Listar(IdProveedor);
                 if (lstProductos.Count > 0 && lstProductosProv.Count > 0)
                 {
-                    for (int i = lstProductos.Count - 1; i >= 0; i--)
+                    for (int i = lstProductos.Count - 1 ; i >= 0; i--)
                     {
-                        for (int j = lstProductosProv.Count - 1; i >= 0; i--)
+                        for (int j = lstProductosProv.Count - 1 ; i >= 0; i--)
                         {
                             if (lstProductos[i].IdProducto == lstProductosProv[j].IdProducto)
                             {
@@ -112,6 +111,29 @@ namespace Presentacion
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var popup = new Confirmacion(@"salir sin guardar los cambios?" + @""""))
+                {
+                    var R = popup.ShowDialog();
+                    if (R == DialogResult.OK)
+                    {
+                        bool conf = popup.R;
+                        if (conf == true)
+                        {
+                            this.Close();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void BtnAceptar_Click(object sender, EventArgs e)
         {
             ProductoNegocio negP = new ProductoNegocio();
             negP.EliminarProductoDeProveedor(IdProveedor);

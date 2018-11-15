@@ -27,12 +27,12 @@ namespace Negocio
                         "ORDER BY P.DESCRIPCION ASC");
                 }
                 else
-                {
+                {   
                     conexion.SetearConsulta("SELECT P.IDPRODUCTO, P.DESCRIPCION, M.DESCRIPCION, TP.DESCRIPCION, P.STOCKMIN, P.GANANCIA, P.IDMARCA, P.IDTIPOPRODUCTO FROM PRODUCTOS AS P " +
                         "INNER JOIN PRODUCTOS_X_PROVEEDOR AS PXP ON PXP.IDPRODUCTO = P.IDPRODUCTO " +
                         "INNER JOIN MARCAS AS M ON P.IDMARCA = M.IDMARCA " +
                         "INNER JOIN TIPOSPRODUCTO AS TP ON P.IDTIPOPRODUCTO = TP.IDTIPOPRODUCTO " +
-                        "WHERE P.ACTIVO = 1 AND PXP.IDPROVEEDOR = @Id " +
+                        "WHERE P.ACTIVO = 1 AND PXP.IDPROVEEDOR = @id " +
                         "ORDER BY P.DESCRIPCION ASC");
                     conexion.Comando.Parameters.Clear();
                     conexion.Comando.Parameters.AddWithValue("@id", Id);

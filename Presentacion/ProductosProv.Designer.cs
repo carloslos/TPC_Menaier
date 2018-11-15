@@ -34,7 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.BtnCerrar = new MetroFramework.Controls.MetroButton();
+            this.BtnVolver = new MetroFramework.Controls.MetroButton();
             this.dgvProductos = new MetroFramework.Controls.MetroGrid();
             this.dgvProductosProv = new MetroFramework.Controls.MetroGrid();
             this.tileProductos = new MetroFramework.Controls.MetroTile();
@@ -43,22 +43,23 @@
             this.lblProveedor = new MetroFramework.Controls.MetroLabel();
             this.BtnQuitar = new MetroFramework.Controls.MetroButton();
             this.BtnAgregar = new MetroFramework.Controls.MetroButton();
+            this.BtnAceptar = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductosProv)).BeginInit();
             this.tileProductos.SuspendLayout();
             this.tileProveedor.SuspendLayout();
             this.SuspendLayout();
             // 
-            // BtnCerrar
+            // BtnVolver
             // 
-            this.BtnCerrar.Location = new System.Drawing.Point(494, 401);
-            this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(50, 50);
-            this.BtnCerrar.TabIndex = 55;
-            this.BtnCerrar.Text = "X";
-            this.BtnCerrar.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.BtnCerrar.UseSelectable = true;
-            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
+            this.BtnVolver.Location = new System.Drawing.Point(494, 525);
+            this.BtnVolver.Name = "BtnVolver";
+            this.BtnVolver.Size = new System.Drawing.Size(50, 50);
+            this.BtnVolver.TabIndex = 55;
+            this.BtnVolver.Text = "Volver";
+            this.BtnVolver.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BtnVolver.UseSelectable = true;
+            this.BtnVolver.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // dgvProductos
             // 
@@ -210,7 +211,7 @@
             // 
             // BtnQuitar
             // 
-            this.BtnQuitar.Location = new System.Drawing.Point(494, 310);
+            this.BtnQuitar.Location = new System.Drawing.Point(494, 347);
             this.BtnQuitar.Name = "BtnQuitar";
             this.BtnQuitar.Size = new System.Drawing.Size(50, 50);
             this.BtnQuitar.TabIndex = 34;
@@ -221,7 +222,7 @@
             // 
             // BtnAgregar
             // 
-            this.BtnAgregar.Location = new System.Drawing.Point(494, 219);
+            this.BtnAgregar.Location = new System.Drawing.Point(494, 258);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(50, 50);
             this.BtnAgregar.TabIndex = 33;
@@ -230,11 +231,23 @@
             this.BtnAgregar.UseSelectable = true;
             this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
+            // BtnAceptar
+            // 
+            this.BtnAceptar.Location = new System.Drawing.Point(494, 436);
+            this.BtnAceptar.Name = "BtnAceptar";
+            this.BtnAceptar.Size = new System.Drawing.Size(50, 50);
+            this.BtnAceptar.TabIndex = 56;
+            this.BtnAceptar.Text = "Guardar";
+            this.BtnAceptar.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BtnAceptar.UseSelectable = true;
+            this.BtnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
+            // 
             // ProductosProv
             // 
             this.ClientSize = new System.Drawing.Size(1024, 600);
+            this.Controls.Add(this.BtnAceptar);
             this.Controls.Add(this.dgvProductosProv);
-            this.Controls.Add(this.BtnCerrar);
+            this.Controls.Add(this.BtnVolver);
             this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.tileProductos);
             this.Controls.Add(this.tileProveedor);
@@ -265,6 +278,7 @@
         private MetroFramework.Controls.MetroTile tileProductos;
         private MetroFramework.Controls.MetroLabel lblProductos;
         private MetroFramework.Controls.MetroTile tileProveedor;
-        private MetroFramework.Controls.MetroButton BtnCerrar;
+        private MetroFramework.Controls.MetroButton BtnVolver;
+        private MetroFramework.Controls.MetroButton BtnAceptar;
     }
 }
