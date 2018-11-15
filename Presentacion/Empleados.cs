@@ -75,25 +75,34 @@ namespace Presentacion
 
         private void BtnEditar_Click(object sender, EventArgs e)
         {
-            foreach (Form item in Application.OpenForms)
+            if (dgvEmpleados.SelectedCells.Count > 0)
             {
-                if (item.GetType() == typeof(ModEmpleado))
+                foreach (Form item in Application.OpenForms)
                 {
-                    item.Focus();
-                    return;
+                    if (item.GetType() == typeof(ModEmpleado))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    Empleado obj = (Empleado)dgvEmpleados.CurrentRow.DataBoundItem;
+                    ModEmpleado mod = new ModEmpleado(obj);
+                    mod.ShowDialog();
+                    LlenarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
                 }
             }
-            try
+            else
             {
-                Empleado obj = (Empleado)dgvEmpleados.CurrentRow.DataBoundItem;
-                ModEmpleado mod = new ModEmpleado(obj);
-                mod.ShowDialog();
-                LlenarTabla();
+                Mensaje m = new Mensaje("Ningun item seleccion.");
+                m.ShowDialog();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
@@ -124,45 +133,62 @@ namespace Presentacion
 
         private void BtnDetalles_Click(object sender, EventArgs e)
         {
-            foreach (Form item in Application.OpenForms)
+            if (dgvEmpleados.SelectedCells.Count > 0)
             {
-                if (item.GetType() == typeof(DetallesContacto))
+                foreach (Form item in Application.OpenForms)
                 {
-                    item.Focus();
-                    return;
+                    if (item.GetType() == typeof(DetallesContacto))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    DetallesContacto detalles = new DetallesContacto((Empleado)dgvEmpleados.CurrentRow.DataBoundItem);
+                    detalles.Show();
+                    LlenarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
                 }
             }
-            try
+            else
             {
-                DetallesContacto detalles = new DetallesContacto((Empleado)dgvEmpleados.CurrentRow.DataBoundItem);
-                detalles.Show();
-                LlenarTabla();
+                Mensaje m = new Mensaje("Ningun item seleccion.");
+                m.ShowDialog();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+
         }
 
         private void DgvEmpleados_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            foreach (Form item in Application.OpenForms)
+            if (dgvEmpleados.SelectedCells.Count > 0)
             {
-                if (item.GetType() == typeof(DetallesContacto))
+                foreach (Form item in Application.OpenForms)
                 {
-                    item.Focus();
-                    return;
+                    if (item.GetType() == typeof(DetallesContacto))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    DetallesContacto detalles = new DetallesContacto((Empleado)dgvEmpleados.CurrentRow.DataBoundItem);
+                    detalles.Show();
+                    LlenarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
                 }
             }
-            try
+            else
             {
-                DetallesContacto detalles = new DetallesContacto((Empleado)dgvEmpleados.CurrentRow.DataBoundItem);
-                detalles.Show();
-                LlenarTabla();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje("Ningun item seleccion.");
+                m.ShowDialog();
             }
         }
     }

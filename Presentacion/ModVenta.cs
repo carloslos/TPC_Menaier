@@ -47,11 +47,14 @@ namespace Presentacion
             if (edit == false)
             {
                 BtnMod.Text = "----";
-                BtnAgregarP.Visible = false;
-                BtnEliminarP.Visible = false;
+                BtnMod.Enabled = false;
+                BtnAgregarP.Enabled = false;
+                BtnEliminarP.Enabled = false;
                 BoxCliente.Enabled = false;
                 BoxEmpleado.Enabled = false;
                 DateFecha.Enabled = false;
+                BoxProducto.Enabled = false;
+                TxtCantidad.Enabled = false;
             }
             else
             {
@@ -86,24 +89,23 @@ namespace Presentacion
                 BoxCliente.DataSource = LstClientes;
 
                 EmpleadoNegocio negE = new EmpleadoNegocio();
-                BoxCliente.DisplayMember = "IdEmpleado";
-                BoxCliente.ValueMember = "IdEmpleado";
-                BoxCliente.DataSource = negE.Listar();
+                BoxEmpleado.DisplayMember = "Nombre";
+                BoxEmpleado.ValueMember = "IdEmpleado";
+                BoxEmpleado.DataSource = negE.Listar();
 
                 ProductoNegocio negP = new ProductoNegocio();
-                BoxCliente.DisplayMember = "Descripcion";
-                BoxCliente.ValueMember = "IdProducto";
-                BoxCliente.DataSource = negP.Listar(0);
+                BoxProducto.DisplayMember = "Descripcion";
+                BoxProducto.ValueMember = "IdProducto";
+                BoxProducto.DataSource = negP.Listar(0);
 
                 ProductoVendidoNegocio negPV = new ProductoVendidoNegocio();
                 BindProductos = new BindingList<ProductoVendido>(v.LstProductosVendidos);
-                BoxCliente.DataSource = BindProductos;
+                dgvVenta.DataSource = BindProductos;
                 
                 if (v.Cliente != null)
                 {
                     BoxCliente.SelectedValue = v.Cliente.IdCliente;
                     BoxCliente.SelectedText = v.Cliente.Nombre;
-                    RealizarValidaciones();
                 }
                 else
                 {
@@ -112,14 +114,15 @@ namespace Presentacion
 
                 if (v.Empleado != null)
                 {
-                    BoxEmpleado.SelectedValue = v.Cliente.IdCliente;
-                    BoxEmpleado.SelectedText = v.Cliente.Nombre;
+                    BoxEmpleado.SelectedValue = v.Empleado.IdEmpleado;
+                    BoxEmpleado.SelectedText = v.Empleado.IdEmpleado.ToString();
                     RealizarValidaciones();
                 }
                 else
                 {
                     BoxEmpleado.SelectedIndex = -1;
                 }
+                BoxProducto.SelectedIndex = -1;
 
                 LlenarTabla();
                 ValidarEntradas();
@@ -164,7 +167,7 @@ namespace Presentacion
                 v.Cliente = (Cliente)BoxCliente.SelectedItem;
                 v.Empleado = (Empleado)BoxEmpleado.SelectedItem;
                 v.FechaVenta = DateFecha.Value;
-                v.Precio = (float)Convert.ToDouble(TxtTotal.Text);
+                v.Monto = (float)Convert.ToDouble(TxtTotal.Text);
                 if (v.IdVenta != 0)
                 {
                     negV.Modificar(v);
@@ -241,7 +244,7 @@ namespace Presentacion
             for (int i = 0; i < dgvVenta.RowCount; i++)
             {
                 ProductoVendido pv = (ProductoVendido)dgvVenta.Rows[i].DataBoundItem;
-                total += pv.Precio;
+                total += pv.PrecioT;
             }
             TxtTotal.Text = "$ " + total.ToString();
         }
@@ -330,7 +333,8 @@ namespace Presentacion
                 };
                 if (negPV.DescontarStock(pv))
                 {
-                    pv.Precio = negPV.CalcularPrecio(pv);
+                    pv.PrecioU = negPV.CalcularPrecio(pv.Producto.IdProducto);
+                    pv.PrecioT = pv.PrecioU * pv.Cantidad;
                     v.LstProductosVendidos.Add(pv);
                     BindProductos.ResetBindings();
 
@@ -338,6 +342,11 @@ namespace Presentacion
                     TxtCantidad.Text = "";
                     ProductoVal[0] = false;
                     ProductoVal[1] = false;
+                }
+                else
+                {
+                    Mensaje m = new Mensaje("No hay stock suficiente.");
+                    m.ShowDialog();
                 }
             }
             catch (Exception ex)
@@ -348,29 +357,38 @@ namespace Presentacion
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
-            ProductoVendidoNegocio neg = new ProductoVendidoNegocio();
-            ProductoVendido l = (ProductoVendido)dgvVenta.CurrentRow.DataBoundItem;
-            try
+            if (dgvVenta.SelectedCells.Count > 0)
             {
-                using (var popup = new Confirmacion(@"eliminar """ + l.ToString() + @""""))
+                ProductoVendidoNegocio neg = new ProductoVendidoNegocio();
+                ProductoVendido l = (ProductoVendido)dgvVenta.CurrentRow.DataBoundItem;
+                try
                 {
-                    var R = popup.ShowDialog();
-                    if (R == DialogResult.OK)
+                    using (var popup = new Confirmacion(@"eliminar """ + l.ToString() + @""""))
                     {
-                        bool conf = popup.R;
-                        if (l != null && conf == true)
+                        var R = popup.ShowDialog();
+                        if (R == DialogResult.OK)
                         {
-                            neg.EliminarFisico(l.IdPxv);
-                            BindProductos.Remove(l);
-                            LlenarTabla();
+                            bool conf = popup.R;
+                            if (l != null && conf == true)
+                            {
+                                neg.EliminarFisico(l.IdPxv);
+                                BindProductos.Remove(l);
+                                LlenarTabla();
+                            }
                         }
                     }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje("Ningun item seleccion.");
+                m.ShowDialog();
             }
+
         }
 
         private void TxtCantidad_TextChanged(object sender, EventArgs e)

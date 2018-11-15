@@ -39,6 +39,7 @@ namespace Presentacion
                 dgvProductos.Columns["Descripcion"].HeaderText = "Descripción";
                 dgvProductos.Columns["TipoProducto"].HeaderText = "Tipo de producto";
                 dgvProductos.Columns["StockMin"].HeaderText = "Stock Minimo";
+                dgvProductos.Columns["Ganancia"].HeaderText = "Ganancia (%)";
                 dgvProductos.Columns["Activo"].Visible = false;
                 dgvProductos.Update();
                 dgvProductos.Refresh();
@@ -73,6 +74,7 @@ namespace Presentacion
 
         private void BtnEditar_Click(object sender, EventArgs e)
         {
+            if (dgvProductos.SelectedCells.Count > 0)
             {
                 foreach (Form item in Application.OpenForms)
                 {
@@ -94,10 +96,16 @@ namespace Presentacion
                     MessageBox.Show(ex.ToString());
                 }
             }
+            else
+            {
+                Mensaje m = new Mensaje("Ningun item seleccion.");
+                m.ShowDialog();
+            }
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
+            if (dgvProductos.SelectedCells.Count > 0)
             {
                 ProductoNegocio neg = new ProductoNegocio();
                 Producto p = (Producto)dgvProductos.CurrentRow.DataBoundItem;
@@ -121,6 +129,11 @@ namespace Presentacion
                 {
                     MessageBox.Show(ex.ToString());
                 }
+            }
+            else
+            {
+                Mensaje m = new Mensaje("Ningun item seleccion.");
+                m.ShowDialog();
             }
         }
     }

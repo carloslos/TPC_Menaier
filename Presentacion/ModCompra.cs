@@ -315,56 +315,74 @@ namespace Presentacion
 
         private void BtnEditar_Click(object sender, EventArgs e)
         {
-            foreach (Form item in Application.OpenForms)
+            if (dgvLotes.SelectedCells.Count > 0)
             {
-                if (item.GetType() == typeof(ModLote))
+                foreach (Form item in Application.OpenForms)
                 {
-                    item.Focus();
-                    return;
+                    if (item.GetType() == typeof(ModLote))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    Lote obj = (Lote)dgvLotes.CurrentRow.DataBoundItem;
+                    ModLote mod = new ModLote(obj);
+                    DialogResult res = mod.ShowDialog();
+                    if (res == DialogResult.OK)
+                    {
+                        obj = mod.l;
+                        BindLotes.ResetBindings();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
                 }
             }
-            try
+            else
             {
-                Lote obj = (Lote)dgvLotes.CurrentRow.DataBoundItem;
-                ModLote mod = new ModLote(obj);
-                DialogResult res = mod.ShowDialog();
-                if (res == DialogResult.OK)
-                {
-                    obj = mod.l;
-                    BindLotes.ResetBindings();
-                }
+                Mensaje m = new Mensaje("Ningun item seleccion.");
+                m.ShowDialog();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
-            LoteNegocio neg = new LoteNegocio();
-            Lote l = (Lote)dgvLotes.CurrentRow.DataBoundItem;
-            try
+            if (dgvLotes.SelectedCells.Count > 0)
             {
-                using (var popup = new Confirmacion(@"eliminar """ + l.ToString() + @""""))
+                LoteNegocio neg = new LoteNegocio();
+                Lote l = (Lote)dgvLotes.CurrentRow.DataBoundItem;
+                try
                 {
-                    var R = popup.ShowDialog();
-                    if (R == DialogResult.OK)
+                    using (var popup = new Confirmacion(@"eliminar """ + l.ToString() + @""""))
                     {
-                        bool conf = popup.R;
-                        if (l != null && conf == true)
+                        var R = popup.ShowDialog();
+                        if (R == DialogResult.OK)
                         {
-                            neg.EliminarLogico(l.IdLote);
-                            BindLotes.Remove(l);
-                            LlenarTabla();
+                            bool conf = popup.R;
+                            if (l != null && conf == true)
+                            {
+                                neg.EliminarLogico(l.IdLote);
+                                BindLotes.Remove(l);
+                                LlenarTabla();
+                            }
                         }
                     }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje("Ningun item seleccion.");
+                m.ShowDialog();
             }
+
         }
     }
 }

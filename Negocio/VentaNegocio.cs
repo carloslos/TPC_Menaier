@@ -58,6 +58,7 @@ namespace Negocio
                         aux.Cliente = auxC;
                     }
                     aux.Cliente.IdCliente = (int)conexion.Lector[6];
+                    aux.Monto = CalcularMonto(aux.IdVenta);
 
                     lstVentas.Add(aux);
                 }
@@ -141,6 +142,27 @@ namespace Negocio
                 {
                     conexion.CerrarConexion();
                 }
+            }
+        }
+
+
+        public float CalcularMonto(int IdVenta)
+        {
+            float monto = 0;
+            List<Lote> lstLotes = new List<Lote>();
+            LoteNegocio negL = new LoteNegocio();
+            try
+            {
+                lstLotes = negL.Listar(IdVenta);
+                foreach(Lote l in lstLotes)
+                {
+                    monto += (l.CostoPU * l.UnidadesP);
+                }
+                return monto;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 

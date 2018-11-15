@@ -121,51 +121,69 @@ namespace Presentacion
 
         private void BtnEditarT_Click(object sender, EventArgs e)
         {
-            foreach (Form item in Application.OpenForms)
+            if (dgvTelefonos.SelectedCells.Count > 0)
             {
-                if (item.GetType() == typeof(ModTelefono))
+                foreach (Form item in Application.OpenForms)
                 {
-                    item.Focus();
-                    return;
+                    if (item.GetType() == typeof(ModTelefono))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    Telefono obj = (Telefono)dgvTelefonos.CurrentRow.DataBoundItem;
+                    ModTelefono mod = new ModTelefono(obj);
+                    mod.ShowDialog();
+                    LlenarTablaT();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
                 }
             }
-            try
+            else
             {
-                Telefono obj = (Telefono)dgvTelefonos.CurrentRow.DataBoundItem;
-                ModTelefono mod = new ModTelefono(obj);
-                mod.ShowDialog();
-                LlenarTablaT();
+                Mensaje m = new Mensaje("Ningun item seleccion.");
+                m.ShowDialog();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+
         }
 
         private void BtnEliminarT_Click(object sender, EventArgs e)
         {
+            if (dgvTelefonos.SelectedCells.Count > 0)
+            {
                 TelefonoNegocio neg = new TelefonoNegocio();
                 Telefono em = (Telefono)dgvTelefonos.CurrentRow.DataBoundItem;
-            try
-            {
-                using (var popup = new Confirmacion(@"eliminar """ + em.ToString() + @""""))
+                try
                 {
-                    var R = popup.ShowDialog();
-                    if (R == DialogResult.OK)
+                    using (var popup = new Confirmacion(@"eliminar """ + em.ToString() + @""""))
                     {
-                        bool conf = popup.R;
-                        if (em != null && conf == true)
+                        var R = popup.ShowDialog();
+                        if (R == DialogResult.OK)
                         {
-                            neg.EliminarLogico(em.IdTelefono);
-                            LlenarTablaT();
+                            bool conf = popup.R;
+                            if (em != null && conf == true)
+                            {
+                                neg.EliminarLogico(em.IdTelefono);
+                                LlenarTablaT();
+                            }
                         }
                     }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje("Ningun item seleccion.");
+                m.ShowDialog();
             }
+
         }
 
         private void BtnAgregarD_Click(object sender, EventArgs e)
@@ -192,52 +210,69 @@ namespace Presentacion
 
         private void BtnEditarD_Click(object sender, EventArgs e)
         {
-
-            foreach (Form item in Application.OpenForms)
+            if (dgvDomicilios.SelectedCells.Count > 0)
             {
-                if (item.GetType() == typeof(ModDomicilio))
+                foreach (Form item in Application.OpenForms)
                 {
-                    item.Focus();
-                    return;
+                    if (item.GetType() == typeof(ModDomicilio))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    Domicilio obj = (Domicilio)dgvDomicilios.CurrentRow.DataBoundItem;
+                    ModDomicilio mod = new ModDomicilio(obj);
+                    mod.ShowDialog();
+                    LlenarTablaD();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
                 }
             }
-            try
+            else
             {
-                Domicilio obj = (Domicilio)dgvDomicilios.CurrentRow.DataBoundItem;
-                ModDomicilio mod = new ModDomicilio(obj);
-                mod.ShowDialog();
-                LlenarTablaD();
+                Mensaje m = new Mensaje("Ningun item seleccion.");
+                m.ShowDialog();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+
         }
 
         private void BtnEliminarD_Click(object sender, EventArgs e)
         {
-            DomicilioNegocio neg = new DomicilioNegocio();
-            Domicilio d = (Domicilio)dgvDomicilios.CurrentRow.DataBoundItem;
-            try
+            if (dgvDomicilios.SelectedCells.Count > 0)
             {
-                using (var popup = new Confirmacion(@"eliminar """ + d.ToString() + @""""))
+                DomicilioNegocio neg = new DomicilioNegocio();
+                Domicilio d = (Domicilio)dgvDomicilios.CurrentRow.DataBoundItem;
+                try
                 {
-                    var R = popup.ShowDialog();
-                    if (R == DialogResult.OK)
+                    using (var popup = new Confirmacion(@"eliminar """ + d.ToString() + @""""))
                     {
-                        bool conf = popup.R;
-                        if (d != null && conf == true)
+                        var R = popup.ShowDialog();
+                        if (R == DialogResult.OK)
                         {
-                            neg.EliminarLogico(d.IdDomicilio);
-                            LlenarTablaD();
+                            bool conf = popup.R;
+                            if (d != null && conf == true)
+                            {
+                                neg.EliminarLogico(d.IdDomicilio);
+                                LlenarTablaD();
+                            }
                         }
                     }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje("Ningun item seleccion.");
+                m.ShowDialog();
             }
+
         }
     }
 }

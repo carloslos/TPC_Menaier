@@ -12,6 +12,7 @@ namespace Dominio
         public int IdVenta { get; set; }
         public Producto Producto { get; set; }
         public int Cantidad { get; set; }
-        public float Precio { get; set; }
+        public float PrecioT { get; set; }
+        public float PrecioU { get; set; }
     }
 }

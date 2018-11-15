@@ -22,7 +22,7 @@ namespace Negocio
                                         "INNER JOIN PRODUCTOS AS P ON PXV.IDPRODUCTO = P.IDPRODUCTO " +
                                         "INNER JOIN MARCAS AS M ON P.IDMARCA = M.IDMARCA " +
                                         "INNER JOIN TIPOSPRODUCTO AS TP ON P.IDTIPOPRODUCTO = TP.IDTIPOPRODUCTO " +
-                                        "WHERE PXV.ACTIVO = 1 AND IDVENTA = @id");
+                                        "WHERE IDVENTA = @id");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@id", id);
                 conexion.AbrirConexion();
@@ -45,7 +45,8 @@ namespace Negocio
                     aux.Producto.StockMin = (int)conexion.Lector[6];
                     aux.Producto.TipoProducto.Descripcion = (string)conexion.Lector[5];
                     aux.Producto.TipoProducto.IdTipoProducto = (int)conexion.Lector[8];
-                    aux.Precio = CalcularPrecio(aux);
+                    aux.PrecioU = CalcularPrecio(aux.Producto.IdProducto);
+                    aux.PrecioT = aux.PrecioU * aux.Cantidad;
 
                     lstProductosVendidos.Add(aux);
                 }
@@ -66,31 +67,26 @@ namespace Negocio
             }
         }
 
-        public float CalcularPrecio(ProductoVendido pv)
+        public float CalcularPrecio(int IdProducto)
         {
             float precio;
-            Lote lote;
             AccesoDB conexion = null;
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("SELECT TOP 1 L.COSTOPU FROM LOTES AS L " +
+                conexion.SetearConsulta("SELECT TOP 1 L.COSTOPU, P.GANANCIA FROM LOTES AS L " +
                     "INNER JOIN COMPRAS AS C ON C.IDCOMPRA = L.IDCOMPRA " +
+                    "INNER JOIN PRODUCTOS AS P ON P.IDPRODUCTO = L.IDPRODUCTO " +
                     "WHERE L.IDPRODUCTO = @idproducto " +
                     "ORDER BY C.FECHACOMPRA ASC");
                 conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@idproducto", pv.Producto.IdProducto);
+                conexion.Comando.Parameters.AddWithValue("@idproducto", IdProducto);
 
                 conexion.AbrirConexion();
                 conexion.EjecutarConsulta();
 
-                lote = new Lote
-                {
-                    IdLote = (int)conexion.Lector[0],
-                    CostoPU = (float)Convert.ToDouble(conexion.Lector[1]),
-                    UnidadesE = (int)conexion.Lector[2]
-                };
-                precio = lote.CostoPU * pv.Cantidad;
+                precio = (float)Convert.ToDouble(conexion.Lector[0]) * (float)Convert.ToDouble(conexion.Lector[1]);
+
                 return precio;
             }
             catch (Exception ex)
@@ -130,7 +126,7 @@ namespace Negocio
                 {
                     lote = new Lote
                     {
-                        IdLote = (int)conexion.Lector[0],
+                        IdLote = (long)conexion.Lector[0],
                         UnidadesE = (int)conexion.Lector[1]
                     };
                     stockTotal += lote.UnidadesE;

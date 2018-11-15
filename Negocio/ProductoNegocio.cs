@@ -12,6 +12,7 @@ namespace Negocio
         public List<Producto> Listar(int Id)
         {
             Producto aux;
+            LoteNegocio negL = new LoteNegocio();
             List<Producto> lstProductos = new List<Producto>();
             AccesoDB conexion = null;
             try
@@ -55,6 +56,7 @@ namespace Negocio
                     aux.Marca.Descripcion = (string)conexion.Lector[2];
                     aux.TipoProducto.IdTipoProducto = (int)conexion.Lector["IDTIPOPRODUCTO"];
                     aux.TipoProducto.Descripcion = (string)conexion.Lector[3];
+                    aux.Stock = negL.CalcularStock(aux.IdProducto);
 
                     lstProductos.Add(aux);
                 }

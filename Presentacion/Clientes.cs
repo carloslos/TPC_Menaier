@@ -127,74 +127,101 @@ namespace Presentacion
 
         private void BtnEditarP_Click(object sender, EventArgs e)
         {
-            foreach (Form item in Application.OpenForms)
+            if (dgvClientesP.SelectedCells.Count > 0)
             {
-                if (item.GetType() == typeof(ModClienteP))
+                foreach (Form item in Application.OpenForms)
                 {
-                    item.Focus();
-                    return;
+                    if (item.GetType() == typeof(ModClienteP))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    ClienteP obj = (ClienteP)dgvClientesP.CurrentRow.DataBoundItem;
+                    ModClienteP mod = new ModClienteP(obj);
+                    mod.Show();
+                    LlenarTablaP();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
                 }
             }
-            try
+            else
             {
-                ClienteP obj = (ClienteP)dgvClientesP.CurrentRow.DataBoundItem;
-                ModClienteP mod = new ModClienteP(obj);
-                mod.Show();
-                LlenarTablaP();
+                Mensaje m = new Mensaje("Ningun item seleccion.");
+                m.ShowDialog();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+
         }
 
         private void BtnDetallesP_Click(object sender, EventArgs e)
         {
-            foreach (Form item in Application.OpenForms)
+            if (dgvClientesP.SelectedCells.Count > 0)
             {
-                if (item.GetType() == typeof(DetallesContacto))
+                foreach (Form item in Application.OpenForms)
                 {
-                    item.Focus();
-                    return;
+                    if (item.GetType() == typeof(DetallesContacto))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    ClienteP aux = (ClienteP)dgvClientesP.CurrentRow.DataBoundItem;
+                    DetallesContacto detalles = new DetallesContacto(aux);
+                    detalles.Show();
+                    LlenarTablaP();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
                 }
             }
-            try
+            else
             {
-                ClienteP aux = (ClienteP)dgvClientesP.CurrentRow.DataBoundItem;
-                DetallesContacto detalles = new DetallesContacto(aux);
-                detalles.Show();
-                LlenarTablaP();
+                Mensaje m = new Mensaje("Ningun item seleccion.");
+                m.ShowDialog();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+
         }
 
         private void BtnEliminarP_Click(object sender, EventArgs e)
         {
-            ClientePNegocio neg = new ClientePNegocio();
-            ClienteP c = (ClienteP)dgvClientesP.CurrentRow.DataBoundItem;
-            try
+            if (dgvClientesP.SelectedCells.Count > 0)
             {
-                using (var popup = new Confirmacion(@"eliminar """ + c.ToString() + @""""))
+                ClientePNegocio neg = new ClientePNegocio();
+                ClienteP c = (ClienteP)dgvClientesP.CurrentRow.DataBoundItem;
+                try
                 {
-                    var R = popup.ShowDialog();
-                    if (R == DialogResult.OK)
+                    using (var popup = new Confirmacion(@"eliminar """ + c.ToString() + @""""))
                     {
-                        bool conf = popup.R;
-                        if (c != null && conf == true)
+                        var R = popup.ShowDialog();
+                        if (R == DialogResult.OK)
                         {
-                            neg.EliminarLogico(c.IdCliente);
-                            LlenarTablaP();
+                            bool conf = popup.R;
+                            if (c != null && conf == true)
+                            {
+                                neg.EliminarLogico(c.IdCliente);
+                                LlenarTablaP();
+                            }
                         }
                     }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje("Ningun item seleccion.");
+                m.ShowDialog();
             }
+
         }
 
         private void BtnAgregarE_Click(object sender, EventArgs e)
@@ -221,75 +248,102 @@ namespace Presentacion
 
         private void BtnEditarE_Click(object sender, EventArgs e)
         {
-            foreach (Form item in Application.OpenForms)
+            if (dgvClientesE.SelectedCells.Count > 0)
             {
-                if (item.GetType() == typeof(ModClienteE))
+                foreach (Form item in Application.OpenForms)
                 {
-                    item.Focus();
-                    return;
+                    if (item.GetType() == typeof(ModClienteE))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    ClienteE obj = (ClienteE)dgvClientesE.CurrentRow.DataBoundItem;
+                    ModClienteE mod = new ModClienteE(obj);
+                    mod.Show();
+                    LlenarTablaE();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
                 }
             }
-            try
+            else
             {
-                ClienteE obj = (ClienteE)dgvClientesE.CurrentRow.DataBoundItem;
-                ModClienteE mod = new ModClienteE(obj);
-                mod.Show();
-                LlenarTablaE();
+                Mensaje m = new Mensaje("Ningun item seleccion.");
+                m.ShowDialog();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+
         }
 
         private void BtnContactosE_Click(object sender, EventArgs e)
         {
-            foreach (Form item in Application.OpenForms)
+            if (dgvClientesE.SelectedCells.Count > 0)
             {
-                if (item.GetType() == typeof(Contactos))
+                foreach (Form item in Application.OpenForms)
                 {
-                    item.Focus();
-                    return;
+                    if (item.GetType() == typeof(Contactos))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    ClienteE E = new ClienteE();
+                    E = (ClienteE)dgvClientesE.CurrentRow.DataBoundItem;
+                    Contactos c = new Contactos(E.GetId());
+                    c.Show();
+                    LlenarTablaE();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
                 }
             }
-            try
+            else
             {
-                ClienteE E = new ClienteE();
-                E = (ClienteE)dgvClientesE.CurrentRow.DataBoundItem;
-                Contactos c = new Contactos(E.GetId());
-                c.Show();
-                LlenarTablaE();
+                Mensaje m = new Mensaje("Ningun item seleccion.");
+                m.ShowDialog();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+
         }
 
         private void BtnEliminarE_Click(object sender, EventArgs e)
         {
-            ClienteENegocio neg = new ClienteENegocio();
-            ClienteE c = (ClienteE)dgvClientesE.CurrentRow.DataBoundItem;
-            try
+            if (dgvClientesE.SelectedCells.Count > 0)
             {
-                using (var popup = new Confirmacion(@"eliminar """ + c.ToString() + @""""))
+                ClienteENegocio neg = new ClienteENegocio();
+                ClienteE c = (ClienteE)dgvClientesE.CurrentRow.DataBoundItem;
+                try
                 {
-                    var R = popup.ShowDialog();
-                    if (R == DialogResult.OK)
+                    using (var popup = new Confirmacion(@"eliminar """ + c.ToString() + @""""))
                     {
-                        bool conf = popup.R;
-                        if (c != null && conf == true)
+                        var R = popup.ShowDialog();
+                        if (R == DialogResult.OK)
                         {
-                            neg.EliminarLogico(c.IdCliente);
-                            LlenarTablaE();
+                            bool conf = popup.R;
+                            if (c != null && conf == true)
+                            {
+                                neg.EliminarLogico(c.IdCliente);
+                                LlenarTablaE();
+                            }
                         }
                     }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje("Ningun item seleccion.");
+                m.ShowDialog();
             }
+
         }
     }
 }

@@ -65,27 +65,36 @@ namespace Presentacion
 
         private void BtnDetalles_Click(object sender, EventArgs e)
         {
-            foreach (Form item in Application.OpenForms)
+            if (dgvCompras.SelectedCells.Count > 0)
             {
-                if (item.GetType() == typeof(ModCompra))
+                foreach (Form item in Application.OpenForms)
                 {
-                    item.Focus();
-                    return;
+                    if (item.GetType() == typeof(ModCompra))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    LoteNegocio negL = new LoteNegocio();
+                    Compra c = (Compra)dgvCompras.CurrentRow.DataBoundItem;
+                    c.LstLotes = negL.Listar(c.IdCompra);
+                    ModCompra detalles = new ModCompra(c, false);
+                    detalles.Show();
+                    LlenarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
                 }
             }
-            try
+            else
             {
-                LoteNegocio negL = new LoteNegocio();
-                Compra c = (Compra)dgvCompras.CurrentRow.DataBoundItem;
-                c.LstLotes = negL.Listar(c.IdCompra);
-                ModCompra detalles = new ModCompra(c, false);
-                detalles.Show();
-                LlenarTabla();
+                Mensaje m = new Mensaje("Ningun item seleccion.");
+                m.ShowDialog();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+
         }
 
         private void DgvCompras_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -112,54 +121,71 @@ namespace Presentacion
 
         private void BtnEditar_Click(object sender, EventArgs e)
         {
-            foreach (Form item in Application.OpenForms)
+            if (dgvCompras.SelectedCells.Count > 0)
             {
-                if (item.GetType() == typeof(ModCompra))
+                foreach (Form item in Application.OpenForms)
                 {
-                    item.Focus();
-                    return;
+                    if (item.GetType() == typeof(ModCompra))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    LoteNegocio negL = new LoteNegocio();
+                    Compra c = (Compra)dgvCompras.CurrentRow.DataBoundItem;
+                    c.LstLotes = negL.Listar(c.IdCompra);
+                    ModCompra detalles = new ModCompra(c, true);
+                    detalles.ShowDialog();
+                    LlenarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
                 }
             }
-            try
+            else
             {
-                LoteNegocio negL = new LoteNegocio();
-                Compra c = (Compra)dgvCompras.CurrentRow.DataBoundItem;
-                c.LstLotes = negL.Listar(c.IdCompra);
-                ModCompra detalles = new ModCompra(c, true);
-                detalles.ShowDialog();
-                LlenarTabla();
+                Mensaje m = new Mensaje("Ningun item seleccion.");
+                m.ShowDialog();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
-            CompraNegocio negC = new CompraNegocio();
-            LoteNegocio negL = new LoteNegocio();
-            Compra c = (Compra)dgvCompras.CurrentRow.DataBoundItem;
-            try
+            if (dgvCompras.SelectedCells.Count > 0)
             {
-                using (var popup = new Confirmacion(@"eliminar """ + c.ToString() + @""""))
+                CompraNegocio negC = new CompraNegocio();
+                LoteNegocio negL = new LoteNegocio();
+                Compra c = (Compra)dgvCompras.CurrentRow.DataBoundItem;
+                try
                 {
-                    var R = popup.ShowDialog();
-                    if (R == DialogResult.OK)
+                    using (var popup = new Confirmacion(@"eliminar """ + c.ToString() + @""""))
                     {
-                        bool conf = popup.R;
-                        if (c != null && conf == true)
+                        var R = popup.ShowDialog();
+                        if (R == DialogResult.OK)
                         {
-                            negL.EliminarLotesDeCompra(c.IdCompra);
-                            negC.EliminarLogico(c.IdCompra);
-                            LlenarTabla();
+                            bool conf = popup.R;
+                            if (c != null && conf == true)
+                            {
+                                negL.EliminarLotesDeCompra(c.IdCompra);
+                                negC.EliminarLogico(c.IdCompra);
+                                LlenarTabla();
+                            }
                         }
                     }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje("Ningun item seleccion.");
+                m.ShowDialog();
             }
         }
     }

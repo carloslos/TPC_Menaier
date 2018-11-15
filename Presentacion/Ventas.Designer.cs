@@ -34,6 +34,7 @@
             this.dgvVentas = new MetroFramework.Controls.MetroGrid();
             this.BtnDetalles = new MetroFramework.Controls.MetroButton();
             this.BtnAgregar = new MetroFramework.Controls.MetroButton();
+            this.BtnEditar = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,7 +93,7 @@
             // BtnDetalles
             // 
             this.BtnDetalles.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnDetalles.Location = new System.Drawing.Point(495, 559);
+            this.BtnDetalles.Location = new System.Drawing.Point(538, 559);
             this.BtnDetalles.Name = "BtnDetalles";
             this.BtnDetalles.Size = new System.Drawing.Size(118, 23);
             this.BtnDetalles.TabIndex = 29;
@@ -104,7 +105,7 @@
             // BtnAgregar
             // 
             this.BtnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnAgregar.Location = new System.Drawing.Point(286, 559);
+            this.BtnAgregar.Location = new System.Drawing.Point(244, 559);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(118, 23);
             this.BtnAgregar.TabIndex = 28;
@@ -113,9 +114,22 @@
             this.BtnAgregar.UseSelectable = true;
             this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
+            // BtnEditar
+            // 
+            this.BtnEditar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnEditar.Location = new System.Drawing.Point(391, 559);
+            this.BtnEditar.Name = "BtnEditar";
+            this.BtnEditar.Size = new System.Drawing.Size(118, 23);
+            this.BtnEditar.TabIndex = 31;
+            this.BtnEditar.Text = "Editar";
+            this.BtnEditar.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BtnEditar.UseSelectable = true;
+            this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
+            // 
             // Ventas
             // 
             this.ClientSize = new System.Drawing.Size(900, 600);
+            this.Controls.Add(this.BtnEditar);
             this.Controls.Add(this.dgvVentas);
             this.Controls.Add(this.BtnDetalles);
             this.Controls.Add(this.BtnAgregar);
@@ -134,5 +148,6 @@
         private MetroFramework.Controls.MetroGrid dgvVentas;
         private MetroFramework.Controls.MetroButton BtnDetalles;
         private MetroFramework.Controls.MetroButton BtnAgregar;
+        private MetroFramework.Controls.MetroButton BtnEditar;
     }
 }

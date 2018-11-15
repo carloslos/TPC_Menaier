@@ -75,6 +75,7 @@ namespace Presentacion
 
         private void BtnEditar_Click(object sender, EventArgs e)
         {
+            if (dgvMarcas.SelectedCells.Count > 0)
             {
                 foreach (Form item in Application.OpenForms)
                 {
@@ -96,10 +97,16 @@ namespace Presentacion
                     MessageBox.Show(ex.ToString());
                 }
             }
+            else
+            {
+                Mensaje m = new Mensaje("Ningun item seleccion.");
+                m.ShowDialog();
+            }
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
+            if (dgvMarcas.SelectedCells.Count > 0)
             {
                 MarcaNegocio neg = new MarcaNegocio();
                 Marca m = (Marca)dgvMarcas.CurrentRow.DataBoundItem;
@@ -123,6 +130,11 @@ namespace Presentacion
                 {
                     MessageBox.Show(ex.ToString());
                 }
+            }
+            else
+            {
+                Mensaje m = new Mensaje("Ningun item seleccion.");
+                m.ShowDialog();
             }
         }
     }

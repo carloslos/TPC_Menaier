@@ -141,7 +141,6 @@ C:\Users\tisoporte\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.
 C:\Users\tisoporte\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.Empleados.resources
 C:\Users\tisoporte\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.Login.resources
 C:\Users\tisoporte\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.Marcas.resources
-C:\Users\tisoporte\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.Metro_Template.resources
 C:\Users\tisoporte\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.Productos.resources
 C:\Users\tisoporte\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ProductosProv.resources
 C:\Users\tisoporte\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.Properties.Resources.resources
@@ -211,3 +210,4 @@ C:\Users\Carlos\Source\Repos\Azhar1921\TPC_Menaier\Presentacion\obj\Debug\aa-DJ\
 C:\Users\Carlos\Source\Repos\Azhar1921\TPC_Menaier\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete
 C:\Users\Carlos\Source\Repos\Azhar1921\TPC_Menaier\Presentacion\obj\Debug\Presentacion.exe
 C:\Users\Carlos\Source\Repos\Azhar1921\TPC_Menaier\Presentacion\obj\Debug\Presentacion.pdb
+C:\Users\tisoporte\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.Mensaje.resources

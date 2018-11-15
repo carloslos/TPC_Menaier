@@ -73,99 +73,136 @@ namespace Presentacion
 
         private void BtnEditar_Click(object sender, EventArgs e)
         {
-            foreach (Form item in Application.OpenForms)
+
+            if (dgvProveedores.SelectedCells.Count > 0)
             {
-                if (item.GetType() == typeof(ModProveedor))
+                foreach (Form item in Application.OpenForms)
                 {
-                    item.Focus();
-                    return;
+                    if (item.GetType() == typeof(ModProveedor))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    Proveedor obj = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
+                    ModProveedor mod = new ModProveedor(obj);
+                    mod.ShowDialog();
+                    LlenarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
                 }
             }
-            try
+            else
             {
-                Proveedor obj = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
-                ModProveedor mod = new ModProveedor(obj);
-                mod.ShowDialog();
-                LlenarTabla();
+                Mensaje m = new Mensaje("Ningun item seleccion.");
+                m.ShowDialog();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
-            ProveedorNegocio neg = new ProveedorNegocio();
-            Proveedor p = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
-            try
+            if (dgvProveedores.SelectedCells.Count > 0)
             {
-                using (var popup = new Confirmacion(@"eliminar """ + p.ToString() + @""""))
+                ProveedorNegocio neg = new ProveedorNegocio();
+                Proveedor p = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
+                try
                 {
-                    var R = popup.ShowDialog();
-                    if (R == DialogResult.OK)
+                    using (var popup = new Confirmacion(@"eliminar """ + p.ToString() + @""""))
                     {
-                        bool conf = popup.R;
-                        if (p != null && conf == true)
+                        var R = popup.ShowDialog();
+                        if (R == DialogResult.OK)
                         {
-                            neg.EliminarLogico(p.IdProveedor);
-                            LlenarTabla();
+                            bool conf = popup.R;
+                            if (p != null && conf == true)
+                            {
+                                neg.EliminarLogico(p.IdProveedor);
+                                LlenarTabla();
+                            }
                         }
                     }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje("Ningun item seleccion.");
+                m.ShowDialog();
             }
+
         }
 
         private void BtnProductos_Click(object sender, EventArgs e)
         {
-            foreach (Form item in Application.OpenForms)
+            if (dgvProveedores.SelectedCells.Count > 0)
             {
-                if (item.GetType() == typeof(Contactos))
+                foreach (Form item in Application.OpenForms)
                 {
-                    item.Focus();
-                    return;
+                    if (item.GetType() == typeof(Contactos))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    Proveedor p = new Proveedor();
+                    p = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
+                    ProductosProv pp = new ProductosProv(p.ToString(), p.GetId());
+                    pp.Show();
+                    LlenarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
                 }
             }
-            try
+            else
             {
-                Proveedor p = new Proveedor();
-                p = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
-                ProductosProv pp = new ProductosProv(p.ToString(), p.GetId());
-                pp.Show();
-                LlenarTabla();
+                Mensaje m = new Mensaje("Ningun item seleccion.");
+                m.ShowDialog();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+
         }
 
         private void BtnContactos_Click(object sender, EventArgs e)
         {
-            foreach (Form item in Application.OpenForms)
+            if (dgvProveedores.SelectedCells.Count > 0)
             {
-                if (item.GetType() == typeof(Contactos))
+                foreach (Form item in Application.OpenForms)
                 {
-                    item.Focus();
-                    return;
+                    if (item.GetType() == typeof(Contactos))
+                    {
+                        item.Focus();
+                        return;
+                    }
+                }
+                try
+                {
+                    Proveedor p = new Proveedor();
+                    p = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
+                    Contactos c = new Contactos(p.GetId());
+                    c.Show();
+                    LlenarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
                 }
             }
-            try
+            else
             {
-                Proveedor p = new Proveedor();
-                p = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
-                Contactos c = new Contactos(p.GetId());
-                c.Show();
-                LlenarTabla();
+                Mensaje m = new Mensaje("Ningun item seleccion.");
+                m.ShowDialog();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+
         }
 
         private void DgvProveedores_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)

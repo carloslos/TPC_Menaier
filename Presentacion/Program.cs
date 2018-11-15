@@ -6,7 +6,6 @@ using System.Windows.Forms;
 /// <summary>
 /// TODO: LOGIN
 /// TODO: ALGUN FILTRO
-/// TODO: VERIFICAR QUE "EDITAR" TENGA UN OBJECTO SELECCIONADO
 /// </summary>
 namespace Presentacion
 {

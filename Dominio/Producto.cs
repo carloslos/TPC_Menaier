@@ -13,6 +13,7 @@ namespace Dominio
         public Marca Marca { get; set; }
         public TipoProducto TipoProducto { get; set; }
         public float Ganancia { get; set; }
+        public int Stock { get; set; }
         public int StockMin { get; set; }
         public bool Activo { get; set; }
 

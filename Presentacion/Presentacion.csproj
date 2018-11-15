@@ -89,6 +89,12 @@
     <Compile Include="Confirmacion.Designer.cs">
       <DependentUpon>Confirmacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mensaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mensaje.Designer.cs">
+      <DependentUpon>Mensaje.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModClienteE.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,11 +253,11 @@
     <EmbeddedResource Include="Confirmacion.resx">
       <DependentUpon>Confirmacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mensaje.resx">
+      <DependentUpon>Mensaje.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModClienteE.resx">
       <DependentUpon>ModClienteE.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ModClienteP.aa-DJ.resx">
-      <DependentUpon>ModClienteP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModClienteP.resx">
       <DependentUpon>ModClienteP.cs</DependentUpon>
