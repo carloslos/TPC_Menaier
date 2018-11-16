@@ -20,7 +20,7 @@ namespace Negocio
                 conexion = new AccesoDB();
                 if(Id == 0)
                 {
-                    conexion.SetearConsulta("SELECT P.IDPRODUCTO, P.DESCRIPCION, M.DESCRIPCION, TP.DESCRIPCION, P.STOCKMIN, P.GANANCIA, P.IDMARCA, P.IDTIPOPRODUCTO FROM PRODUCTOS AS P " +
+                    conexion.SetearConsulta("SELECT P.IDPRODUCTO, P.DESCRIPCION, M.DESCRIPCION, TP.DESCRIPCION, P.STOCKMIN, P.GANANCIA, P.IDMARCA, P.IDTIPOPRODUCTO, P.STOCK FROM PRODUCTOS AS P " +
                         "INNER JOIN MARCAS AS M ON P.IDMARCA = M.IDMARCA " +
                         "INNER JOIN TIPOSPRODUCTO AS TP ON P.IDTIPOPRODUCTO = TP.IDTIPOPRODUCTO " +
                         "WHERE P.ACTIVO = 1 " +
@@ -28,7 +28,7 @@ namespace Negocio
                 }
                 else
                 {   
-                    conexion.SetearConsulta("SELECT P.IDPRODUCTO, P.DESCRIPCION, M.DESCRIPCION, TP.DESCRIPCION, P.STOCKMIN, P.GANANCIA, P.IDMARCA, P.IDTIPOPRODUCTO FROM PRODUCTOS AS P " +
+                    conexion.SetearConsulta("SELECT P.IDPRODUCTO, P.DESCRIPCION, M.DESCRIPCION, TP.DESCRIPCION, P.STOCKMIN, P.GANANCIA, P.IDMARCA, P.IDTIPOPRODUCTO, P.STOCK FROM PRODUCTOS AS P " +
                         "INNER JOIN PRODUCTOS_X_PROVEEDOR AS PXP ON PXP.IDPRODUCTO = P.IDPRODUCTO " +
                         "INNER JOIN MARCAS AS M ON P.IDMARCA = M.IDMARCA " +
                         "INNER JOIN TIPOSPRODUCTO AS TP ON P.IDTIPOPRODUCTO = TP.IDTIPOPRODUCTO " +
@@ -50,13 +50,13 @@ namespace Negocio
                         TipoProducto = new TipoProducto(),
                         Descripcion = (string)conexion.Lector["DESCRIPCION"],
                         StockMin = (int)conexion.Lector["STOCKMIN"],
-                        Ganancia = (float)Convert.ToDouble(conexion.Lector["GANANCIA"])
+                        Ganancia = (float)Convert.ToDouble(conexion.Lector["GANANCIA"]),
+                        Stock = (int)conexion.Lector["STOCK"]
                     };
                     aux.Marca.IdMarca = (int)conexion.Lector["IDMARCA"];
                     aux.Marca.Descripcion = (string)conexion.Lector[2];
                     aux.TipoProducto.IdTipoProducto = (int)conexion.Lector["IDTIPOPRODUCTO"];
                     aux.TipoProducto.Descripcion = (string)conexion.Lector[3];
-                    aux.Stock = negL.CalcularStock(aux.IdProducto);
 
                     lstProductos.Add(aux);
                 }
