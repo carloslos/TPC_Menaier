@@ -38,7 +38,7 @@ namespace Negocio
                         Email = (string)conexion.Lector["EMAIL"]
                     };
                     aux.TipoPerfil.IdTipoPerfil = (int)conexion.Lector[5];
-
+                    aux.NombreCompleto = aux.Nombre + " " + aux.Apellido;
                     switch (aux.TipoPerfil.IdTipoPerfil)
                     {
                         case 1:

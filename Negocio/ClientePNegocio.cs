@@ -35,6 +35,7 @@ namespace Negocio
                         Dni = (int)Convert.ToInt64(conexion.Lector["DNICUIT"]),
                         Email = (string)conexion.Lector["EMAIL"]
                     };
+                    aux.NombreCompleto = aux.Nombre + " " + aux.Apellido;
 
                     lstClientesP.Add(aux);
                 }

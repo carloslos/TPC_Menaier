@@ -13,7 +13,7 @@ namespace Dominio
 
         public override string ToString()
         {
-            return Nombre;
+            return NombreCompleto;
         }
 
         public int GetId()

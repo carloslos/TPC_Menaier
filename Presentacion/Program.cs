@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-/// TODO: ALGUN FILTRO
-/// TODO: AGREGAR DATOS
+
 namespace Presentacion
 {
     static class Program

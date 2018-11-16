@@ -10,6 +10,7 @@ namespace Dominio
     {
         public int IdEmpleado { get; set; }
         public DateTime FechaNac { get; set; }
+        public string NombreCompleto { get; set; }
         public TipoPerfil TipoPerfil { get; set; } // 1 - Administrador // 2 - Supervisor // 3 - Vendedor
         public string TipoPerfilS { get; set; }
         public string Usuario { get; set; }
@@ -17,7 +18,7 @@ namespace Dominio
 
         public override string ToString()
         {
-            return Nombre + " " + Apellido;
+            return NombreCompleto;
         }
     }
 }

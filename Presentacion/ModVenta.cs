@@ -82,12 +82,12 @@ namespace Presentacion
                 ClientePNegocio negCP = new ClientePNegocio();
                 LstClientes.AddRange(negCE.Listar());
                 LstClientes.AddRange(negCP.Listar());
-                BoxCliente.DisplayMember = "Nombre";
+                BoxCliente.DisplayMember = "NombreCompleto";
                 BoxCliente.ValueMember = "IdCliente";
                 BoxCliente.DataSource = LstClientes;
 
                 EmpleadoNegocio negE = new EmpleadoNegocio();
-                BoxEmpleado.DisplayMember = "Nombre";
+                BoxEmpleado.DisplayMember = "NombreCompleto";
                 BoxEmpleado.ValueMember = "IdEmpleado";
                 BoxEmpleado.DataSource = negE.Listar();
 
@@ -103,7 +103,7 @@ namespace Presentacion
                 if (v.Cliente != null)
                 {
                     BoxCliente.SelectedValue = v.Cliente.IdCliente;
-                    BoxCliente.SelectedText = v.Cliente.Nombre;
+                    BoxCliente.SelectedText = v.Cliente.NombreCompleto;
                 }
                 else
                 {
@@ -113,7 +113,7 @@ namespace Presentacion
                 if (v.Empleado != null)
                 {
                     BoxEmpleado.SelectedValue = v.Empleado.IdEmpleado;
-                    BoxEmpleado.SelectedText = v.Empleado.IdEmpleado.ToString();
+                    BoxEmpleado.SelectedText = v.Empleado.NombreCompleto;
                     RealizarValidaciones();
                 }
                 else

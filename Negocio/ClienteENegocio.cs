@@ -34,6 +34,7 @@ namespace Negocio
                         IdCliente = (int)conexion.Lector["IDCLIENTE"],
                         Cuit = (long)conexion.Lector["DNICUIT"],
                     };
+                    aux.NombreCompleto = aux.Nombre;
 
                     lstClientesE.Add(aux);
                 }

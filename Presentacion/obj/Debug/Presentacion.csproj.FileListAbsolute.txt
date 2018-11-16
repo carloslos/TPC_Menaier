@@ -56,7 +56,6 @@ C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.Deta
 C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.Empleados.resources
 C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.Login.resources
 C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.Marcas.resources
-C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.Metro_Template.resources
 C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.Productos.resources
 C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.Properties.Resources.resources
 C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.Proveedores.resources
@@ -209,3 +208,6 @@ C:\Users\Carlos\Source\Repos\Azhar1921\TPC_Menaier\Presentacion\obj\Debug\Presen
 C:\Users\Carlos\Source\Repos\Azhar1921\TPC_Menaier\Presentacion\obj\Debug\Presentacion.pdb
 C:\Users\tisoporte\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.Mensaje.resources
 C:\Users\Carlos\Source\Repos\Azhar1921\TPC_Menaier\Presentacion\obj\Debug\Presentacion.Mensaje.resources
+C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.Mensaje.resources
+C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ModLote.resources
+C:\Users\Azhar\Source\Repos\TPC_Menaier\Presentacion\obj\Debug\Presentacion.ModVenta.resources
