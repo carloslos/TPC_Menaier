@@ -135,7 +135,7 @@
             this.BoxProveedor.Location = new System.Drawing.Point(848, 214);
             this.BoxProveedor.Name = "BoxProveedor";
             this.BoxProveedor.Size = new System.Drawing.Size(142, 29);
-            this.BoxProveedor.TabIndex = 18;
+            this.BoxProveedor.TabIndex = 0;
             this.BoxProveedor.UseSelectable = true;
             this.BoxProveedor.SelectedValueChanged += new System.EventHandler(this.BoxProveedor_SelectedValueChanged);
             // 
@@ -147,7 +147,7 @@
             this.DateCompra.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateCompra.Name = "DateCompra";
             this.DateCompra.Size = new System.Drawing.Size(142, 29);
-            this.DateCompra.TabIndex = 17;
+            this.DateCompra.TabIndex = 1;
             this.DateCompra.Value = new System.DateTime(2018, 11, 11, 0, 0, 0, 0);
             this.DateCompra.ValueChanged += new System.EventHandler(this.DateCompra_ValueChanged);
             // 
@@ -157,7 +157,7 @@
             this.BtnVolver.Location = new System.Drawing.Point(532, 554);
             this.BtnVolver.Name = "BtnVolver";
             this.BtnVolver.Size = new System.Drawing.Size(104, 28);
-            this.BtnVolver.TabIndex = 16;
+            this.BtnVolver.TabIndex = 6;
             this.BtnVolver.Text = "Volver";
             this.BtnVolver.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnVolver.UseSelectable = true;
@@ -169,7 +169,7 @@
             this.BtnMod.Location = new System.Drawing.Point(388, 554);
             this.BtnMod.Name = "BtnMod";
             this.BtnMod.Size = new System.Drawing.Size(104, 28);
-            this.BtnMod.TabIndex = 15;
+            this.BtnMod.TabIndex = 5;
             this.BtnMod.Text = "Mod";
             this.BtnMod.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnMod.UseSelectable = true;
@@ -302,7 +302,7 @@
             this.BtnEditar.Location = new System.Drawing.Point(121, 483);
             this.BtnEditar.Name = "BtnEditar";
             this.BtnEditar.Size = new System.Drawing.Size(92, 23);
-            this.BtnEditar.TabIndex = 14;
+            this.BtnEditar.TabIndex = 3;
             this.BtnEditar.Text = "Editar Lote";
             this.BtnEditar.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnEditar.UseSelectable = true;
@@ -314,7 +314,7 @@
             this.BtnAgregar.Location = new System.Drawing.Point(23, 482);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(92, 23);
-            this.BtnAgregar.TabIndex = 12;
+            this.BtnAgregar.TabIndex = 2;
             this.BtnAgregar.Text = "Agregar Lote";
             this.BtnAgregar.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnAgregar.UseSelectable = true;
@@ -326,7 +326,7 @@
             this.BtnEliminar.Location = new System.Drawing.Point(219, 483);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(92, 23);
-            this.BtnEliminar.TabIndex = 11;
+            this.BtnEliminar.TabIndex = 4;
             this.BtnEliminar.Text = "Eliminar Lote";
             this.BtnEliminar.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnEliminar.UseSelectable = true;

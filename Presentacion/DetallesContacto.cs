@@ -53,7 +53,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
         }
 
@@ -74,7 +74,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
         }
 
@@ -86,6 +86,7 @@ namespace Presentacion
                 c.LstDomicilios = negD.Listar(c.IdContacto);
                 dgvDomicilios.DataSource = c.LstDomicilios;
                 dgvDomicilios.Columns["IdDomicilio"].HeaderText = "ID";
+                dgvDomicilios.Columns["Cp"].HeaderText = "CP";
                 dgvDomicilios.Columns["Activo"].Visible = false;
                 dgvDomicilios.Columns["IdRelacion"].Visible = false;
                 dgvDomicilios.Update();
@@ -93,7 +94,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
         }
 
@@ -115,7 +116,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
         }
 
@@ -140,7 +141,7 @@ namespace Presentacion
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
                 }
             }
             else
@@ -175,7 +176,7 @@ namespace Presentacion
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
                 }
             }
             else
@@ -204,7 +205,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
         }
 
@@ -229,7 +230,7 @@ namespace Presentacion
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
                 }
             }
             else
@@ -264,7 +265,7 @@ namespace Presentacion
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
                 }
             }
             else

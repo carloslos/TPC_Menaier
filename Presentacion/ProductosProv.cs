@@ -15,7 +15,9 @@ namespace Presentacion
     {
         int IdProveedor;
         List<Producto> lstProductos;
+        BindingList<Producto> bindProductos;
         List<Producto> lstProductosProv;
+        BindingList<Producto> bindProductosProv;
 
         public ProductosProv(string s, int id)
         {
@@ -28,15 +30,15 @@ namespace Presentacion
         {
             try
             {
-                // TODO: PRODUCTOS POR PROVEEDOR - ALGO MAL ACA
                 ProductoNegocio neg = new ProductoNegocio();
                 lstProductos = neg.Listar(0);
                 lstProductosProv = neg.Listar(IdProveedor);
+
                 if (lstProductos.Count > 0 && lstProductosProv.Count > 0)
                 {
-                    for (int i = lstProductos.Count - 1 ; i >= 0; i--)
+                    for (int j = lstProductosProv.Count - 1; j >= 0; j--)
                     {
-                        for (int j = lstProductosProv.Count - 1 ; i >= 0; i--)
+                        for (int i = lstProductos.Count - 1; i >= 0; i--)
                         {
                             if (lstProductos[i].IdProducto == lstProductosProv[j].IdProducto)
                             {
@@ -46,11 +48,15 @@ namespace Presentacion
                         }
                     }
                 }
+                bindProductos = new BindingList<Producto>(lstProductos);
+                dgvProductos.DataSource = bindProductos;
+                bindProductosProv = new BindingList<Producto>(lstProductosProv);
+                dgvProductosProv.DataSource = bindProductosProv;
                 LlenarTabla();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
         }
 
@@ -58,7 +64,7 @@ namespace Presentacion
         {
             try
             {
-                dgvProductosProv.DataSource = lstProductosProv;
+                dgvProductosProv.DataSource = bindProductosProv;
                 dgvProductosProv.Columns["IdProducto"].HeaderText = "ID";
                 dgvProductosProv.Columns["Descripcion"].HeaderText = "Descripción";
                 dgvProductosProv.Columns["TipoProducto"].Visible = false;
@@ -68,7 +74,7 @@ namespace Presentacion
                 dgvProductosProv.Update();
                 dgvProductosProv.Refresh();
 
-                dgvProductos.DataSource = lstProductos;
+                dgvProductos.DataSource = bindProductos;
                 dgvProductos.Columns["IdProducto"].HeaderText = "ID";
                 dgvProductos.Columns["Descripcion"].HeaderText = "Descripción";
                 dgvProductos.Columns["Ganancia"].Visible = false;
@@ -80,33 +86,45 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
         }
 
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
-            if (dgvProductos.RowCount > 0)
+            try
             {
-                Producto p = (Producto)dgvProductos.CurrentRow.DataBoundItem;
-                dgvProductos.DataSource = null;
-                dgvProductosProv.DataSource = null;
-                lstProductosProv.Add(p);
-                lstProductos.Remove(p);
-                LlenarTabla();
+                if (dgvProductos.RowCount > 0)
+                {
+                    Producto p = (Producto)dgvProductos.CurrentRow.DataBoundItem;
+                    lstProductosProv.Add(p);
+                    lstProductos.Remove(p);
+                    bindProductosProv.ResetBindings();
+                    bindProductos.ResetBindings();
+                }
+            }
+            catch (Exception ex)
+            {
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
         }
     
         private void BtnQuitar_Click(object sender, EventArgs e)
         {
-            if (dgvProductosProv.RowCount > 0)
+            try
             {
-                Producto p = (Producto)dgvProductosProv.CurrentRow.DataBoundItem;
-                dgvProductos.DataSource = null;
-                dgvProductosProv.DataSource = null;
-                lstProductos.Add(p);
-                lstProductosProv.Remove(p);
-                LlenarTabla();
+                if (dgvProductosProv.RowCount > 0)
+                {
+                    Producto p = (Producto)dgvProductosProv.CurrentRow.DataBoundItem;
+                    lstProductos.Add(p);
+                    lstProductosProv.Remove(p);
+                    bindProductosProv.ResetBindings();
+                    bindProductos.ResetBindings();
+                }
+            }
+            catch(Exception ex)
+            {
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
         }
 
@@ -129,19 +147,26 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
         }
 
         private void BtnAceptar_Click(object sender, EventArgs e)
         {
-            ProductoNegocio negP = new ProductoNegocio();
-            negP.EliminarProductoDeProveedor(IdProveedor);
-            foreach (Producto p in lstProductosProv)
+            try
             {
-                negP.AgregarProductoDeProveedor(p.IdProducto, IdProveedor);
+                ProductoNegocio negP = new ProductoNegocio();
+                negP.EliminarProductoDeProveedor(IdProveedor);
+                foreach (Producto p in lstProductosProv)
+                {
+                    negP.AgregarProductoDeProveedor(p.IdProducto, IdProveedor);
+                }
+                this.Close();
             }
-            this.Close();
+            catch (Exception ex)
+            {
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+            }
         }
     }
 }

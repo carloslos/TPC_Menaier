@@ -130,7 +130,7 @@
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="BtnVolver.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+    <value>5</value>
   </data>
   <data name="BtnVolver.Text" xml:space="preserve">
     <value>Volver</value>
@@ -157,7 +157,7 @@
     <value>100, 23</value>
   </data>
   <data name="BtnMod.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>4</value>
   </data>
   <data name="BtnMod.Text" xml:space="preserve">
     <value>Mod</value>
@@ -199,7 +199,7 @@
     <value>177, 20</value>
   </data>
   <data name="TxtNombre.TabIndex" type="System.Int32, mscorlib">
-    <value>48</value>
+    <value>0</value>
   </data>
   <data name="&gt;&gt;TxtNombre.Name" xml:space="preserve">
     <value>TxtNombre</value>
@@ -238,7 +238,7 @@
     <value>177, 20</value>
   </data>
   <data name="TxtApellido.TabIndex" type="System.Int32, mscorlib">
-    <value>49</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;TxtApellido.Name" xml:space="preserve">
     <value>TxtApellido</value>
@@ -331,7 +331,7 @@
     <value>177, 20</value>
   </data>
   <data name="TxtDni.TabIndex" type="System.Int32, mscorlib">
-    <value>50</value>
+    <value>2</value>
   </data>
   <data name="&gt;&gt;TxtDni.Name" xml:space="preserve">
     <value>TxtDni</value>
@@ -424,7 +424,7 @@
     <value>177, 20</value>
   </data>
   <data name="TxtEmail.TabIndex" type="System.Int32, mscorlib">
-    <value>51</value>
+    <value>3</value>
   </data>
   <data name="&gt;&gt;TxtEmail.Name" xml:space="preserve">
     <value>TxtEmail</value>

@@ -46,7 +46,7 @@
             this.BtnVolver.Location = new System.Drawing.Point(207, 290);
             this.BtnVolver.Name = "BtnVolver";
             this.BtnVolver.Size = new System.Drawing.Size(99, 23);
-            this.BtnVolver.TabIndex = 9;
+            this.BtnVolver.TabIndex = 3;
             this.BtnVolver.Text = "Volver";
             this.BtnVolver.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnVolver.UseSelectable = true;
@@ -58,7 +58,7 @@
             this.BtnMod.Location = new System.Drawing.Point(79, 290);
             this.BtnMod.Name = "BtnMod";
             this.BtnMod.Size = new System.Drawing.Size(100, 23);
-            this.BtnMod.TabIndex = 8;
+            this.BtnMod.TabIndex = 2;
             this.BtnMod.Text = "Mod";
             this.BtnMod.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnMod.UseSelectable = true;
@@ -111,7 +111,7 @@
             this.TxtEmpresa.SelectionStart = 0;
             this.TxtEmpresa.ShortcutsEnabled = true;
             this.TxtEmpresa.Size = new System.Drawing.Size(177, 20);
-            this.TxtEmpresa.TabIndex = 7;
+            this.TxtEmpresa.TabIndex = 0;
             this.TxtEmpresa.UseSelectable = true;
             this.TxtEmpresa.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtEmpresa.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -164,7 +164,7 @@
             this.TxtCuit.SelectionStart = 0;
             this.TxtCuit.ShortcutsEnabled = true;
             this.TxtCuit.Size = new System.Drawing.Size(177, 20);
-            this.TxtCuit.TabIndex = 11;
+            this.TxtCuit.TabIndex = 1;
             this.TxtCuit.UseSelectable = true;
             this.TxtCuit.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtCuit.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);

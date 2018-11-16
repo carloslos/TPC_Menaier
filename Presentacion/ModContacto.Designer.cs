@@ -73,7 +73,7 @@
             this.TxtNombre.SelectionStart = 0;
             this.TxtNombre.ShortcutsEnabled = true;
             this.TxtNombre.Size = new System.Drawing.Size(177, 20);
-            this.TxtNombre.TabIndex = 38;
+            this.TxtNombre.TabIndex = 0;
             this.TxtNombre.UseSelectable = true;
             this.TxtNombre.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtNombre.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -104,7 +104,7 @@
             this.TxtApellido.SelectionStart = 0;
             this.TxtApellido.ShortcutsEnabled = true;
             this.TxtApellido.Size = new System.Drawing.Size(177, 20);
-            this.TxtApellido.TabIndex = 39;
+            this.TxtApellido.TabIndex = 1;
             this.TxtApellido.UseSelectable = true;
             this.TxtApellido.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtApellido.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -157,7 +157,7 @@
             this.TxtDni.SelectionStart = 0;
             this.TxtDni.ShortcutsEnabled = true;
             this.TxtDni.Size = new System.Drawing.Size(177, 20);
-            this.TxtDni.TabIndex = 40;
+            this.TxtDni.TabIndex = 2;
             this.TxtDni.UseSelectable = true;
             this.TxtDni.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtDni.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -210,7 +210,7 @@
             this.TxtEmail.SelectionStart = 0;
             this.TxtEmail.ShortcutsEnabled = true;
             this.TxtEmail.Size = new System.Drawing.Size(177, 20);
-            this.TxtEmail.TabIndex = 41;
+            this.TxtEmail.TabIndex = 3;
             this.TxtEmail.UseSelectable = true;
             this.TxtEmail.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtEmail.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -266,7 +266,7 @@
             this.BtnVolver.Location = new System.Drawing.Point(248, 506);
             this.BtnVolver.Name = "BtnVolver";
             this.BtnVolver.Size = new System.Drawing.Size(99, 23);
-            this.BtnVolver.TabIndex = 43;
+            this.BtnVolver.TabIndex = 5;
             this.BtnVolver.Text = "Volver";
             this.BtnVolver.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnVolver.UseSelectable = true;
@@ -278,7 +278,7 @@
             this.BtnMod.Location = new System.Drawing.Point(103, 506);
             this.BtnMod.Name = "BtnMod";
             this.BtnMod.Size = new System.Drawing.Size(100, 23);
-            this.BtnMod.TabIndex = 42;
+            this.BtnMod.TabIndex = 4;
             this.BtnMod.Text = "Mod";
             this.BtnMod.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnMod.UseSelectable = true;

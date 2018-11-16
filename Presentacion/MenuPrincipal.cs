@@ -7,13 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-/// <summary>
-/// TODO: MENU PRINCIPAL (EMBELLECER)
-/// </summary>
+using Dominio;
+
 namespace Presentacion
 {
     public partial class MenuPrincipal : MetroFramework.Forms.MetroForm
     {
+        private Empleado empleadoLoggeado = new Empleado();
+
+        public Empleado EmpleadoLoggeado
+        {
+            get { return empleadoLoggeado; }
+        }
+
         public MenuPrincipal()
         {
             InitializeComponent();
@@ -21,7 +27,14 @@ namespace Presentacion
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
+            empleadoLoggeado = new Empleado();
+            Login login = new Login(empleadoLoggeado);
+            login.ShowDialog();
 
+            /*if (empleadoLoggeado.TipoPerfil.IdTipoPerfil == TipoPerfil.Administrador)
+            {
+                /// TODO: EDITAR ACCESOS
+            }*/
         }
 
         private void BtnEmpleados_Click(object sender, EventArgs e)

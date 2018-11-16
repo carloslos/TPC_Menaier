@@ -32,6 +32,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvVenta = new MetroFramework.Controls.MetroGrid();
+            this.IdPxv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BoxCliente = new MetroFramework.Controls.MetroComboBox();
             this.tileCliente = new MetroFramework.Controls.MetroTile();
             this.lblCliente = new MetroFramework.Controls.MetroLabel();
@@ -54,12 +60,6 @@
             this.tileCantidad = new MetroFramework.Controls.MetroTile();
             this.lblCantidad = new MetroFramework.Controls.MetroLabel();
             this.TxtCantidad = new MetroFramework.Controls.MetroTextBox();
-            this.IdPxv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenta)).BeginInit();
             this.tileCliente.SuspendLayout();
             this.tileEmpleado.SuspendLayout();
@@ -128,6 +128,49 @@
             this.dgvVenta.TabIndex = 13;
             this.dgvVenta.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
+            // IdPxv
+            // 
+            this.IdPxv.DataPropertyName = "IdPxv";
+            this.IdPxv.HeaderText = "ID";
+            this.IdPxv.Name = "IdPxv";
+            this.IdPxv.ReadOnly = true;
+            // 
+            // IdVenta
+            // 
+            this.IdVenta.DataPropertyName = "IdVenta";
+            this.IdVenta.HeaderText = "IdVenta";
+            this.IdVenta.Name = "IdVenta";
+            this.IdVenta.ReadOnly = true;
+            this.IdVenta.Visible = false;
+            // 
+            // Producto
+            // 
+            this.Producto.DataPropertyName = "Producto";
+            this.Producto.HeaderText = "Producto";
+            this.Producto.Name = "Producto";
+            this.Producto.ReadOnly = true;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.DataPropertyName = "Cantidad";
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            // 
+            // PrecioU
+            // 
+            this.PrecioU.DataPropertyName = "PrecioU";
+            this.PrecioU.HeaderText = "Monto x Unidad";
+            this.PrecioU.Name = "PrecioU";
+            this.PrecioU.ReadOnly = true;
+            // 
+            // PrecioT
+            // 
+            this.PrecioT.DataPropertyName = "PrecioT";
+            this.PrecioT.HeaderText = "Monto Total";
+            this.PrecioT.Name = "PrecioT";
+            this.PrecioT.ReadOnly = true;
+            // 
             // BoxCliente
             // 
             this.BoxCliente.FormattingEnabled = true;
@@ -135,7 +178,7 @@
             this.BoxCliente.Location = new System.Drawing.Point(758, 114);
             this.BoxCliente.Name = "BoxCliente";
             this.BoxCliente.Size = new System.Drawing.Size(177, 29);
-            this.BoxCliente.TabIndex = 57;
+            this.BoxCliente.TabIndex = 0;
             this.BoxCliente.UseSelectable = true;
             this.BoxCliente.SelectedValueChanged += new System.EventHandler(this.BoxCliente_SelectedValueChanged);
             // 
@@ -168,7 +211,7 @@
             this.BoxEmpleado.Location = new System.Drawing.Point(758, 173);
             this.BoxEmpleado.Name = "BoxEmpleado";
             this.BoxEmpleado.Size = new System.Drawing.Size(177, 29);
-            this.BoxEmpleado.TabIndex = 59;
+            this.BoxEmpleado.TabIndex = 1;
             this.BoxEmpleado.UseSelectable = true;
             this.BoxEmpleado.SelectedValueChanged += new System.EventHandler(this.BoxEmpleado_SelectedValueChanged);
             // 
@@ -204,7 +247,7 @@
             this.DateFecha.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateFecha.Name = "DateFecha";
             this.DateFecha.Size = new System.Drawing.Size(177, 29);
-            this.DateFecha.TabIndex = 61;
+            this.DateFecha.TabIndex = 2;
             this.DateFecha.Value = new System.DateTime(2018, 11, 11, 0, 0, 0, 0);
             this.DateFecha.ValueChanged += new System.EventHandler(this.DateFecha_ValueChanged);
             // 
@@ -236,7 +279,7 @@
             this.BtnAgregarP.Location = new System.Drawing.Point(686, 423);
             this.BtnAgregarP.Name = "BtnAgregarP";
             this.BtnAgregarP.Size = new System.Drawing.Size(104, 23);
-            this.BtnAgregarP.TabIndex = 65;
+            this.BtnAgregarP.TabIndex = 5;
             this.BtnAgregarP.Text = "Agregar Producto";
             this.BtnAgregarP.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnAgregarP.UseSelectable = true;
@@ -248,7 +291,7 @@
             this.BtnVolver.Location = new System.Drawing.Point(813, 519);
             this.BtnVolver.Name = "BtnVolver";
             this.BtnVolver.Size = new System.Drawing.Size(123, 32);
-            this.BtnVolver.TabIndex = 64;
+            this.BtnVolver.TabIndex = 8;
             this.BtnVolver.Text = "Volver";
             this.BtnVolver.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnVolver.UseSelectable = true;
@@ -260,7 +303,7 @@
             this.BtnMod.Location = new System.Drawing.Point(653, 519);
             this.BtnMod.Name = "BtnMod";
             this.BtnMod.Size = new System.Drawing.Size(123, 32);
-            this.BtnMod.TabIndex = 63;
+            this.BtnMod.TabIndex = 7;
             this.BtnMod.Text = "Mod";
             this.BtnMod.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnMod.UseSelectable = true;
@@ -272,7 +315,7 @@
             this.BtnEliminarP.Location = new System.Drawing.Point(796, 423);
             this.BtnEliminarP.Name = "BtnEliminarP";
             this.BtnEliminarP.Size = new System.Drawing.Size(104, 23);
-            this.BtnEliminarP.TabIndex = 66;
+            this.BtnEliminarP.TabIndex = 6;
             this.BtnEliminarP.Text = "Eliminar Producto";
             this.BtnEliminarP.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnEliminarP.UseSelectable = true;
@@ -297,7 +340,7 @@
             this.lblTotal.Enabled = false;
             this.lblTotal.Location = new System.Drawing.Point(27, 1);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(38, 19);
+            this.lblTotal.Size = new System.Drawing.Size(36, 19);
             this.lblTotal.Style = MetroFramework.MetroColorStyle.Silver;
             this.lblTotal.TabIndex = 0;
             this.lblTotal.Text = "Total";
@@ -341,7 +384,7 @@
             this.BoxProducto.Location = new System.Drawing.Point(758, 340);
             this.BoxProducto.Name = "BoxProducto";
             this.BoxProducto.Size = new System.Drawing.Size(177, 29);
-            this.BoxProducto.TabIndex = 70;
+            this.BoxProducto.TabIndex = 3;
             this.BoxProducto.UseSelectable = true;
             this.BoxProducto.SelectedValueChanged += new System.EventHandler(this.BoxProducto_SelectedValueChanged);
             // 
@@ -414,54 +457,11 @@
             this.TxtCantidad.SelectionStart = 0;
             this.TxtCantidad.ShortcutsEnabled = true;
             this.TxtCantidad.Size = new System.Drawing.Size(177, 20);
-            this.TxtCantidad.TabIndex = 72;
+            this.TxtCantidad.TabIndex = 4;
             this.TxtCantidad.UseSelectable = true;
             this.TxtCantidad.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtCantidad.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.TxtCantidad.TextChanged += new System.EventHandler(this.TxtCantidad_TextChanged);
-            // 
-            // IdPxv
-            // 
-            this.IdPxv.DataPropertyName = "IdPxv";
-            this.IdPxv.HeaderText = "ID";
-            this.IdPxv.Name = "IdPxv";
-            this.IdPxv.ReadOnly = true;
-            // 
-            // IdVenta
-            // 
-            this.IdVenta.DataPropertyName = "IdVenta";
-            this.IdVenta.HeaderText = "IdVenta";
-            this.IdVenta.Name = "IdVenta";
-            this.IdVenta.ReadOnly = true;
-            this.IdVenta.Visible = false;
-            // 
-            // Producto
-            // 
-            this.Producto.DataPropertyName = "Producto";
-            this.Producto.HeaderText = "Producto";
-            this.Producto.Name = "Producto";
-            this.Producto.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.DataPropertyName = "Cantidad";
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            // 
-            // PrecioU
-            // 
-            this.PrecioU.DataPropertyName = "PrecioU";
-            this.PrecioU.HeaderText = "Monto x Unidad";
-            this.PrecioU.Name = "PrecioU";
-            this.PrecioU.ReadOnly = true;
-            // 
-            // PrecioT
-            // 
-            this.PrecioT.DataPropertyName = "PrecioT";
-            this.PrecioT.HeaderText = "Monto Total";
-            this.PrecioT.Name = "PrecioT";
-            this.PrecioT.ReadOnly = true;
             // 
             // ModVenta
             // 

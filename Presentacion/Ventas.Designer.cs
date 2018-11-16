@@ -96,7 +96,7 @@
             this.BtnDetalles.Location = new System.Drawing.Point(538, 559);
             this.BtnDetalles.Name = "BtnDetalles";
             this.BtnDetalles.Size = new System.Drawing.Size(118, 23);
-            this.BtnDetalles.TabIndex = 29;
+            this.BtnDetalles.TabIndex = 2;
             this.BtnDetalles.Text = "Detalles";
             this.BtnDetalles.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnDetalles.UseSelectable = true;
@@ -108,7 +108,7 @@
             this.BtnAgregar.Location = new System.Drawing.Point(244, 559);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(118, 23);
-            this.BtnAgregar.TabIndex = 28;
+            this.BtnAgregar.TabIndex = 0;
             this.BtnAgregar.Text = "Agregar";
             this.BtnAgregar.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnAgregar.UseSelectable = true;
@@ -120,7 +120,7 @@
             this.BtnEditar.Location = new System.Drawing.Point(391, 559);
             this.BtnEditar.Name = "BtnEditar";
             this.BtnEditar.Size = new System.Drawing.Size(118, 23);
-            this.BtnEditar.TabIndex = 31;
+            this.BtnEditar.TabIndex = 1;
             this.BtnEditar.Text = "Editar";
             this.BtnEditar.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnEditar.UseSelectable = true;

@@ -10,10 +10,10 @@ namespace Dominio
     {
         public int IdEmpleado { get; set; }
         public DateTime FechaNac { get; set; }
-        public char TipoPerfil { get; set; } // A - Administrador // S - Supervisor // V - Vendedor
+        public TipoPerfil TipoPerfil { get; set; } // 1 - Administrador // 2 - Supervisor // 3 - Vendedor
         public string TipoPerfilS { get; set; }
         public string Usuario { get; set; }
-        public string Contrasenia { get; set; }
+        public string Pass { get; set; }
 
         public override string ToString()
         {

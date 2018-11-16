@@ -37,7 +37,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
         }
 
@@ -59,7 +59,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
         }
 
@@ -86,7 +86,7 @@ namespace Presentacion
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
                 }
             }
             else
@@ -115,7 +115,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
         }
 
@@ -142,7 +142,7 @@ namespace Presentacion
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
                 }
             }
             else
@@ -179,7 +179,7 @@ namespace Presentacion
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
                 }
             }
             else

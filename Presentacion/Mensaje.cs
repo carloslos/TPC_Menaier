@@ -12,15 +12,23 @@ namespace Presentacion
 {
     public partial class Mensaje : MetroFramework.Forms.MetroForm
     {
-        public Mensaje(string s)
+        private string s;
+
+        public Mensaje(string S)
         {
             InitializeComponent();
-            tileTxt.Text = s;
+            s = S;
         }
 
         private void BtnAceptar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Mensaje_Load(object sender, EventArgs e)
+        {
+            
+            tileTxt.Text = s;
         }
     }
 }

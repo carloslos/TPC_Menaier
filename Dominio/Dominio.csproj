@@ -55,6 +55,7 @@
     <Compile Include="Contacto.cs" />
     <Compile Include="Telefono.cs" />
     <Compile Include="TipoProducto.cs" />
+    <Compile Include="TipoPerfil.cs" />
     <Compile Include="Venta.cs" />
     <Compile Include="Domicilio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -59,7 +59,7 @@
             this.BoxMarca.Location = new System.Drawing.Point(193, 388);
             this.BoxMarca.Name = "BoxMarca";
             this.BoxMarca.Size = new System.Drawing.Size(177, 29);
-            this.BoxMarca.TabIndex = 57;
+            this.BoxMarca.TabIndex = 4;
             this.BoxMarca.UseSelectable = true;
             this.BoxMarca.SelectedValueChanged += new System.EventHandler(this.BoxMarca_SelectedValueChanged);
             // 
@@ -70,7 +70,7 @@
             this.BoxTipoProducto.Location = new System.Drawing.Point(193, 318);
             this.BoxTipoProducto.Name = "BoxTipoProducto";
             this.BoxTipoProducto.Size = new System.Drawing.Size(177, 29);
-            this.BoxTipoProducto.TabIndex = 49;
+            this.BoxTipoProducto.TabIndex = 3;
             this.BoxTipoProducto.UseSelectable = true;
             this.BoxTipoProducto.SelectedValueChanged += new System.EventHandler(this.BoxTipoProducto_SelectedValueChanged);
             // 
@@ -99,7 +99,7 @@
             this.TxtStockMin.SelectionStart = 0;
             this.TxtStockMin.ShortcutsEnabled = true;
             this.TxtStockMin.Size = new System.Drawing.Size(177, 20);
-            this.TxtStockMin.TabIndex = 48;
+            this.TxtStockMin.TabIndex = 2;
             this.TxtStockMin.UseSelectable = true;
             this.TxtStockMin.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtStockMin.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -133,7 +133,7 @@
             this.BtnVolver.Location = new System.Drawing.Point(240, 529);
             this.BtnVolver.Name = "BtnVolver";
             this.BtnVolver.Size = new System.Drawing.Size(99, 23);
-            this.BtnVolver.TabIndex = 56;
+            this.BtnVolver.TabIndex = 6;
             this.BtnVolver.Text = "Volver";
             this.BtnVolver.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnVolver.UseSelectable = true;
@@ -145,7 +145,7 @@
             this.BtnMod.Location = new System.Drawing.Point(112, 529);
             this.BtnMod.Name = "BtnMod";
             this.BtnMod.Size = new System.Drawing.Size(100, 23);
-            this.BtnMod.TabIndex = 55;
+            this.BtnMod.TabIndex = 5;
             this.BtnMod.Text = "Mod";
             this.BtnMod.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnMod.UseSelectable = true;
@@ -198,7 +198,7 @@
             this.TxtDescripcion.SelectionStart = 0;
             this.TxtDescripcion.ShortcutsEnabled = true;
             this.TxtDescripcion.Size = new System.Drawing.Size(177, 20);
-            this.TxtDescripcion.TabIndex = 45;
+            this.TxtDescripcion.TabIndex = 0;
             this.TxtDescripcion.UseSelectable = true;
             this.TxtDescripcion.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtDescripcion.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -251,7 +251,7 @@
             this.TxtGanancia.SelectionStart = 0;
             this.TxtGanancia.ShortcutsEnabled = true;
             this.TxtGanancia.Size = new System.Drawing.Size(177, 20);
-            this.TxtGanancia.TabIndex = 47;
+            this.TxtGanancia.TabIndex = 1;
             this.TxtGanancia.UseSelectable = true;
             this.TxtGanancia.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtGanancia.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);

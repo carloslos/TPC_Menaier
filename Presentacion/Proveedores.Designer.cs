@@ -99,7 +99,7 @@
             this.BtnEditar.Location = new System.Drawing.Point(329, 558);
             this.BtnEditar.Name = "BtnEditar";
             this.BtnEditar.Size = new System.Drawing.Size(118, 23);
-            this.BtnEditar.TabIndex = 27;
+            this.BtnEditar.TabIndex = 1;
             this.BtnEditar.Text = "Editar";
             this.BtnEditar.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnEditar.UseSelectable = true;
@@ -111,7 +111,7 @@
             this.BtnEliminar.Location = new System.Drawing.Point(701, 558);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(118, 23);
-            this.BtnEliminar.TabIndex = 26;
+            this.BtnEliminar.TabIndex = 4;
             this.BtnEliminar.Text = "Eliminar";
             this.BtnEliminar.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnEliminar.UseSelectable = true;
@@ -123,7 +123,7 @@
             this.BtnContactos.Location = new System.Drawing.Point(453, 558);
             this.BtnContactos.Name = "BtnContactos";
             this.BtnContactos.Size = new System.Drawing.Size(118, 23);
-            this.BtnContactos.TabIndex = 25;
+            this.BtnContactos.TabIndex = 2;
             this.BtnContactos.Text = "Contactos";
             this.BtnContactos.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnContactos.UseSelectable = true;
@@ -135,7 +135,7 @@
             this.BtnAgregar.Location = new System.Drawing.Point(205, 558);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(118, 23);
-            this.BtnAgregar.TabIndex = 24;
+            this.BtnAgregar.TabIndex = 0;
             this.BtnAgregar.Text = "Agregar";
             this.BtnAgregar.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnAgregar.UseSelectable = true;
@@ -147,7 +147,7 @@
             this.BtnProductos.Location = new System.Drawing.Point(577, 558);
             this.BtnProductos.Name = "BtnProductos";
             this.BtnProductos.Size = new System.Drawing.Size(118, 23);
-            this.BtnProductos.TabIndex = 28;
+            this.BtnProductos.TabIndex = 3;
             this.BtnProductos.Text = "Productos";
             this.BtnProductos.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnProductos.UseSelectable = true;

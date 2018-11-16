@@ -38,7 +38,7 @@
             this.BtnSi.Location = new System.Drawing.Point(98, 200);
             this.BtnSi.Name = "BtnSi";
             this.BtnSi.Size = new System.Drawing.Size(75, 23);
-            this.BtnSi.TabIndex = 0;
+            this.BtnSi.TabIndex = 1;
             this.BtnSi.Text = "Si";
             this.BtnSi.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnSi.UseSelectable = true;
@@ -49,7 +49,7 @@
             this.BtnNo.Location = new System.Drawing.Point(207, 200);
             this.BtnNo.Name = "BtnNo";
             this.BtnNo.Size = new System.Drawing.Size(75, 23);
-            this.BtnNo.TabIndex = 2;
+            this.BtnNo.TabIndex = 0;
             this.BtnNo.Text = "No";
             this.BtnNo.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnNo.UseSelectable = true;

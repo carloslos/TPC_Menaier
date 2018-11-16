@@ -94,7 +94,7 @@ namespace Presentacion
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
         }
 
@@ -103,13 +103,6 @@ namespace Presentacion
             try
             {
                 dgvLotes.DataSource = BindLotes;
-                //dgvLotes.Columns["IdLote"].HeaderText = "ID";
-                //dgvLotes.Columns["UnidadesE"].HeaderText = "U. Existentes";
-                //dgvLotes.Columns["UnidadesP"].HeaderText = "U. Pedidas";
-                //dgvLotes.Columns["CostoPU"].HeaderText = "Costo x Unidad";
-                //dgvLotes.Columns["CostoT"].HeaderText = "Costo Total";
-                //dgvLotes.Columns["Activo"].Visible = false;
-                //dgvLotes.Columns["IdCompra"].Visible = false;
                 dgvLotes.Update();
                 dgvLotes.Refresh();
             }
@@ -154,7 +147,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
         }
 
@@ -309,7 +302,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
         }
 
@@ -338,7 +331,7 @@ namespace Presentacion
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
                 }
             }
             else
@@ -374,7 +367,7 @@ namespace Presentacion
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
                 }
             }
             else

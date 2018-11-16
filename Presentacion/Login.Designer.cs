@@ -35,6 +35,7 @@
             this.tileUsuario = new MetroFramework.Controls.MetroTile();
             this.lblUsuario = new MetroFramework.Controls.MetroLabel();
             this.BtnLogin = new MetroFramework.Controls.MetroButton();
+            this.BtnCancelar = new MetroFramework.Controls.MetroButton();
             this.tileContrasenia.SuspendLayout();
             this.tileUsuario.SuspendLayout();
             this.SuspendLayout();
@@ -45,7 +46,7 @@
             this.txtContrasenia.Location = new System.Drawing.Point(233, 182);
             this.txtContrasenia.Name = "txtContrasenia";
             this.txtContrasenia.Size = new System.Drawing.Size(146, 20);
-            this.txtContrasenia.TabIndex = 2;
+            this.txtContrasenia.TabIndex = 1;
             // 
             // txtUsuario
             // 
@@ -72,7 +73,7 @@
             this.txtUsuario.SelectionStart = 0;
             this.txtUsuario.ShortcutsEnabled = true;
             this.txtUsuario.Size = new System.Drawing.Size(146, 20);
-            this.txtUsuario.TabIndex = 1;
+            this.txtUsuario.TabIndex = 0;
             this.txtUsuario.UseSelectable = true;
             this.txtUsuario.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtUsuario.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -122,28 +123,43 @@
             // 
             // BtnLogin
             // 
-            this.BtnLogin.Location = new System.Drawing.Point(200, 262);
+            this.BtnLogin.Location = new System.Drawing.Point(200, 246);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(113, 27);
-            this.BtnLogin.TabIndex = 3;
+            this.BtnLogin.TabIndex = 2;
             this.BtnLogin.Text = "Iniciar Sesión";
             this.BtnLogin.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnLogin.UseSelectable = true;
             this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
+            // 
+            // BtnCancelar
+            // 
+            this.BtnCancelar.Location = new System.Drawing.Point(208, 296);
+            this.BtnCancelar.Name = "BtnCancelar";
+            this.BtnCancelar.Size = new System.Drawing.Size(96, 27);
+            this.BtnCancelar.TabIndex = 3;
+            this.BtnCancelar.Text = "Cancelar";
+            this.BtnCancelar.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BtnCancelar.UseSelectable = true;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 357);
+            this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.tileContrasenia);
             this.Controls.Add(this.tileUsuario);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.txtContrasenia);
+            this.MaximumSize = new System.Drawing.Size(513, 357);
+            this.MinimumSize = new System.Drawing.Size(513, 357);
             this.Name = "Login";
             this.Text = "Login";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
             this.tileContrasenia.ResumeLayout(false);
             this.tileContrasenia.PerformLayout();
             this.tileUsuario.ResumeLayout(false);
@@ -162,5 +178,6 @@
         private MetroFramework.Controls.MetroButton BtnLogin;
         private MetroFramework.Controls.MetroLabel lblContrasenia;
         private MetroFramework.Controls.MetroLabel lblUsuario;
+        private MetroFramework.Controls.MetroButton BtnCancelar;
     }
 }

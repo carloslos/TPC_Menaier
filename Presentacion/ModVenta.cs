@@ -4,9 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
-/// <summary>
-/// TODO: MOD VENTA - DESCONTAR STOCK
-/// </summary>
+
 namespace Presentacion
 {
     public partial class ModVenta : MetroFramework.Forms.MetroForm
@@ -130,7 +128,7 @@ namespace Presentacion
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
         }
 
@@ -180,13 +178,14 @@ namespace Presentacion
                 foreach (ProductoVendido pv in v.LstProductosVendidos)
                 {
                     pv.IdVenta = v.IdVenta;
+                    negPV.DescontarStock(pv);
                     negPV.Agregar(pv);
                 }
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
         }
 
@@ -331,10 +330,22 @@ namespace Presentacion
                     Producto = (Producto)BoxProducto.SelectedItem,
                     Cantidad = Convert.ToInt32(TxtCantidad.Text)
                 };
-                if (negPV.DescontarStock(pv))
+                foreach(ProductoVendido PV in v.LstProductosVendidos)
                 {
-                    pv.PrecioU = negPV.CalcularPrecio(pv.Producto.IdProducto);
-                    pv.PrecioT = pv.PrecioU * pv.Cantidad;
+                    if(PV.Producto.IdProducto == pv.Producto.IdProducto)
+                    {
+                        pv.Cantidad += PV.Cantidad;
+                        if (negPV.ControlarStock(pv))
+                        {
+                            v.LstProductosVendidos.Remove(PV);
+                        }
+                        break;
+                    }
+                }
+                if ( negPV.ControlarStock(pv) )
+                {
+                    pv.PrecioU = (float)Math.Round(negPV.CalcularPrecio(pv.Producto.IdProducto), 3);
+                    pv.PrecioT = (float)Math.Round(pv.PrecioU * pv.Cantidad, 3);
                     v.LstProductosVendidos.Add(pv);
                     BindProductos.ResetBindings();
 
@@ -351,7 +362,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
         }
 
@@ -380,7 +391,7 @@ namespace Presentacion
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
                 }
             }
             else

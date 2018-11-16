@@ -28,32 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tileTxt = new MetroFramework.Controls.MetroTile();
             this.BtnAceptar = new MetroFramework.Controls.MetroButton();
+            this.tileTxt = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
-            // 
-            // tileTxt
-            // 
-            this.tileTxt.ActiveControl = null;
-            this.tileTxt.Enabled = false;
-            this.tileTxt.Location = new System.Drawing.Point(23, 70);
-            this.tileTxt.Name = "tileTxt";
-            this.tileTxt.Size = new System.Drawing.Size(334, 116);
-            this.tileTxt.TabIndex = 6;
-            this.tileTxt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.tileTxt.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.tileTxt.UseSelectable = true;
             // 
             // BtnAceptar
             // 
-            this.BtnAceptar.Location = new System.Drawing.Point(153, 216);
+            this.BtnAceptar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnAceptar.Location = new System.Drawing.Point(153, 221);
             this.BtnAceptar.Name = "BtnAceptar";
             this.BtnAceptar.Size = new System.Drawing.Size(75, 23);
-            this.BtnAceptar.TabIndex = 4;
+            this.BtnAceptar.TabIndex = 0;
             this.BtnAceptar.Text = "Aceptar";
             this.BtnAceptar.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnAceptar.UseSelectable = true;
             this.BtnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
+            // 
+            // tileTxt
+            // 
+            this.tileTxt.ActiveControl = null;
+            this.tileTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tileTxt.Location = new System.Drawing.Point(23, 63);
+            this.tileTxt.MinimumSize = new System.Drawing.Size(334, 147);
+            this.tileTxt.Name = "tileTxt";
+            this.tileTxt.Size = new System.Drawing.Size(334, 147);
+            this.tileTxt.TabIndex = 9;
+            this.tileTxt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tileTxt.UseSelectable = true;
             // 
             // Mensaje
             // 
@@ -62,18 +65,17 @@
             this.ClientSize = new System.Drawing.Size(380, 260);
             this.Controls.Add(this.tileTxt);
             this.Controls.Add(this.BtnAceptar);
-            this.MaximumSize = new System.Drawing.Size(380, 260);
             this.MinimumSize = new System.Drawing.Size(380, 260);
             this.Name = "Mensaje";
             this.Text = "Advertencia";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.Load += new System.EventHandler(this.Mensaje_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private MetroFramework.Controls.MetroTile tileTxt;
         private MetroFramework.Controls.MetroButton BtnAceptar;
+        private MetroFramework.Controls.MetroTile tileTxt;
     }
 }

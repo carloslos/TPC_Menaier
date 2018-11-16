@@ -27,7 +27,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
         }
 
@@ -45,7 +45,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
         }
 
@@ -67,7 +67,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
         }
 
@@ -93,7 +93,7 @@ namespace Presentacion
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
                 }
             }
             else
@@ -128,7 +128,7 @@ namespace Presentacion
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
                 }
             }
             else
@@ -145,7 +145,7 @@ namespace Presentacion
             {
                 foreach (Form item in Application.OpenForms)
                 {
-                    if (item.GetType() == typeof(Contactos))
+                    if (item.GetType() == typeof(ProductosProv))
                     {
                         item.Focus();
                         return;
@@ -161,7 +161,7 @@ namespace Presentacion
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
                 }
             }
             else
@@ -194,7 +194,7 @@ namespace Presentacion
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
                 }
             }
             else
@@ -225,7 +225,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
         }
     }

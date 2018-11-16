@@ -18,7 +18,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("SELECT PXV.IDPXV, PXV.IDPRODUCTO, PXV.CANTIDAD, P.DESCRIPCION, M.DESCRIPCION, TP.DESCRIPCION, P.STOCKMIN, P.IDMARCA, P.IDTIPOPRODUCTO FROM PRODUCTOS_X_VENTA AS PXV " +
+                conexion.SetearConsulta("SELECT PXV.IDPXV, PXV.IDPRODUCTO, PXV.CANTIDAD, P.DESCRIPCION, M.DESCRIPCION, TP.DESCRIPCION, P.STOCKMIN, P.IDMARCA, P.IDTIPOPRODUCTO, PXV.PRECIOPU FROM PRODUCTOS_X_VENTA AS PXV " +
                                         "INNER JOIN PRODUCTOS AS P ON PXV.IDPRODUCTO = P.IDPRODUCTO " +
                                         "INNER JOIN MARCAS AS M ON P.IDMARCA = M.IDMARCA " +
                                         "INNER JOIN TIPOSPRODUCTO AS TP ON P.IDTIPOPRODUCTO = TP.IDTIPOPRODUCTO " +
@@ -45,7 +45,7 @@ namespace Negocio
                     aux.Producto.StockMin = (int)conexion.Lector[6];
                     aux.Producto.TipoProducto.Descripcion = (string)conexion.Lector[5];
                     aux.Producto.TipoProducto.IdTipoProducto = (int)conexion.Lector[8];
-                    aux.PrecioU = CalcularPrecio(aux.Producto.IdProducto);
+                    aux.PrecioU = (float)Convert.ToDouble(conexion.Lector[9]);
                     aux.PrecioT = aux.PrecioU * aux.Cantidad;
 
                     lstProductosVendidos.Add(aux);
@@ -69,7 +69,7 @@ namespace Negocio
 
         public float CalcularPrecio(int IdProducto)
         {
-            float precio;
+            float precio = 0;
             AccesoDB conexion = null;
             try
             {
@@ -85,7 +85,10 @@ namespace Negocio
                 conexion.AbrirConexion();
                 conexion.EjecutarConsulta();
 
-                precio = (float)Convert.ToDouble(conexion.Lector[0]) * (float)Convert.ToDouble(conexion.Lector[1]);
+                if (conexion.Lector.Read())
+                {
+                    precio = (float)Math.Round(Convert.ToDouble(conexion.Lector[0])*((Convert.ToDouble(conexion.Lector[1])/100)+1), 3);
+                }
 
                 return precio;
             }
@@ -102,9 +105,49 @@ namespace Negocio
             }
         }
 
-        public bool DescontarStock(ProductoVendido pv)
+        public bool ControlarStock(ProductoVendido pv)
         {
             bool stocked = false;
+            int stockTotal = 0;
+            AccesoDB conexion = null;
+            try
+            {
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("SELECT L.IDLOTE, L.UNIDADESE FROM LOTES AS L " +
+                    "INNER JOIN COMPRAS AS C ON C.IDCOMPRA = L.IDCOMPRA " +
+                    "WHERE L.IDPRODUCTO = @idproducto " +
+                    "ORDER BY C.FECHACOMPRA DESC");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@idproducto", pv.Producto.IdProducto);
+
+                conexion.AbrirConexion();
+                conexion.EjecutarConsulta();
+
+                while (conexion.Lector.Read())
+                {
+                    stockTotal += (int)conexion.Lector[1];
+                }
+                if (stockTotal >= pv.Cantidad)
+                {
+                    stocked = true;
+                }
+                return stocked;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conexion.CheckearConexion() == true)
+                {
+                    conexion.CerrarConexion();
+                }
+            }
+        }
+
+        public void DescontarStock(ProductoVendido pv)
+        {
             Lote lote;
             int stockTotal = 0;
             List<Lote> lstLotes = new List<Lote>();
@@ -134,20 +177,24 @@ namespace Negocio
                 }
                 if( stockTotal >= pv.Cantidad )
                 {
-                    int cantV = pv.Cantidad, i = 0, cantR, cantL, aux;
-                    while(cantV > 0)
+                    int cantV = pv.Cantidad, i = 0;
+                    while (cantV > 0)
                     {
-                        cantL = lstLotes[i].UnidadesE;
-                        aux = cantV;
-                        cantV -= cantL;
-                        cantR = aux - cantV;
-                        lstLotes[i].UnidadesE = cantL - cantR;
+                        if (cantV <= lstLotes[i].UnidadesE)
+                        {
+                            lstLotes[i].UnidadesE -= cantV;
+                            cantV = 0;
+                        }
+                        else
+                        {
+                            cantV -= lstLotes[i].UnidadesE;
+                            lstLotes[i].UnidadesE = 0;
+                        }
                         ActualizarStock(lstLotes[i]);
                         i++;
                     }
-                    stocked = true;
                 }
-                return stocked;
+                return;
             }
             catch (Exception ex)
             {
@@ -195,11 +242,12 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("INSERT INTO PRODUCTOS_X_VENTA(IDVENTA,IDPRODUCTO,CANTIDAD) VALUES (@idventa,@idproducto,@cantidad)");
+                conexion.SetearConsulta("INSERT INTO PRODUCTOS_X_VENTA(IDVENTA,IDPRODUCTO,PRECIOPU,CANTIDAD) VALUES (@idventa,@idproducto,@preciopu,@cantidad)");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@idcompra", nuevo.IdVenta);
                 conexion.Comando.Parameters.AddWithValue("@idproducto", nuevo.Producto.IdProducto);
                 conexion.Comando.Parameters.AddWithValue("@cantidad", nuevo.Cantidad);
+                conexion.Comando.Parameters.AddWithValue("@preciopu", nuevo.PrecioU);
 
                 conexion.AbrirConexion();
                 conexion.EjecutarAccion();
@@ -223,11 +271,12 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("UPDATE PRODUCTOS_X_VENTA SET IDPRODUCTO = @idproducto, CANTIDAD = @cantidad WHERE IDPXV = @id");
+                conexion.SetearConsulta("UPDATE PRODUCTOS_X_VENTA SET IDPRODUCTO = @idproducto, PRECIOPU = @preciopu, CANTIDAD = @cantidad WHERE IDPXV = @id");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@idproducto", pv.Producto.IdProducto);
                 conexion.Comando.Parameters.AddWithValue("@cantidad", pv.Cantidad);
                 conexion.Comando.Parameters.AddWithValue("@id", pv.IdPxv);
+                conexion.Comando.Parameters.AddWithValue("@preciopu", pv.PrecioU);
 
                 conexion.AbrirConexion();
                 conexion.EjecutarAccion();

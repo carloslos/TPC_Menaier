@@ -58,7 +58,7 @@ namespace Negocio
                         aux.Cliente = auxC;
                     }
                     aux.Cliente.IdCliente = (int)conexion.Lector[6];
-                    aux.Monto = CalcularMonto(aux.IdVenta);
+                    aux.Monto = (float)Math.Round(CalcularMonto(aux.IdVenta), 3);
 
                     lstVentas.Add(aux);
                 }
@@ -156,7 +156,7 @@ namespace Negocio
                 lstLotes = negL.Listar(IdVenta);
                 foreach(Lote l in lstLotes)
                 {
-                    monto += (l.CostoPU * l.UnidadesP);
+                    monto += (float)Math.Round((l.CostoPU * l.UnidadesP), 3);
                 }
                 return monto;
             }

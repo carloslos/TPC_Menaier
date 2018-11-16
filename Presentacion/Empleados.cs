@@ -40,14 +40,14 @@ namespace Presentacion
                 dgvEmpleados.Columns["TipoPerfil"].Visible = false;
                 dgvEmpleados.Columns["IdContacto"].Visible = false;
                 dgvEmpleados.Columns["Usuario"].Visible = false;
-                dgvEmpleados.Columns["Contrasenia"].Visible = false;
+                dgvEmpleados.Columns["Pass"].Visible = false;
                 dgvEmpleados.Columns["Activo"].Visible = false;
                 dgvEmpleados.Update();
                 dgvEmpleados.Refresh();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
         }
 
@@ -69,7 +69,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
         }
 
@@ -94,7 +94,7 @@ namespace Presentacion
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
                 }
             }
             else
@@ -127,7 +127,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
         }
 
@@ -151,7 +151,7 @@ namespace Presentacion
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
                 }
             }
             else
@@ -182,7 +182,7 @@ namespace Presentacion
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
                 }
             }
             else

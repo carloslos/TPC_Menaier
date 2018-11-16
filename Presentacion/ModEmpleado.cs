@@ -13,7 +13,7 @@ namespace Presentacion
 {
     public partial class ModEmpleado : MetroFramework.Forms.MetroForm
     {
-        private bool[] EntradasVal = new bool[6];
+        private bool[] EntradasVal = new bool[7];
         Empleado em;
         Validaciones val = new Validaciones();
 
@@ -70,8 +70,8 @@ namespace Presentacion
                 em.Apellido = TxtApellido.Text.Trim();
                 em.Dni = Convert.ToInt32(TxtDni.Text.Trim());
                 em.Email = TxtEmail.Text.Trim();
-                string s = BoxTipoPerfil.SelectedItem.ToString();
-                em.TipoPerfil = s[0];
+                em.TipoPerfil.IdTipoPerfil = (int)BoxTipoPerfil.SelectedValue;
+                em.Usuario = TxtUsuario.Text;
                 em.FechaNac = DateFechaNac.Value;             
                 if (em.IdEmpleado == 0)
                 {
@@ -93,12 +93,28 @@ namespace Presentacion
         {
             TxtNombre.Text = TxtNombre.Text.TrimStart();
             ValidarTxt(0, val.EsAlfa, TxtNombre, tileNombre, lblNombre);
+            if(EntradasVal[0] == true && EntradasVal[1] == true)
+            {
+                TxtUsuario.Text = TxtNombre.Text[0] + TxtApellido.Text.Substring(0, TxtApellido.Text.IndexOf(" "));
+            }
+            else
+            {
+                TxtUsuario.Text = "";
+            }
         }
 
         private void TxtApellido_TextChanged(object sender, EventArgs e)
         {
             TxtApellido.Text = TxtApellido.Text.TrimStart();
             ValidarTxt(1, val.EsAlfa, TxtApellido, tileApellido, lblApellido);
+            if (EntradasVal[0] == true && EntradasVal[1] == true)
+            {
+                TxtUsuario.Text = TxtNombre.Text[0] + TxtApellido.Text.Substring(0, TxtApellido.Text.IndexOf(" "));
+            }
+            else
+            {
+                TxtUsuario.Text = "";
+            }
         }
 
         private void TxtDni_TextChanged(object sender, EventArgs e)
@@ -215,6 +231,12 @@ namespace Presentacion
             }
             if (v == true) { BtnMod.Enabled = true; }
             else { BtnMod.Enabled = false; }
+        }
+
+        private void TxtPass_TextChanged(object sender, EventArgs e)
+        {
+            TxtPass.Text = TxtPass.Text.TrimStart();
+            ValidarTxt(7, val.EsPass, TxtPass, tilePass, lblPass);
         }
     }
 }
