@@ -22,7 +22,7 @@ namespace Negocio
                                         "INNER JOIN PRODUCTOS AS P ON PXV.IDPRODUCTO = P.IDPRODUCTO " +
                                         "INNER JOIN MARCAS AS M ON P.IDMARCA = M.IDMARCA " +
                                         "INNER JOIN TIPOSPRODUCTO AS TP ON P.IDTIPOPRODUCTO = TP.IDTIPOPRODUCTO " +
-                                        "WHERE IDVENTA = @id");
+                                        "WHERE PXV.IDVENTA = @id");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@id", id);
                 conexion.AbrirConexion();
@@ -32,7 +32,7 @@ namespace Negocio
                 {
                     aux = new ProductoVendido
                     {
-                        IdPxv = (int)conexion.Lector[0],
+                        IdPxv = (long)conexion.Lector[0],
                         Producto = new Producto(),
                         Cantidad = (int)conexion.Lector[2]
                     };
@@ -46,7 +46,7 @@ namespace Negocio
                     aux.Producto.TipoProducto.Descripcion = (string)conexion.Lector[5];
                     aux.Producto.TipoProducto.IdTipoProducto = (int)conexion.Lector[8];
                     aux.PrecioU = (float)Convert.ToDouble(conexion.Lector[9]);
-                    aux.PrecioT = aux.PrecioU * aux.Cantidad;
+                    aux.PrecioT = (aux.PrecioU * aux.Cantidad);
 
                     lstProductosVendidos.Add(aux);
                 }
@@ -87,7 +87,8 @@ namespace Negocio
 
                 if (conexion.Lector.Read())
                 {
-                    precio = (float)Math.Round(Convert.ToDouble(conexion.Lector[0])*((Convert.ToDouble(conexion.Lector[1])/100)+1), 3);
+                    //precio = (float)Math.Round(Convert.ToDouble(conexion.Lector[0])*((Convert.ToDouble(conexion.Lector[1])/100)+1), 3);
+                    precio = (float)Convert.ToDouble(conexion.Lector[0]) * (float)((Convert.ToDouble(conexion.Lector[1]) / 100) + 1);
                 }
 
                 return precio;
@@ -269,7 +270,7 @@ namespace Negocio
                 conexion = new AccesoDB();
                 conexion.SetearConsulta("INSERT INTO PRODUCTOS_X_VENTA(IDVENTA,IDPRODUCTO,PRECIOPU,CANTIDAD) VALUES (@idventa,@idproducto,@preciopu,@cantidad)");
                 conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@idcompra", nuevo.IdVenta);
+                conexion.Comando.Parameters.AddWithValue("@idventa", nuevo.IdVenta);
                 conexion.Comando.Parameters.AddWithValue("@idproducto", nuevo.Producto.IdProducto);
                 conexion.Comando.Parameters.AddWithValue("@cantidad", nuevo.Cantidad);
                 conexion.Comando.Parameters.AddWithValue("@preciopu", nuevo.PrecioU);

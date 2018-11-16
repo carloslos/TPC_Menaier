@@ -14,5 +14,10 @@ namespace Dominio
         public int Cantidad { get; set; }
         public float PrecioT { get; set; }
         public float PrecioU { get; set; }
+
+        public override string ToString()
+        {
+            return IdPxv.ToString(); ;
+        }
     }
 }

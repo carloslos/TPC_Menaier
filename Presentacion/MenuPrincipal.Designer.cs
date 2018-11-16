@@ -99,7 +99,7 @@
             this.BtnTiposProducto.Name = "BtnTiposProducto";
             this.BtnTiposProducto.Size = new System.Drawing.Size(120, 120);
             this.BtnTiposProducto.TabIndex = 7;
-            this.BtnTiposProducto.Text = "Tipos de producto";
+            this.BtnTiposProducto.Text = "Tipos\r\nde\r\nProducto";
             this.BtnTiposProducto.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnTiposProducto.UseSelectable = true;
             this.BtnTiposProducto.Click += new System.EventHandler(this.BtnTiposProducto_Click);

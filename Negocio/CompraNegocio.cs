@@ -60,18 +60,8 @@ namespace Negocio
         
         public string Agregar(Compra nuevo)
         {
-            //AccesoDB conexion = null;
             try
             {
-                /*conexion = new AccesoDB();
-                conexion.SetearConsulta("INSERT INTO COMPRAS(IDPROVEEDOR,FECHACOMPRA,ACTIVO) VALUES (@idproveedor,@fechacompra,1)");
-                conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@idproveedor", nuevo.Proveedor.IdProveedor);
-                conexion.Comando.Parameters.AddWithValue("@fechacompra", nuevo.FechaCompra);
-                conexion.Comando.Parameters.AddWithValue("@fecharegistro", DateTime.Now);
-                conexion.AbrirConexion();
-                conexion.EjecutarAccion();*/
-
                 string insertedID = "";
 
                 string query = "INSERT INTO COMPRAS(IDPROVEEDOR,FECHACOMPRA,ACTIVO) VALUES (@idproveedor,@fechacompra,1); SELECT SCOPE_IDENTITY();";

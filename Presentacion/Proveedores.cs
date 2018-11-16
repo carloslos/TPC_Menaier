@@ -111,7 +111,7 @@ namespace Presentacion
             }
             else
             {
-                Mensaje m = new Mensaje("Ningun item seleccion.");
+                Mensaje m = new Mensaje("Ningun item seleccionado.");
                 m.ShowDialog();
             }
 
@@ -146,7 +146,7 @@ namespace Presentacion
             }
             else
             {
-                Mensaje m = new Mensaje("Ningun item seleccion.");
+                Mensaje m = new Mensaje("Ningun item seleccionado.");
                 m.ShowDialog();
             }
 
@@ -179,7 +179,7 @@ namespace Presentacion
             }
             else
             {
-                Mensaje m = new Mensaje("Ningun item seleccion.");
+                Mensaje m = new Mensaje("Ningun item seleccionado.");
                 m.ShowDialog();
             }
 
@@ -212,7 +212,7 @@ namespace Presentacion
             }
             else
             {
-                Mensaje m = new Mensaje("Ningun item seleccion.");
+                Mensaje m = new Mensaje("Ningun item seleccionado.");
                 m.ShowDialog();
             }
 

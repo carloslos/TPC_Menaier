@@ -31,8 +31,8 @@ namespace Presentacion
             this.Text = "Editar " + this.Text;
             BtnMod.Text = "Editar";
             BtnMod.Enabled = false;
-            TxtEmpresa.Text = c.Nombre;
-            TxtCuit.Text = c.Cuit.ToString();
+            TxtEmpresa.Text = C.Nombre;
+            TxtCuit.Text = C.Cuit.ToString();
             c = C;
         }
 
@@ -66,7 +66,7 @@ namespace Presentacion
             try
             {
                 c.Nombre = TxtEmpresa.Text.Trim();
-                c.Cuit = Convert.ToInt32(TxtCuit.Text.Trim());
+                c.Cuit = Convert.ToInt64(TxtCuit.Text.Trim());
                 if (c.IdCliente != 0)
                 {
                     neg.Modificar(c);

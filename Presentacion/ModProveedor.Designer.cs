@@ -141,9 +141,6 @@
             // 
             // TxtCuit
             // 
-            // 
-            // 
-            // 
             this.TxtCuit.CustomButton.Image = null;
             this.TxtCuit.CustomButton.Location = new System.Drawing.Point(159, 2);
             this.TxtCuit.CustomButton.Name = "";

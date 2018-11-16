@@ -211,7 +211,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;TxtNombre.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="resource.Image1" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
@@ -250,7 +250,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;TxtApellido.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="lblEmail.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -304,7 +304,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tileEmail.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="resource.Image2" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
@@ -343,7 +343,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;TxtDni.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="lblDni.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -397,7 +397,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tileDni.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="resource.Image3" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
@@ -436,7 +436,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;TxtEmail.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>1</value>
   </data>
   <data name="lblApellido.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>

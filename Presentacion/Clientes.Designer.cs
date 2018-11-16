@@ -236,7 +236,7 @@
             this.dgvClientesE.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvClientesE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClientesE.Size = new System.Drawing.Size(978, 476);
-            this.dgvClientesE.TabIndex = 0;
+            this.dgvClientesE.TabIndex = 6;
             this.dgvClientesE.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // BtnEliminarE

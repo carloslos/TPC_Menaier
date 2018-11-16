@@ -16,15 +16,15 @@ namespace Presentacion
 
         public DetallesContacto(Contacto C)
         {
-            c = C;
             InitializeComponent();
+            c = C;
         }
 
         public DetallesContacto(Empleado C)
         {
+            InitializeComponent();
             c = C;
             c.IdContacto = C.IdEmpleado;
-            InitializeComponent();
         }
 
         public DetallesContacto(ClienteP C)
@@ -146,7 +146,7 @@ namespace Presentacion
             }
             else
             {
-                Mensaje m = new Mensaje("Ningun item seleccion.");
+                Mensaje m = new Mensaje("Ningun item seleccionado.");
                 m.ShowDialog();
             }
 
@@ -181,7 +181,7 @@ namespace Presentacion
             }
             else
             {
-                Mensaje m = new Mensaje("Ningun item seleccion.");
+                Mensaje m = new Mensaje("Ningun item seleccionado.");
                 m.ShowDialog();
             }
 
@@ -235,7 +235,7 @@ namespace Presentacion
             }
             else
             {
-                Mensaje m = new Mensaje("Ningun item seleccion.");
+                Mensaje m = new Mensaje("Ningun item seleccionado.");
                 m.ShowDialog();
             }
 
@@ -270,7 +270,7 @@ namespace Presentacion
             }
             else
             {
-                Mensaje m = new Mensaje("Ningun item seleccion.");
+                Mensaje m = new Mensaje("Ningun item seleccionado.");
                 m.ShowDialog();
             }
 

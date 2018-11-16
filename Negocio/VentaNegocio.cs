@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Dominio;
 using System.Data.SqlClient;
 using System.Data;
+using System.Globalization;
 
 namespace Negocio
 {
@@ -58,7 +59,8 @@ namespace Negocio
                         aux.Cliente = auxC;
                     }
                     aux.Cliente.IdCliente = (int)conexion.Lector[6];
-                    aux.Monto = (float)Math.Round(CalcularMonto(aux.IdVenta), 3);
+                    //aux.Monto = (float)Math.Round(CalcularMonto(aux.IdVenta), 3);
+                    aux.Monto = (float)CalcularMonto(aux.IdVenta);
 
                     lstVentas.Add(aux);
                 }
@@ -79,23 +81,15 @@ namespace Negocio
 
         public string Agregar(Venta nuevo)
         {
-            //AccesoDB conexion = null;
             try
-            {/*
-                conexion = new AccesoDB();
-                conexion.SetearConsulta("INSERT INTO VENTAS(IDCLIENTE,IDEMPLEADO,FECHAVENTA,FECHAREGISTRO,ACTIVO) VALUES (@idcliente,@dempleado,@fechaventa,@fecharegistro,1)");
-                conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@idcliente", nuevo.Cliente.IdCliente);
-                conexion.Comando.Parameters.AddWithValue("@idempleado", nuevo.Empleado.IdEmpleado);
-                conexion.Comando.Parameters.AddWithValue("@fechaventa", nuevo.FechaVenta);
-                conexion.Comando.Parameters.AddWithValue("@fecharegistro", nuevo.FechaRegistro);
-
-                conexion.AbrirConexion();
-                conexion.EjecutarAccion();*/
-
+            {
+                //DateTime d = new DateTime();
+                //CultureInfo ci = CultureInfo.InvariantCulture;
+                //d = DateTime.ParseExact((nuevo.FechaVenta.Day.ToString() + "/" + nuevo.FechaVenta.Month.ToString() + "/" + nuevo.FechaVenta.Year.ToString()), "/MM/yyyy", ci);
+                nuevo.FechaRegistro = DateTime.Today;
                 string insertedID = "";
 
-                string query = "INSERT INTO VENTAS(IDCLIENTE,IDEMPLEADO,FECHAVENTA,FECHAREGISTRO,ACTIVO) VALUES (@idcliente,@dempleado,@fechaventa,@fecharegistro,1); SELECT SCOPE_IDENTITY();";
+                string query = "INSERT INTO VENTAS(IDCLIENTE,IDEMPLEADO,FECHAVENTA,FECHAREGISTRO,ACTIVO) VALUES (@idcliente,@idempleado,@fechaventa,@fecharegistro,1); SELECT SCOPE_IDENTITY();";
 
                 using (var dbconn = new SqlConnection(@"data source=.\SQLEXPRESS; initial catalog= MENAIER_DB;  integrated security=sspi"))
                 using (var dbcm = new SqlCommand(query, dbconn))
@@ -156,7 +150,8 @@ namespace Negocio
                 lstLotes = negL.Listar(IdVenta);
                 foreach(Lote l in lstLotes)
                 {
-                    monto += (float)Math.Round((l.CostoPU * l.UnidadesP), 3);
+                    //monto += (float)Math.Round((l.CostoPU * l.UnidadesP), 3);
+                    monto += (float)(l.CostoPU * l.UnidadesP);
                 }
                 return monto;
             }

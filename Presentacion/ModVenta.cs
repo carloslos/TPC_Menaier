@@ -245,7 +245,7 @@ namespace Presentacion
                 ProductoVendido pv = (ProductoVendido)dgvVenta.Rows[i].DataBoundItem;
                 total += pv.PrecioT;
             }
-            TxtTotal.Text = "$ " + total.ToString();
+            TxtTotal.Text = total.ToString();
         }
 
         private void ValidarBox(int c, MetroFramework.Controls.MetroComboBox b, MetroFramework.Controls.MetroTile t, MetroFramework.Controls.MetroLabel l)
@@ -344,8 +344,10 @@ namespace Presentacion
                 }
                 if ( negPV.ControlarStock(pv) )
                 {
-                    pv.PrecioU = (float)Math.Round(negPV.CalcularPrecio(pv.Producto.IdProducto), 3);
-                    pv.PrecioT = (float)Math.Round(pv.PrecioU * pv.Cantidad, 3);
+                    //pv.PrecioU = (float)Math.Round(negPV.CalcularPrecio(pv.Producto.IdProducto), 3);
+                    //pv.PrecioT = (float)Math.Round(pv.PrecioU * pv.Cantidad, 3);
+                    pv.PrecioU = negPV.CalcularPrecio(pv.Producto.IdProducto);
+                    pv.PrecioT = pv.PrecioU * pv.Cantidad;
                     v.LstProductosVendidos.Add(pv);
                     BindProductos.ResetBindings();
 
@@ -396,7 +398,7 @@ namespace Presentacion
             }
             else
             {
-                Mensaje m = new Mensaje("Ningun item seleccion.");
+                Mensaje m = new Mensaje("Ningun item seleccionado.");
                 m.ShowDialog();
             }
 

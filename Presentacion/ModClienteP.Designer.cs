@@ -211,7 +211,7 @@
             this.TxtEmail.UseSelectable = true;
             this.TxtEmail.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtEmail.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.TxtEmail.TextChanged += new System.EventHandler(this.TxtDni_TextChanged);
+            this.TxtEmail.TextChanged += new System.EventHandler(this.TxtEmail_TextChanged);
             // 
             // tileApellido
             // 
@@ -244,12 +244,12 @@
             // ModClienteP
             // 
             resources.ApplyResources(this, "$this");
-            this.Controls.Add(this.TxtNombre);
             this.Controls.Add(this.TxtApellido);
+            this.Controls.Add(this.TxtEmail);
+            this.Controls.Add(this.TxtNombre);
             this.Controls.Add(this.tileEmail);
             this.Controls.Add(this.TxtDni);
             this.Controls.Add(this.tileDni);
-            this.Controls.Add(this.TxtEmail);
             this.Controls.Add(this.tileApellido);
             this.Controls.Add(this.tileNombre);
             this.Controls.Add(this.BtnVolver);

@@ -127,6 +127,8 @@
             this.dgvVenta.Size = new System.Drawing.Size(576, 475);
             this.dgvVenta.TabIndex = 0;
             this.dgvVenta.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.dgvVenta.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.DgvProductos_Changed_RowsAdded);
+            this.dgvVenta.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.DgvProductos_Changed_RowsRemoved);
             // 
             // IdPxv
             // 

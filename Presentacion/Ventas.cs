@@ -65,7 +65,7 @@ namespace Presentacion
             try
             {
                 ModVenta mod = new ModVenta();
-                mod.Show();
+                mod.ShowDialog();
                 LlenarTabla();
             }
             catch (Exception ex)
@@ -102,7 +102,7 @@ namespace Presentacion
             }
             else
             {
-                Mensaje m = new Mensaje("Ningun item seleccion.");
+                Mensaje m = new Mensaje("Ningun item seleccionado.");
                 m.ShowDialog();
             }
         }
@@ -157,7 +157,7 @@ namespace Presentacion
             }
             else
             {
-                Mensaje m = new Mensaje("Ningun item seleccion.");
+                Mensaje m = new Mensaje("Ningun item seleccionado.");
                 m.ShowDialog();
             }
         }
@@ -198,7 +198,7 @@ namespace Presentacion
             }
             else
             {
-                Mensaje m = new Mensaje("Ningun item seleccion.");
+                Mensaje m = new Mensaje("Ningun item seleccionado.");
                 m.ShowDialog();
             }
         }

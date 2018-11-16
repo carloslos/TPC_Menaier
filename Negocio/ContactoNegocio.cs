@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dominio;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace Negocio
 {
@@ -19,8 +21,8 @@ namespace Negocio
             {
                 conexion = new AccesoDB();
                 conexion.SetearConsulta("SELECT C.IDCONTACTO, C.NOMBRE, C.APELLIDO, C.DNI, C.EMAIL FROM CONTACTOS AS C " +
-                        "INNER JOIN CONTACTOS_X_RELACION AS CXR ON CXR.IDRELACION = @id " +
-                        "WHERE C.ACTIVO = 1");
+                        "INNER JOIN CONTACTOS_X_RELACION AS CXR ON CXR.IDCONTACTO = C.IDCONTACTO " +
+                        "WHERE C.ACTIVO = 1 AND CXR.IDRELACION = @id");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@id", id);
                 conexion.AbrirConexion();
@@ -53,18 +55,43 @@ namespace Negocio
             }
         }
 
-        public void Agregar(Contacto nuevo)
+        public string Agregar(Contacto nuevo)
+        {
+            try
+            {
+                string insertedID = "";
+
+                string query = "INSERT INTO CONTACTOS(NOMBRE, APELLIDO, DNI, EMAIL, ACTIVO) VALUES (@nombre, @apellido, @dni, @email, 1); SELECT SCOPE_IDENTITY();";
+
+                using (var dbconn = new SqlConnection(@"data source=.\SQLEXPRESS; initial catalog= MENAIER_DB;  integrated security=sspi"))
+                using (var dbcm = new SqlCommand(query, dbconn))
+                {
+                    dbcm.Parameters.AddWithValue("@nombre", nuevo.Nombre);
+                    dbcm.Parameters.AddWithValue("@apellido", nuevo.Apellido);
+                    dbcm.Parameters.AddWithValue("@dni", nuevo.Dni);
+                    dbcm.Parameters.AddWithValue("@email", nuevo.Email); ;
+
+                    dbconn.Open();
+                    insertedID = dbcm.ExecuteScalar().ToString();
+                }
+                return insertedID;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void Registrar(int IdContacto, int IdRelacion)
         {
             AccesoDB conexion = null;
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("INSERT INTO CONTACTOS(NOMBRE, APELLIDO, DNI, EMAIL) VALUES (@nombre, @apellido, @dni, @email)");
+                conexion.SetearConsulta("INSERT INTO CONTACTOS_X_RELACION(IDCONTACTO,IDRELACION) VALUES (@idcontacto,@idrelacion)");
                 conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@nombre", nuevo.Nombre);
-                conexion.Comando.Parameters.AddWithValue("@apellido", nuevo.Apellido);
-                conexion.Comando.Parameters.AddWithValue("@dni", nuevo.Dni);
-                conexion.Comando.Parameters.AddWithValue("@email", nuevo.Email);
+                conexion.Comando.Parameters.AddWithValue("@idcontacto", IdContacto);
+                conexion.Comando.Parameters.AddWithValue("@idrelacion", IdRelacion);
 
                 conexion.AbrirConexion();
                 conexion.EjecutarAccion();

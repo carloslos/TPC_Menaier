@@ -16,8 +16,8 @@ namespace Presentacion
 
         public Contactos(int Id)
         {
-            IdRelacion = Id;
             InitializeComponent();
+            IdRelacion = Id;
         }
     
         private void Contactos_Load(object sender, EventArgs e)
@@ -55,8 +55,8 @@ namespace Presentacion
             }
             try
             {
-                ModContacto mod = new ModContacto();
-                mod.Show();
+                ModContacto mod = new ModContacto(IdRelacion);
+                mod.ShowDialog();
                 LlenarTabla();
             }
             catch (Exception ex)
@@ -81,7 +81,7 @@ namespace Presentacion
                 {
                     Contacto obj = (Contacto)dgvContactos.CurrentRow.DataBoundItem;
                     ModContacto mod = new ModContacto(obj);
-                    mod.Show();
+                    mod.ShowDialog();
                     LlenarTabla();
                 }
                 catch (Exception ex)
@@ -91,7 +91,7 @@ namespace Presentacion
             }
             else
             {
-                Mensaje m = new Mensaje("Ningun item seleccion.");
+                Mensaje m = new Mensaje("Ningun item seleccionado.");
                 m.ShowDialog();
             }
 
@@ -126,7 +126,7 @@ namespace Presentacion
             }
             else
             {
-                Mensaje m = new Mensaje("Ningun item seleccion.");
+                Mensaje m = new Mensaje("Ningun item seleccionado.");
                 m.ShowDialog();
             }
 
@@ -157,7 +157,7 @@ namespace Presentacion
             }
             else
             {
-                Mensaje m = new Mensaje("Ningun item seleccion.");
+                Mensaje m = new Mensaje("Ningun item seleccionado.");
                 m.ShowDialog();
             }
 
@@ -183,6 +183,11 @@ namespace Presentacion
             {
                 Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
+        }
+
+        private void BtnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

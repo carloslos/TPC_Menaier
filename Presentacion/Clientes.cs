@@ -123,7 +123,7 @@ namespace Presentacion
             try
             {
                 ModClienteP mod = new ModClienteP();
-                mod.Show();
+                mod.ShowDialog();
                 LlenarTablaP();
             }
             catch (Exception ex)
@@ -148,7 +148,7 @@ namespace Presentacion
                 {
                     ClienteP obj = (ClienteP)dgvClientesP.CurrentRow.DataBoundItem;
                     ModClienteP mod = new ModClienteP(obj);
-                    mod.Show();
+                    mod.ShowDialog();
                     LlenarTablaP();
                 }
                 catch (Exception ex)
@@ -158,7 +158,7 @@ namespace Presentacion
             }
             else
             {
-                Mensaje m = new Mensaje("Ningun item seleccion.");
+                Mensaje m = new Mensaje("Ningun item seleccionado.");
                 m.ShowDialog();
             }
 
@@ -190,7 +190,7 @@ namespace Presentacion
             }
             else
             {
-                Mensaje m = new Mensaje("Ningun item seleccion.");
+                Mensaje m = new Mensaje("Ningun item seleccionado.");
                 m.ShowDialog();
             }
 
@@ -225,7 +225,7 @@ namespace Presentacion
             }
             else
             {
-                Mensaje m = new Mensaje("Ningun item seleccion.");
+                Mensaje m = new Mensaje("Ningun item seleccionado.");
                 m.ShowDialog();
             }
 
@@ -244,7 +244,7 @@ namespace Presentacion
             try
             {
                 ModClienteE mod = new ModClienteE();
-                mod.Show();
+                mod.ShowDialog();
                 LlenarTablaE();
             }
             catch (Exception ex)
@@ -269,7 +269,7 @@ namespace Presentacion
                 {
                     ClienteE obj = (ClienteE)dgvClientesE.CurrentRow.DataBoundItem;
                     ModClienteE mod = new ModClienteE(obj);
-                    mod.Show();
+                    mod.ShowDialog();
                     LlenarTablaE();
                 }
                 catch (Exception ex)
@@ -279,7 +279,7 @@ namespace Presentacion
             }
             else
             {
-                Mensaje m = new Mensaje("Ningun item seleccion.");
+                Mensaje m = new Mensaje("Ningun item seleccionado.");
                 m.ShowDialog();
             }
 
@@ -301,9 +301,8 @@ namespace Presentacion
                 {
                     ClienteE E = new ClienteE();
                     E = (ClienteE)dgvClientesE.CurrentRow.DataBoundItem;
-                    Contactos c = new Contactos(E.GetId());
+                    Contactos c = new Contactos(E.IdCliente);
                     c.Show();
-                    LlenarTablaE();
                 }
                 catch (Exception ex)
                 {
@@ -312,7 +311,7 @@ namespace Presentacion
             }
             else
             {
-                Mensaje m = new Mensaje("Ningun item seleccion.");
+                Mensaje m = new Mensaje("Ningun item seleccionado.");
                 m.ShowDialog();
             }
 
@@ -347,7 +346,7 @@ namespace Presentacion
             }
             else
             {
-                Mensaje m = new Mensaje("Ningun item seleccion.");
+                Mensaje m = new Mensaje("Ningun item seleccionado.");
                 m.ShowDialog();
             }
 

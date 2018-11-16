@@ -97,9 +97,6 @@
             // 
             // TxtCuit
             // 
-            // 
-            // 
-            // 
             this.TxtCuit.CustomButton.Image = null;
             this.TxtCuit.CustomButton.Location = new System.Drawing.Point(159, 2);
             this.TxtCuit.CustomButton.Name = "";
@@ -111,7 +108,7 @@
             this.TxtCuit.CustomButton.Visible = false;
             this.TxtCuit.Lines = new string[0];
             this.TxtCuit.Location = new System.Drawing.Point(152, 179);
-            this.TxtCuit.MaxLength = 8;
+            this.TxtCuit.MaxLength = 11;
             this.TxtCuit.Name = "TxtCuit";
             this.TxtCuit.PasswordChar = '\0';
             this.TxtCuit.ScrollBars = System.Windows.Forms.ScrollBars.None;

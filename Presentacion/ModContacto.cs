@@ -15,14 +15,16 @@ namespace Presentacion
         private bool[] EntradasVal = new bool[4];
         Validaciones val = new Validaciones();
         Contacto c = null;
+        int IdRelacion;
 
-        public ModContacto()
+        public ModContacto(int id)
         {
             InitializeComponent();
             this.Text = "Agregar " + this.Text;
             BtnMod.Text = "Agregar";
             BtnMod.Enabled = false;
             c = new Contacto();
+            IdRelacion = id;
         }
 
         public ModContacto(Contacto C)
@@ -94,7 +96,8 @@ namespace Presentacion
                 }
                 else
                 {
-                    neg.Agregar(c);
+                    c.IdContacto = Convert.ToInt32(neg.Agregar(c));
+                    neg.Registrar(c.IdContacto, IdRelacion);
                 }
                 this.Close();
             }
