@@ -297,10 +297,12 @@
             this.Controls.Add(this.tileNombre);
             this.Controls.Add(this.BtnVolver);
             this.Controls.Add(this.BtnMod);
+            this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(450, 600);
             this.Name = "ModContacto";
             this.Text = "Contacto";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ModContacto_KeyPress);
             this.tileEmail.ResumeLayout(false);
             this.tileEmail.PerformLayout();
             this.tileDni.ResumeLayout(false);

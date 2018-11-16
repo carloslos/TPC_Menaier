@@ -254,9 +254,11 @@
             this.Controls.Add(this.tileNombre);
             this.Controls.Add(this.BtnVolver);
             this.Controls.Add(this.BtnMod);
+            this.KeyPreview = true;
             this.Name = "ModClienteP";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.ModClienteP_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ModClienteP_KeyPress);
             this.tileEmail.ResumeLayout(false);
             this.tileEmail.PerformLayout();
             this.tileDni.ResumeLayout(false);

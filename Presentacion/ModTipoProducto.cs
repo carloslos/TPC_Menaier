@@ -49,13 +49,12 @@ namespace Presentacion
                 if (tp.IdTipoProducto != 0)
                 {
                     neg.Modificar(tp);
-                    this.Close();
                 }
                 else
                 {
                     neg.Agregar(tp);
-                    LimpiarEntradas();
                 }
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -101,6 +100,14 @@ namespace Presentacion
         {
             val.CambiarColor(tileDescripcion, lblDescripcion, 'b');
             TxtDescripcion.Text = "";
+        }
+
+        private void ModTipoProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13 && EntradasVal == true)
+            {
+                BtnMod_Click(sender, e);
+            }
         }
     }
 }

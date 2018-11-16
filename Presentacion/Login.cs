@@ -64,5 +64,13 @@ namespace Presentacion
                 m.ShowDialog();
             }
         }
+
+        private void Login_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                BtnLogin_Click(sender, e);
+            }
+        }
     }
 }

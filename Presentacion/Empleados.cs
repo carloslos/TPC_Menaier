@@ -14,14 +14,26 @@ namespace Presentacion
 {
     public partial class Empleados : MetroFramework.Forms.MetroForm
     {
-        public Empleados()
+        int permisos;
+        public Empleados(int p)
         {
             InitializeComponent();
+            permisos = p;
         }
 
         private void Empleados_Load(object sender, EventArgs e)
         {
             LlenarTabla();
+            if (permisos == 2)
+            {
+                BtnEliminar.Enabled = false;
+            }
+            if (permisos == 3)
+            {
+                BtnEditar.Enabled = false;
+                BtnEliminar.Enabled = false;
+                BtnAgregar.Enabled = false;
+            }
         }
         
         private void LlenarTabla()
@@ -190,6 +202,11 @@ namespace Presentacion
                 Mensaje m = new Mensaje("Ningun item seleccion.");
                 m.ShowDialog();
             }
+        }
+
+        private void BtnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

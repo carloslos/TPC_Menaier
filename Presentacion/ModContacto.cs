@@ -91,13 +91,12 @@ namespace Presentacion
                 if (c.IdContacto != 0)
                 {
                     neg.Modificar(c);
-                    this.Close();
                 }
                 else
                 {
                     neg.Agregar(c);
-                    LimpiarEntradas();
                 }
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -153,6 +152,23 @@ namespace Presentacion
             }
             if (v == true) { BtnMod.Enabled = true; }
             else { BtnMod.Enabled = false; }
+        }
+
+        private void ModContacto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool v = true;
+            for (int i = 0; i < EntradasVal.Length - 1; i++)
+            {
+                if (EntradasVal[i] == false)
+                {
+                    v = false;
+                    break;
+                }
+            }
+            if (e.KeyChar == 13 && v == true)
+            {
+                BtnMod_Click(sender, e);
+            }
         }
     }
 }

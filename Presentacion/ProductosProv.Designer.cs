@@ -52,7 +52,7 @@
             // 
             // BtnVolver
             // 
-            this.BtnVolver.Location = new System.Drawing.Point(494, 525);
+            this.BtnVolver.Location = new System.Drawing.Point(494, 465);
             this.BtnVolver.Name = "BtnVolver";
             this.BtnVolver.Size = new System.Drawing.Size(50, 50);
             this.BtnVolver.TabIndex = 3;
@@ -211,7 +211,7 @@
             // 
             // BtnQuitar
             // 
-            this.BtnQuitar.Location = new System.Drawing.Point(494, 347);
+            this.BtnQuitar.Location = new System.Drawing.Point(494, 287);
             this.BtnQuitar.Name = "BtnQuitar";
             this.BtnQuitar.Size = new System.Drawing.Size(50, 50);
             this.BtnQuitar.TabIndex = 1;
@@ -222,7 +222,7 @@
             // 
             // BtnAgregar
             // 
-            this.BtnAgregar.Location = new System.Drawing.Point(494, 258);
+            this.BtnAgregar.Location = new System.Drawing.Point(494, 198);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(50, 50);
             this.BtnAgregar.TabIndex = 0;
@@ -233,7 +233,7 @@
             // 
             // BtnAceptar
             // 
-            this.BtnAceptar.Location = new System.Drawing.Point(494, 436);
+            this.BtnAceptar.Location = new System.Drawing.Point(494, 376);
             this.BtnAceptar.Name = "BtnAceptar";
             this.BtnAceptar.Size = new System.Drawing.Size(50, 50);
             this.BtnAceptar.TabIndex = 2;

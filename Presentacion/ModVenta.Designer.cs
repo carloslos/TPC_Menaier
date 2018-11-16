@@ -125,7 +125,7 @@
             this.dgvVenta.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvVenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvVenta.Size = new System.Drawing.Size(576, 475);
-            this.dgvVenta.TabIndex = 13;
+            this.dgvVenta.TabIndex = 0;
             this.dgvVenta.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // IdPxv
@@ -340,7 +340,7 @@
             this.lblTotal.Enabled = false;
             this.lblTotal.Location = new System.Drawing.Point(27, 1);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(36, 19);
+            this.lblTotal.Size = new System.Drawing.Size(38, 19);
             this.lblTotal.Style = MetroFramework.MetroColorStyle.Silver;
             this.lblTotal.TabIndex = 0;
             this.lblTotal.Text = "Total";

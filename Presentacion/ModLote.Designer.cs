@@ -219,7 +219,7 @@
             this.lblUnidadesP.Enabled = false;
             this.lblUnidadesP.Location = new System.Drawing.Point(17, 0);
             this.lblUnidadesP.Name = "lblUnidadesP";
-            this.lblUnidadesP.Size = new System.Drawing.Size(112, 19);
+            this.lblUnidadesP.Size = new System.Drawing.Size(113, 19);
             this.lblUnidadesP.TabIndex = 5;
             this.lblUnidadesP.Text = "Unidades Pedidas";
             // 
@@ -273,7 +273,7 @@
             this.lblCostoTotal.Enabled = false;
             this.lblCostoTotal.Location = new System.Drawing.Point(59, 1);
             this.lblCostoTotal.Name = "lblCostoTotal";
-            this.lblCostoTotal.Size = new System.Drawing.Size(70, 19);
+            this.lblCostoTotal.Size = new System.Drawing.Size(72, 19);
             this.lblCostoTotal.Style = MetroFramework.MetroColorStyle.Silver;
             this.lblCostoTotal.TabIndex = 5;
             this.lblCostoTotal.Text = "CostoTotal";
@@ -339,11 +339,13 @@
             this.Controls.Add(this.tileCostoUnitario);
             this.Controls.Add(this.BtnVolver);
             this.Controls.Add(this.BtnMod);
+            this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(450, 600);
             this.Name = "ModLote";
             this.Text = "Lote";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.ModLote_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ModLote_KeyPress);
             this.tileUnidadesE.ResumeLayout(false);
             this.tileUnidadesE.PerformLayout();
             this.tileProducto.ResumeLayout(false);

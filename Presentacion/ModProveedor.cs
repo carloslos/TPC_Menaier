@@ -62,13 +62,12 @@ namespace Presentacion
                 if (p.IdProveedor != 0)
                 {
                     neg.Modificar(p);
-                    this.Close();
                 }
                 else
                 {
                     neg.Agregar(p);
-                    LimpiarEntradas();
                 }
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -122,6 +121,14 @@ namespace Presentacion
         {
             if (EntradasVal[0] == true && EntradasVal[1] == true) { BtnMod.Enabled = true; }
             else { BtnMod.Enabled = false; }
+        }
+
+        private void ModProveedor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13 && EntradasVal[0] == true && EntradasVal[1] == true)
+            {
+                BtnMod_Click(sender, e);
+            }
         }
     }
 }

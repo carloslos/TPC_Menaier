@@ -105,6 +105,31 @@ namespace Negocio
             }
         }
 
+        public void EliminarPxV(int id)
+        {
+            AccesoDB conexion = null;
+            try
+            {
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("DELETE FROM PRODUCTOS_X_VENTA WHERE IDVENTA = @id");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@id", id);
+                conexion.AbrirConexion();
+                conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conexion.CheckearConexion() == true)
+                {
+                    conexion.CerrarConexion();
+                }
+            }
+        }
+
         public bool ControlarStock(ProductoVendido pv)
         {
             bool stocked = false;

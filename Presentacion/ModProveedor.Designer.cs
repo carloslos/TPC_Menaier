@@ -179,11 +179,13 @@
             this.Controls.Add(this.BtnMod);
             this.Controls.Add(this.tileEmpresa);
             this.Controls.Add(this.TxtEmpresa);
+            this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(385, 376);
             this.Name = "ModProveedor";
             this.Text = "Proveedor";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.ModProveedor_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ModProveedor_KeyPress);
             this.tileEmpresa.ResumeLayout(false);
             this.tileEmpresa.PerformLayout();
             this.tileCuit.ResumeLayout(false);

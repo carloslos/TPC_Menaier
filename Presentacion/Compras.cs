@@ -12,14 +12,26 @@ namespace Presentacion
 {
     public partial class Compras : MetroFramework.Forms.MetroForm
     {
-        public Compras()
+        int permisos;
+        public Compras(int p)
         {
             InitializeComponent();
+            permisos = p;
         }
 
         private void Compras_Load(object sender, EventArgs e)
         {
             LlenarTabla();
+            if (permisos == 2)
+            {
+                BtnEliminar.Enabled = false;
+            }
+            if (permisos == 3)
+            {
+                BtnEditar.Enabled = false;
+                BtnEliminar.Enabled = false;
+                BtnAgregar.Enabled = false;
+            }
         }
 
         private void LlenarTabla()
@@ -187,6 +199,11 @@ namespace Presentacion
                 Mensaje m = new Mensaje("Ningun item seleccion.");
                 m.ShowDialog();
             }
+        }
+
+        private void BtnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

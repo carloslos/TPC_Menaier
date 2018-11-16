@@ -13,16 +13,17 @@ namespace Presentacion
 {
     public partial class ProductosProv : MetroFramework.Forms.MetroForm
     {
-        int IdProveedor;
+        int IdProveedor, permisos;
         List<Producto> lstProductos;
         BindingList<Producto> bindProductos;
         List<Producto> lstProductosProv;
         BindingList<Producto> bindProductosProv;
 
-        public ProductosProv(string s, int id)
+        public ProductosProv(string s, int id, int p)
         {
             InitializeComponent();
             this.Text = s;
+            permisos = p;
             IdProveedor = id;
         }
 
@@ -53,6 +54,12 @@ namespace Presentacion
                 bindProductosProv = new BindingList<Producto>(lstProductosProv);
                 dgvProductosProv.DataSource = bindProductosProv;
                 LlenarTabla();
+                if (permisos == 3)
+                {
+                    BtnQuitar.Enabled = false;
+                    BtnAgregar.Enabled = false;
+                    BtnAceptar.Enabled = false;
+                }
             }
             catch (Exception ex)
             {

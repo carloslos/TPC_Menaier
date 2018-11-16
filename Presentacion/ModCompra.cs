@@ -377,6 +377,23 @@ namespace Presentacion
             }
 
         }
+
+        private void ModCompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool v = true;
+            for (int i = 0; i < EntradasVal.Length - 1; i++)
+            {
+                if (EntradasVal[i] == false)
+                {
+                    v = false;
+                    break;
+                }
+            }
+            if (e.KeyChar == 13 && v == true)
+            {
+                BtnMod_Click(sender, e);
+            }
+        }
     }
 }
 

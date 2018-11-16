@@ -125,5 +125,22 @@ namespace Presentacion
         {
             this.Close();
         }
+
+        private void ModClienteE_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool v = true;
+            for (int i = 0; i < EntradasVal.Length; i++)
+            {
+                if (EntradasVal[i] == false)
+                {
+                    v = false;
+                    break;
+                }
+            }
+            if (e.KeyChar == 13 && v == true)
+            {
+                BtnMod_Click(sender, e);
+            }
+        }
     }
 }

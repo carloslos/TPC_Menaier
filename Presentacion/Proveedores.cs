@@ -14,9 +14,11 @@ namespace Presentacion
 {
     public partial class Proveedores : MetroFramework.Forms.MetroForm
     {
-        public Proveedores()
+        int permisos;
+        public Proveedores(int p)
         {
             InitializeComponent();
+            permisos = p;
         }
 
         private void Proveedores_Load(object sender, EventArgs e)
@@ -24,6 +26,17 @@ namespace Presentacion
             try
             {
                 LlenarTabla();
+                if (permisos == 2)
+                {
+                    BtnEditar.Enabled = false;
+                    BtnEliminar.Enabled = false;
+                }
+                if (permisos == 3)
+                {
+                    BtnEditar.Enabled = false;
+                    BtnEliminar.Enabled = false;
+                    BtnAgregar.Enabled = false;
+                }
             }
             catch (Exception ex)
             {
@@ -155,7 +168,7 @@ namespace Presentacion
                 {
                     Proveedor p = new Proveedor();
                     p = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
-                    ProductosProv pp = new ProductosProv(p.ToString(), p.GetId());
+                    ProductosProv pp = new ProductosProv(p.ToString(), p.GetId(), permisos);
                     pp.Show();
                     LlenarTabla();
                 }
@@ -227,6 +240,11 @@ namespace Presentacion
             {
                 Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
             }
+        }
+
+        private void BtnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

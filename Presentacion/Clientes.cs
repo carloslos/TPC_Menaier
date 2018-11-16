@@ -14,9 +14,11 @@ namespace Presentacion
 {
     public partial class Clientes : MetroFramework.Forms.MetroForm
     {
-        public Clientes()
+        int permisos;
+        public Clientes(int p)
         {
             InitializeComponent();
+            permisos = p;
         }
 
         private void Clientes_Load(object sender, EventArgs e)
@@ -24,6 +26,11 @@ namespace Presentacion
             try
             {
                 RadClientesP.Checked = true;
+                if (permisos == 3)
+                {
+                    BtnEliminarP.Enabled = false;
+                    BtnEliminarE.Enabled = false;
+                }
             }
             catch (Exception ex)
             {
@@ -344,6 +351,11 @@ namespace Presentacion
                 m.ShowDialog();
             }
 
+        }
+
+        private void BtnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -79,7 +79,7 @@
             this.lblTotal.Enabled = false;
             this.lblTotal.Location = new System.Drawing.Point(27, 1);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(36, 19);
+            this.lblTotal.Size = new System.Drawing.Size(38, 19);
             this.lblTotal.Style = MetroFramework.MetroColorStyle.Silver;
             this.lblTotal.TabIndex = 0;
             this.lblTotal.Text = "Total";
@@ -233,7 +233,7 @@
             this.dgvLotes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvLotes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLotes.Size = new System.Drawing.Size(697, 413);
-            this.dgvLotes.TabIndex = 13;
+            this.dgvLotes.TabIndex = 0;
             this.dgvLotes.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.dgvLotes.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.DgvLotes_RowsAdded);
             this.dgvLotes.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.DgvLotes_RowsRemoved);
@@ -379,11 +379,13 @@
             this.Controls.Add(this.BtnAgregar);
             this.Controls.Add(this.BtnEliminar);
             this.Controls.Add(this.TxtTotal);
+            this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(1024, 600);
             this.Name = "ModCompra";
             this.Text = "Compra";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.ModCompra_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ModCompra_KeyPress);
             this.tileTotal.ResumeLayout(false);
             this.tileTotal.PerformLayout();
             this.tileFechaCompra.ResumeLayout(false);

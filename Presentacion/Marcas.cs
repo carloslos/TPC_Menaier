@@ -14,9 +14,11 @@ namespace Presentacion
 {
     public partial class Marcas : MetroFramework.Forms.MetroForm
     {
-        public Marcas()
+        int permisos;
+        public Marcas(int p)
         {
             InitializeComponent();
+            permisos = p;
         }
 
         private void Marcas_Load(object sender, EventArgs e)
@@ -28,6 +30,17 @@ namespace Presentacion
             catch (Exception ex)
             {
                 Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+            }
+            if (permisos == 2)
+            {
+                BtnEditar.Enabled = false;
+                BtnEliminar.Enabled = false;
+            }
+            if (permisos == 3)
+            {
+                BtnEditar.Enabled = false;
+                BtnEliminar.Enabled = false;
+                BtnAgregar.Enabled = false;
             }
         }
 
@@ -136,6 +149,11 @@ namespace Presentacion
                 Mensaje m = new Mensaje("Ningun item seleccion.");
                 m.ShowDialog();
             }
+        }
+
+        private void BtnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -95,5 +95,13 @@ namespace Presentacion
             if (EntradasVal == true) { BtnMod.Enabled = true; }
             else { BtnMod.Enabled = false; }
         }
+
+        private void ModMarca_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13 && EntradasVal == true)
+            {
+                BtnAgregar_Click(sender, e);
+            }
+        }
     }
 }

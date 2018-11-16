@@ -30,144 +30,128 @@ namespace Presentacion
             empleadoLoggeado = new Empleado();
             Login login = new Login(empleadoLoggeado);
             login.ShowDialog();
-
-            /*if (empleadoLoggeado.TipoPerfil.IdTipoPerfil == TipoPerfil.Administrador)
-            {
-                /// TODO: EDITAR ACCESOS
-            }*/
         }
 
         private void BtnEmpleados_Click(object sender, EventArgs e)
         {
+            foreach (Form item in Application.OpenForms)
             {
-                foreach (Form item in Application.OpenForms)
+                if (item.GetType() == typeof(Empleados))
                 {
-                    if (item.GetType() == typeof(Empleados))
-                    {
-                        item.Focus();
-                        return;
-                    }
+                    item.Focus();
+                    return;
                 }
-                Empleados wndEmpleados = new Empleados();
-                wndEmpleados.Show();
             }
+            Empleados wndEmpleados = new Empleados(empleadoLoggeado.TipoPerfil.IdTipoPerfil);
+            wndEmpleados.Show();
         }
 
         private void BtnMarcas_Click(object sender, EventArgs e)
         {
+            foreach (Form item in Application.OpenForms)
             {
-                foreach (Form item in Application.OpenForms)
+                if (item.GetType() == typeof(Marcas))
                 {
-                    if (item.GetType() == typeof(Marcas))
-                    {
-                        item.Focus();
-                        return;
-                    }
+                    item.Focus();
+                    return;
                 }
-                Marcas wndMarcas = new Marcas();
-                wndMarcas.Show();
             }
+            Marcas wndMarcas = new Marcas(empleadoLoggeado.TipoPerfil.IdTipoPerfil);
+            wndMarcas.Show();
         }
 
         private void BtnTiposProducto_Click(object sender, EventArgs e)
         {
+            foreach (Form item in Application.OpenForms)
             {
-                foreach (Form item in Application.OpenForms)
+                if (item.GetType() == typeof(TiposProducto))
                 {
-                    if (item.GetType() == typeof(TiposProducto))
-                    {
-                        item.Focus();
-                        return;
-                    }
+                    item.Focus();
+                    return;
                 }
-                TiposProducto wndTiposProducto = new TiposProducto();
-                wndTiposProducto.Show();
             }
+            TiposProducto wndTiposProducto = new TiposProducto(empleadoLoggeado.TipoPerfil.IdTipoPerfil);
+            wndTiposProducto.Show();
         }
 
         private void BtnClientes_Click(object sender, EventArgs e)
         {
+            foreach (Form item in Application.OpenForms)
             {
-                foreach (Form item in Application.OpenForms)
+                if (item.GetType() == typeof(Clientes))
                 {
-                    if (item.GetType() == typeof(Clientes))
-                    {
-                        item.Focus();
-                        return;
-                    }
+                    item.Focus();
+                    return;
                 }
-                Clientes wndClientes = new Clientes();
-                wndClientes.Show();
             }
+            Clientes wndClientes = new Clientes(empleadoLoggeado.TipoPerfil.IdTipoPerfil);
+            wndClientes.Show();
         }
 
         private void BtnProveedores_Click(object sender, EventArgs e)
         {
+            foreach (Form item in Application.OpenForms)
             {
-                foreach (Form item in Application.OpenForms)
+                if (item.GetType() == typeof(Proveedores))
                 {
-                    if (item.GetType() == typeof(Proveedores))
-                    {
-                        item.Focus();
-                        return;
-                    }
+                    item.Focus();
+                    return;
                 }
-                Proveedores wndProveedores = new Proveedores();
-                wndProveedores.Show();
             }
+            Proveedores wndProveedores = new Proveedores(empleadoLoggeado.TipoPerfil.IdTipoPerfil);
+            wndProveedores.Show();
         }
 
         private void BtnVentas_Click(object sender, EventArgs e)
         {
+            foreach (Form item in Application.OpenForms)
             {
-                foreach (Form item in Application.OpenForms)
+                if (item.GetType() == typeof(Ventas))
                 {
-                    if (item.GetType() == typeof(Ventas))
-                    {
-                        item.Focus();
-                        return;
-                    }
+                    item.Focus();
+                    return;
                 }
-                Ventas wndVentas = new Ventas();
-                wndVentas.Show();
             }
+            Ventas wndVentas = new Ventas(empleadoLoggeado.TipoPerfil.IdTipoPerfil);
+            wndVentas.Show();
         }
 
         private void BtnCompras_Click(object sender, EventArgs e)
         {
+            foreach (Form item in Application.OpenForms)
             {
-                foreach (Form item in Application.OpenForms)
+                if (item.GetType() == typeof(Compras))
                 {
-                    if (item.GetType() == typeof(Compras))
-                    {
-                        item.Focus();
-                        return;
-                    }
+                    item.Focus();
+                    return;
                 }
-                Compras wndCompras = new Compras();
-                wndCompras.Show();
             }
+            Compras wndCompras = new Compras(empleadoLoggeado.TipoPerfil.IdTipoPerfil);
+            wndCompras.Show();
         }
 
         private void BtnProductos_Click(object sender, EventArgs e)
         {
+            foreach (Form item in Application.OpenForms)
             {
-                foreach (Form item in Application.OpenForms)
+                if (item.GetType() == typeof(Productos))
                 {
-                    if (item.GetType() == typeof(Productos))
-                    {
-                        item.Focus();
-                        return;
-                    }
+                    item.Focus();
+                    return;
                 }
-                Productos wndProductos = new Productos();
-                wndProductos.Show();
             }
+            Productos wndProductos = new Productos(empleadoLoggeado.TipoPerfil.IdTipoPerfil);
+            wndProductos.Show();
         }
 
         private void MenuPrincipal_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

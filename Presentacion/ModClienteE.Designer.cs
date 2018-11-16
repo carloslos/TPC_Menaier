@@ -179,11 +179,13 @@
             this.Controls.Add(this.tileEmpresa);
             this.Controls.Add(this.BtnVolver);
             this.Controls.Add(this.BtnMod);
+            this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(385, 376);
             this.Name = "ModClienteE";
             this.Text = "Cliente";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.ModClienteE_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ModClienteE_KeyPress);
             this.tileCuit.ResumeLayout(false);
             this.tileCuit.PerformLayout();
             this.tileEmpresa.ResumeLayout(false);

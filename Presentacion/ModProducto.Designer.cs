@@ -316,11 +316,13 @@
             this.Controls.Add(this.TxtGanancia);
             this.Controls.Add(this.tileGanancia);
             this.Controls.Add(this.tileDescripcion);
+            this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(450, 600);
             this.Name = "ModProducto";
             this.Text = "Producto";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.ModProducto_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ModProducto_KeyPress);
             this.tileMarca.ResumeLayout(false);
             this.tileMarca.PerformLayout();
             this.tileTipoProducto.ResumeLayout(false);

@@ -142,7 +142,7 @@
             this.lblTipoPerfil.Enabled = false;
             this.lblTipoPerfil.Location = new System.Drawing.Point(3, 6);
             this.lblTipoPerfil.Name = "lblTipoPerfil";
-            this.lblTipoPerfil.Size = new System.Drawing.Size(87, 19);
+            this.lblTipoPerfil.Size = new System.Drawing.Size(88, 19);
             this.lblTipoPerfil.TabIndex = 5;
             this.lblTipoPerfil.Text = "Tipo de Perfil";
             // 
@@ -502,11 +502,13 @@
             this.Controls.Add(this.tileNombre);
             this.Controls.Add(this.BtnVolver);
             this.Controls.Add(this.BtnMod);
+            this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(450, 600);
             this.Name = "ModEmpleado";
             this.Text = "Empleado";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.ModEmpleado_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ModEmpleado_KeyPress);
             this.tileTipoPerfil.ResumeLayout(false);
             this.tileTipoPerfil.PerformLayout();
             this.tileFechaNac.ResumeLayout(false);

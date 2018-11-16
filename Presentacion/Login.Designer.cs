@@ -50,9 +50,6 @@
             // 
             // txtUsuario
             // 
-            // 
-            // 
-            // 
             this.txtUsuario.CustomButton.Image = null;
             this.txtUsuario.CustomButton.Location = new System.Drawing.Point(128, 2);
             this.txtUsuario.CustomButton.Name = "";
@@ -154,12 +151,14 @@
             this.Controls.Add(this.tileUsuario);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.txtContrasenia);
+            this.KeyPreview = true;
             this.MaximumSize = new System.Drawing.Size(513, 357);
             this.MinimumSize = new System.Drawing.Size(513, 357);
             this.Name = "Login";
             this.Text = "Login";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Login_KeyPress);
             this.tileContrasenia.ResumeLayout(false);
             this.tileContrasenia.PerformLayout();
             this.tileUsuario.ResumeLayout(false);

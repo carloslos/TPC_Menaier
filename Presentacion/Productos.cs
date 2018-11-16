@@ -12,20 +12,26 @@ namespace Presentacion
 {
     public partial class Productos : MetroFramework.Forms.MetroForm
     {
-        public Productos()
+        int permisos;
+        public Productos(int p)
         {
             InitializeComponent();
+            permisos = p;
         }
 
         private void Productos_Load(object sender, EventArgs e)
         {
-            try
+            LlenarTabla();
+            if(permisos == 2)
             {
-                LlenarTabla();
+                BtnEditar.Enabled = false;
+                BtnEliminar.Enabled = false;
             }
-            catch (Exception ex)
+            if(permisos == 3)
             {
-                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                BtnEditar.Enabled = false;
+                BtnEliminar.Enabled = false;
+                BtnAgregar.Enabled = false;
             }
         }
 
@@ -135,6 +141,11 @@ namespace Presentacion
                 Mensaje m = new Mensaje("Ningun item seleccion.");
                 m.ShowDialog();
             }
+        }
+
+        private void BtnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

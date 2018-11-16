@@ -46,6 +46,7 @@
             this.BtnEditarD = new MetroFramework.Controls.MetroButton();
             this.BtnEliminarD = new MetroFramework.Controls.MetroButton();
             this.BtnAgregarD = new MetroFramework.Controls.MetroButton();
+            this.BtnVolver = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefonos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDomicilios)).BeginInit();
             this.tileDomicilios.SuspendLayout();
@@ -101,7 +102,7 @@
             this.dgvTelefonos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvTelefonos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTelefonos.Size = new System.Drawing.Size(305, 361);
-            this.dgvTelefonos.TabIndex = 6;
+            this.dgvTelefonos.TabIndex = 0;
             this.dgvTelefonos.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // dgvDomicilios
@@ -154,7 +155,7 @@
             this.dgvDomicilios.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvDomicilios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDomicilios.Size = new System.Drawing.Size(640, 361);
-            this.dgvDomicilios.TabIndex = 6;
+            this.dgvDomicilios.TabIndex = 4;
             this.dgvDomicilios.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // tileDomicilios
@@ -197,7 +198,7 @@
             this.lblTelefonos.Enabled = false;
             this.lblTelefonos.Location = new System.Drawing.Point(30, 0);
             this.lblTelefonos.Name = "lblTelefonos";
-            this.lblTelefonos.Size = new System.Drawing.Size(63, 19);
+            this.lblTelefonos.Size = new System.Drawing.Size(65, 19);
             this.lblTelefonos.TabIndex = 0;
             this.lblTelefonos.Text = "Telefonos";
             // 
@@ -207,7 +208,7 @@
             this.BtnEditarT.Location = new System.Drawing.Point(92, 554);
             this.BtnEditarT.Name = "BtnEditarT";
             this.BtnEditarT.Size = new System.Drawing.Size(63, 23);
-            this.BtnEditarT.TabIndex = 1;
+            this.BtnEditarT.TabIndex = 2;
             this.BtnEditarT.Text = "Editar";
             this.BtnEditarT.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnEditarT.UseSelectable = true;
@@ -219,7 +220,7 @@
             this.BtnEliminarT.Location = new System.Drawing.Point(161, 554);
             this.BtnEliminarT.Name = "BtnEliminarT";
             this.BtnEliminarT.Size = new System.Drawing.Size(63, 23);
-            this.BtnEliminarT.TabIndex = 2;
+            this.BtnEliminarT.TabIndex = 3;
             this.BtnEliminarT.Text = "Eliminar";
             this.BtnEliminarT.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnEliminarT.UseSelectable = true;
@@ -231,7 +232,7 @@
             this.BtnAgregarT.Location = new System.Drawing.Point(23, 554);
             this.BtnAgregarT.Name = "BtnAgregarT";
             this.BtnAgregarT.Size = new System.Drawing.Size(63, 23);
-            this.BtnAgregarT.TabIndex = 0;
+            this.BtnAgregarT.TabIndex = 1;
             this.BtnAgregarT.Text = "Agregar";
             this.BtnAgregarT.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnAgregarT.UseSelectable = true;
@@ -243,7 +244,7 @@
             this.BtnEditarD.Location = new System.Drawing.Point(512, 554);
             this.BtnEditarD.Name = "BtnEditarD";
             this.BtnEditarD.Size = new System.Drawing.Size(118, 23);
-            this.BtnEditarD.TabIndex = 4;
+            this.BtnEditarD.TabIndex = 6;
             this.BtnEditarD.Text = "Editar";
             this.BtnEditarD.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnEditarD.UseSelectable = true;
@@ -255,7 +256,7 @@
             this.BtnEliminarD.Location = new System.Drawing.Point(661, 554);
             this.BtnEliminarD.Name = "BtnEliminarD";
             this.BtnEliminarD.Size = new System.Drawing.Size(118, 23);
-            this.BtnEliminarD.TabIndex = 5;
+            this.BtnEliminarD.TabIndex = 7;
             this.BtnEliminarD.Text = "Eliminar";
             this.BtnEliminarD.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnEliminarD.UseSelectable = true;
@@ -267,15 +268,28 @@
             this.BtnAgregarD.Location = new System.Drawing.Point(361, 554);
             this.BtnAgregarD.Name = "BtnAgregarD";
             this.BtnAgregarD.Size = new System.Drawing.Size(118, 23);
-            this.BtnAgregarD.TabIndex = 3;
+            this.BtnAgregarD.TabIndex = 5;
             this.BtnAgregarD.Text = "Agregar";
             this.BtnAgregarD.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnAgregarD.UseSelectable = true;
             this.BtnAgregarD.Click += new System.EventHandler(this.BtnAgregarD_Click);
             // 
+            // BtnVolver
+            // 
+            this.BtnVolver.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnVolver.Location = new System.Drawing.Point(883, 554);
+            this.BtnVolver.Name = "BtnVolver";
+            this.BtnVolver.Size = new System.Drawing.Size(118, 23);
+            this.BtnVolver.TabIndex = 8;
+            this.BtnVolver.Text = "Volver";
+            this.BtnVolver.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BtnVolver.UseSelectable = true;
+            this.BtnVolver.Click += new System.EventHandler(this.BtnVolver_Click);
+            // 
             // DetallesContacto
             // 
             this.ClientSize = new System.Drawing.Size(1024, 600);
+            this.Controls.Add(this.BtnVolver);
             this.Controls.Add(this.dgvTelefonos);
             this.Controls.Add(this.BtnEditarD);
             this.Controls.Add(this.BtnEliminarD);
@@ -315,5 +329,6 @@
         private MetroFramework.Controls.MetroButton BtnEditarD;
         private MetroFramework.Controls.MetroButton BtnEliminarD;
         private MetroFramework.Controls.MetroButton BtnAgregarD;
+        private MetroFramework.Controls.MetroButton BtnVolver;
     }
 }

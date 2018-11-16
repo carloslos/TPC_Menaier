@@ -105,13 +105,12 @@ namespace Presentacion
                 if (p.IdProducto == 0)
                 {
                     neg.Agregar(p);
-                    LimpiarEntradas();
                 }
                 else
                 {
                     neg.Modificar(p);
-                    this.Close();
                 }
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -229,6 +228,23 @@ namespace Presentacion
         private void BtnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ModProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool v = true;
+            for (int i = 0; i < EntradasVal.Length - 1; i++)
+            {
+                if (EntradasVal[i] == false)
+                {
+                    v = false;
+                    break;
+                }
+            }
+            if (e.KeyChar == 13 && v == true)
+            {
+                BtnMod_Click(sender, e);
+            }
         }
     }
 }

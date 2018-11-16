@@ -30,5 +30,13 @@ namespace Presentacion
             
             tileTxt.Text = s;
         }
+
+        private void Mensaje_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == 13)
+            {
+                this.Close();
+            }
+        }
     }
 }

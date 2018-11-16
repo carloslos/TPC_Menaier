@@ -120,9 +120,11 @@
             this.Controls.Add(this.BtnMod);
             this.Controls.Add(this.tileDescripcion);
             this.Controls.Add(this.TxtDescripcion);
+            this.KeyPreview = true;
             this.Name = "ModMarca";
             this.Text = "Marca";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ModMarca_KeyPress);
             this.tileDescripcion.ResumeLayout(false);
             this.tileDescripcion.PerformLayout();
             this.ResumeLayout(false);

@@ -117,5 +117,13 @@ namespace Presentacion
             if (EntradasVal[0] == true && EntradasVal[1] == true) { BtnMod.Enabled = true; }
             else { BtnMod.Enabled = false; }
         }
+
+        private void ModTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13 && EntradasVal[0] == true && EntradasVal[1] == true)
+            {
+                BtnMod_Click(sender, e);
+            }
+        }
     }
 }

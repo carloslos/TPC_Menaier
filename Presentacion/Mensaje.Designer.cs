@@ -70,6 +70,7 @@
             this.Text = "Advertencia";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.Mensaje_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Mensaje_KeyPress);
             this.ResumeLayout(false);
 
         }
