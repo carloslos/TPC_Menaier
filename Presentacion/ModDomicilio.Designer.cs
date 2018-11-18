@@ -475,6 +475,7 @@
             this.Controls.Add(this.tileCalle);
             this.Controls.Add(this.TxtCalle);
             this.KeyPreview = true;
+            this.MaximumSize = new System.Drawing.Size(450, 600);
             this.MinimumSize = new System.Drawing.Size(450, 600);
             this.Name = "ModDomicilio";
             this.ShowInTaskbar = false;

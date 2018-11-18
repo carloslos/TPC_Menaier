@@ -47,15 +47,13 @@
             // tileTxt
             // 
             this.tileTxt.ActiveControl = null;
-            this.tileTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tileTxt.Location = new System.Drawing.Point(23, 63);
             this.tileTxt.MinimumSize = new System.Drawing.Size(334, 147);
             this.tileTxt.Name = "tileTxt";
             this.tileTxt.Size = new System.Drawing.Size(334, 147);
             this.tileTxt.TabIndex = 9;
             this.tileTxt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tileTxt.TileTextFontSize = MetroFramework.MetroTileTextSize.Small;
             this.tileTxt.UseSelectable = true;
             // 
             // Mensaje

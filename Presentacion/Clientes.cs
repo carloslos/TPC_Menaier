@@ -52,6 +52,7 @@ namespace Presentacion
                 dgvClientesP.Columns["Dni"].HeaderText = "DNI"; dgvClientesP.Columns["DNI"].DisplayIndex = 3;
                 dgvClientesP.Columns["Email"].DisplayIndex = 4;
                 dgvClientesP.Columns["Activo"].Visible = false;
+                dgvClientesP.Columns["NombreCompleto"].Visible = false;
                 dgvClientesP.Update();
                 dgvClientesP.Refresh();
             }
@@ -71,6 +72,7 @@ namespace Presentacion
                 dgvClientesE.Columns["Nombre"].DisplayIndex = 1; dgvClientesE.Columns["Nombre"].HeaderText = "Empresa";
                 dgvClientesE.Columns["Cuit"].DisplayIndex = 2; dgvClientesE.Columns["Cuit"].HeaderText = "CUIT";
                 dgvClientesE.Columns["Activo"].Visible = false;
+                dgvClientesE.Columns["NombreCompleto"].Visible = false;
                 dgvClientesE.Update();
                 dgvClientesE.Refresh();
             }

@@ -9,7 +9,6 @@ using System.Windows.Forms;
 /// TODO: BAJA DE STOCK
 /// TODO: IMPRIMIR FACTURA PDF 
 /// TODO: FORMATO FECHAS
-/// TODO: REVISAR ANCHORS
 namespace Presentacion
 {
     static class Program

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvVenta = new MetroFramework.Controls.MetroGrid();
             this.IdPxv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,14 +82,14 @@
             this.dgvVenta.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvVenta.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvVenta.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvVenta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVenta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVenta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdPxv,
@@ -98,14 +98,14 @@
             this.Cantidad,
             this.PrecioU,
             this.PrecioT});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvVenta.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvVenta.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvVenta.EnableHeadersVisualStyles = false;
             this.dgvVenta.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvVenta.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -114,14 +114,14 @@
             this.dgvVenta.Name = "dgvVenta";
             this.dgvVenta.ReadOnly = true;
             this.dgvVenta.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvVenta.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVenta.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvVenta.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvVenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvVenta.Size = new System.Drawing.Size(576, 475);
@@ -175,6 +175,7 @@
             // 
             // BoxCliente
             // 
+            this.BoxCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BoxCliente.FormattingEnabled = true;
             this.BoxCliente.ItemHeight = 23;
             this.BoxCliente.Location = new System.Drawing.Point(758, 114);
@@ -187,6 +188,7 @@
             // tileCliente
             // 
             this.tileCliente.ActiveControl = null;
+            this.tileCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.tileCliente.Controls.Add(this.lblCliente);
             this.tileCliente.Enabled = false;
             this.tileCliente.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -198,6 +200,7 @@
             // 
             // lblCliente
             // 
+            this.lblCliente.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblCliente.AutoSize = true;
             this.lblCliente.Enabled = false;
             this.lblCliente.Location = new System.Drawing.Point(40, 6);
@@ -208,6 +211,7 @@
             // 
             // BoxEmpleado
             // 
+            this.BoxEmpleado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BoxEmpleado.FormattingEnabled = true;
             this.BoxEmpleado.ItemHeight = 23;
             this.BoxEmpleado.Location = new System.Drawing.Point(758, 173);
@@ -220,6 +224,7 @@
             // tileEmpleado
             // 
             this.tileEmpleado.ActiveControl = null;
+            this.tileEmpleado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.tileEmpleado.Controls.Add(this.lblEmpleado);
             this.tileEmpleado.Enabled = false;
             this.tileEmpleado.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -231,6 +236,7 @@
             // 
             // lblEmpleado
             // 
+            this.lblEmpleado.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblEmpleado.AutoSize = true;
             this.lblEmpleado.Enabled = false;
             this.lblEmpleado.Location = new System.Drawing.Point(16, 6);
@@ -241,6 +247,7 @@
             // 
             // DateFecha
             // 
+            this.DateFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.DateFecha.CustomFormat = "dd/mm/yyyy";
             this.DateFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DateFecha.Location = new System.Drawing.Point(758, 232);
@@ -256,6 +263,7 @@
             // tileFecha
             // 
             this.tileFecha.ActiveControl = null;
+            this.tileFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.tileFecha.Controls.Add(this.lblFecha);
             this.tileFecha.Enabled = false;
             this.tileFecha.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -267,6 +275,7 @@
             // 
             // lblFecha
             // 
+            this.lblFecha.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblFecha.AutoSize = true;
             this.lblFecha.Enabled = false;
             this.lblFecha.Location = new System.Drawing.Point(46, 6);
@@ -277,7 +286,7 @@
             // 
             // BtnAgregarP
             // 
-            this.BtnAgregarP.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnAgregarP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnAgregarP.Location = new System.Drawing.Point(686, 423);
             this.BtnAgregarP.Name = "BtnAgregarP";
             this.BtnAgregarP.Size = new System.Drawing.Size(104, 23);
@@ -289,7 +298,7 @@
             // 
             // BtnVolver
             // 
-            this.BtnVolver.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnVolver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnVolver.Location = new System.Drawing.Point(813, 519);
             this.BtnVolver.Name = "BtnVolver";
             this.BtnVolver.Size = new System.Drawing.Size(123, 32);
@@ -301,7 +310,7 @@
             // 
             // BtnMod
             // 
-            this.BtnMod.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnMod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnMod.Location = new System.Drawing.Point(653, 519);
             this.BtnMod.Name = "BtnMod";
             this.BtnMod.Size = new System.Drawing.Size(123, 32);
@@ -313,7 +322,7 @@
             // 
             // BtnEliminarP
             // 
-            this.BtnEliminarP.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnEliminarP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnEliminarP.Location = new System.Drawing.Point(796, 423);
             this.BtnEliminarP.Name = "BtnEliminarP";
             this.BtnEliminarP.Size = new System.Drawing.Size(104, 23);
@@ -326,6 +335,7 @@
             // tileTotal
             // 
             this.tileTotal.ActiveControl = null;
+            this.tileTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.tileTotal.Controls.Add(this.lblTotal);
             this.tileTotal.Enabled = false;
             this.tileTotal.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -338,6 +348,7 @@
             // 
             // lblTotal
             // 
+            this.lblTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblTotal.AutoSize = true;
             this.lblTotal.Enabled = false;
             this.lblTotal.Location = new System.Drawing.Point(27, 1);
@@ -349,6 +360,7 @@
             // 
             // TxtTotal
             // 
+            this.TxtTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
             // 
@@ -381,6 +393,7 @@
             // 
             // BoxProducto
             // 
+            this.BoxProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BoxProducto.FormattingEnabled = true;
             this.BoxProducto.ItemHeight = 23;
             this.BoxProducto.Location = new System.Drawing.Point(758, 340);
@@ -392,6 +405,7 @@
             // 
             // lblProducto
             // 
+            this.lblProducto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblProducto.AutoSize = true;
             this.lblProducto.Enabled = false;
             this.lblProducto.Location = new System.Drawing.Point(16, 6);
@@ -403,6 +417,7 @@
             // tileProducto
             // 
             this.tileProducto.ActiveControl = null;
+            this.tileProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.tileProducto.Controls.Add(this.lblProducto);
             this.tileProducto.Enabled = false;
             this.tileProducto.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -415,6 +430,7 @@
             // tileCantidad
             // 
             this.tileCantidad.ActiveControl = null;
+            this.tileCantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.tileCantidad.Controls.Add(this.lblCantidad);
             this.tileCantidad.Enabled = false;
             this.tileCantidad.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -426,6 +442,7 @@
             // 
             // lblCantidad
             // 
+            this.lblCantidad.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblCantidad.AutoSize = true;
             this.lblCantidad.Enabled = false;
             this.lblCantidad.Location = new System.Drawing.Point(31, 1);
@@ -436,6 +453,7 @@
             // 
             // TxtCantidad
             // 
+            this.TxtCantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
             // 
@@ -485,6 +503,7 @@
             this.Controls.Add(this.tileEmpleado);
             this.Controls.Add(this.BoxCliente);
             this.Controls.Add(this.tileCliente);
+            this.MaximumSize = new System.Drawing.Size(1024, 600);
             this.MinimumSize = new System.Drawing.Size(1024, 600);
             this.Name = "ModVenta";
             this.ShowInTaskbar = false;

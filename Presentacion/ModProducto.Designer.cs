@@ -317,6 +317,7 @@
             this.Controls.Add(this.tileGanancia);
             this.Controls.Add(this.tileDescripcion);
             this.KeyPreview = true;
+            this.MaximumSize = new System.Drawing.Size(450, 600);
             this.MinimumSize = new System.Drawing.Size(450, 600);
             this.Name = "ModProducto";
             this.ShowInTaskbar = false;

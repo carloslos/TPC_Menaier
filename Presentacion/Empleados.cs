@@ -55,6 +55,7 @@ namespace Presentacion
                 dgvEmpleados.Columns["IdContacto"].Visible = false;
                 dgvEmpleados.Columns["Usuario"].Visible = false;
                 dgvEmpleados.Columns["Pass"].Visible = false;
+                dgvEmpleados.Columns["NombreCompleto"].Visible = false;
                 dgvEmpleados.Columns["Activo"].Visible = false;
                 dgvEmpleados.Update();
                 dgvEmpleados.Refresh();

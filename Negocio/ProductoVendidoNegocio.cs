@@ -22,7 +22,7 @@ namespace Negocio
                                         "INNER JOIN PRODUCTOS AS P ON PXV.IDPRODUCTO = P.IDPRODUCTO " +
                                         "INNER JOIN MARCAS AS M ON P.IDMARCA = M.IDMARCA " +
                                         "INNER JOIN TIPOSPRODUCTO AS TP ON P.IDTIPOPRODUCTO = TP.IDTIPOPRODUCTO " +
-                                        "WHERE PXV.IDVENTA = @id");
+                                        "WHERE PXV.IDVENTA = @id AND PXV.ACTIVO = 1");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@id", id);
                 conexion.AbrirConexion();
@@ -77,7 +77,7 @@ namespace Negocio
                 conexion.SetearConsulta("SELECT TOP 1 L.COSTOPU, P.GANANCIA FROM LOTES AS L " +
                     "INNER JOIN COMPRAS AS C ON C.IDCOMPRA = L.IDCOMPRA " +
                     "INNER JOIN PRODUCTOS AS P ON P.IDPRODUCTO = L.IDPRODUCTO " +
-                    "WHERE L.IDPRODUCTO = @idproducto " +
+                    "WHERE L.IDPRODUCTO = @idproducto AND L.ACTIVO = 1 " +
                     "ORDER BY C.FECHACOMPRA ASC");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@idproducto", IdProducto);
@@ -140,7 +140,7 @@ namespace Negocio
                 conexion = new AccesoDB();
                 conexion.SetearConsulta("SELECT L.IDLOTE, L.UNIDADESE FROM LOTES AS L " +
                     "INNER JOIN COMPRAS AS C ON C.IDCOMPRA = L.IDCOMPRA " +
-                    "WHERE L.IDPRODUCTO = @idproducto " +
+                    "WHERE L.IDPRODUCTO = @idproducto AND L.ACTIVO = 1 " +
                     "ORDER BY C.FECHACOMPRA DESC");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@idproducto", pv.Producto.IdProducto);
@@ -267,7 +267,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
-                conexion.SetearConsulta("INSERT INTO PRODUCTOS_X_VENTA(IDVENTA,IDPRODUCTO,PRECIOPU,CANTIDAD) VALUES (@idventa,@idproducto,@preciopu,@cantidad)");
+                conexion.SetearConsulta("INSERT INTO PRODUCTOS_X_VENTA(IDVENTA,IDPRODUCTO,PRECIOPU,CANTIDAD,ACTIVO) VALUES (@idventa,@idproducto,@preciopu,@cantidad,1)");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@idventa", nuevo.IdVenta);
                 conexion.Comando.Parameters.AddWithValue("@idproducto", nuevo.Producto.IdProducto);

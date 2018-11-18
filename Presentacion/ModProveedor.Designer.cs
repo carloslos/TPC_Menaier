@@ -180,6 +180,7 @@
             this.Controls.Add(this.tileEmpresa);
             this.Controls.Add(this.TxtEmpresa);
             this.KeyPreview = true;
+            this.MaximumSize = new System.Drawing.Size(385, 376);
             this.MinimumSize = new System.Drawing.Size(385, 376);
             this.Name = "ModProveedor";
             this.ShowInTaskbar = false;

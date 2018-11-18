@@ -121,6 +121,7 @@
             this.Controls.Add(this.tileDescripcion);
             this.Controls.Add(this.TxtDescripcion);
             this.KeyPreview = true;
+            this.MaximumSize = new System.Drawing.Size(385, 376);
             this.MinimumSize = new System.Drawing.Size(385, 376);
             this.Name = "ModTipoProducto";
             this.ShowInTaskbar = false;

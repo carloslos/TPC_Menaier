@@ -298,6 +298,7 @@
             this.Controls.Add(this.BtnVolver);
             this.Controls.Add(this.BtnMod);
             this.KeyPreview = true;
+            this.MaximumSize = new System.Drawing.Size(450, 600);
             this.MinimumSize = new System.Drawing.Size(450, 600);
             this.Name = "ModContacto";
             this.ShowInTaskbar = false;

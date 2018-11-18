@@ -35,6 +35,7 @@
             // 
             // BtnSi
             // 
+            this.BtnSi.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.BtnSi.Location = new System.Drawing.Point(98, 200);
             this.BtnSi.Name = "BtnSi";
             this.BtnSi.Size = new System.Drawing.Size(75, 23);
@@ -46,6 +47,7 @@
             // 
             // BtnNo
             // 
+            this.BtnNo.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.BtnNo.Location = new System.Drawing.Point(207, 200);
             this.BtnNo.Name = "BtnNo";
             this.BtnNo.Size = new System.Drawing.Size(75, 23);
@@ -58,6 +60,9 @@
             // tileTxt
             // 
             this.tileTxt.ActiveControl = null;
+            this.tileTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tileTxt.Enabled = false;
             this.tileTxt.Location = new System.Drawing.Point(23, 45);
             this.tileTxt.Name = "tileTxt";

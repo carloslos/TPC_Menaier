@@ -19,7 +19,7 @@ namespace Negocio
                 conexion = new AccesoDB();
                 conexion.SetearConsulta("SELECT L.IDLOTE, L.IDCOMPRA, L.IDPRODUCTO, P.DESCRIPCION, L.UNIDADESP, L.UNIDADESE, L.COSTOPU FROM LOTES AS L " +
                     "INNER JOIN PRODUCTOS AS P ON P.IDPRODUCTO = L.IDPRODUCTO " +
-                    "WHERE L.IDCOMPRA = @idcompra " +
+                    "WHERE L.IDCOMPRA = @idcompra AND L.ACTIVO = 1 " +
                     "ORDER BY P.DESCRIPCION ASC");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@idcompra", Id);
@@ -67,7 +67,7 @@ namespace Negocio
             {
                 conexion = new AccesoDB();
                 conexion.SetearConsulta("SELECT UNIDADESE FROM LOTES " +
-                    "WHERE IDPRODUCTO = @idproducto");
+                    "WHERE IDPRODUCTO = @idproducto AND ACTIVO = 1");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@idproducto", l.Producto.IdProducto);
 
@@ -112,7 +112,7 @@ namespace Negocio
                 int stock = 0;
                 conexion = new AccesoDB();
                 conexion.SetearConsulta("SELECT IDPRODUCTO, UNIDADESE FROM LOTES " +
-                    "WHERE IDPRODUCTO = @idproducto");
+                    "WHERE IDPRODUCTO = @idproducto AND ACTIVO = 1");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@idproducto", Id);
 
