@@ -128,7 +128,7 @@ namespace Presentacion
 
             catch (Exception ex)
             {
-                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
             }
         }
 
@@ -185,7 +185,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
             }
         }
 
@@ -308,7 +308,7 @@ namespace Presentacion
         {
             int i;
             bool v = true;
-            for (i = 0; i < EntradasVal.Length - 1; i++)
+            for (i = 0; i < EntradasVal.Length; i++)
             {
                 if (EntradasVal[i] == false)
                 {
@@ -344,10 +344,8 @@ namespace Presentacion
                 }
                 if ( negPV.ControlarStock(pv) )
                 {
-                    //pv.PrecioU = (float)Math.Round(negPV.CalcularPrecio(pv.Producto.IdProducto), 3);
-                    //pv.PrecioT = (float)Math.Round(pv.PrecioU * pv.Cantidad, 3);
-                    pv.PrecioU = negPV.CalcularPrecio(pv.Producto.IdProducto);
-                    pv.PrecioT = pv.PrecioU * pv.Cantidad;
+                    pv.PrecioU = (float)Math.Round(negPV.CalcularPrecio(pv.Producto.IdProducto), 3);
+                    pv.PrecioT = (float)Math.Round(pv.PrecioU * pv.Cantidad, 3);
                     v.LstProductosVendidos.Add(pv);
                     BindProductos.ResetBindings();
 
@@ -359,12 +357,12 @@ namespace Presentacion
                 else
                 {
                     Mensaje m = new Mensaje("No hay stock suficiente.");
-                    m.ShowDialog();
+                    m.ShowDialog(); 
                 }
             }
             catch (Exception ex)
             {
-                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
             }
         }
 
@@ -378,7 +376,7 @@ namespace Presentacion
                 {
                     using (var popup = new Confirmacion(@"eliminar """ + l.ToString() + @""""))
                     {
-                        var R = popup.ShowDialog();
+                        var R = popup.ShowDialog(); 
                         if (R == DialogResult.OK)
                         {
                             bool conf = popup.R;
@@ -393,13 +391,13 @@ namespace Presentacion
                 }
                 catch (Exception ex)
                 {
-                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
                 }
             }
             else
             {
                 Mensaje m = new Mensaje("Ningun item seleccionado.");
-                m.ShowDialog();
+                m.ShowDialog(); 
             }
 
         }

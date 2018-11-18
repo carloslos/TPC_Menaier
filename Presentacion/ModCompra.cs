@@ -47,7 +47,6 @@ namespace Presentacion
             {
                 BtnMod.Text = "----";
                 BtnAgregar.Visible = false;
-                BtnEditar.Visible = false;
                 BtnEliminar.Visible = false;
                 BoxProveedor.Enabled = false;
                 DateCompra.Enabled = false;
@@ -94,7 +93,7 @@ namespace Presentacion
 
             catch (Exception ex)
             {
-                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
             }
         }
 
@@ -142,12 +141,13 @@ namespace Presentacion
                 {
                     l.IdCompra = c.IdCompra;
                     negL.Agregar(l);
+                    negL.ActualizarStock(l);
                 }
                 this.Close();
             }
             catch (Exception ex)
             {
-                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
             }
         }
 
@@ -206,6 +206,7 @@ namespace Presentacion
             {
                 Lote l = (Lote)dgvLotes.Rows[i].DataBoundItem;
                 total += l.CostoT;
+                total = (float)Math.Round(total, 3);
             }
             TxtTotal.Text = "$ " + total.ToString();
         }
@@ -268,7 +269,7 @@ namespace Presentacion
         {
             int i;
             bool v = true;
-            for (i = 0; i < EntradasVal.Length - 1; i++)
+            for (i = 0; i < EntradasVal.Length; i++)
             {
                 if (EntradasVal[i] == false)
                 {
@@ -293,7 +294,7 @@ namespace Presentacion
             try
             {
                 ModLote mod = new ModLote(c.IdCompra);
-                DialogResult res = mod.ShowDialog();
+                DialogResult res = mod.ShowDialog(); 
                 if (res == DialogResult.OK)
                 {
                     c.LstLotes.Add(mod.l);
@@ -302,44 +303,8 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
             }
-        }
-
-        private void BtnEditar_Click(object sender, EventArgs e)
-        {
-            if (dgvLotes.SelectedCells.Count > 0)
-            {
-                foreach (Form item in Application.OpenForms)
-                {
-                    if (item.GetType() == typeof(ModLote))
-                    {
-                        item.Focus();
-                        return;
-                    }
-                }
-                try
-                {
-                    Lote obj = (Lote)dgvLotes.CurrentRow.DataBoundItem;
-                    ModLote mod = new ModLote(obj);
-                    DialogResult res = mod.ShowDialog();
-                    if (res == DialogResult.OK)
-                    {
-                        obj = mod.l;
-                        BindLotes.ResetBindings();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
-                }
-            }
-            else
-            {
-                Mensaje m = new Mensaje("Ningun item seleccionado.");
-                m.ShowDialog();
-            }
-
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
@@ -352,7 +317,7 @@ namespace Presentacion
                 {
                     using (var popup = new Confirmacion(@"eliminar """ + l.ToString() + @""""))
                     {
-                        var R = popup.ShowDialog();
+                        var R = popup.ShowDialog(); 
                         if (R == DialogResult.OK)
                         {
                             bool conf = popup.R;
@@ -367,13 +332,13 @@ namespace Presentacion
                 }
                 catch (Exception ex)
                 {
-                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
                 }
             }
             else
             {
                 Mensaje m = new Mensaje("Ningun item seleccionado.");
-                m.ShowDialog();
+                m.ShowDialog(); 
             }
 
         }

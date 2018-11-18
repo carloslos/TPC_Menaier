@@ -15,10 +15,12 @@ namespace Presentacion
     public partial class Marcas : MetroFramework.Forms.MetroForm
     {
         int permisos;
-        public Marcas(int p)
+        MenuPrincipal menu;
+        public Marcas(int p, MenuPrincipal mp)
         {
             InitializeComponent();
             permisos = p;
+            menu = mp;
         }
 
         private void Marcas_Load(object sender, EventArgs e)
@@ -29,7 +31,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
             }
             if (permisos == 2)
             {
@@ -58,7 +60,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
             }
         }
 
@@ -76,12 +78,12 @@ namespace Presentacion
                 try
                 {
                     ModMarca mod = new ModMarca();
-                    mod.ShowDialog();
+                    mod.ShowDialog(); 
                     LlenarTabla();
                 }
                 catch (Exception ex)
                 {
-                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
                 }
             }
         }
@@ -102,18 +104,18 @@ namespace Presentacion
                 {
                     Marca obj = (Marca)dgvMarcas.CurrentRow.DataBoundItem;
                     ModMarca mod = new ModMarca(obj);
-                    mod.ShowDialog();
+                    mod.ShowDialog(); 
                     LlenarTabla();
                 }
                 catch (Exception ex)
                 {
-                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
                 }
             }
             else
             {
                 Mensaje m = new Mensaje("Ningun item seleccionado.");
-                m.ShowDialog();
+                m.ShowDialog(); 
             }
         }
 
@@ -127,7 +129,7 @@ namespace Presentacion
                 {
                     using (var popup = new Confirmacion(@"eliminar """ + m.ToString() + @""""))
                     {
-                        var R = popup.ShowDialog();
+                        var R = popup.ShowDialog(); 
                         if (R == DialogResult.OK)
                         {
                             bool conf = popup.R;
@@ -141,19 +143,20 @@ namespace Presentacion
                 }
                 catch (Exception ex)
                 {
-                    Mensaje me = new Mensaje(ex.ToString()); me.ShowDialog();
+                    Mensaje me = new Mensaje(ex.ToString()); me.ShowDialog(); 
                 }
             }
             else
             {
                 Mensaje m = new Mensaje("Ningun item seleccionado.");
-                m.ShowDialog();
+                m.ShowDialog(); 
             }
         }
 
         private void BtnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
+            menu.Focus();
         }
     }
 }

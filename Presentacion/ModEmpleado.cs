@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Net.Mail;
 using Negocio;
 using Dominio;
+using System.Linq;
 
 namespace Presentacion
 {
@@ -93,27 +94,32 @@ namespace Presentacion
         {
             TxtNombre.Text = TxtNombre.Text.TrimStart();
             ValidarTxt(0, val.EsAlfa, TxtNombre, tileNombre, lblNombre);
-            if(EntradasVal[0] == true && EntradasVal[1] == true)
-            {
-                TxtUsuario.Text = TxtNombre.Text[0] + TxtApellido.Text.Substring(0, TxtApellido.Text.IndexOf(" "));
-            }
-            else
-            {
-                TxtUsuario.Text = "";
-            }
+            CalcularUsuario();
         }
 
         private void TxtApellido_TextChanged(object sender, EventArgs e)
         {
             TxtApellido.Text = TxtApellido.Text.TrimStart();
             ValidarTxt(1, val.EsAlfa, TxtApellido, tileApellido, lblApellido);
-            if (EntradasVal[0] == true && EntradasVal[1] == true)
+            CalcularUsuario();
+        }
+
+        private void CalcularUsuario()
+        {
+            if (TxtApellido.Text.Contains(" "))
             {
-                TxtUsuario.Text = TxtNombre.Text[0] + TxtApellido.Text.Substring(0, TxtApellido.Text.IndexOf(" "));
+                if (TxtApellido.Text.Substring(0, TxtApellido.Text.IndexOf(" ")).Length < 4 && TxtApellido.Text.Split(' ').Last().Length > 3)
+                {
+                    TxtUsuario.Text = TxtNombre.Text[0] + TxtApellido.Text.Split(' ').Last();
+                }
+                else
+                {
+                    TxtUsuario.Text = TxtNombre.Text[0] + TxtApellido.Text.Substring(0, TxtApellido.Text.IndexOf(" "));
+                }
             }
             else
             {
-                TxtUsuario.Text = "";
+                TxtUsuario.Text = TxtNombre.Text[0] + TxtApellido.Text;
             }
         }
 
@@ -221,7 +227,7 @@ namespace Presentacion
         {
             int i;
             bool v = true;
-            for (i = 0; i < EntradasVal.Length - 1; i++)
+            for (i = 0; i < EntradasVal.Length; i++)
             {
                 if (EntradasVal[i] == false)
                 {

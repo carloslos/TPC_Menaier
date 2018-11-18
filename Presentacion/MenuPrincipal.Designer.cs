@@ -36,7 +36,8 @@
             this.BtnProveedores = new MetroFramework.Controls.MetroButton();
             this.BtnClientes = new MetroFramework.Controls.MetroButton();
             this.BtnProductos = new MetroFramework.Controls.MetroButton();
-            this.BtnCerrar = new MetroFramework.Controls.MetroButton();
+            this.BtnSalir = new MetroFramework.Controls.MetroButton();
+            this.BtnLogout = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // BtnVentas
@@ -143,25 +144,39 @@
             this.BtnProductos.UseSelectable = true;
             this.BtnProductos.Click += new System.EventHandler(this.BtnProductos_Click);
             // 
-            // BtnCerrar
+            // BtnSalir
             // 
-            this.BtnCerrar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnCerrar.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.BtnCerrar.Location = new System.Drawing.Point(192, 519);
-            this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(167, 25);
-            this.BtnCerrar.TabIndex = 8;
-            this.BtnCerrar.Text = "Cerrar";
-            this.BtnCerrar.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.BtnCerrar.UseSelectable = true;
-            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
+            this.BtnSalir.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnSalir.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.BtnSalir.Location = new System.Drawing.Point(51, 520);
+            this.BtnSalir.Name = "BtnSalir";
+            this.BtnSalir.Size = new System.Drawing.Size(200, 25);
+            this.BtnSalir.TabIndex = 8;
+            this.BtnSalir.Text = "Salir";
+            this.BtnSalir.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BtnSalir.UseSelectable = true;
+            this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
+            // 
+            // BtnLogout
+            // 
+            this.BtnLogout.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnLogout.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.BtnLogout.Location = new System.Drawing.Point(299, 520);
+            this.BtnLogout.Name = "BtnLogout";
+            this.BtnLogout.Size = new System.Drawing.Size(200, 25);
+            this.BtnLogout.TabIndex = 9;
+            this.BtnLogout.Text = "Cerrar Sesión";
+            this.BtnLogout.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BtnLogout.UseSelectable = true;
+            this.BtnLogout.Click += new System.EventHandler(this.BtnLogout_Click);
             // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(550, 566);
-            this.Controls.Add(this.BtnCerrar);
+            this.Controls.Add(this.BtnLogout);
+            this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.BtnProductos);
             this.Controls.Add(this.BtnProveedores);
             this.Controls.Add(this.BtnClientes);
@@ -189,6 +204,7 @@
         private MetroFramework.Controls.MetroButton BtnProveedores;
         private MetroFramework.Controls.MetroButton BtnClientes;
         private MetroFramework.Controls.MetroButton BtnProductos;
-        private MetroFramework.Controls.MetroButton BtnCerrar;
+        private MetroFramework.Controls.MetroButton BtnSalir;
+        private MetroFramework.Controls.MetroButton BtnLogout;
     }
 }

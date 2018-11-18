@@ -208,7 +208,7 @@
             this.lblDepartamento.Enabled = false;
             this.lblDepartamento.Location = new System.Drawing.Point(8, 0);
             this.lblDepartamento.Name = "lblDepartamento";
-            this.lblDepartamento.Size = new System.Drawing.Size(94, 19);
+            this.lblDepartamento.Size = new System.Drawing.Size(95, 19);
             this.lblDepartamento.TabIndex = 5;
             this.lblDepartamento.Text = "Departamento";
             // 
@@ -367,7 +367,7 @@
             this.lblPais.Enabled = false;
             this.lblPais.Location = new System.Drawing.Point(72, 0);
             this.lblPais.Name = "lblPais";
-            this.lblPais.Size = new System.Drawing.Size(32, 19);
+            this.lblPais.Size = new System.Drawing.Size(31, 19);
             this.lblPais.TabIndex = 5;
             this.lblPais.Text = "Pais";
             // 
@@ -477,6 +477,7 @@
             this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(450, 600);
             this.Name = "ModDomicilio";
+            this.ShowInTaskbar = false;
             this.Text = "Domicilio";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.ModDomicilio_Load);

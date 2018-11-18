@@ -122,6 +122,7 @@
             this.Controls.Add(this.TxtDescripcion);
             this.KeyPreview = true;
             this.Name = "ModMarca";
+            this.ShowInTaskbar = false;
             this.Text = "Marca";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ModMarca_KeyPress);

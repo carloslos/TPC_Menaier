@@ -78,6 +78,7 @@
             this.MinimumSize = new System.Drawing.Size(380, 260);
             this.Name = "Confirmacion";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.Load += new System.EventHandler(this.Confirmacion_Load);
             this.ResumeLayout(false);
 
         }

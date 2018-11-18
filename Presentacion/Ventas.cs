@@ -12,10 +12,12 @@ namespace Presentacion
 {
     public partial class Ventas : MetroFramework.Forms.MetroForm
     {
+        MenuPrincipal menu;
         int permisos;
-        public Ventas(int p)
+        public Ventas(int p, MenuPrincipal mp)
         {
             InitializeComponent();
+            menu = mp;
             permisos = p;
         }
 
@@ -24,12 +26,12 @@ namespace Presentacion
             LlenarTabla();
             if (permisos == 2)
             {
-                //BtnEliminar.Enabled = false;
+                BtnAnular.Enabled = false;
             }
             if (permisos == 3)
             {
-                BtnEditar.Enabled = false;
-                //BtnEliminar.Enabled = false;
+                BtnAnular.Enabled = false;
+                BtnAnular.Enabled = false;
             }
         }
 
@@ -48,7 +50,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
             }
         }
 
@@ -70,7 +72,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
             }
         }
 
@@ -97,13 +99,13 @@ namespace Presentacion
                 }
                 catch (Exception ex)
                 {
-                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
                 }
             }
             else
             {
                 Mensaje m = new Mensaje("Ningun item seleccionado.");
-                m.ShowDialog();
+                m.ShowDialog(); 
             }
         }
 
@@ -125,49 +127,17 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
-            }
-        }
-
-        private void BtnEditar_Click(object sender, EventArgs e)
-        {
-            if (dgvVentas.SelectedCells.Count>0)
-            {
-                foreach (Form item in Application.OpenForms)
-                {
-                    if (item.GetType() == typeof(ModVenta))
-                    {
-                        item.Focus();
-                        return;
-                    }
-                }
-                try
-                {
-                    ProductoVendidoNegocio negPV = new ProductoVendidoNegocio();
-                    Venta v = (Venta)dgvVentas.CurrentRow.DataBoundItem;
-                    v.LstProductosVendidos = negPV.Listar(v.IdVenta);
-                    ModVenta detalles = new ModVenta(v, true);
-                    detalles.Show();
-                    LlenarTabla();
-                }
-                catch (Exception ex)
-                {
-                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
-                }
-            }
-            else
-            {
-                Mensaje m = new Mensaje("Ningun item seleccionado.");
-                m.ShowDialog();
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
             }
         }
 
         private void BtnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
+            menu.Focus();
         }
 
-        private void BtnEliminar_Click(object sender, EventArgs e)
+        private void BtnAnular_Click(object sender, EventArgs e)
         {
             if (dgvVentas.SelectedCells.Count > 0)
             {
@@ -178,7 +148,7 @@ namespace Presentacion
                 {
                     using (var popup = new Confirmacion(@"eliminar """ + v.ToString() + @""""))
                     {
-                        var R = popup.ShowDialog();
+                        var R = popup.ShowDialog(); 
                         if (R == DialogResult.OK)
                         {
                             bool conf = popup.R;
@@ -193,13 +163,13 @@ namespace Presentacion
                 }
                 catch (Exception ex)
                 {
-                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
                 }
             }
             else
             {
                 Mensaje m = new Mensaje("Ningun item seleccionado.");
-                m.ShowDialog();
+                m.ShowDialog(); 
             }
         }
     }

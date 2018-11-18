@@ -255,6 +255,7 @@
             this.Controls.Add(this.BtnAgregar);
             this.MinimumSize = new System.Drawing.Size(1024, 600);
             this.Name = "ProductosProv";
+            this.ShowInTaskbar = false;
             this.Text = "Productos por Proveedor";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.ProductosProv_Load);

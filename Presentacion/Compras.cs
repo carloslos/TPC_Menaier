@@ -13,9 +13,11 @@ namespace Presentacion
     public partial class Compras : MetroFramework.Forms.MetroForm
     {
         int permisos;
-        public Compras(int p)
+        MenuPrincipal menu;
+        public Compras(int p, MenuPrincipal mp)
         {
             InitializeComponent();
+            menu = mp;
             permisos = p;
         }
 
@@ -24,13 +26,11 @@ namespace Presentacion
             LlenarTabla();
             if (permisos == 2)
             {
-                BtnEliminar.Enabled = false;
+                BtnAnular.Enabled = false;
             }
             if (permisos == 3)
             {
-                BtnEditar.Enabled = false;
-                BtnEliminar.Enabled = false;
-                BtnAgregar.Enabled = false;
+                BtnAnular.Enabled = false;
             }
         }
 
@@ -49,7 +49,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
             }
         }
 
@@ -66,12 +66,12 @@ namespace Presentacion
             try
             {
                 ModCompra mod = new ModCompra();
-                mod.ShowDialog();
+                mod.ShowDialog(); 
                 LlenarTabla();
             }
             catch (Exception ex)
             {
-                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
             }
         }
 
@@ -93,18 +93,18 @@ namespace Presentacion
                     Compra c = (Compra)dgvCompras.CurrentRow.DataBoundItem;
                     c.LstLotes = negL.Listar(c.IdCompra);
                     ModCompra detalles = new ModCompra(c, false);
-                    detalles.Show();
+                    detalles.ShowDialog();
                     LlenarTabla();
                 }
                 catch (Exception ex)
                 {
-                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
                 }
             }
             else
             {
                 Mensaje m = new Mensaje("Ningun item seleccionado.");
-                m.ShowDialog();
+                m.ShowDialog(); 
             }
 
         }
@@ -127,83 +127,19 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
-            }
-        }
-
-        private void BtnEditar_Click(object sender, EventArgs e)
-        {
-            if (dgvCompras.SelectedCells.Count > 0)
-            {
-                foreach (Form item in Application.OpenForms)
-                {
-                    if (item.GetType() == typeof(ModCompra))
-                    {
-                        item.Focus();
-                        return;
-                    }
-                }
-                try
-                {
-                    LoteNegocio negL = new LoteNegocio();
-                    Compra c = (Compra)dgvCompras.CurrentRow.DataBoundItem;
-                    c.LstLotes = negL.Listar(c.IdCompra);
-                    ModCompra detalles = new ModCompra(c, true);
-                    detalles.ShowDialog();
-                    LlenarTabla();
-                }
-                catch (Exception ex)
-                {
-                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
-                }
-            }
-            else
-            {
-                Mensaje m = new Mensaje("Ningun item seleccionado.");
-                m.ShowDialog();
-            }
-
-        }
-
-        private void BtnEliminar_Click(object sender, EventArgs e)
-        {
-            if (dgvCompras.SelectedCells.Count > 0)
-            {
-                CompraNegocio negC = new CompraNegocio();
-                LoteNegocio negL = new LoteNegocio();
-                Compra c = (Compra)dgvCompras.CurrentRow.DataBoundItem;
-                try
-                {
-                    using (var popup = new Confirmacion(@"eliminar """ + c.ToString() + @""""))
-                    {
-                        var R = popup.ShowDialog();
-                        if (R == DialogResult.OK)
-                        {
-                            bool conf = popup.R;
-                            if (c != null && conf == true)
-                            {
-                                negL.EliminarLotesDeCompra(c.IdCompra);
-                                negC.EliminarLogico(c.IdCompra);
-                                LlenarTabla();
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
-                }
-            }
-            else
-            {
-                Mensaje m = new Mensaje("Ningun item seleccionado.");
-                m.ShowDialog();
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
             }
         }
 
         private void BtnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
+            menu.Focus();
+        }
+
+        private void BtnAnular_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

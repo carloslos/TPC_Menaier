@@ -32,5 +32,10 @@ namespace Presentacion
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+
+        private void Confirmacion_Load(object sender, EventArgs e)
+        {
+            this.Focus();
+        }
     }
 }

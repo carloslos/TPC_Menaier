@@ -123,6 +123,7 @@
             this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(385, 376);
             this.Name = "ModTipoProducto";
+            this.ShowInTaskbar = false;
             this.Text = "Tipo de Producto";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ModTipoProducto_KeyPress);

@@ -3,7 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/// TODO: FILTROS (VENTAS)
+/// TODO: ANULAR VENTA
+/// TODO: ANULAR COMPRA (VERIFICAR QUE NO HAYA VENTAS)
+/// TODO: BAJA DE STOCK
+/// TODO: IMPRIMIR FACTURA PDF 
+/// TODO: FORMATO FECHAS
+/// TODO: REVISAR ANCHORS
 namespace Presentacion
 {
     static class Program

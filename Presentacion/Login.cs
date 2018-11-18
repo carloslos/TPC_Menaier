@@ -55,13 +55,13 @@ namespace Presentacion
                 else
                 {
                     Mensaje m = new Mensaje("Usuario o contraseña incorrectos.");
-                    m.ShowDialog();
+                    m.ShowDialog(); 
                 }
             }
             catch (Exception ex)
             {
                 Mensaje m = new Mensaje(ex.ToString());
-                m.ShowDialog();
+                m.ShowDialog(); 
             }
         }
 
@@ -71,6 +71,11 @@ namespace Presentacion
             {
                 BtnLogin_Click(sender, e);
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            this.FocusMe();
         }
     }
 }

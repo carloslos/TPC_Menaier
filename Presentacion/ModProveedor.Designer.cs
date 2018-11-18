@@ -141,6 +141,9 @@
             // 
             // TxtCuit
             // 
+            // 
+            // 
+            // 
             this.TxtCuit.CustomButton.Image = null;
             this.TxtCuit.CustomButton.Location = new System.Drawing.Point(159, 2);
             this.TxtCuit.CustomButton.Name = "";
@@ -179,6 +182,7 @@
             this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(385, 376);
             this.Name = "ModProveedor";
+            this.ShowInTaskbar = false;
             this.Text = "Proveedor";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.ModProveedor_Load);

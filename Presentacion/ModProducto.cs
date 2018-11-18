@@ -121,7 +121,7 @@ namespace Presentacion
         private void TxtDescripcion_TextChanged(object sender, EventArgs e)
         {
             TxtDescripcion.Text = TxtDescripcion.Text.TrimStart();
-            ValidarTxt(0, val.EsAlfanum, TxtDescripcion, tileDescripcion, lblDescripcion);
+            ValidarTxt(0, val.EsAlfanumsym, TxtDescripcion, tileDescripcion, lblDescripcion);
         }
 
         private void TxtGanancia_TextChanged(object sender, EventArgs e)
@@ -171,7 +171,7 @@ namespace Presentacion
         private void RealizarValidaciones()
         {
             TxtDescripcion.Text = TxtDescripcion.Text.Trim();
-            ValidarTxt(0, val.EsAlfa, TxtDescripcion, tileDescripcion, lblDescripcion);
+            ValidarTxt(0, val.EsAlfanumsym, TxtDescripcion, tileDescripcion, lblDescripcion);
             TxtGanancia.Text = TxtGanancia.Text.Trim();
             ValidarTxt(1, val.EsNumero, TxtGanancia, tileGanancia, lblGanancia);
             TxtStockMin.Text = TxtStockMin.Text.Trim();
@@ -213,7 +213,7 @@ namespace Presentacion
         {
             int i;
             bool v = true;
-            for (i = 0; i < EntradasVal.Length-1; i++)
+            for (i = 0; i < EntradasVal.Length; i++)
             {
                 if (EntradasVal[i] == false)
                 {

@@ -34,9 +34,8 @@
             this.dgvVentas = new MetroFramework.Controls.MetroGrid();
             this.BtnDetalles = new MetroFramework.Controls.MetroButton();
             this.BtnAgregar = new MetroFramework.Controls.MetroButton();
-            this.BtnEditar = new MetroFramework.Controls.MetroButton();
             this.BtnVolver = new MetroFramework.Controls.MetroButton();
-            this.BtnEliminar = new MetroFramework.Controls.MetroButton();
+            this.BtnAnular = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,7 +94,7 @@
             // BtnDetalles
             // 
             this.BtnDetalles.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnDetalles.Location = new System.Drawing.Point(391, 559);
+            this.BtnDetalles.Location = new System.Drawing.Point(315, 559);
             this.BtnDetalles.Name = "BtnDetalles";
             this.BtnDetalles.Size = new System.Drawing.Size(118, 23);
             this.BtnDetalles.TabIndex = 3;
@@ -107,7 +106,7 @@
             // BtnAgregar
             // 
             this.BtnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnAgregar.Location = new System.Drawing.Point(137, 559);
+            this.BtnAgregar.Location = new System.Drawing.Point(163, 559);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(118, 23);
             this.BtnAgregar.TabIndex = 1;
@@ -116,22 +115,10 @@
             this.BtnAgregar.UseSelectable = true;
             this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
-            // BtnEditar
-            // 
-            this.BtnEditar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnEditar.Location = new System.Drawing.Point(264, 559);
-            this.BtnEditar.Name = "BtnEditar";
-            this.BtnEditar.Size = new System.Drawing.Size(118, 23);
-            this.BtnEditar.TabIndex = 2;
-            this.BtnEditar.Text = "Editar";
-            this.BtnEditar.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.BtnEditar.UseSelectable = true;
-            this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
-            // 
             // BtnVolver
             // 
             this.BtnVolver.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnVolver.Location = new System.Drawing.Point(645, 559);
+            this.BtnVolver.Location = new System.Drawing.Point(619, 559);
             this.BtnVolver.Name = "BtnVolver";
             this.BtnVolver.Size = new System.Drawing.Size(118, 23);
             this.BtnVolver.TabIndex = 5;
@@ -140,29 +127,29 @@
             this.BtnVolver.UseSelectable = true;
             this.BtnVolver.Click += new System.EventHandler(this.BtnVolver_Click);
             // 
-            // BtnEliminar
+            // BtnAnular
             // 
-            this.BtnEliminar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnEliminar.Location = new System.Drawing.Point(518, 559);
-            this.BtnEliminar.Name = "BtnEliminar";
-            this.BtnEliminar.Size = new System.Drawing.Size(118, 23);
-            this.BtnEliminar.TabIndex = 4;
-            this.BtnEliminar.Text = "Eliminar";
-            this.BtnEliminar.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.BtnEliminar.UseSelectable = true;
-            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
+            this.BtnAnular.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnAnular.Location = new System.Drawing.Point(467, 559);
+            this.BtnAnular.Name = "BtnAnular";
+            this.BtnAnular.Size = new System.Drawing.Size(118, 23);
+            this.BtnAnular.TabIndex = 4;
+            this.BtnAnular.Text = "Anular";
+            this.BtnAnular.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BtnAnular.UseSelectable = true;
+            this.BtnAnular.Click += new System.EventHandler(this.BtnAnular_Click);
             // 
             // Ventas
             // 
             this.ClientSize = new System.Drawing.Size(900, 600);
-            this.Controls.Add(this.BtnEliminar);
+            this.Controls.Add(this.BtnAnular);
             this.Controls.Add(this.BtnVolver);
-            this.Controls.Add(this.BtnEditar);
             this.Controls.Add(this.dgvVentas);
             this.Controls.Add(this.BtnDetalles);
             this.Controls.Add(this.BtnAgregar);
             this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "Ventas";
+            this.ShowInTaskbar = false;
             this.Text = "Ventas";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.Ventas_Load);
@@ -176,8 +163,7 @@
         private MetroFramework.Controls.MetroGrid dgvVentas;
         private MetroFramework.Controls.MetroButton BtnDetalles;
         private MetroFramework.Controls.MetroButton BtnAgregar;
-        private MetroFramework.Controls.MetroButton BtnEditar;
         private MetroFramework.Controls.MetroButton BtnVolver;
-        private MetroFramework.Controls.MetroButton BtnEliminar;
+        private MetroFramework.Controls.MetroButton BtnAnular;
     }
 }

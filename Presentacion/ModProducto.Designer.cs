@@ -319,6 +319,7 @@
             this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(450, 600);
             this.Name = "ModProducto";
+            this.ShowInTaskbar = false;
             this.Text = "Producto";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.ModProducto_Load);

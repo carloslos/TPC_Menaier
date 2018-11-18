@@ -109,9 +109,10 @@ namespace Negocio
             {
                 return false;
             }
-            foreach (char c in s)
+            for (int i = 0; i < s.Length; i++)
             {
-                if (!char.IsLetter(c) && c != ' ')
+                if (s[i] == ' ' && s.Length > 2) { if (s[i - 1] == ' ') { return false; } }
+                if (!char.IsLetter(s[i]) && s[i] != ' ')
                 {
                     return false;
                 }
@@ -125,9 +126,27 @@ namespace Negocio
             {
                 return false;
             }
-            foreach (char c in s)
+            for(int i = 0; i < s.Length; i++)
             {
-                if (!char.IsLetter(c) && c != ' ' && !char.IsNumber(c))
+                if (s[i] == ' ' && s.Length > 2) { if (s[i - 1] == ' ') { return false; } }
+                if (!char.IsLetter(s[i]) && s[i] != ' ' && !char.IsNumber(s[i]))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public bool EsAlfanumsym(string s)
+        {
+            if (s == "")
+            {
+                return false;
+            }
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] == ' ' && s.Length > 2) { if (s[i - 1] == ' ') { return false; } }
+                if (!char.IsLetter(s[i]) && s[i] != ' ' && !char.IsPunctuation(s[i]) && !char.IsSymbol(s[i]) && !char.IsSeparator(s[i]) && !char.IsNumber(s[i]))
                 {
                     return false;
                 }
@@ -143,7 +162,7 @@ namespace Negocio
             }
             foreach (char c in s)
             {
-                if (!char.IsLetter(c) && !char.IsSymbol(c) && !char.IsNumber(c))
+                if (!char.IsLetter(c) && !char.IsPunctuation(c) && !char.IsSymbol(c) && !char.IsSeparator(c) && !char.IsNumber(c))
                 {
                     return false;
                 }

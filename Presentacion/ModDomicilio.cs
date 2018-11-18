@@ -167,7 +167,7 @@ namespace Presentacion
         {
             int i;
             bool v = true;
-            for (i = 0; i < EntradasVal.Length - 1; i++)
+            for (i = 0; i < EntradasVal.Length; i++)
             {
                 if (EntradasVal[i] == false)
                 {

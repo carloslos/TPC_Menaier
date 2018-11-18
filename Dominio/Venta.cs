@@ -16,6 +16,11 @@ namespace Dominio
         public DateTime FechaRegistro { get; set; }
         public List<ProductoVendido> LstProductosVendidos { get; set; }
         public bool Activo { get; set; }
+
+        public override string ToString()
+        {
+            return IdVenta.ToString();
+        }
     }
 }
 

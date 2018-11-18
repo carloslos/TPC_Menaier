@@ -15,9 +15,11 @@ namespace Presentacion
     public partial class Proveedores : MetroFramework.Forms.MetroForm
     {
         int permisos;
-        public Proveedores(int p)
+        MenuPrincipal menu;
+        public Proveedores(int p, MenuPrincipal mp)
         {
             InitializeComponent();
+            menu = mp;
             permisos = p;
         }
 
@@ -40,7 +42,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
             }
         }
 
@@ -58,7 +60,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
             }
         }
 
@@ -75,12 +77,12 @@ namespace Presentacion
             try
             {
                 ModProveedor mod = new ModProveedor();
-                mod.ShowDialog();
+                mod.ShowDialog(); 
                 LlenarTabla();
             }
             catch (Exception ex)
             {
-                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
             }
         }
 
@@ -101,18 +103,18 @@ namespace Presentacion
                 {
                     Proveedor obj = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
                     ModProveedor mod = new ModProveedor(obj);
-                    mod.ShowDialog();
+                    mod.ShowDialog(); 
                     LlenarTabla();
                 }
                 catch (Exception ex)
                 {
-                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
                 }
             }
             else
             {
                 Mensaje m = new Mensaje("Ningun item seleccionado.");
-                m.ShowDialog();
+                m.ShowDialog(); 
             }
 
         }
@@ -127,7 +129,7 @@ namespace Presentacion
                 {
                     using (var popup = new Confirmacion(@"eliminar """ + p.ToString() + @""""))
                     {
-                        var R = popup.ShowDialog();
+                        var R = popup.ShowDialog(); 
                         if (R == DialogResult.OK)
                         {
                             bool conf = popup.R;
@@ -141,13 +143,13 @@ namespace Presentacion
                 }
                 catch (Exception ex)
                 {
-                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
                 }
             }
             else
             {
                 Mensaje m = new Mensaje("Ningun item seleccionado.");
-                m.ShowDialog();
+                m.ShowDialog(); 
             }
 
         }
@@ -169,18 +171,18 @@ namespace Presentacion
                     Proveedor p = new Proveedor();
                     p = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
                     ProductosProv pp = new ProductosProv(p.ToString(), p.GetId(), permisos);
-                    pp.Show();
+                    pp.ShowDialog();
                     LlenarTabla();
                 }
                 catch (Exception ex)
                 {
-                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
                 }
             }
             else
             {
                 Mensaje m = new Mensaje("Ningun item seleccionado.");
-                m.ShowDialog();
+                m.ShowDialog(); 
             }
 
         }
@@ -202,18 +204,18 @@ namespace Presentacion
                     Proveedor p = new Proveedor();
                     p = (Proveedor)dgvProveedores.CurrentRow.DataBoundItem;
                     Contactos c = new Contactos(p.GetId());
-                    c.Show();
+                    c.ShowDialog();
                     LlenarTabla();
                 }
                 catch (Exception ex)
                 {
-                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
                 }
             }
             else
             {
                 Mensaje m = new Mensaje("Ningun item seleccionado.");
-                m.ShowDialog();
+                m.ShowDialog(); 
             }
 
         }
@@ -238,13 +240,14 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
             }
         }
 
         private void BtnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
+            menu.Focus();
         }
     }
 }

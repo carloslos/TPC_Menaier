@@ -342,7 +342,7 @@
             this.lblTotal.Enabled = false;
             this.lblTotal.Location = new System.Drawing.Point(27, 1);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(38, 19);
+            this.lblTotal.Size = new System.Drawing.Size(36, 19);
             this.lblTotal.Style = MetroFramework.MetroColorStyle.Silver;
             this.lblTotal.TabIndex = 0;
             this.lblTotal.Text = "Total";
@@ -487,6 +487,7 @@
             this.Controls.Add(this.tileCliente);
             this.MinimumSize = new System.Drawing.Size(1024, 600);
             this.Name = "ModVenta";
+            this.ShowInTaskbar = false;
             this.Text = "Venta";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.ModVenta_Load);

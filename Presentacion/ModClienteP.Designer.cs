@@ -256,6 +256,7 @@
             this.Controls.Add(this.BtnMod);
             this.KeyPreview = true;
             this.Name = "ModClienteP";
+            this.ShowInTaskbar = false;
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.ModClienteP_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ModClienteP_KeyPress);

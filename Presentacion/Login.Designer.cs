@@ -50,6 +50,9 @@
             // 
             // txtUsuario
             // 
+            // 
+            // 
+            // 
             this.txtUsuario.CustomButton.Image = null;
             this.txtUsuario.CustomButton.Location = new System.Drawing.Point(128, 2);
             this.txtUsuario.CustomButton.Name = "";
@@ -135,7 +138,7 @@
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(96, 27);
             this.BtnCancelar.TabIndex = 3;
-            this.BtnCancelar.Text = "Cancelar";
+            this.BtnCancelar.Text = "Salir";
             this.BtnCancelar.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BtnCancelar.UseSelectable = true;
             this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
@@ -158,6 +161,7 @@
             this.Text = "Login";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
+            this.Load += new System.EventHandler(this.Login_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Login_KeyPress);
             this.tileContrasenia.ResumeLayout(false);
             this.tileContrasenia.PerformLayout();

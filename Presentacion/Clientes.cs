@@ -15,10 +15,12 @@ namespace Presentacion
     public partial class Clientes : MetroFramework.Forms.MetroForm
     {
         int permisos;
-        public Clientes(int p)
+        MenuPrincipal menu;
+        public Clientes(int p, MenuPrincipal mp)
         {
             InitializeComponent();
             permisos = p;
+            menu = mp;
         }
 
         private void Clientes_Load(object sender, EventArgs e)
@@ -34,7 +36,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
             }
         }
 
@@ -55,7 +57,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
             }
         }
 
@@ -74,7 +76,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
             }
         }
 
@@ -123,12 +125,12 @@ namespace Presentacion
             try
             {
                 ModClienteP mod = new ModClienteP();
-                mod.ShowDialog();
+                mod.ShowDialog(); 
                 LlenarTablaP();
             }
             catch (Exception ex)
             {
-                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
             }
         }
 
@@ -148,18 +150,18 @@ namespace Presentacion
                 {
                     ClienteP obj = (ClienteP)dgvClientesP.CurrentRow.DataBoundItem;
                     ModClienteP mod = new ModClienteP(obj);
-                    mod.ShowDialog();
+                    mod.ShowDialog(); 
                     LlenarTablaP();
                 }
                 catch (Exception ex)
                 {
-                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
                 }
             }
             else
             {
                 Mensaje m = new Mensaje("Ningun item seleccionado.");
-                m.ShowDialog();
+                m.ShowDialog(); 
             }
 
         }
@@ -180,18 +182,18 @@ namespace Presentacion
                 {
                     ClienteP aux = (ClienteP)dgvClientesP.CurrentRow.DataBoundItem;
                     DetallesContacto detalles = new DetallesContacto(aux);
-                    detalles.Show();
+                    detalles.ShowDialog();
                     LlenarTablaP();
                 }
                 catch (Exception ex)
                 {
-                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
                 }
             }
             else
             {
                 Mensaje m = new Mensaje("Ningun item seleccionado.");
-                m.ShowDialog();
+                m.ShowDialog(); 
             }
 
         }
@@ -206,7 +208,7 @@ namespace Presentacion
                 {
                     using (var popup = new Confirmacion(@"eliminar """ + c.ToString() + @""""))
                     {
-                        var R = popup.ShowDialog();
+                        var R = popup.ShowDialog(); 
                         if (R == DialogResult.OK)
                         {
                             bool conf = popup.R;
@@ -220,13 +222,13 @@ namespace Presentacion
                 }
                 catch (Exception ex)
                 {
-                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
                 }
             }
             else
             {
                 Mensaje m = new Mensaje("Ningun item seleccionado.");
-                m.ShowDialog();
+                m.ShowDialog(); 
             }
 
         }
@@ -244,12 +246,12 @@ namespace Presentacion
             try
             {
                 ModClienteE mod = new ModClienteE();
-                mod.ShowDialog();
+                mod.ShowDialog(); 
                 LlenarTablaE();
             }
             catch (Exception ex)
             {
-                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
             }
         }
 
@@ -269,18 +271,18 @@ namespace Presentacion
                 {
                     ClienteE obj = (ClienteE)dgvClientesE.CurrentRow.DataBoundItem;
                     ModClienteE mod = new ModClienteE(obj);
-                    mod.ShowDialog();
+                    mod.ShowDialog(); 
                     LlenarTablaE();
                 }
                 catch (Exception ex)
                 {
-                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
                 }
             }
             else
             {
                 Mensaje m = new Mensaje("Ningun item seleccionado.");
-                m.ShowDialog();
+                m.ShowDialog(); 
             }
 
         }
@@ -302,17 +304,17 @@ namespace Presentacion
                     ClienteE E = new ClienteE();
                     E = (ClienteE)dgvClientesE.CurrentRow.DataBoundItem;
                     Contactos c = new Contactos(E.IdCliente);
-                    c.Show();
+                    c.ShowDialog();
                 }
                 catch (Exception ex)
                 {
-                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
                 }
             }
             else
             {
                 Mensaje m = new Mensaje("Ningun item seleccionado.");
-                m.ShowDialog();
+                m.ShowDialog(); 
             }
 
         }
@@ -327,7 +329,7 @@ namespace Presentacion
                 {
                     using (var popup = new Confirmacion(@"eliminar """ + c.ToString() + @""""))
                     {
-                        var R = popup.ShowDialog();
+                        var R = popup.ShowDialog(); 
                         if (R == DialogResult.OK)
                         {
                             bool conf = popup.R;
@@ -341,13 +343,13 @@ namespace Presentacion
                 }
                 catch (Exception ex)
                 {
-                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
                 }
             }
             else
             {
                 Mensaje m = new Mensaje("Ningun item seleccionado.");
-                m.ShowDialog();
+                m.ShowDialog(); 
             }
 
         }
@@ -355,6 +357,7 @@ namespace Presentacion
         private void BtnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
+            menu.Focus();
         }
     }
 }

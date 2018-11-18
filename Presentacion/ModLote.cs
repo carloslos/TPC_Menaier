@@ -12,7 +12,7 @@ namespace Presentacion
 {
     public partial class ModLote : MetroFramework.Forms.MetroForm
     {
-        private bool[] EntradasVal = new bool[4];
+        private bool[] EntradasVal = new bool[3];
         public Lote l;
         Validaciones val = new Validaciones();
 
@@ -55,12 +55,6 @@ namespace Presentacion
                 EntradasVal[i] = b;
             }
 
-            if(l.IdLote == 0)
-            {
-                val.CambiarColor(tileUnidadesE, lblUnidadesE, 's');
-                EntradasVal[2] = true;
-            }
-
             ProductoNegocio negP = new ProductoNegocio();
             try
             {
@@ -93,8 +87,8 @@ namespace Presentacion
                 LoteNegocio neg = new LoteNegocio();
                 l.UnidadesE = Convert.ToInt32(TxtUnidadesE.Text.Trim());
                 l.UnidadesP = Convert.ToInt32(TxtUnidadesP.Text.Trim());
-                l.CostoPU = (float)Convert.ToDouble(TxtCostoUnitario.Text.Trim());
-                l.CostoT = (float)Convert.ToDouble(TxtCostoTotal.Text.Trim());
+                l.CostoPU = (float)Math.Round(Convert.ToDouble(TxtCostoUnitario.Text.Trim()), 3);
+                l.CostoT = (float)Math.Round(Convert.ToDouble(TxtCostoTotal.Text.Trim()), 3);
                 if (l.IdLote == 0)
                 {
                     l.Producto = new Producto();
@@ -123,35 +117,17 @@ namespace Presentacion
                 TxtUnidadesE.Text = TxtUnidadesP.Text;
             }
         }
-        
-        private void TxtUnidadesE_TextChanged(object sender, EventArgs e)
-        {
-            if(l.IdLote != 0)
-            {
-                TxtUnidadesE.Text = TxtUnidadesE.Text.TrimStart();
-                ValidarTxt(2, val.EsNumeroEntero, TxtUnidadesE, tileUnidadesE, lblUnidadesE);
-                if (EntradasVal[1] == true && EntradasVal[3] == true)
-                {
-                    if ((Convert.ToInt32(TxtUnidadesE.Text)) > (Convert.ToInt32(TxtUnidadesP.Text)))
-                    {
-                        EntradasVal[2] = false;
-                        val.CambiarColor(tileUnidadesE, lblUnidadesE, 'r');
-                        ValidarEntradas();
-                    }
-                }
-            }
-        }
 
         private void TxtCostoUnitario_TextChanged(object sender, EventArgs e)
         {
             TxtCostoUnitario.Text = TxtCostoUnitario.Text.TrimStart();
-            ValidarTxt(3, val.EsNumero, TxtCostoUnitario, tileCostoUnitario, lblCostoUnitario);
+            ValidarTxt(2, val.EsNumero, TxtCostoUnitario, tileCostoUnitario, lblCostoUnitario);
             ActualizarTotal();
         }
 
         private void ActualizarTotal()
         {
-            if(EntradasVal[1] == true && EntradasVal[3] == true)
+            if(EntradasVal[1] == true && EntradasVal[2] == true)
             {
                 TxtCostoTotal.Text = ((Convert.ToInt32(TxtUnidadesP.Text)) * ((float)Convert.ToDouble(TxtCostoUnitario.Text))).ToString();
             }
@@ -187,8 +163,7 @@ namespace Presentacion
         {
             ValidarBox(0, BoxProducto, tileProducto, lblProducto);
             ValidarTxt(1, val.EsNumeroEntero, TxtUnidadesP, tileUnidadesP, lblUnidadesP);
-            if (l.IdLote != 0) { ValidarTxt(2, val.EsNumeroEntero, TxtUnidadesE, tileUnidadesE, lblUnidadesE); }
-            ValidarTxt(3, val.EsNumero, TxtCostoUnitario, tileCostoUnitario, lblCostoUnitario);
+            ValidarTxt(2, val.EsNumero, TxtCostoUnitario, tileCostoUnitario, lblCostoUnitario);
         }
 
         private void ValidarBox(int c, MetroFramework.Controls.MetroComboBox b, MetroFramework.Controls.MetroTile t, MetroFramework.Controls.MetroLabel l)
@@ -213,7 +188,6 @@ namespace Presentacion
             TxtCostoUnitario.Text = "";
             BoxProducto.SelectedIndex = -1;
             val.CambiarColor(tileUnidadesP, lblUnidadesP, 'b');
-            val.CambiarColor(tileUnidadesE, lblUnidadesE, 'b');
             val.CambiarColor(tileCostoUnitario, lblCostoUnitario, 'b');
             val.CambiarColor(tileProducto, lblProducto, 'b');
         }
@@ -222,7 +196,7 @@ namespace Presentacion
         {
             int i;
             bool v = true;
-            for (i = 0; i < EntradasVal.Length - 1; i++)
+            for (i = 0; i < EntradasVal.Length; i++)
             {
                 if (EntradasVal[i] == false)
                 {

@@ -59,6 +59,51 @@ namespace Negocio
             }
         }
 
+        public void ActualizarStock(Lote l)
+        {
+            AccesoDB conexion = null;
+            int stock = 0;
+            try
+            {
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("SELECT UNIDADESE FROM LOTES " +
+                    "WHERE IDPRODUCTO = @idproducto");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@idproducto", l.Producto.IdProducto);
+
+                conexion.AbrirConexion();
+                conexion.EjecutarConsulta();
+
+                while (conexion.Lector.Read())
+                {
+                    stock += (int)conexion.Lector[0];
+                }
+                if (conexion.CheckearConexion() == true)
+                {
+                    conexion.CerrarConexion();
+                }
+
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("UPDATE PRODUCTOS SET STOCK = @stock WHERE IDPRODUCTO = @idproducto");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@stock", stock);
+                conexion.Comando.Parameters.AddWithValue("@idproducto", l.Producto.IdProducto);
+                conexion.AbrirConexion();
+                conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conexion.CheckearConexion() == true)
+                {
+                    conexion.CerrarConexion();
+                }
+            }
+        }
+
         public int CalcularStock(int Id)
         {
             AccesoDB conexion = null;

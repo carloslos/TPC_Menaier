@@ -27,9 +27,12 @@ namespace Presentacion
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
+            this.Hide();
             empleadoLoggeado = new Empleado();
             Login login = new Login(empleadoLoggeado);
             login.ShowDialog();
+            this.Show();
+            this.FocusMe();
         }
 
         private void BtnEmpleados_Click(object sender, EventArgs e)
@@ -42,7 +45,7 @@ namespace Presentacion
                     return;
                 }
             }
-            Empleados wndEmpleados = new Empleados(empleadoLoggeado.TipoPerfil.IdTipoPerfil);
+            Empleados wndEmpleados = new Empleados(empleadoLoggeado.TipoPerfil.IdTipoPerfil, this);
             wndEmpleados.Show();
         }
 
@@ -56,7 +59,7 @@ namespace Presentacion
                     return;
                 }
             }
-            Marcas wndMarcas = new Marcas(empleadoLoggeado.TipoPerfil.IdTipoPerfil);
+            Marcas wndMarcas = new Marcas(empleadoLoggeado.TipoPerfil.IdTipoPerfil, this);
             wndMarcas.Show();
         }
 
@@ -70,7 +73,7 @@ namespace Presentacion
                     return;
                 }
             }
-            TiposProducto wndTiposProducto = new TiposProducto(empleadoLoggeado.TipoPerfil.IdTipoPerfil);
+            TiposProducto wndTiposProducto = new TiposProducto(empleadoLoggeado.TipoPerfil.IdTipoPerfil, this);
             wndTiposProducto.Show();
         }
 
@@ -84,7 +87,7 @@ namespace Presentacion
                     return;
                 }
             }
-            Clientes wndClientes = new Clientes(empleadoLoggeado.TipoPerfil.IdTipoPerfil);
+            Clientes wndClientes = new Clientes(empleadoLoggeado.TipoPerfil.IdTipoPerfil, this);
             wndClientes.Show();
         }
 
@@ -98,7 +101,7 @@ namespace Presentacion
                     return;
                 }
             }
-            Proveedores wndProveedores = new Proveedores(empleadoLoggeado.TipoPerfil.IdTipoPerfil);
+            Proveedores wndProveedores = new Proveedores(empleadoLoggeado.TipoPerfil.IdTipoPerfil, this);
             wndProveedores.Show();
         }
 
@@ -112,7 +115,7 @@ namespace Presentacion
                     return;
                 }
             }
-            Ventas wndVentas = new Ventas(empleadoLoggeado.TipoPerfil.IdTipoPerfil);
+            Ventas wndVentas = new Ventas(empleadoLoggeado.TipoPerfil.IdTipoPerfil, this);
             wndVentas.Show();
         }
 
@@ -126,7 +129,7 @@ namespace Presentacion
                     return;
                 }
             }
-            Compras wndCompras = new Compras(empleadoLoggeado.TipoPerfil.IdTipoPerfil);
+            Compras wndCompras = new Compras(empleadoLoggeado.TipoPerfil.IdTipoPerfil, this);
             wndCompras.Show();
         }
 
@@ -140,7 +143,7 @@ namespace Presentacion
                     return;
                 }
             }
-            Productos wndProductos = new Productos(empleadoLoggeado.TipoPerfil.IdTipoPerfil);
+            Productos wndProductos = new Productos(empleadoLoggeado.TipoPerfil.IdTipoPerfil, this);
             wndProductos.Show();
         }
 
@@ -149,9 +152,14 @@ namespace Presentacion
             Application.Exit();
         }
 
-        private void BtnCerrar_Click(object sender, EventArgs e)
+        private void BtnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void BtnLogout_Click(object sender, EventArgs e)
+        {
+            MenuPrincipal_Load(sender, e);
         }
     }
 }

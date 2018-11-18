@@ -87,8 +87,7 @@ namespace Negocio
 
                 if (conexion.Lector.Read())
                 {
-                    //precio = (float)Math.Round(Convert.ToDouble(conexion.Lector[0])*((Convert.ToDouble(conexion.Lector[1])/100)+1), 3);
-                    precio = (float)Convert.ToDouble(conexion.Lector[0]) * (float)((Convert.ToDouble(conexion.Lector[1]) / 100) + 1);
+                    precio = (float)Math.Round(Convert.ToDouble(conexion.Lector[0])*((Convert.ToDouble(conexion.Lector[1])/100)+1), 3);
                 }
 
                 return precio;

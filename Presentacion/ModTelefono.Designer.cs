@@ -182,6 +182,7 @@
             this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(385, 376);
             this.Name = "ModTelefono";
+            this.ShowInTaskbar = false;
             this.Text = "Telefono";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.ModTelefono_Load);

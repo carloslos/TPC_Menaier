@@ -149,6 +149,7 @@
             this.Controls.Add(this.dgvProductos);
             this.MinimumSize = new System.Drawing.Size(1024, 600);
             this.Name = "Productos";
+            this.ShowInTaskbar = false;
             this.Text = "Productos";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.Productos_Load);

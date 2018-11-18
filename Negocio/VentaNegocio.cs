@@ -39,6 +39,7 @@ namespace Negocio
                     };
                     aux.Empleado.Nombre = (string)conexion.Lector[1];
                     aux.Empleado.Apellido = (string)conexion.Lector[2];
+                    aux.Empleado.NombreCompleto = aux.Empleado.Nombre + " " + aux.Empleado.Apellido;
                     aux.Empleado.IdEmpleado = (int)conexion.Lector[3];
                     aux.Empleado.IdContacto = aux.Empleado.IdEmpleado;
                     if (conexion.Lector.IsDBNull(5))
@@ -47,6 +48,7 @@ namespace Negocio
                         {
                             Nombre = (string)conexion.Lector[4]
                         };
+                        auxC.NombreCompleto = auxC.Nombre;
                         aux.Cliente = auxC;
                     }
                     else
@@ -55,12 +57,13 @@ namespace Negocio
                         {
                             Nombre = (string)conexion.Lector[4],
                             Apellido = (string)conexion.Lector[5]
+
                         };
+                        auxC.NombreCompleto = auxC.Nombre + " " + auxC.Apellido;
                         aux.Cliente = auxC;
                     }
                     aux.Cliente.IdCliente = (int)conexion.Lector[6];
-                    //aux.Monto = (float)Math.Round(CalcularMonto(aux.IdVenta), 3);
-                    aux.Monto = (float)CalcularMonto(aux.IdVenta);
+                    aux.Monto = (float)Math.Round(CalcularMonto(aux.IdVenta), 3);
 
                     lstVentas.Add(aux);
                 }
@@ -83,9 +86,6 @@ namespace Negocio
         {
             try
             {
-                //DateTime d = new DateTime();
-                //CultureInfo ci = CultureInfo.InvariantCulture;
-                //d = DateTime.ParseExact((nuevo.FechaVenta.Day.ToString() + "/" + nuevo.FechaVenta.Month.ToString() + "/" + nuevo.FechaVenta.Year.ToString()), "/MM/yyyy", ci);
                 nuevo.FechaRegistro = DateTime.Today;
                 string insertedID = "";
 
@@ -143,15 +143,14 @@ namespace Negocio
         public float CalcularMonto(int IdVenta)
         {
             float monto = 0;
-            List<Lote> lstLotes = new List<Lote>();
-            LoteNegocio negL = new LoteNegocio();
+            List<ProductoVendido> lstProductosVendidos = new List<ProductoVendido>();
+            ProductoVendidoNegocio negL = new ProductoVendidoNegocio();
             try
             {
-                lstLotes = negL.Listar(IdVenta);
-                foreach(Lote l in lstLotes)
+                lstProductosVendidos = negL.Listar(IdVenta);
+                foreach(ProductoVendido pv in lstProductosVendidos)
                 {
-                    //monto += (float)Math.Round((l.CostoPU * l.UnidadesP), 3);
-                    monto += (float)(l.CostoPU * l.UnidadesP);
+                    monto += (float)Math.Round((pv.Cantidad * pv.PrecioT), 3);
                 }
                 return monto;
             }

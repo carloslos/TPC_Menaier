@@ -27,7 +27,7 @@ namespace Presentacion
 
         private void Mensaje_Load(object sender, EventArgs e)
         {
-            
+            this.Focus();
             tileTxt.Text = s;
         }
 

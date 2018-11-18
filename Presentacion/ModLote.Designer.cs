@@ -66,6 +66,7 @@
             this.TxtUnidadesE.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.TxtUnidadesE.CustomButton.UseSelectable = true;
             this.TxtUnidadesE.CustomButton.Visible = false;
+            this.TxtUnidadesE.Enabled = false;
             this.TxtUnidadesE.Lines = new string[0];
             this.TxtUnidadesE.Location = new System.Drawing.Point(207, 264);
             this.TxtUnidadesE.MaxLength = 60;
@@ -81,7 +82,6 @@
             this.TxtUnidadesE.UseSelectable = true;
             this.TxtUnidadesE.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtUnidadesE.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.TxtUnidadesE.TextChanged += new System.EventHandler(this.TxtUnidadesE_TextChanged);
             // 
             // tileUnidadesE
             // 
@@ -92,6 +92,7 @@
             this.tileUnidadesE.Location = new System.Drawing.Point(67, 264);
             this.tileUnidadesE.Name = "tileUnidadesE";
             this.tileUnidadesE.Size = new System.Drawing.Size(144, 20);
+            this.tileUnidadesE.Style = MetroFramework.MetroColorStyle.Silver;
             this.tileUnidadesE.TabIndex = 60;
             this.tileUnidadesE.UseSelectable = true;
             // 
@@ -102,6 +103,7 @@
             this.lblUnidadesE.Location = new System.Drawing.Point(8, 1);
             this.lblUnidadesE.Name = "lblUnidadesE";
             this.lblUnidadesE.Size = new System.Drawing.Size(122, 19);
+            this.lblUnidadesE.Style = MetroFramework.MetroColorStyle.Silver;
             this.lblUnidadesE.TabIndex = 5;
             this.lblUnidadesE.Text = "Unidades Existentes";
             // 
@@ -219,7 +221,7 @@
             this.lblUnidadesP.Enabled = false;
             this.lblUnidadesP.Location = new System.Drawing.Point(17, 0);
             this.lblUnidadesP.Name = "lblUnidadesP";
-            this.lblUnidadesP.Size = new System.Drawing.Size(113, 19);
+            this.lblUnidadesP.Size = new System.Drawing.Size(112, 19);
             this.lblUnidadesP.TabIndex = 5;
             this.lblUnidadesP.Text = "Unidades Pedidas";
             // 
@@ -273,7 +275,7 @@
             this.lblCostoTotal.Enabled = false;
             this.lblCostoTotal.Location = new System.Drawing.Point(59, 1);
             this.lblCostoTotal.Name = "lblCostoTotal";
-            this.lblCostoTotal.Size = new System.Drawing.Size(72, 19);
+            this.lblCostoTotal.Size = new System.Drawing.Size(70, 19);
             this.lblCostoTotal.Style = MetroFramework.MetroColorStyle.Silver;
             this.lblCostoTotal.TabIndex = 5;
             this.lblCostoTotal.Text = "CostoTotal";
@@ -342,6 +344,7 @@
             this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(450, 600);
             this.Name = "ModLote";
+            this.ShowInTaskbar = false;
             this.Text = "Lote";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.ModLote_Load);

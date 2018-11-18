@@ -300,6 +300,7 @@
             this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(450, 600);
             this.Name = "ModContacto";
+            this.ShowInTaskbar = false;
             this.Text = "Contacto";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ModContacto_KeyPress);

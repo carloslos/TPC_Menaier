@@ -17,7 +17,7 @@ namespace Dominio
 
         public override string ToString()
         {
-            return IdCompra.ToString() + " (" + Proveedor.Empresa + ")";
+            return IdCompra.ToString();
         }
     }
 }

@@ -13,10 +13,12 @@ namespace Presentacion
     public partial class Productos : MetroFramework.Forms.MetroForm
     {
         int permisos;
-        public Productos(int p)
+        MenuPrincipal menu;
+        public Productos(int p, MenuPrincipal mp)
         {
             InitializeComponent();
             permisos = p;
+            menu = mp;
         }
 
         private void Productos_Load(object sender, EventArgs e)
@@ -52,7 +54,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
             }
         }
 
@@ -69,12 +71,12 @@ namespace Presentacion
             try
             {
                 ModProducto mod = new ModProducto();
-                mod.ShowDialog();
+                mod.ShowDialog(); 
                 LlenarTabla();
             }
             catch (Exception ex)
             {
-                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
             }
         }
 
@@ -94,18 +96,18 @@ namespace Presentacion
                 {
                     Producto obj = (Producto)dgvProductos.CurrentRow.DataBoundItem;
                     ModProducto mod = new ModProducto(obj);
-                    mod.ShowDialog();
+                    mod.ShowDialog(); 
                     LlenarTabla();
                 }
                 catch (Exception ex)
                 {
-                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
                 }
             }
             else
             {
                 Mensaje m = new Mensaje("Ningun item seleccionado.");
-                m.ShowDialog();
+                m.ShowDialog(); 
             }
         }
 
@@ -119,7 +121,7 @@ namespace Presentacion
                 {
                     using (var popup = new Confirmacion(@"eliminar """ + p.ToString() + @""""))
                     {
-                        var R = popup.ShowDialog();
+                        var R = popup.ShowDialog(); 
                         if (R == DialogResult.OK)
                         {
                             bool conf = popup.R;
@@ -133,19 +135,20 @@ namespace Presentacion
                 }
                 catch (Exception ex)
                 {
-                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog(); 
                 }
             }
             else
             {
                 Mensaje m = new Mensaje("Ningun item seleccionado.");
-                m.ShowDialog();
+                m.ShowDialog(); 
             }
         }
 
         private void BtnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
+            menu.Focus();
         }
     }
 }
