@@ -319,7 +319,6 @@ namespace Negocio
             }
         }
 
-
         public void EliminarProductosDeVenta(int id)
         {
             AccesoDB conexion = null;
@@ -354,6 +353,32 @@ namespace Negocio
                 conexion.SetearConsulta("DELETE FROM PRODUCTOS_X_VENTA WHERE IDPXV = @id");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@id", id);
+                conexion.AbrirConexion();
+                conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conexion.CheckearConexion() == true)
+                {
+                    conexion.CerrarConexion();
+                }
+            }
+        }
+
+        public void EliminarLogico(long id)
+        {
+            AccesoDB conexion = null;
+            try
+            {
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("UPDATE PRODUCTOS_X_VENTA SET ACTIVO = 0 WHERE IDPXV = @id");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@id", id);
+
                 conexion.AbrirConexion();
                 conexion.EjecutarAccion();
             }

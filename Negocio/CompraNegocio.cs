@@ -57,7 +57,7 @@ namespace Negocio
                 }
             }
         }
-        
+
         public string Agregar(Compra nuevo)
         {
             try
@@ -83,7 +83,7 @@ namespace Negocio
                 throw ex;
             }
         }
-        
+
         public void Modificar(Compra c)
         {
             AccesoDB conexion = null;
@@ -110,6 +110,30 @@ namespace Negocio
                     conexion.CerrarConexion();
                 }
             }
+        }
+
+        public bool AnularCompra(Compra c)
+        {
+            LoteNegocio negL = new LoteNegocio();
+            List<Lote> lotes = negL.Listar(c.IdCompra);
+
+            foreach(Lote l in lotes)
+            {
+                if(l.UnidadesE != l.UnidadesP)
+                {
+                    return false;
+                }
+            }
+
+            EliminarLogico(c.IdCompra);
+
+            foreach(Lote l in lotes)
+            {
+                negL.EliminarLogico(l.IdLote);
+                negL.ActualizarStock(l.Producto.IdProducto);
+            }
+
+            return true;
         }
 
         public void EliminarFisico(int id)

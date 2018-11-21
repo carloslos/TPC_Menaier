@@ -141,7 +141,7 @@ namespace Presentacion
                 {
                     l.IdCompra = c.IdCompra;
                     negL.Agregar(l);
-                    negL.ActualizarStock(l);
+                    negL.ActualizarStock(l.Producto.IdProducto);
                 }
                 this.Close();
             }

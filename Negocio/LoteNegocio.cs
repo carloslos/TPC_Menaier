@@ -59,7 +59,7 @@ namespace Negocio
             }
         }
 
-        public void ActualizarStock(Lote l)
+        public void ActualizarStock(int IdProducto)
         {
             AccesoDB conexion = null;
             int stock = 0;
@@ -69,7 +69,7 @@ namespace Negocio
                 conexion.SetearConsulta("SELECT UNIDADESE FROM LOTES " +
                     "WHERE IDPRODUCTO = @idproducto AND ACTIVO = 1");
                 conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@idproducto", l.Producto.IdProducto);
+                conexion.Comando.Parameters.AddWithValue("@idproducto", IdProducto);
 
                 conexion.AbrirConexion();
                 conexion.EjecutarConsulta();
@@ -87,7 +87,7 @@ namespace Negocio
                 conexion.SetearConsulta("UPDATE PRODUCTOS SET STOCK = @stock WHERE IDPRODUCTO = @idproducto");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@stock", stock);
-                conexion.Comando.Parameters.AddWithValue("@idproducto", l.Producto.IdProducto);
+                conexion.Comando.Parameters.AddWithValue("@idproducto", IdProducto);
                 conexion.AbrirConexion();
                 conexion.EjecutarAccion();
             }

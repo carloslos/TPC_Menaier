@@ -146,7 +146,7 @@ namespace Presentacion
                 Venta v = (Venta)dgvVentas.CurrentRow.DataBoundItem;
                 try
                 {
-                    using (var popup = new Confirmacion(@"eliminar """ + v.ToString() + @""""))
+                    using (var popup = new Confirmacion(@"anular la venta """ + v.ToString() + @""""))
                     {
                         var R = popup.ShowDialog(); 
                         if (R == DialogResult.OK)
@@ -154,8 +154,7 @@ namespace Presentacion
                             bool conf = popup.R;
                             if (v != null && conf == true)
                             {
-                                negPV.EliminarPxV(v.IdVenta);
-                                negV.EliminarLogico(v.IdVenta);
+                                negV.AnularVenta(v);
                                 LlenarTabla();
                             }
                         }

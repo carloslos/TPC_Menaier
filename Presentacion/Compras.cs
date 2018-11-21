@@ -139,7 +139,42 @@ namespace Presentacion
 
         private void BtnAnular_Click(object sender, EventArgs e)
         {
-
+            if (dgvCompras.SelectedCells.Count > 0)
+            {
+                CompraNegocio neg = new CompraNegocio();
+                Compra c = (Compra)dgvCompras.CurrentRow.DataBoundItem;
+                try
+                {
+                    using (var popup = new Confirmacion(@"anular la compra """ + c.ToString() + @""""))
+                    {
+                        var R = popup.ShowDialog();
+                        if (R == DialogResult.OK)
+                        {
+                            bool conf = popup.R;
+                            if (c != null && conf == true)
+                            {
+                                if(neg.AnularCompra(c))
+                                {
+                                    LlenarTabla();
+                                }
+                                else
+                                {
+                                    Mensaje me = new Mensaje("No se puede anular compra con productos faltantes."); me.ShowDialog();
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Mensaje mex = new Mensaje(ex.ToString()); mex.ShowDialog();
+                }
+            }
+            else
+            {
+                Mensaje m = new Mensaje("Ningun item seleccionado.");
+                m.ShowDialog();
+            }
         }
     }
 }

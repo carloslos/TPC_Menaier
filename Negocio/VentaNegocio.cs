@@ -139,7 +139,6 @@ namespace Negocio
             }
         }
 
-
         public float CalcularMonto(int IdVenta)
         {
             float monto = 0;
@@ -183,6 +182,23 @@ namespace Negocio
                     conexion.CerrarConexion();
                 }
             }
+        }
+
+        public void AnularVenta(Venta v)
+        {
+            ProductoVendidoNegocio negPV = new ProductoVendidoNegocio();
+            LoteNegocio negL = new LoteNegocio();
+            List<ProductoVendido> productos = new List<ProductoVendido>(v.IdVenta);
+
+            EliminarLogico(v.IdVenta);
+
+            foreach (ProductoVendido pv in productos)
+            {
+                negPV.EliminarLogico(pv.IdPxv);
+                negL.ActualizarStock(pv.Producto.IdProducto);
+            }
+
+            /// TODO: SEGUIR POR ACA
         }
 
         public void EliminarLogico(int id)
