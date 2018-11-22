@@ -11,7 +11,7 @@ namespace Negocio
 {
     public class CompraNegocio
     {
-        public List<Compra> Listar()
+        public List<Compra> Listar(int activo)
         {
             Compra aux;
             List<Compra> lstCompras = new List<Compra>();
@@ -21,7 +21,10 @@ namespace Negocio
                 conexion = new AccesoDB();
                 conexion.SetearConsulta("SELECT C.IDCOMPRA, C.FECHACOMPRA, C.IDPROVEEDOR, C.FECHAREGISTRO, P.EMPRESA, P.CUIT FROM COMPRAS AS C " +
                     "INNER JOIN PROVEEDORES AS P ON C.IDPROVEEDOR = P.IDPROVEEDOR " +
-                    "WHERE C.ACTIVO = 1");
+                    "WHERE C.ACTIVO = @activo");
+
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@activo", activo);
 
                 conexion.AbrirConexion();
                 conexion.EjecutarConsulta();
@@ -69,6 +72,7 @@ namespace Negocio
                 using (var dbconn = new SqlConnection(@"data source=.\SQLEXPRESS; initial catalog= MENAIER_DB;  integrated security=sspi"))
                 using (var dbcm = new SqlCommand(query, dbconn))
                 {
+                    dbcm.Parameters.Clear();
                     dbcm.Parameters.AddWithValue("@idproveedor", nuevo.Proveedor.IdProveedor);
                     dbcm.Parameters.AddWithValue("@fechacompra", nuevo.FechaCompra);
                     dbcm.Parameters.AddWithValue("@fecharegistro", DateTime.Now);
@@ -115,7 +119,7 @@ namespace Negocio
         public bool AnularCompra(Compra c)
         {
             LoteNegocio negL = new LoteNegocio();
-            List<Lote> lotes = negL.Listar(c.IdCompra);
+            List<Lote> lotes = negL.Listar(c.IdCompra, 1);
 
             foreach(Lote l in lotes)
             {

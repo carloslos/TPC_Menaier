@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 /// TODO: FILTROS (VENTAS)
 /// TODO: MOTIVO ANULACIONES
-/// TODO: ANULAR VENTA
 /// TODO: BAJA DE STOCK
 /// TODO: IMPRIMIR FACTURA PDF 
 /// TODO: FORMATO FECHAS

@@ -13,7 +13,8 @@ namespace Presentacion
     public partial class Ventas : MetroFramework.Forms.MetroForm
     {
         MenuPrincipal menu;
-        int permisos;
+        int permisos, activo = 1;
+
         public Ventas(int p, MenuPrincipal mp)
         {
             InitializeComponent();
@@ -40,7 +41,7 @@ namespace Presentacion
             VentaNegocio neg = new VentaNegocio();
             try
             {
-                dgvVentas.DataSource = neg.Listar();
+                dgvVentas.DataSource = neg.Listar(activo);
                 dgvVentas.Columns["IdVenta"].HeaderText = "ID";
                 dgvVentas.Columns["FechaVenta"].HeaderText = "Fecha de Venta";
                 dgvVentas.Columns["FechaRegistro"].Visible = false;
@@ -92,7 +93,7 @@ namespace Presentacion
                 {
                     ProductoVendidoNegocio negPV = new ProductoVendidoNegocio();
                     Venta v = (Venta)dgvVentas.CurrentRow.DataBoundItem;
-                    v.LstProductosVendidos = negPV.Listar(v.IdVenta);
+                    v.LstProductosVendidos = negPV.Listar(v.IdVenta,activo);
                     ModVenta detalles = new ModVenta(v, false);
                     detalles.Show();
                     LlenarTabla();
@@ -135,6 +136,13 @@ namespace Presentacion
         {
             this.Close();
             menu.Focus();
+        }
+
+        private void TglActivo_CheckedChanged(object sender, EventArgs e)
+        {
+            if( activo == 1 ) { activo = 0; }
+            else { activo = 1; }
+            LlenarTabla();
         }
 
         private void BtnAnular_Click(object sender, EventArgs e)

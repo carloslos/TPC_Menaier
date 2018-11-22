@@ -45,6 +45,7 @@
     <Compile Include="ClienteE.cs" />
     <Compile Include="Compra.cs" />
     <Compile Include="Lote.cs" />
+    <Compile Include="LoteVendido.cs" />
     <Compile Include="Marca.cs" />
     <Compile Include="Producto.cs" />
     <Compile Include="Empleado.cs" />

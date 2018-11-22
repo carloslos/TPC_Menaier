@@ -12,7 +12,7 @@ namespace Negocio
 {
     public class VentaNegocio
     {
-        public List<Venta> Listar()
+        public List<Venta> Listar(int activo)
         {
             Venta aux;
             List<Venta> lstVentas = new List<Venta>();
@@ -23,7 +23,10 @@ namespace Negocio
                 conexion.SetearConsulta("SELECT V.IDVENTA, E.NOMBRE, E.APELLIDO, V.IDEMPLEADO, C.NOMBRE, C.APELLIDO, V.IDCLIENTE, V.FECHAVENTA, V.FECHAREGISTRO FROM VENTAS AS V " +
                     "INNER JOIN EMPLEADOS AS E ON V.IDEMPLEADO = E.IDEMPLEADO " +
                     "INNER JOIN CLIENTES AS C ON C.IDCLIENTE = V.IDCLIENTE " +
-                    "WHERE V.ACTIVO = 1");
+                    "WHERE V.ACTIVO = @activo");
+
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@activo", activo);
 
                 conexion.AbrirConexion();
                 conexion.EjecutarConsulta();
@@ -94,6 +97,7 @@ namespace Negocio
                 using (var dbconn = new SqlConnection(@"data source=.\SQLEXPRESS; initial catalog= MENAIER_DB;  integrated security=sspi"))
                 using (var dbcm = new SqlCommand(query, dbconn))
                 {
+                    dbcm.Parameters.Clear();
                     dbcm.Parameters.AddWithValue("@idcliente", nuevo.Cliente.IdCliente);
                     dbcm.Parameters.AddWithValue("@idempleado", nuevo.Empleado.IdEmpleado);
                     dbcm.Parameters.AddWithValue("@fechaventa", nuevo.FechaVenta);
@@ -146,7 +150,7 @@ namespace Negocio
             ProductoVendidoNegocio negL = new ProductoVendidoNegocio();
             try
             {
-                lstProductosVendidos = negL.Listar(IdVenta);
+                lstProductosVendidos = negL.Listar(IdVenta,1);
                 foreach(ProductoVendido pv in lstProductosVendidos)
                 {
                     monto += (float)Math.Round((pv.Cantidad * pv.PrecioT), 3);
@@ -188,17 +192,24 @@ namespace Negocio
         {
             ProductoVendidoNegocio negPV = new ProductoVendidoNegocio();
             LoteNegocio negL = new LoteNegocio();
-            List<ProductoVendido> productos = new List<ProductoVendido>(v.IdVenta);
 
-            EliminarLogico(v.IdVenta);
-
-            foreach (ProductoVendido pv in productos)
+            try
             {
-                negPV.EliminarLogico(pv.IdPxv);
-                negL.ActualizarStock(pv.Producto.IdProducto);
-            }
+                List<ProductoVendido> productos = negPV.Listar(v.IdVenta,1);
+                EliminarLogico(v.IdVenta);
 
-            /// TODO: SEGUIR POR ACA
+                foreach (ProductoVendido pv in productos)
+                {
+                    negPV.EliminarLogico(pv.IdPxv);
+                    negPV.RestaurarStock(pv.IdPxv);
+                    negL.ActualizarStock(pv.Producto.IdProducto);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         public void EliminarLogico(int id)
@@ -215,7 +226,6 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally

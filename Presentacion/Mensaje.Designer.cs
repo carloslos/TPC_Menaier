@@ -47,6 +47,9 @@
             // tileTxt
             // 
             this.tileTxt.ActiveControl = null;
+            this.tileTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tileTxt.Location = new System.Drawing.Point(23, 63);
             this.tileTxt.MinimumSize = new System.Drawing.Size(334, 147);
             this.tileTxt.Name = "tileTxt";

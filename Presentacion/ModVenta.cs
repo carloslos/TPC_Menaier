@@ -162,10 +162,12 @@ namespace Presentacion
                     v.Cliente = new Cliente();
                     v.Empleado = new Empleado();
                 }
+
                 v.Cliente = (Cliente)BoxCliente.SelectedItem;
                 v.Empleado = (Empleado)BoxEmpleado.SelectedItem;
                 v.FechaVenta = DateFecha.Value;
                 v.Monto = (float)Convert.ToDouble(TxtTotal.Text);
+
                 if (v.IdVenta != 0)
                 {
                     negV.Modificar(v);
@@ -175,12 +177,14 @@ namespace Presentacion
                 {
                     v.IdVenta = Convert.ToInt32(negV.Agregar(v));
                 }
+
                 foreach (ProductoVendido pv in v.LstProductosVendidos)
                 {
                     pv.IdVenta = v.IdVenta;
+                    pv.IdPxv = negPV.Agregar(pv);
                     negPV.DescontarStock(pv);
-                    negPV.Agregar(pv);
                 }
+
                 this.Close();
             }
             catch (Exception ex)

@@ -14,6 +14,7 @@ namespace Presentacion
     {
         int permisos;
         MenuPrincipal menu;
+        int activo = 1;
         public Compras(int p, MenuPrincipal mp)
         {
             InitializeComponent();
@@ -39,7 +40,7 @@ namespace Presentacion
             CompraNegocio neg = new CompraNegocio();
             try
             {
-                dgvCompras.DataSource = neg.Listar();
+                dgvCompras.DataSource = neg.Listar(activo);
                 dgvCompras.Columns["IdCompra"].HeaderText = "ID";
                 dgvCompras.Columns["FechaCompra"].HeaderText = "Fecha de Compra";
                 dgvCompras.Columns["FechaRegistro"].Visible = false;
@@ -91,7 +92,7 @@ namespace Presentacion
                 {
                     LoteNegocio negL = new LoteNegocio();
                     Compra c = (Compra)dgvCompras.CurrentRow.DataBoundItem;
-                    c.LstLotes = negL.Listar(c.IdCompra);
+                    c.LstLotes = negL.Listar(c.IdCompra, activo);
                     ModCompra detalles = new ModCompra(c, false);
                     detalles.ShowDialog();
                     LlenarTabla();
@@ -175,6 +176,13 @@ namespace Presentacion
                 Mensaje m = new Mensaje("Ningun item seleccionado.");
                 m.ShowDialog();
             }
+        }
+
+        private void TglActivo_CheckedChanged(object sender, EventArgs e)
+        {
+            if( activo == 1 ) { activo = 0; }
+            else { activo = 1; }
+            LlenarTabla();
         }
     }
 }

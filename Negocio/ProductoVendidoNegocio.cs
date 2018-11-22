@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace Negocio
 {
     public class ProductoVendidoNegocio
     {
-        public List<ProductoVendido> Listar(int id)
+        public List<ProductoVendido> Listar(int IdVenta, int activo)
         {
             ProductoVendido aux;
             List<ProductoVendido> lstProductosVendidos = new List<ProductoVendido>();
@@ -22,9 +23,10 @@ namespace Negocio
                                         "INNER JOIN PRODUCTOS AS P ON PXV.IDPRODUCTO = P.IDPRODUCTO " +
                                         "INNER JOIN MARCAS AS M ON P.IDMARCA = M.IDMARCA " +
                                         "INNER JOIN TIPOSPRODUCTO AS TP ON P.IDTIPOPRODUCTO = TP.IDTIPOPRODUCTO " +
-                                        "WHERE PXV.IDVENTA = @id AND PXV.ACTIVO = 1");
+                                        "WHERE PXV.IDVENTA = @idventa AND PXV.ACTIVO = @activo");
                 conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@id", id);
+                conexion.Comando.Parameters.AddWithValue("@idventa", IdVenta);
+                conexion.Comando.Parameters.AddWithValue("@activo", activo);
                 conexion.AbrirConexion();
                 conexion.EjecutarConsulta();
 
@@ -87,7 +89,7 @@ namespace Negocio
 
                 if (conexion.Lector.Read())
                 {
-                    precio = (float)Math.Round(Convert.ToDouble(conexion.Lector[0])*((Convert.ToDouble(conexion.Lector[1])/100)+1), 3);
+                    precio = (float)Math.Round(Convert.ToDouble(conexion.Lector[0]) * ((Convert.ToDouble(conexion.Lector[1]) / 100) + 1), 3);
                 }
 
                 return precio;
@@ -174,7 +176,8 @@ namespace Negocio
         public void DescontarStock(ProductoVendido pv)
         {
             Lote lote;
-            int stockTotal = 0;
+            int stockTotal = 0, cantidad;
+            LoteNegocio negL = new LoteNegocio();
             List<Lote> lstLotes = new List<Lote>();
             AccesoDB conexion = null;
             try
@@ -182,7 +185,7 @@ namespace Negocio
                 conexion = new AccesoDB();
                 conexion.SetearConsulta("SELECT L.IDLOTE, L.UNIDADESE FROM LOTES AS L " +
                     "INNER JOIN COMPRAS AS C ON C.IDCOMPRA = L.IDCOMPRA " +
-                    "WHERE L.IDPRODUCTO = @idproducto " +
+                    "WHERE L.IDPRODUCTO = @idproducto AND L.ACTIVO = 1 " +
                     "ORDER BY C.FECHACOMPRA DESC");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@idproducto", pv.Producto.IdProducto);
@@ -200,26 +203,107 @@ namespace Negocio
                     stockTotal += lote.UnidadesE;
                     lstLotes.Add(lote);
                 }
-                if( stockTotal >= pv.Cantidad )
+
+                if (stockTotal >= pv.Cantidad)
                 {
                     int cantV = pv.Cantidad, i = 0;
                     while (cantV > 0)
                     {
                         if (cantV <= lstLotes[i].UnidadesE)
                         {
+                            cantidad = cantV;
                             lstLotes[i].UnidadesE -= cantV;
                             cantV = 0;
                         }
                         else
                         {
+                            cantidad = lstLotes[i].UnidadesE;
                             cantV -= lstLotes[i].UnidadesE;
                             lstLotes[i].UnidadesE = 0;
                         }
                         ActualizarStock(lstLotes[i]);
+                        negL.ActualizarStock(pv.Producto.IdProducto);
+                        RegistrarMovimiento(pv.IdPxv, lstLotes[i].IdLote, cantidad);
                         i++;
                     }
                 }
                 return;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conexion.CheckearConexion() == true)
+                {
+                    conexion.CerrarConexion();
+                }
+            }
+        }
+
+        private void RegistrarMovimiento(long IdPxv, long IdLote, int cantidad)
+        {
+            AccesoDB conexion = null;
+            try
+            {
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("INSERT INTO LOTES_X_VENTA(IDPXV,IDLOTE,CANTIDAD) VALUES (@idpxv,@idlote,@cantidad)");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@idpxv", IdPxv);
+                conexion.Comando.Parameters.AddWithValue("@idlote", IdLote);
+                conexion.Comando.Parameters.AddWithValue("@cantidad", cantidad);
+
+                conexion.AbrirConexion();
+                conexion.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conexion.CheckearConexion() == true)
+                {
+                    conexion.CerrarConexion();
+                }
+            }
+        }
+
+        public void RestaurarStock (long IdPxv)
+        {
+            List<LoteVendido> lotesv = new List<LoteVendido>();
+            LoteVendido lotev;
+            LoteNegocio negL = new LoteNegocio();
+            Lote lote;
+            AccesoDB conexion = null;
+            try
+            {
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("SELECT IDLOTE, CANTIDAD FROM LOTES_X_VENTA WHERE IDPXV = @idpxv");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@idpxv", IdPxv);
+
+                conexion.AbrirConexion();
+                conexion.EjecutarConsulta();
+
+                while (conexion.Lector.Read())
+                {
+                    lotev = new LoteVendido
+                    {
+                        IdPxv = IdPxv,
+                        IdLote = (long)conexion.Lector[0],
+                        Cantidad = (int)conexion.Lector[1]
+                    };
+                    lotesv.Add(lotev);
+                }
+
+                foreach(LoteVendido lv in lotesv)
+                {
+                    lote = negL.ObtenerLote(lv.IdLote);
+                    lote.UnidadesE += lv.Cantidad;
+                    negL.ModificarStock(lote.IdLote, lote.UnidadesE);
+                }
             }
             catch (Exception ex)
             {
@@ -261,32 +345,31 @@ namespace Negocio
             }
         }
 
-        public void Agregar(ProductoVendido nuevo)
+        public long Agregar(ProductoVendido nuevo)
         {
-            AccesoDB conexion = null;
             try
             {
-                conexion = new AccesoDB();
-                conexion.SetearConsulta("INSERT INTO PRODUCTOS_X_VENTA(IDVENTA,IDPRODUCTO,PRECIOPU,CANTIDAD,ACTIVO) VALUES (@idventa,@idproducto,@preciopu,@cantidad,1)");
-                conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@idventa", nuevo.IdVenta);
-                conexion.Comando.Parameters.AddWithValue("@idproducto", nuevo.Producto.IdProducto);
-                conexion.Comando.Parameters.AddWithValue("@cantidad", nuevo.Cantidad);
-                conexion.Comando.Parameters.AddWithValue("@preciopu", nuevo.PrecioU);
+                long insertedID;
 
-                conexion.AbrirConexion();
-                conexion.EjecutarAccion();
+                string query = "INSERT INTO PRODUCTOS_X_VENTA(IDVENTA,IDPRODUCTO,PRECIOPU,CANTIDAD,ACTIVO) VALUES (@idventa,@idproducto,@preciopu,@cantidad,1); SELECT SCOPE_IDENTITY();";
+
+                using (var dbconn = new SqlConnection(@"data source=.\SQLEXPRESS; initial catalog= MENAIER_DB;  integrated security=sspi"))
+                using (var dbcm = new SqlCommand(query, dbconn))
+                {
+                    dbcm.Parameters.Clear();
+                    dbcm.Parameters.AddWithValue("@idventa", nuevo.IdVenta);
+                    dbcm.Parameters.AddWithValue("@idproducto", nuevo.Producto.IdProducto);
+                    dbcm.Parameters.AddWithValue("@cantidad", nuevo.Cantidad);
+                    dbcm.Parameters.AddWithValue("@preciopu", nuevo.PrecioU);
+
+                    dbconn.Open();
+                    insertedID = Convert.ToInt64(dbcm.ExecuteScalar().ToString());
+                }
+                return insertedID;
             }
             catch (Exception ex)
             {
                 throw ex;
-            }
-            finally
-            {
-                if (conexion.CheckearConexion() == true)
-                {
-                    conexion.CerrarConexion();
-                }
             }
         }
 

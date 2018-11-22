@@ -9,7 +9,7 @@ namespace Negocio
 {
     public class LoteNegocio
     {
-        public List<Lote> Listar(int Id)
+        public List<Lote> Listar(int IdCompra, int activo)
         {
             Lote aux;
             List<Lote> lstLotes = new List<Lote>();
@@ -19,10 +19,11 @@ namespace Negocio
                 conexion = new AccesoDB();
                 conexion.SetearConsulta("SELECT L.IDLOTE, L.IDCOMPRA, L.IDPRODUCTO, P.DESCRIPCION, L.UNIDADESP, L.UNIDADESE, L.COSTOPU FROM LOTES AS L " +
                     "INNER JOIN PRODUCTOS AS P ON P.IDPRODUCTO = L.IDPRODUCTO " +
-                    "WHERE L.IDCOMPRA = @idcompra AND L.ACTIVO = 1 " +
+                    "WHERE L.IDCOMPRA = @idcompra AND L.ACTIVO = @activo " +
                     "ORDER BY P.DESCRIPCION ASC");
                 conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@idcompra", Id);
+                conexion.Comando.Parameters.AddWithValue("@idcompra", IdCompra);
+                conexion.Comando.Parameters.AddWithValue("@activo", activo);
 
                 conexion.AbrirConexion();
                 conexion.EjecutarConsulta();
@@ -45,6 +46,68 @@ namespace Negocio
                     lstLotes.Add(aux);
                 }
                 return lstLotes;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conexion.CheckearConexion() == true)
+                {
+                    conexion.CerrarConexion();
+                }
+            }
+        }
+
+        public Lote ObtenerLote(long IdLote)
+        {
+            Lote aux = new Lote();
+            AccesoDB conexion = null;
+            try
+            {
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("SELECT IDLOTE, UNIDADESE FROM LOTES " +
+                    "WHERE IDLOTE = @idlote AND ACTIVO = 1");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@idlote", IdLote);
+
+                conexion.AbrirConexion();
+                conexion.EjecutarConsulta();
+
+                if (conexion.Lector.Read())
+                {
+                    aux.IdLote = (long)conexion.Lector["IDLOTE"];
+                    aux.UnidadesE = (int)conexion.Lector["UNIDADESE"];
+                }
+                return aux;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conexion.CheckearConexion() == true)
+                {
+                    conexion.CerrarConexion();
+                }
+            }
+        }
+
+        public void ModificarStock(long IdLote, int UnidadesE)
+        {
+            AccesoDB conexion = null;
+            try
+            {
+                conexion = new AccesoDB();
+                conexion.SetearConsulta("UPDATE LOTES SET UNIDADESE = @unidadese WHERE IDLOTE = @idlote");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@idlote", IdLote);
+                conexion.Comando.Parameters.AddWithValue("@unidadese", UnidadesE);
+
+                conexion.AbrirConexion();
+                conexion.EjecutarAccion();
             }
             catch (Exception ex)
             {
@@ -104,7 +167,7 @@ namespace Negocio
             }
         }
 
-        public int CalcularStock(int Id)
+        public int CalcularStock(int IdProducto)
         {
             AccesoDB conexion = null;
             try
@@ -114,7 +177,7 @@ namespace Negocio
                 conexion.SetearConsulta("SELECT IDPRODUCTO, UNIDADESE FROM LOTES " +
                     "WHERE IDPRODUCTO = @idproducto AND ACTIVO = 1");
                 conexion.Comando.Parameters.Clear();
-                conexion.Comando.Parameters.AddWithValue("@idproducto", Id);
+                conexion.Comando.Parameters.AddWithValue("@idproducto", IdProducto);
 
                 conexion.AbrirConexion();
                 conexion.EjecutarConsulta();

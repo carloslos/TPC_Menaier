@@ -66,6 +66,7 @@ namespace Negocio
                 using (var dbconn = new SqlConnection(@"data source=.\SQLEXPRESS; initial catalog= MENAIER_DB;  integrated security=sspi"))
                 using (var dbcm = new SqlCommand(query, dbconn))
                 {
+                    dbcm.Parameters.Clear();
                     dbcm.Parameters.AddWithValue("@nombre", nuevo.Nombre);
                     dbcm.Parameters.AddWithValue("@apellido", nuevo.Apellido);
                     dbcm.Parameters.AddWithValue("@dni", nuevo.Dni);
