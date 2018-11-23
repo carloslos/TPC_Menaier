@@ -26,7 +26,10 @@ namespace Presentacion
             BtnMod.Enabled = false;
             DateFechaNac.CustomFormat = " ";
             DateFechaNac.Format = DateTimePickerFormat.Custom;
-            em = new Empleado();
+            em = new Empleado
+            {
+                TipoPerfil = new TipoPerfil()
+            };
         }
 
         public ModEmpleado(Empleado E)
@@ -71,8 +74,23 @@ namespace Presentacion
                 em.Apellido = TxtApellido.Text.Trim();
                 em.Dni = Convert.ToInt32(TxtDni.Text.Trim());
                 em.Email = TxtEmail.Text.Trim();
-                em.TipoPerfil.IdTipoPerfil = (int)BoxTipoPerfil.SelectedValue;
+                if( (string)BoxTipoPerfil.SelectedItem == "Administrador" )
+                {
+                    em.TipoPerfil.IdTipoPerfil = 1;
+                }
+                else
+                {
+                    if( (string)BoxTipoPerfil.SelectedItem == "Supervisor" )
+                    {
+                        em.TipoPerfil.IdTipoPerfil = 2;
+                    }
+                    else
+                    {
+                        em.TipoPerfil.IdTipoPerfil = 3;
+                    }
+                }
                 em.Usuario = TxtUsuario.Text;
+                em.Pass = TxtPass.Text;
                 em.FechaNac = DateFechaNac.Value;             
                 if (em.IdEmpleado == 0)
                 {
@@ -242,7 +260,7 @@ namespace Presentacion
         private void TxtPass_TextChanged(object sender, EventArgs e)
         {
             TxtPass.Text = TxtPass.Text.TrimStart();
-            ValidarTxt(7, val.EsPass, TxtPass, tilePass, lblPass);
+            ValidarTxt(6, val.EsPass, TxtPass, tilePass, lblPass);
         }
 
         private void ModEmpleado_KeyPress(object sender, KeyPressEventArgs e)

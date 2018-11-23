@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -169,19 +170,23 @@ namespace Negocio
             }
         }
 
-        public static string GenerarMD5 (string pass)
+        public static string GenerarMD5 (string input)
         {
-            using (System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create())
+            try
             {
-                byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(pass);
-                byte[] hashBytes = md5.ComputeHash(inputBytes);
+                StringBuilder hash = new StringBuilder();
+                MD5CryptoServiceProvider md5provider = new MD5CryptoServiceProvider();
+                byte[] bytes = md5provider.ComputeHash(new UTF8Encoding().GetBytes(input));
 
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < hashBytes.Length; i++)
+                for (int i = 0; i < bytes.Length; i++)
                 {
-                    sb.Append(hashBytes[i].ToString("X2"));
+                    hash.Append(bytes[i].ToString("x2"));
                 }
-                return sb.ToString();
+                return hash.ToString();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
             }
         }
 

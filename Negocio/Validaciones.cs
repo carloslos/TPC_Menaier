@@ -12,7 +12,7 @@ namespace Negocio
     {
         public bool EsNumero(string s)
         {
-            if (s == "")
+            if (s.Length < 1)
             {
                 return false;
             }
@@ -42,7 +42,7 @@ namespace Negocio
 
         public bool EsNumeroEntero(string s)
         {
-            if (s == "")
+            if (s.Length < 1)
             {
                 return false;
             }
@@ -105,7 +105,7 @@ namespace Negocio
 
         public bool EsAlfa(string s)
         {
-            if (s == "")
+            if (s.Length < 3)
             {
                 return false;
             }
@@ -122,7 +122,7 @@ namespace Negocio
 
         public bool EsAlfanum(string s)
         {
-            if (s == "")
+            if (s.Length < 3)
             {
                 return false;
             }
@@ -139,7 +139,7 @@ namespace Negocio
 
         public bool EsAlfanumsym(string s)
         {
-            if (s == "")
+            if (s.Length < 3)
             {
                 return false;
             }
@@ -154,20 +154,46 @@ namespace Negocio
             return true;
         }
 
-        public bool EsPass(string s)
+        public bool EsPass(string p)
         {
-            if (s == "")
+            bool l = false, s = false, n = false;
+            if (p.Length < 6)
             {
                 return false;
             }
-            foreach (char c in s)
+            foreach (char c in p)
             {
-                if (!char.IsLetter(c) && !char.IsPunctuation(c) && !char.IsSymbol(c) && !char.IsSeparator(c) && !char.IsNumber(c))
+                if (char.IsLetter(c))
                 {
-                    return false;
+                    l = true;
+                }
+                else
+                {
+                    if(char.IsSymbol(c) || char.IsSeparator(c) || char.IsPunctuation(c))
+                    {
+                        s = true;
+                    }
+                    else
+                    {
+                        if(char.IsNumber(c))
+                        {
+                            n = true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
                 }
             }
-            return true;
+            if (n == true && s == true && l == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void CambiarColor(MetroFramework.Controls.MetroTile t, MetroFramework.Controls.MetroLabel l, char c)

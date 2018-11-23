@@ -142,7 +142,7 @@
             this.lblTipoPerfil.Enabled = false;
             this.lblTipoPerfil.Location = new System.Drawing.Point(3, 6);
             this.lblTipoPerfil.Name = "lblTipoPerfil";
-            this.lblTipoPerfil.Size = new System.Drawing.Size(87, 19);
+            this.lblTipoPerfil.Size = new System.Drawing.Size(88, 19);
             this.lblTipoPerfil.TabIndex = 5;
             this.lblTipoPerfil.Text = "Tipo de Perfil";
             // 
