@@ -6,7 +6,7 @@ using System.Windows.Forms;
 /// TODO: FILTROS (VENTAS)
 /// TODO: MOTIVO ANULACIONES
 /// TODO: BAJA DE STOCK
-/// TODO: IMPRIMIR FACTURA PDF 
+/// TODO: IMPRIMIR FACTURA PDF -- Crystal Reports
 namespace Presentacion
 {
     static class Program
