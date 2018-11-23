@@ -78,7 +78,7 @@
             this.lblTotal.Enabled = false;
             this.lblTotal.Location = new System.Drawing.Point(27, 1);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(38, 19);
+            this.lblTotal.Size = new System.Drawing.Size(36, 19);
             this.lblTotal.Style = MetroFramework.MetroColorStyle.Silver;
             this.lblTotal.TabIndex = 0;
             this.lblTotal.Text = "Total";
@@ -298,6 +298,7 @@
             // BtnAgregar
             // 
             this.BtnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnAgregar.Enabled = false;
             this.BtnAgregar.Location = new System.Drawing.Point(23, 482);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(92, 23);

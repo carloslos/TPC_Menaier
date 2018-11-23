@@ -15,13 +15,14 @@ namespace Presentacion
         private bool[] EntradasVal = new bool[3];
         public Lote l;
         Validaciones val = new Validaciones();
+        int IdProveedor;
 
         public Lote Return
         {
             get { return l; }
         }
 
-        public ModLote(int IdCompra)
+        public ModLote(int IdCompra, int idproveedor)
         {
             InitializeComponent();
             this.Text = "Agregar " + this.Text;
@@ -32,6 +33,7 @@ namespace Presentacion
             {
                 IdCompra = IdCompra
             };
+            IdProveedor = idproveedor;
         }
 
         public ModLote(Lote L)
@@ -60,7 +62,7 @@ namespace Presentacion
             {
                 BoxProducto.DisplayMember = "Descripcion";
                 BoxProducto.ValueMember = "IdProducto";
-                BoxProducto.DataSource = negP.Listar(0);
+                BoxProducto.DataSource = negP.Listar(IdProveedor);
 
                 if (l.Producto != null)
                 {

@@ -72,7 +72,7 @@ namespace Presentacion
             BoxProveedor.DisplayMember = "Empresa";
             BoxProveedor.ValueMember = "IdProveedor";
             BoxProveedor.DataSource = negP.Listar();
-
+   
             try
             {
                 BindLotes = new BindingList<Lote>(c.LstLotes);
@@ -86,6 +86,7 @@ namespace Presentacion
                 else
                 {
                     BoxProveedor.SelectedIndex = -1;
+                    BtnAgregar.Enabled = false;
                 }
                 LlenarTabla();
                 ValidarEntradas();
@@ -170,6 +171,7 @@ namespace Presentacion
         private void BoxProveedor_SelectedValueChanged(object sender, EventArgs e)
         {
             ValidarBox(1, BoxProveedor, tileProveedor, lblProveedor);
+            BtnAgregar.Enabled = true;
         }
 
         private void DateCompra_ValueChanged(object sender, EventArgs e)
@@ -190,10 +192,12 @@ namespace Presentacion
         {
             if(dgvLotes.RowCount == 0)
             {
+                BoxProveedor.Enabled = true;
                 EntradasVal[c] = false;
             }
             else
             {
+                BoxProveedor.Enabled = false;
                 EntradasVal[c] = true;
             }
             ValidarEntradas();
@@ -293,7 +297,8 @@ namespace Presentacion
             }
             try
             {
-                ModLote mod = new ModLote(c.IdCompra);
+                Proveedor p = (Proveedor)BoxProveedor.SelectedItem;
+                ModLote mod = new ModLote(c.IdCompra, p.IdProveedor);
                 DialogResult res = mod.ShowDialog(); 
                 if (res == DialogResult.OK)
                 {
