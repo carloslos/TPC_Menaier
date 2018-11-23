@@ -7,7 +7,6 @@ using System.Windows.Forms;
 /// TODO: MOTIVO ANULACIONES
 /// TODO: BAJA DE STOCK
 /// TODO: IMPRIMIR FACTURA PDF 
-/// TODO: FORMATO FECHAS
 namespace Presentacion
 {
     static class Program
