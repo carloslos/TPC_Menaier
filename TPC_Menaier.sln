@@ -16,9 +16,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.
 		{041194D4-94E9-4133-82A4-45453E744014} = {041194D4-94E9-4133-82A4-45453E744014}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invoicer", "..\..\..\Desktop\Invoicer-master\Invoicer\Invoicer.csproj", "{E5BA227E-4AFE-448A-B879-A2784B3FC97C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invoicer", "Invoicer\Invoicer.csproj", "{E5BA227E-4AFE-448A-B879-A2784B3FC97C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invoicer.Console", "..\..\..\Desktop\Invoicer-master\Invoicer.Console\Invoicer.Console.csproj", "{E7CD7592-86C8-447E-BE01-BF979D7B4894}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invoicer.Console", "Invoicer.Console\Invoicer.Console.csproj", "{E7CD7592-86C8-447E-BE01-BF979D7B4894}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
