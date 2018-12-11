@@ -35,9 +35,8 @@ namespace Invoicer.Helpers
 
         public static double PageWidth(this Document document)
         {
-            Unit width, height;
-            
-            PageSetup.GetPageSize(document.DefaultPageSetup.PageFormat, out width, out height);
+
+            PageSetup.GetPageSize(document.DefaultPageSetup.PageFormat, out Unit width, out Unit height);
             if (document.DefaultPageSetup.Orientation == Orientation.Landscape)
                 Utils.Swap<Unit>(ref width, ref height);
 

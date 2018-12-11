@@ -8,7 +8,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentacion", "Presentacion\Presentacion.csproj", "{B5F01BB5-0641-4C89-BCF9-CB884208FC97}"
 	ProjectSection(ProjectDependencies) = postProject
 		{BF8B0821-0F73-4AB0-A144-3EB782EB3C73} = {BF8B0821-0F73-4AB0-A144-3EB782EB3C73}
-		{E7CD7592-86C8-447E-BE01-BF979D7B4894} = {E7CD7592-86C8-447E-BE01-BF979D7B4894}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.csproj", "{BF8B0821-0F73-4AB0-A144-3EB782EB3C73}"
@@ -17,8 +16,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invoicer", "Invoicer\Invoicer.csproj", "{E5BA227E-4AFE-448A-B879-A2784B3FC97C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invoicer.Console", "Invoicer.Console\Invoicer.Console.csproj", "{E7CD7592-86C8-447E-BE01-BF979D7B4894}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,10 +39,6 @@ Global
 		{E5BA227E-4AFE-448A-B879-A2784B3FC97C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5BA227E-4AFE-448A-B879-A2784B3FC97C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5BA227E-4AFE-448A-B879-A2784B3FC97C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E7CD7592-86C8-447E-BE01-BF979D7B4894}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E7CD7592-86C8-447E-BE01-BF979D7B4894}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E7CD7592-86C8-447E-BE01-BF979D7B4894}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E7CD7592-86C8-447E-BE01-BF979D7B4894}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

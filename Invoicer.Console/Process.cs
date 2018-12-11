@@ -15,7 +15,6 @@ namespace Invoicer.Console
             new InvoicerApi(SizeOption.A4, OrientationOption.Landscape, "$")
                 .TextColor("#CC0000")
                 .BackColor("#FFD6CC")
-                .Image(@"..\..\images\b.jpg", 376, 80)
                 .Image(@"..\..\images\veggiestuff.jpg", 135, 25)
                 .Company(Address.Make("FROM", new string[] { "Vodafone Limited", "Vodafone House", "The Connection", "Newbury", "Berkshire RG14 2FN" }, "1471587", "569953277"))
                 .Client(Address.Make("BILLING TO", new string[] { "Isabella Marsh", "Overton Circle", "Little Welland", "Worcester", "WR## 2DJ" }))

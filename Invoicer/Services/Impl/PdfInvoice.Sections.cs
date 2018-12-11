@@ -124,13 +124,11 @@ namespace Invoicer.Services.Impl
 
             double width = section.PageWidth();
             double productWidth = Unit.FromPoint(150);
-            double numericWidth = (width - productWidth) / (Invoice.HasDiscount ? 5 : 4);
+            double numericWidth = (width - productWidth) / 4;
             table.AddColumn(productWidth);
             table.AddColumn(ParagraphAlignment.Center, numericWidth);
             table.AddColumn(ParagraphAlignment.Center, numericWidth);
             table.AddColumn(ParagraphAlignment.Center, numericWidth);
-            if (Invoice.HasDiscount)
-                table.AddColumn(ParagraphAlignment.Center, numericWidth);
             table.AddColumn(ParagraphAlignment.Center, numericWidth);
 
             BillingHeader(table);
@@ -162,15 +160,7 @@ namespace Invoicer.Services.Impl
             row.Cells[0].AddParagraph("PRODUCT", ParagraphAlignment.Left);
             row.Cells[1].AddParagraph("AMOUNT", ParagraphAlignment.Center);
             row.Cells[3].AddParagraph("UNIT PRICE", ParagraphAlignment.Center);
-            if (Invoice.HasDiscount)
-            {
-                row.Cells[4].AddParagraph("DISCOUNT", ParagraphAlignment.Center);
-                row.Cells[5].AddParagraph("TOTAL", ParagraphAlignment.Center);
-            }
-            else
-            {
-                row.Cells[4].AddParagraph("TOTAL", ParagraphAlignment.Center);
-            }
+            row.Cells[4].AddParagraph("TOTAL", ParagraphAlignment.Center);
         }
 
         private void BillingRow(Table table, ItemRow item)
@@ -181,7 +171,6 @@ namespace Invoicer.Services.Impl
 
             Cell cell = row.Cells[0];
             cell.AddParagraph(item.Name, ParagraphAlignment.Left, "H2-9B");
-            cell.AddParagraph(item.Description, ParagraphAlignment.Left, "H2-9-Grey");
 
             cell = row.Cells[1];
             cell.VerticalAlignment = VerticalAlignment.Center;
@@ -191,36 +180,15 @@ namespace Invoicer.Services.Impl
             cell.VerticalAlignment = VerticalAlignment.Center;
             cell.AddParagraph(item.Price.ToCurrency(Invoice.Currency), ParagraphAlignment.Center, "H2-9");
 
-            if (Invoice.HasDiscount)
-            {
-                cell = row.Cells[3];
-                cell.VerticalAlignment = VerticalAlignment.Center;
-                cell.AddParagraph(item.Discount, ParagraphAlignment.Center, "H2-9");
-
-                cell = row.Cells[4];
-                cell.VerticalAlignment = VerticalAlignment.Center;
-                cell.AddParagraph(item.Total.ToCurrency(Invoice.Currency), ParagraphAlignment.Center, "H2-9");
-            }
-            else
-            {
-                cell = row.Cells[3];
-                cell.VerticalAlignment = VerticalAlignment.Center;
-                cell.AddParagraph(item.Total.ToCurrency(Invoice.Currency), ParagraphAlignment.Center, "H2-9");
-            }
+            cell = row.Cells[3];
+            cell.VerticalAlignment = VerticalAlignment.Center;
+            cell.AddParagraph(item.Total.ToCurrency(Invoice.Currency), ParagraphAlignment.Center, "H2-9");
         }
 
         private void BillingTotal(Table table, TotalRow total)
         {
-            if (Invoice.HasDiscount)
-            {
-                table.Columns[3].Format.Alignment = ParagraphAlignment.Left;
-                table.Columns[4].Format.Alignment = ParagraphAlignment.Left;
-            }
-            else
-            {
-                table.Columns[3].Format.Alignment = ParagraphAlignment.Left;
-            }
-
+            table.Columns[3].Format.Alignment = ParagraphAlignment.Left;
+        
             Row row = table.AddRow();
             row.Style = "TableRow";
 
@@ -236,26 +204,13 @@ namespace Invoicer.Services.Impl
                 shading = MigraDocHelpers.BackColorFromHtml(Invoice.BackColor);
             }
 
-            if (Invoice.HasDiscount)
-            {
-                Cell cell = row.Cells[3];
-                cell.Shading.Color = shading;
-                cell.AddParagraph(total.Name, ParagraphAlignment.Left, font);
+            Cell cell = row.Cells[2];
+            cell.Shading.Color = shading;
+            cell.AddParagraph(total.Name, ParagraphAlignment.Left, font);
 
-                cell = row.Cells[4];
-                cell.Shading.Color = shading;
-                cell.AddParagraph(total.Value.ToCurrency(Invoice.Currency), ParagraphAlignment.Center, font);
-            }
-            else
-            {
-                Cell cell = row.Cells[2];
-                cell.Shading.Color = shading;
-                cell.AddParagraph(total.Name, ParagraphAlignment.Left, font);
-
-                cell = row.Cells[3];
-                cell.Shading.Color = shading;
-                cell.AddParagraph(total.Value.ToCurrency(Invoice.Currency), ParagraphAlignment.Center, font);
-            }
+            cell = row.Cells[3];
+            cell.Shading.Color = shading;
+            cell.AddParagraph(total.Value.ToCurrency(Invoice.Currency), ParagraphAlignment.Center, font);
         }
 
         private void PaymentSection()

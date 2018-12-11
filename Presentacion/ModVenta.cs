@@ -185,6 +185,9 @@ namespace Presentacion
                     negPV.DescontarStock(pv);
                 }
 
+                Invoicer i = new Invoicer();
+                i.Go(v);
+
                 this.Close();
             }
             catch (Exception ex)
