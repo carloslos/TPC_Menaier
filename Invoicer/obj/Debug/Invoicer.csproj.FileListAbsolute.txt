@@ -37,8 +37,8 @@ C:\Users\tisoporte\source\repos\TPC_Menaier\Invoicer\bin\Debug\de\MigraDoc.Rende
 C:\Users\tisoporte\source\repos\TPC_Menaier\Invoicer\bin\Debug\de\MigraDoc.RtfRendering.resources.dll
 C:\Users\tisoporte\source\repos\TPC_Menaier\Invoicer\bin\Debug\de\PdfSharp.resources.dll
 C:\Users\tisoporte\source\repos\TPC_Menaier\Invoicer\bin\Debug\de\PdfSharp.Charting.resources.dll
+C:\Users\tisoporte\source\repos\TPC_Menaier\Invoicer\obj\Debug\Invoicer.csprojAssemblyReference.cache
 C:\Users\tisoporte\source\repos\TPC_Menaier\Invoicer\obj\Debug\Invoicer.csproj.CoreCompileInputs.cache
 C:\Users\tisoporte\source\repos\TPC_Menaier\Invoicer\obj\Debug\Invoicer.csproj.CopyComplete
 C:\Users\tisoporte\source\repos\TPC_Menaier\Invoicer\obj\Debug\Invoicer.dll
 C:\Users\tisoporte\source\repos\TPC_Menaier\Invoicer\obj\Debug\Invoicer.pdb
-C:\Users\tisoporte\source\repos\TPC_Menaier\Invoicer\obj\Debug\Invoicer.csprojAssemblyReference.cache

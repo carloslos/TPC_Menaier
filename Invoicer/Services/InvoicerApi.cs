@@ -22,6 +22,7 @@ namespace Invoicer.Services
         }
 
         public InvoicerApi(
+            long IdVenta,
             SizeOption size = SizeOption.A4,
             OrientationOption orientation = OrientationOption.Portrait,
             string currency = "$"
@@ -36,7 +37,7 @@ namespace Invoicer.Services
                 BillingDate = DateTime.Now
             };
             Invoice.DueDate = Invoice.BillingDate.AddDays(14);
-            Invoice.Reference = DefaultReference;
+            Invoice.Reference = IdVenta.ToString();
         }
 
         public IInvoicerOptions BackColor(string color)

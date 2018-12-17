@@ -42,12 +42,10 @@ namespace Invoicer.Services.Impl
             row.Cells[0].AddParagraph(Invoice.Title, ParagraphAlignment.Right, "H1-20");
 
             row = subTable.AddRow();
-            row.Cells[0].AddParagraph("REFERENCE:", ParagraphAlignment.Left, "H2-9B-Color");
+            row.Cells[0].AddParagraph("REFERENCIA:", ParagraphAlignment.Left, "H2-9B-Color");
             row.Cells[1].AddParagraph(Invoice.Reference, ParagraphAlignment.Right, "H2-9");
-            row.Cells[0].AddParagraph("BILLING DATE:", ParagraphAlignment.Left, "H2-9B-Color");
+            row.Cells[0].AddParagraph("FECHA:", ParagraphAlignment.Left, "H2-9B-Color");
             row.Cells[1].AddParagraph(Invoice.BillingDate.ToShortDateString(), ParagraphAlignment.Right, "H2-9");
-            row.Cells[0].AddParagraph("DUE DATE:", ParagraphAlignment.Left, "H2-9B-Color");
-            row.Cells[1].AddParagraph(Invoice.DueDate.ToShortDateString(), ParagraphAlignment.Right, "H2-9");
         }
 
         public void FooterSection()
@@ -157,9 +155,10 @@ namespace Invoicer.Services.Impl
             row.TopPadding = 10;
             row.Borders.Bottom = BorderLine;
 
-            row.Cells[0].AddParagraph("PRODUCT", ParagraphAlignment.Left);
-            row.Cells[1].AddParagraph("AMOUNT", ParagraphAlignment.Center);
-            row.Cells[3].AddParagraph("UNIT PRICE", ParagraphAlignment.Center);
+            row.Cells[0].AddParagraph("PRODUCTO", ParagraphAlignment.Left);
+            row.Cells[1].AddParagraph("MARCA", ParagraphAlignment.Left);
+            row.Cells[2].AddParagraph("CANTIDAD", ParagraphAlignment.Center);
+            row.Cells[3].AddParagraph("P/U", ParagraphAlignment.Center);
             row.Cells[4].AddParagraph("TOTAL", ParagraphAlignment.Center);
         }
 
@@ -173,21 +172,24 @@ namespace Invoicer.Services.Impl
             cell.AddParagraph(item.Name, ParagraphAlignment.Left, "H2-9B");
 
             cell = row.Cells[1];
-            cell.VerticalAlignment = VerticalAlignment.Center;
-            cell.AddParagraph(item.Amount.ToCurrency(), ParagraphAlignment.Center, "H2-9");
+            cell.AddParagraph(item.Brand, ParagraphAlignment.Left, "H2-9");
 
             cell = row.Cells[2];
             cell.VerticalAlignment = VerticalAlignment.Center;
-            cell.AddParagraph(item.Price.ToCurrency(Invoice.Currency), ParagraphAlignment.Center, "H2-9");
+            cell.AddParagraph(item.Amount.ToCurrency(), ParagraphAlignment.Center, "H2-9");
 
             cell = row.Cells[3];
+            cell.VerticalAlignment = VerticalAlignment.Center;
+            cell.AddParagraph(item.Price.ToCurrency(Invoice.Currency), ParagraphAlignment.Center, "H2-9");
+
+            cell = row.Cells[4];
             cell.VerticalAlignment = VerticalAlignment.Center;
             cell.AddParagraph(item.Total.ToCurrency(Invoice.Currency), ParagraphAlignment.Center, "H2-9");
         }
 
         private void BillingTotal(Table table, TotalRow total)
         {
-            table.Columns[3].Format.Alignment = ParagraphAlignment.Left;
+            table.Columns[4].Format.Alignment = ParagraphAlignment.Center;
         
             Row row = table.AddRow();
             row.Style = "TableRow";
@@ -204,11 +206,11 @@ namespace Invoicer.Services.Impl
                 shading = MigraDocHelpers.BackColorFromHtml(Invoice.BackColor);
             }
 
-            Cell cell = row.Cells[2];
+            Cell cell = row.Cells[3];
             cell.Shading.Color = shading;
             cell.AddParagraph(total.Name, ParagraphAlignment.Left, font);
 
-            cell = row.Cells[3];
+            cell = row.Cells[4];
             cell.Shading.Color = shading;
             cell.AddParagraph(total.Value.ToCurrency(Invoice.Currency), ParagraphAlignment.Center, font);
         }

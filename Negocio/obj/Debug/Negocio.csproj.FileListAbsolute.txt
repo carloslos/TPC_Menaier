@@ -44,8 +44,6 @@ C:\Users\Carlos\Source\Repos\Azhar1921\TPC_Menaier\Negocio\obj\Debug\Negocio.dll
 C:\Users\Carlos\Source\Repos\Azhar1921\TPC_Menaier\Negocio\obj\Debug\Negocio.pdb
 C:\Users\Azhar\Source\Repos\TPC_Menaier\Negocio\bin\Debug\MetroFramework.Design.dll
 C:\Users\Azhar\Source\Repos\TPC_Menaier\Negocio\bin\Debug\MetroFramework.Fonts.dll
-C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\obj\Debug\Negocio.csprojAssemblyReference.cache
-C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
 C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\bin\Debug\Negocio.dll
 C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\bin\Debug\Negocio.pdb
 C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\bin\Debug\Dominio.dll
@@ -58,8 +56,8 @@ C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\bin\Debug\MigraDoc.DocumentO
 C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\bin\Debug\MigraDoc.Rendering.dll
 C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\bin\Debug\PdfSharp.dll
 C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\bin\Debug\PdfSharp.Charting.dll
-C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\bin\Debug\Invoicer.pdb
 C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\bin\Debug\Dominio.pdb
+C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\bin\Debug\Invoicer.pdb
 C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\bin\Debug\MigraDoc.DocumentObjectModel.xml
 C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\bin\Debug\MigraDoc.Rendering.xml
 C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\bin\Debug\PdfSharp.xml
@@ -68,6 +66,8 @@ C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\bin\Debug\de\MigraDoc.Docume
 C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\bin\Debug\de\MigraDoc.Rendering.resources.dll
 C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\bin\Debug\de\PdfSharp.resources.dll
 C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\bin\Debug\de\PdfSharp.Charting.resources.dll
+C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\obj\Debug\Negocio.csprojAssemblyReference.cache
+C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
 C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\obj\Debug\Negocio.csproj.CopyComplete
 C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\obj\Debug\Negocio.dll
 C:\Users\tisoporte\Source\Repos\TPC_Menaier\Negocio\obj\Debug\Negocio.pdb
