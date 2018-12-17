@@ -4,8 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 /// TODO: FILTROS (VENTAS)
-/// TODO: MOTIVO ANULACIONES
-/// TODO: BAJA DE STOCK
 /// TODO: VERIFICAR FECHA COMPRA/VENTA
 namespace Presentacion
 {
