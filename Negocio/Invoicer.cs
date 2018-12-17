@@ -17,7 +17,7 @@ namespace Negocio
             List<ItemRow> lstItems = new List<ItemRow>();
             foreach (ProductoVendido pv in v.LstProductosVendidos)
             {
-                lstItems.Add(ItemRow.Make(pv.Producto.Descripcion, (decimal)pv.Cantidad, (decimal)pv.PrecioU, (decimal)pv.PrecioT));
+                lstItems.Add(ItemRow.Make(pv.Producto.Descripcion, "-",(decimal)pv.Cantidad, 0,(decimal)pv.PrecioU, (decimal)pv.PrecioT));
             }
 
                 new InvoicerApi(SizeOption.A4, OrientationOption.Portrait, "$")
