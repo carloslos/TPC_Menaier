@@ -12,7 +12,7 @@ namespace Negocio
 {
     public class VentaNegocio
     {
-        public List<Venta> Listar(int activo)
+        public List<Venta> Listar(int activo, string b)
         {
             Venta aux;
             List<Venta> lstVentas = new List<Venta>();
@@ -20,6 +20,7 @@ namespace Negocio
             try
             {
                 conexion = new AccesoDB();
+
                 conexion.SetearConsulta("SELECT V.IDVENTA, E.NOMBRE, E.APELLIDO, V.IDEMPLEADO, C.NOMBRE, C.APELLIDO, V.IDCLIENTE, V.FECHAVENTA, V.FECHAREGISTRO FROM VENTAS AS V " +
                     "INNER JOIN EMPLEADOS AS E ON V.IDEMPLEADO = E.IDEMPLEADO " +
                     "INNER JOIN CLIENTES AS C ON C.IDCLIENTE = V.IDCLIENTE " +
@@ -68,7 +69,8 @@ namespace Negocio
                     aux.Cliente.IdCliente = (int)conexion.Lector[6];
                     aux.Monto = (float)Math.Round(CalcularMonto(aux.IdVenta), 3);
 
-                    lstVentas.Add(aux);
+                    if(aux.IdVenta.ToString().Contains(b))
+                        lstVentas.Add(aux);
                 }
                 return lstVentas;
             }

@@ -38,6 +38,7 @@
             this.BtnAnular = new MetroFramework.Controls.MetroButton();
             this.tileActivo = new MetroFramework.Controls.MetroTile();
             this.TglActivo = new MetroFramework.Controls.MetroToggle();
+            this.TxtBuscar = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -169,9 +170,42 @@
             this.TglActivo.UseSelectable = true;
             this.TglActivo.CheckedChanged += new System.EventHandler(this.TglActivo_CheckedChanged);
             // 
+            // TxtBuscar
+            // 
+            // 
+            // 
+            // 
+            this.TxtBuscar.CustomButton.Image = null;
+            this.TxtBuscar.CustomButton.Location = new System.Drawing.Point(112, 1);
+            this.TxtBuscar.CustomButton.Name = "";
+            this.TxtBuscar.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.TxtBuscar.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.TxtBuscar.CustomButton.TabIndex = 1;
+            this.TxtBuscar.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.TxtBuscar.CustomButton.UseSelectable = true;
+            this.TxtBuscar.CustomButton.Visible = false;
+            this.TxtBuscar.Lines = new string[0];
+            this.TxtBuscar.Location = new System.Drawing.Point(220, 34);
+            this.TxtBuscar.MaxLength = 32767;
+            this.TxtBuscar.Name = "TxtBuscar";
+            this.TxtBuscar.PasswordChar = '\0';
+            this.TxtBuscar.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.TxtBuscar.SelectedText = "";
+            this.TxtBuscar.SelectionLength = 0;
+            this.TxtBuscar.SelectionStart = 0;
+            this.TxtBuscar.ShortcutsEnabled = true;
+            this.TxtBuscar.Size = new System.Drawing.Size(134, 23);
+            this.TxtBuscar.TabIndex = 10;
+            this.TxtBuscar.UseSelectable = true;
+            this.TxtBuscar.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.TxtBuscar.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
+            this.TxtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBuscar_KeyPress);
+            // 
             // Ventas
             // 
             this.ClientSize = new System.Drawing.Size(900, 600);
+            this.Controls.Add(this.TxtBuscar);
             this.Controls.Add(this.TglActivo);
             this.Controls.Add(this.tileActivo);
             this.Controls.Add(this.BtnAnular);
@@ -200,5 +234,6 @@
         private MetroFramework.Controls.MetroButton BtnAnular;
         private MetroFramework.Controls.MetroTile tileActivo;
         private MetroFramework.Controls.MetroToggle TglActivo;
+        private MetroFramework.Controls.MetroTextBox TxtBuscar;
     }
 }

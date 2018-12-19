@@ -41,7 +41,7 @@ namespace Presentacion
             VentaNegocio neg = new VentaNegocio();
             try
             {
-                dgvVentas.DataSource = neg.Listar(activo);
+                dgvVentas.DataSource = neg.Listar(activo, TxtBuscar.Text);
                 dgvVentas.Columns["IdVenta"].HeaderText = "ID";
                 dgvVentas.Columns["FechaVenta"].HeaderText = "Fecha de Venta";
                 dgvVentas.Columns["FechaRegistro"].Visible = false;
@@ -143,6 +143,20 @@ namespace Presentacion
             if( activo == 1 ) { activo = 0; }
             else { activo = 1; }
             LlenarTabla();
+        }
+
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+             LlenarTabla();
+        }
+
+        private void TxtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+                {
+                   e.Handled = true;
+                }
         }
 
         private void BtnAnular_Click(object sender, EventArgs e)
