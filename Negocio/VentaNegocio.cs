@@ -155,7 +155,7 @@ namespace Negocio
                 lstProductosVendidos = negL.Listar(IdVenta,1);
                 foreach(ProductoVendido pv in lstProductosVendidos)
                 {
-                    monto += (float)Math.Round((pv.Cantidad * pv.PrecioT), 3);
+                    monto += (float)Math.Round((pv.Cantidad * pv.PrecioU), 3);
                 }
                 return monto;
             }

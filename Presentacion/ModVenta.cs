@@ -187,6 +187,8 @@ namespace Presentacion
 
                 Invoicer i = new Invoicer();
                 i.Go(v);
+                Mensaje m = new Mensaje("PDF Generado.");
+                m.ShowDialog();
 
                 this.Close();
             }

@@ -23,6 +23,7 @@ namespace Invoicer.Services
 
         public InvoicerApi(
             long IdVenta,
+            DateTime f,
             SizeOption size = SizeOption.A4,
             OrientationOption orientation = OrientationOption.Portrait,
             string currency = "$"
@@ -30,11 +31,11 @@ namespace Invoicer.Services
         {
             Invoice = new Invoice
             {
-                Title = "Factura B",
+                Title = "Ticket de venta",
                 PageSize = size,
                 PageOrientation = orientation,
                 Currency = currency,
-                BillingDate = DateTime.Now
+                BillingDate = f
             };
             Invoice.DueDate = Invoice.BillingDate.AddDays(14);
             Invoice.Reference = IdVenta.ToString();

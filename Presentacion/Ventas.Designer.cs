@@ -39,6 +39,7 @@
             this.tileActivo = new MetroFramework.Controls.MetroTile();
             this.TglActivo = new MetroFramework.Controls.MetroToggle();
             this.TxtBuscar = new MetroFramework.Controls.MetroTextBox();
+            this.BtnPDF = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,7 +98,7 @@
             // BtnDetalles
             // 
             this.BtnDetalles.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnDetalles.Location = new System.Drawing.Point(315, 559);
+            this.BtnDetalles.Location = new System.Drawing.Point(246, 559);
             this.BtnDetalles.Name = "BtnDetalles";
             this.BtnDetalles.Size = new System.Drawing.Size(118, 23);
             this.BtnDetalles.TabIndex = 3;
@@ -109,7 +110,7 @@
             // BtnAgregar
             // 
             this.BtnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnAgregar.Location = new System.Drawing.Point(163, 559);
+            this.BtnAgregar.Location = new System.Drawing.Point(101, 559);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(118, 23);
             this.BtnAgregar.TabIndex = 1;
@@ -121,7 +122,7 @@
             // BtnVolver
             // 
             this.BtnVolver.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnVolver.Location = new System.Drawing.Point(619, 559);
+            this.BtnVolver.Location = new System.Drawing.Point(681, 559);
             this.BtnVolver.Name = "BtnVolver";
             this.BtnVolver.Size = new System.Drawing.Size(118, 23);
             this.BtnVolver.TabIndex = 5;
@@ -133,7 +134,7 @@
             // BtnAnular
             // 
             this.BtnAnular.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnAnular.Location = new System.Drawing.Point(472, 559);
+            this.BtnAnular.Location = new System.Drawing.Point(536, 559);
             this.BtnAnular.Name = "BtnAnular";
             this.BtnAnular.Size = new System.Drawing.Size(118, 23);
             this.BtnAnular.TabIndex = 4;
@@ -202,9 +203,22 @@
             this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
             this.TxtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBuscar_KeyPress);
             // 
+            // BtnPDF
+            // 
+            this.BtnPDF.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnPDF.Location = new System.Drawing.Point(391, 559);
+            this.BtnPDF.Name = "BtnPDF";
+            this.BtnPDF.Size = new System.Drawing.Size(118, 23);
+            this.BtnPDF.TabIndex = 11;
+            this.BtnPDF.Text = "PDF";
+            this.BtnPDF.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.BtnPDF.UseSelectable = true;
+            this.BtnPDF.Click += new System.EventHandler(this.BtnPDF_Click);
+            // 
             // Ventas
             // 
             this.ClientSize = new System.Drawing.Size(900, 600);
+            this.Controls.Add(this.BtnPDF);
             this.Controls.Add(this.TxtBuscar);
             this.Controls.Add(this.TglActivo);
             this.Controls.Add(this.tileActivo);
@@ -235,5 +249,6 @@
         private MetroFramework.Controls.MetroTile tileActivo;
         private MetroFramework.Controls.MetroToggle TglActivo;
         private MetroFramework.Controls.MetroTextBox TxtBuscar;
+        private MetroFramework.Controls.MetroButton BtnPDF;
     }
 }

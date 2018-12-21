@@ -159,6 +159,32 @@ namespace Presentacion
                 }
         }
 
+        private void BtnPDF_Click(object sender, EventArgs e)
+        {
+            if (dgvVentas.SelectedCells.Count > 0)
+            {
+                try
+                {
+                    ProductoVendidoNegocio NegPV = new ProductoVendidoNegocio();
+                    Venta v = (Venta)dgvVentas.CurrentRow.DataBoundItem;
+                    v.LstProductosVendidos = NegPV.Listar(v.IdVenta, 1);
+                    Invoicer i = new Invoicer();
+                    i.Go(v);
+                    Mensaje m = new Mensaje("PDF Generado.");
+                    m.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    Mensaje m = new Mensaje(ex.ToString()); m.ShowDialog();
+                }
+            }
+            else
+            {
+                Mensaje m = new Mensaje("Ningun item seleccionado.");
+                m.ShowDialog();
+            }
+        }
+
         private void BtnAnular_Click(object sender, EventArgs e)
         {
             if (dgvVentas.SelectedCells.Count > 0)
